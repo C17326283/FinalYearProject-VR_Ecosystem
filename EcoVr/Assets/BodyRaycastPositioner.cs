@@ -23,7 +23,7 @@ public class BodyRaycastPositioner : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, 100,layerMask))
         {
-            Debug.DrawRay(transform.position, Vector3.down, Color.blue, 1000);
+            //Debug.DrawRay(transform.position, Vector3.down, Color.blue, 1000);
 //            Debug.Log("hoverboj hit: "+hit.transform.name+" hit distance: "+hit.distance+ " hover dist: "+heightDistance);
             
             var transformPosition = bodyObj.transform.position;
