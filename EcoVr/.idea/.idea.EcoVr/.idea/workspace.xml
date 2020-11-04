@@ -20,7 +20,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16577aa3-976f-4891-b0e9-0b99b7a76c12" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EcoVr/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EcoVr/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EcoVr/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BodyRaycastPositioner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BodyRaycastPositioner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/FootRaycastPositioner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FootRaycastPositioner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Ground.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Ground.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CreatureTest.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CreatureTest.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestScene1.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestScene1.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CreatureStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CreatureStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CreatureTaskManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CreatureTaskManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FacePlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FacePlayer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/59/594f1f5a3b020f169a000b04067ff2d7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/LastSceneManagerSetup.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/LastSceneManagerSetup.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,14 +59,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/FacePlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Creature.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CreatureStats.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CreatureTaskManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CreatureMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/FastIK/Scripts/FastIK/FastIKFabric.cs" />
         <option value="$PROJECT_DIR$/Assets/FootRaycastPositioner.cs" />
         <option value="$PROJECT_DIR$/Assets/BodyRaycastPositioner.cs" />
-        <option value="$PROJECT_DIR$/Assets/FastIK/Scripts/FastIK/FastIKFabric.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FacePlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CreatureTaskManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CreatureStats.cs" />
       </list>
     </option>
   </component>
@@ -93,7 +114,9 @@
       <workItem from="1603907762907" duration="2782000" />
       <workItem from="1603976530122" duration="20960000" />
       <workItem from="1604058823617" duration="9535000" />
-      <workItem from="1604162290933" duration="612000" />
+      <workItem from="1604162290933" duration="1499000" />
+      <workItem from="1604402196866" duration="25572000" />
+      <workItem from="1604489583849" duration="12364000" />
     </task>
     <servers />
   </component>
@@ -118,13 +141,14 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1293" y="339" width="666" height="534" key="find.popup" timestamp="1604059360242">
+    <state x="-1293" y="339" width="666" height="534" key="find.popup" timestamp="1604449936912">
       <screen x="-1920" y="86" width="1920" height="1040" />
     </state>
-    <state x="-1293" y="339" width="666" height="534" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1604059360242" />
-    <state x="623" y="225" key="search.everywhere.popup" timestamp="1603992583368">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="-1293" y="339" width="666" height="534" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1604449936912" />
+    <state x="-1297" y="311" width="672" height="678" key="search.everywhere.popup" timestamp="1604492916261">
+      <screen x="-1920" y="86" width="1920" height="1040" />
     </state>
+    <state x="-1297" y="311" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1604492916261" />
     <state x="623" y="225" key="search.everywhere.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1603992583368" />
   </component>
 </project>

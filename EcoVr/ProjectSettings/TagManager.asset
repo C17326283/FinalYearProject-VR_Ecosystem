@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Water
+  - Food
+  - Nest
+  - Fox
+  - 4LegCreature
   layers:
   - Default
   - TransparentFX

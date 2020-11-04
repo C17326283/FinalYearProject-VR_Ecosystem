@@ -39,6 +39,7 @@
           <e p="CreatureStats.cs" t="Include" />
           <e p="CreatureTaskManager.cs" t="Include" />
           <e p="FacePlayer.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">

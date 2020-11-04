@@ -8,6 +8,7 @@ public class BodyRaycastPositioner : MonoBehaviour
     public float heightDistance = 2;
     public float wiggleRoom = .1f;
     public float moveIncrements = .1f;
+    public float lerpSpeed = 1f;
 
     private int layerMask;//Mask for choosing what layer the raycast hits
     // Start is called before the first frame update
@@ -29,13 +30,16 @@ public class BodyRaycastPositioner : MonoBehaviour
             var transformPosition = bodyObj.transform.position;
             if (hit.distance < heightDistance - wiggleRoom)//is too low so go higher
             {
-                Debug.Log("too low");
-                bodyObj.transform.position = new Vector3(bodyObj.transform.position.x, bodyObj.transform.position.y + moveIncrements, bodyObj.transform.position.z);
+//                Debug.Log("too low");
+                bodyObj.transform.position = Vector3.Lerp(bodyObj.transform.position, new Vector3(transformPosition.x, transformPosition.y + moveIncrements, transformPosition.z), lerpSpeed);
+                //bodyObj.transform.position = new Vector3(bodyObj.transform.position.x, bodyObj.transform.position.y + moveIncrements, bodyObj.transform.position.z);
             }
             else if (hit.distance > heightDistance + wiggleRoom)//is too high so go lower
             {
-                Debug.Log("too high");
-                bodyObj.transform.position = new Vector3(bodyObj.transform.position.x, bodyObj.transform.position.y - moveIncrements, bodyObj.transform.position.z);
+//                Debug.Log("too high");
+                bodyObj.transform.position = Vector3.Lerp(bodyObj.transform.position, new Vector3(transformPosition.x, transformPosition.y - moveIncrements, transformPosition.z), lerpSpeed);
+
+                //bodyObj.transform.position = new Vector3(bodyObj.transform.position.x, bodyObj.transform.position.y - moveIncrements, bodyObj.transform.position.z);
                 
             }
         }

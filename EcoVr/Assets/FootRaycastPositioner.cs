@@ -7,6 +7,7 @@ public class FootRaycastPositioner : MonoBehaviour
     public GameObject footPosObj;
     public float stepDist = 5;
     public Vector3 nextFootPos;
+    public float lerpSpeed = 15;
 
     private int layerMask;//Mask for choosing what layer the raycast hits
     // Start is called before the first frame update
@@ -18,8 +19,7 @@ public class FootRaycastPositioner : MonoBehaviour
         RaycastHit hit;//hit information
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 10,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
         {
-            if(Vector3.Distance(footPosObj.transform.position, hit.point) > stepDist)//If distance of current footpos and rayhit is over stepdistance then take a step
-                footPosObj.transform.position = hit.point;
+            footPosObj.transform.position = hit.point;
         }
         
     }
@@ -44,8 +44,8 @@ public class FootRaycastPositioner : MonoBehaviour
         }
         
         //If the position the foot should be is not where the foot should be then lepr between
-        if(Vector3.Distance(footPosObj.transform.position, nextFootPos) > 0.2f)//If distance of current footpos and rayhit is over stepdistance then take a step
-            footPosObj.transform.position = Vector3.Lerp(footPosObj.transform.position, nextFootPos, 10* Time.deltaTime);
+        if(Vector3.Distance(footPosObj.transform.position, nextFootPos) > 0.1f)//If distance of current footpos and rayhit is over stepdistance then take a step
+            footPosObj.transform.position = Vector3.Lerp(footPosObj.transform.position, nextFootPos, lerpSpeed* Time.deltaTime);
     }
     
     
