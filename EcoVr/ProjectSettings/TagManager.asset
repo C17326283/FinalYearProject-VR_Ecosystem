@@ -9,6 +9,7 @@ TagManager:
   - Nest
   - Fox
   - 4LegCreature
+  - Chicken
   layers:
   - Default
   - TransparentFX
