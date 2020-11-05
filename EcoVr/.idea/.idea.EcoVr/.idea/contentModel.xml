@@ -18,28 +18,31 @@
             </e>
           </e>
         </e>
-        <e p="FastIK" t="Include">
-          <e p="Documentation.txt" t="Include" />
-          <e p="Scripts" t="Include">
-            <e p="FastIK" t="Include">
-              <e p="FastIKCCD.cs" t="Include" />
-              <e p="FastIKFabric.cs" t="Include" />
-              <e p="FastIKLook.cs" t="Include" />
-            </e>
-            <e p="Sample" t="Include">
-              <e p="SampleProcedualAnimation.cs" t="Include" />
-              <e p="SampleRotator.cs" t="Include" />
-              <e p="SampleSinMover.cs" t="Include" />
+        <e p="FootRaycastPositioner.cs" t="Include" />
+        <e p="Imports" t="Include">
+          <e p="FastIK" t="Include">
+            <e p="Documentation.txt" t="Include" />
+            <e p="Scripts" t="Include">
+              <e p="FastIK" t="Include">
+                <e p="FastIKCCD.cs" t="Include" />
+                <e p="FastIKFabric.cs" t="Include" />
+                <e p="FastIKLook.cs" t="Include" />
+              </e>
+              <e p="Sample" t="Include">
+                <e p="SampleProcedualAnimation.cs" t="Include" />
+                <e p="SampleRotator.cs" t="Include" />
+                <e p="SampleSinMover.cs" t="Include" />
+              </e>
             </e>
           </e>
         </e>
-        <e p="FootRaycastPositioner.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="CreatureMovement.cs" t="Include" />
           <e p="CreatureStats.cs" t="Include" />
           <e p="CreatureTaskManager.cs" t="Include" />
           <e p="FacePlayer.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
+          <e p="SensoryScript.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">

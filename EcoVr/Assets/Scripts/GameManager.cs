@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [Range(0,30)]
+    [Range(0,100)]
     public float timeSpeed = 1;
     // Start is called before the first frame update
     void Start()
     {
-        
+        InvokeRepeating("DisplayNums",0,10);
     }
 
     // Update is called once per frame
@@ -19,5 +19,10 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = timeSpeed;
         }
+    }
+
+    void DisplayNums()
+    {
+        Debug.Log(GameObject.FindGameObjectsWithTag("Fox").Length+" Foxes, "+GameObject.FindGameObjectsWithTag("Chicken").Length+" Chickens  ,"+Time.time);
     }
 }
