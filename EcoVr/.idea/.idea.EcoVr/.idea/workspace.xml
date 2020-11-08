@@ -20,117 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16577aa3-976f-4891-b0e9-0b99b7a76c12" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EcoVr/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EcoVr/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EcoVr/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Documentation.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Documentation.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Materials/Blue.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Materials/Blue.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Materials/Green.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Materials/Green.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Materials/Red.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Materials/Red.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Materials/White.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Materials/White.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Materials/Yellow.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Materials/Yellow.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Models.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Models/Figure.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Models/Figure/Man.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Models/Figure/Man.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Models/Figure/Walk.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Models/Figure/Walk.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Models/Figure/Wood.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Models/Figure/Wood.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Models/Figure/Wood.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Models/Figure/Wood.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Models/tentacle.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Models/tentacle/tentacle.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Models/tentacle/tentacle.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Scenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Scenes/FastIKSample.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Scenes/FastIKSample.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Scripts/FastIK.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Scripts/FastIK/FastIKCCD.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Scripts/FastIK/FastIKCCD.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Scripts/FastIK/FastIKFabric.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Scripts/FastIK/FastIKFabric.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Scripts/FastIK/FastIKLook.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Scripts/FastIK/FastIKLook.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Scripts/Sample.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Scripts/Sample/SampleProcedualAnimation.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Scripts/Sample/SampleProcedualAnimation.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Scripts/Sample/SampleRotator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Scripts/Sample/SampleRotator.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Scripts/Sample/SampleSinMover.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FastIK/Scripts/Sample/SampleSinMover.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Info.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Info/info.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Info/info.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Models.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Models/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Models/Materials/material_world_pallette.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Models/Materials/material_world_pallette.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Models/Materials/material_world_sky.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Models/Materials/material_world_sky.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Models/mod_ground_forrest.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Models/mod_ground_forrest.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Models/mod_prop_animal_chicken.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Models/mod_prop_animal_chicken.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Models/mod_prop_animal_cow.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Models/mod_prop_animal_cow.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Models/mod_prop_animal_dog.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Models/mod_prop_animal_dog.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Models/mod_prop_animal_fox.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Models/mod_prop_animal_fox.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Models/mod_prop_animal_lion.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Models/mod_prop_animal_lion.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Models/mod_prop_animal_pig.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Models/mod_prop_animal_pig.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Post-Processing Profile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Post-Processing Profile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Prefabs/prefab_ground_forrest.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Prefabs/prefab_ground_forrest.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Prefabs/prefab_prop_animal_chicken.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Prefabs/prefab_prop_animal_chicken.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Prefabs/prefab_prop_animal_cow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Prefabs/prefab_prop_animal_cow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Prefabs/prefab_prop_animal_dog.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Prefabs/prefab_prop_animal_dog.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Prefabs/prefab_prop_animal_fox.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Prefabs/prefab_prop_animal_fox.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Prefabs/prefab_prop_animal_lion.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Prefabs/prefab_prop_animal_lion.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Prefabs/prefab_prop_animal_pig.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Prefabs/prefab_prop_animal_pig.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Textures/texture_world_palette.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/Content/Textures/texture_world_palette.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/DemoScenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/DemoScenes/demo_all_assets.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolyTope_VoxelWorld_Animals/DemoScenes/demo_all_assets.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BodyRaycastPositioner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BodyRaycastPositioner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Animals.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Animals.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CreatureStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CreatureStats.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CreatureTaskManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CreatureTaskManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tree_Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tree_Textures/diffuse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tree_Textures/diffuse.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tree_Textures/normal_specular.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tree_Textures/normal_specular.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tree_Textures/shadow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tree_Textures/shadow.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tree_Textures/translucency_gloss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tree_Textures/translucency_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SensoryScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SensoryScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/AnnotationManager" beforeDir="false" afterPath="$PROJECT_DIR$/Library/AnnotationManager" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/expandedItems" beforeDir="false" afterPath="$PROJECT_DIR$/Library/expandedItems" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,6 +48,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CreatureTaskManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/FootRaycastPositioner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/BodyRaycastPositioner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.oculus@1.5.0/Runtime/OculusLoader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SensoryScript.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -153,12 +58,14 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/CreatureMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/FastIK/Scripts/FastIK/FastIKFabric.cs" />
         <option value="$PROJECT_DIR$/Assets/FootRaycastPositioner.cs" />
-        <option value="$PROJECT_DIR$/Assets/BodyRaycastPositioner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/FacePlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FacePlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/EnemyManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CreatureStats.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CreatureTaskManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ObjSpawnManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SensoryScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/BodyRaycastPositioner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CreatureTaskManager.cs" />
       </list>
     </option>
   </component>
@@ -169,6 +76,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30010834" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -208,7 +117,11 @@
       <workItem from="1604162290933" duration="1499000" />
       <workItem from="1604402196866" duration="25572000" />
       <workItem from="1604489583849" duration="12977000" />
-      <workItem from="1604573901995" duration="15118000" />
+      <workItem from="1604573901995" duration="16003000" />
+      <workItem from="1604624490010" duration="2966000" />
+      <workItem from="1604665022311" duration="11393000" />
+      <workItem from="1604758273239" duration="19913000" />
+      <workItem from="1604841814627" duration="1081000" />
     </task>
     <servers />
   </component>
@@ -233,6 +146,74 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state width="1877" height="375" key="GridCell.Tab.0.bottom" timestamp="1604628872039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872039" />
+    <state width="1877" height="375" key="GridCell.Tab.0.center" timestamp="1604628872039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.center/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872039" />
+    <state width="1877" height="375" key="GridCell.Tab.0.left" timestamp="1604628872039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.left/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872039" />
+    <state width="1877" height="375" key="GridCell.Tab.0.right" timestamp="1604628872039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.right/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872039" />
+    <state width="1877" height="375" key="GridCell.Tab.1.bottom" timestamp="1604628872039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872039" />
+    <state width="1877" height="375" key="GridCell.Tab.1.center" timestamp="1604628872039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.1.center/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872039" />
+    <state width="1877" height="375" key="GridCell.Tab.1.left" timestamp="1604628872039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.1.left/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872039" />
+    <state width="1877" height="375" key="GridCell.Tab.1.right" timestamp="1604628872039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.1.right/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872039" />
+    <state width="1877" height="375" key="GridCell.Tab.2.bottom" timestamp="1604628872040">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872040" />
+    <state width="1877" height="375" key="GridCell.Tab.2.center" timestamp="1604628872039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.center/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872039" />
+    <state width="1877" height="375" key="GridCell.Tab.2.left" timestamp="1604628872039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.left/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872039" />
+    <state width="1877" height="375" key="GridCell.Tab.2.right" timestamp="1604628872040">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.right/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872040" />
+    <state width="1877" height="375" key="GridCell.Tab.3.bottom" timestamp="1604628872040">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.bottom/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872040" />
+    <state width="1877" height="375" key="GridCell.Tab.3.center" timestamp="1604628872040">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.center/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872040" />
+    <state width="1877" height="375" key="GridCell.Tab.3.left" timestamp="1604628872040">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.left/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872040" />
+    <state width="1877" height="375" key="GridCell.Tab.3.right" timestamp="1604628872040">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.right/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872040" />
+    <state x="-1828" y="178" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1604678455930">
+      <screen x="-1920" y="86" width="1920" height="1040" />
+    </state>
+    <state x="-1828" y="178" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1604678455930" />
     <state x="-1293" y="339" width="666" height="534" key="find.popup" timestamp="1604449936912">
       <screen x="-1920" y="86" width="1920" height="1040" />
     </state>

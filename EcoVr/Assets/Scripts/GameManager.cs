@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -18,6 +19,15 @@ public class GameManager : MonoBehaviour
         if (timeSpeed != 1.0f)
         {
             Time.timeScale = timeSpeed;
+        }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            #if UNITY_EDITOR
+            EditorApplication.isPlaying = false;
+            #else
+            Application.Quit();
+            #endif
         }
     }
 

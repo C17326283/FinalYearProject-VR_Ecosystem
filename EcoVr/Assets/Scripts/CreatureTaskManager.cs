@@ -22,28 +22,37 @@ public class CreatureTaskManager : MonoBehaviour
     public List<GameObject> objSensedMemory = new List<GameObject>();
     
     private int numOfTasks = 0;
-    
+    private int layerMask;
+
+
+    private void Start()
+    {
+        layerMask = 1 << 8;//THis is bit shifting layer 8 so that only hit colliders on layer 8
+    }
 
     private void OnEnable()
     {
         wanderPosObj = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         wanderPosObj.transform.name = transform.name+" WanderPoint";
+        wanderPosObj.transform.position = transform.position + new Vector3(.2f, .2f, .2f);
         wanderPosObj.transform.localScale = new Vector3(.2f, .2f, .2f);
         
         //Make a sensory range collider fo adding things to memory
-        sensorySphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        sensorySphere.GetComponent<Renderer>().enabled = false;
-        sensorySphere.transform.name = "SenseSphere";
-        sensorySphere.GetComponent<SphereCollider>().radius = creatureStats.sensoryRange * 2;
-        sensorySphere.GetComponent<Collider>().isTrigger = true;
-        sensorySphere.transform.parent = this.gameObject.transform;
-        sensorySphere.transform.position = this.transform.position;
-        Rigidbody rb = sensorySphere.AddComponent<Rigidbody>();//Needs kinematic to register collisions
-        rb.useGravity = false;
-        rb.isKinematic = true;
-        SensoryScript sense = sensorySphere.AddComponent<SensoryScript>();
-        sense.creatureTaskManager = this;
-        GetNewTask();
+        if (sensorySphere == null)
+        {
+            sensorySphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            sensorySphere.GetComponent<Renderer>().enabled = false;
+            sensorySphere.transform.name = "SenseSphere";
+            sensorySphere.GetComponent<SphereCollider>().radius = creatureStats.sensoryRange * 2;
+            sensorySphere.GetComponent<Collider>().isTrigger = true;
+            sensorySphere.transform.parent = this.gameObject.transform;
+            sensorySphere.transform.position = this.transform.position;
+            sensorySphere.AddComponent<SensoryScript>();
+            Rigidbody rb = sensorySphere.AddComponent<Rigidbody>();//Needs kinematic to register collisions
+            rb.useGravity = false;
+            rb.isKinematic = true;
+            GetNewTask(); 
+        }
     }
 
     void Update()
@@ -67,7 +76,7 @@ public class CreatureTaskManager : MonoBehaviour
             targetPos = target.transform.position;//Need a vector3 form to access the single axis?
             targetPos.y = transform.position.y;//Cancel y so it only moves on x and z and wander target obj stays at same y
 
-            if (Vector3.Distance(this.transform.position, targetPos) > 1f)//If over a certain distance then keep moving towards it
+            if (Vector3.Distance(this.transform.position, targetPos) > 1.5f)//If over a certain distance then keep moving towards it
             {
                 //Lerp rotation
                 Vector3 relativePos = targetPos - transform.position;
@@ -96,6 +105,10 @@ public class CreatureTaskManager : MonoBehaviour
                 target.GetComponent<CreatureStats>().Die();
                 Debug.Log("chopped and killed");
             }
+            else if(target.gameObject.CompareTag("Food"))
+            {
+                Destroy(target);
+            }
         }
         else if (currentTask == "Drink")
         {
@@ -123,7 +136,7 @@ public class CreatureTaskManager : MonoBehaviour
         }
     }
 
-    void GetNewTask()
+    public void GetNewTask()
     {
         //Check that their is a possible target for the next task and set currenttask to that else try the next task in list
         foreach (String possibleTask in taskList)
@@ -151,21 +164,22 @@ public class CreatureTaskManager : MonoBehaviour
             }
             else if ((possibleTask == "Mate" || currentTask == "Mate") && getClosestTargetWithTag(this.transform.tag) != null)
             {
-                target = getClosestTargetWithTag(this.tag);
+                //This is low priority so focus on survival tasks first
+                if (!taskList.Contains("Eat") && !taskList.Contains("Drink"))
+                {
+                    target = getClosestTargetWithTag(this.tag);
 //                Debug.Log("Mate target: "+target);
-                //Remove from list and set current task to it
-                currentTask = possibleTask;
-                taskList.Remove(possibleTask);
-                return;
+                    //Remove from list and set current task to it
+                    currentTask = possibleTask;
+                    taskList.Remove(possibleTask);
+                    return;
+                }
             }
         }
         //This only runs if a target couldnt be found for any of the other tasks
         currentTask = "Wander";
-        Vector3 thisPos = transform.position;
-        //This is just a temp solution but it uses a test sphere to make a random target position to travle to
-        wanderPosObj.transform.position =  thisPos + new Vector3(Random.Range(-creatureStats.wanderRadius, creatureStats.wanderRadius), thisPos.y, Random.Range(-creatureStats.wanderRadius, creatureStats.wanderRadius))+(transform.forward*creatureStats.forwardWanderBias);//add forward bias at end  +(transform.forward*forwardWanderBias)
-        target = wanderPosObj;
-        
+        GetValidWanderPosition();
+
     }
 
     //Checks all items in memory and returns the closest one//Better than searching by all with tag
@@ -176,9 +190,10 @@ public class CreatureTaskManager : MonoBehaviour
         //Make an array of animals can mate with and fidn the closest one
         
         //GameObject[] allPossibleObjs = GameObject.FindGameObjectsWithTag(tag);
+        List<GameObject> inactiveMemoryObjs = new List<GameObject>();//Cant remove an object from a list its looping through so add to garbage list and delete after
         float closestPathDistance = 99999;
         GameObject closestObj = null;
-        foreach (GameObject possibleObj in objSensedMemory)
+        foreach (GameObject possibleObj in objSensedMemory)//todo fix prob of things getting destroyed but not removed from list
         {
             //check object still exists
             if(possibleObj != null && possibleObj.activeInHierarchy)
@@ -193,9 +208,17 @@ public class CreatureTaskManager : MonoBehaviour
             }
             else
             {
-                objSensedMemory.Remove(possibleObj);
+                inactiveMemoryObjs.Add(possibleObj);
             }
         }
+
+        //Clear all bad objs from memory
+        foreach (GameObject badObj in inactiveMemoryObjs)
+        {
+            objSensedMemory.Remove(badObj);
+            Debug.Log("badObj removed from memory");
+        }
+
 
         if (closestPathDistance == 99999) //If closest didnt change then cancel and get new task
         {
@@ -206,7 +229,38 @@ public class CreatureTaskManager : MonoBehaviour
 //            Debug.Log("return closestObj");
             return closestObj;
         }
+    }
 
+    void GetValidWanderPosition()
+    {
+        
+        bool hasFound = false;
+        int i = 0;//While safety limit
+        Vector3 possiblePos;//Bit over complicated but i was having problems where animals where clumping together for some reason
+        Vector3 currentPos = this.transform.position;
+        while (hasFound == false && i<100)
+        {
+           
+            possiblePos =  new Vector3(Random.Range(currentPos.x-creatureStats.wanderRadius, currentPos.x+creatureStats.wanderRadius), currentPos.y+40, Random.Range(currentPos.z-creatureStats.wanderRadius+(transform.forward.z*creatureStats.forwardWanderBias), currentPos.z+creatureStats.wanderRadius-(transform.forward.z*creatureStats.forwardWanderBias)));//add forward bias at end  +(transform.forward*forwardWanderBias)
+            //Use a ray to test if its ground, if not then get a new point
+            RaycastHit hit;
+            if (Physics.Raycast(possiblePos, Vector3.down, out hit, 100,layerMask) &&
+                hit.transform.CompareTag("Ground"))
+            {
+                Debug.Log("GetValidWanderPosition() worked");
+                Debug.DrawRay(possiblePos,Vector3.down,Color.blue);
+                hasFound = true;
+                wanderPosObj.transform.position = hit.point;
+                target = wanderPosObj;
+            }
+            else
+            {
+                Debug.Log("GetValidWanderPosition() timed out"+this.gameObject.name);
+            }
 
+            i++;
+        }
+        target = wanderPosObj;//THis happens when cant find obj so just set it anywhere to avoid infinite loop
+        
     }
 }

@@ -10,6 +10,7 @@ TagManager:
   - Fox
   - 4LegCreature
   - Chicken
+  - Ground
   layers:
   - Default
   - TransparentFX

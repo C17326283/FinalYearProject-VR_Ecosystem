@@ -13,6 +13,7 @@ public class CreatureStats : MonoBehaviour
     public float thirst = 100;
     public float reproductiveUrge = 0;
     public float age = 0;
+    
     public float maxHealth = 100f;
     public float maxStat = 100;
     public float healthStarveDecrement = 0.01f;
@@ -72,7 +73,7 @@ public class CreatureStats : MonoBehaviour
             }
             if (hunger <= 10)
             {
-                health = health - healthStarveDecrement;
+                health = health - healthStarveDecrement/100;
             }
         }
         if (thirst <= 30)//CHange it to a better priority system than else if
@@ -83,7 +84,7 @@ public class CreatureStats : MonoBehaviour
             }
             if (thirst <= 10)
             {
-                health = health - healthStarveDecrement;
+                health = health - healthStarveDecrement/100;
             }
         }
         if (reproductiveUrge > 90)//CHange it to a better priority system than else if
@@ -132,5 +133,28 @@ public class CreatureStats : MonoBehaviour
           thirst = 100;
           reproductiveUrge = 0;
           age = 0;
+          creatureTaskManager.GetNewTask();
+    }
+
+    
+    //todo
+    private void OnBecameInvisible()
+    {
+        Destroy(this.gameObject);
+        Debug.Log("Invis");
+        Transform[] allChildren = GetComponentsInChildren<Transform>();
+        foreach (Transform child in allChildren)
+        {
+            child.GetComponent<Renderer>().enabled = false;
+        }
+    }
+    
+    private void OnBecameVisible()
+    {
+        Transform[] allChildren = GetComponentsInChildren<Transform>();
+        foreach (Transform child in allChildren)
+        {
+            child.GetComponent<Renderer>().enabled = true;
+        }
     }
 }

@@ -5,44 +5,53 @@ using UnityEngine;
 public class BodyRaycastPositioner : MonoBehaviour
 {
     public GameObject bodyObj;
+    public GameObject positionerMeasuringObj;//This is the point for measuring dist from ground//put at front of biggest mass
     public float heightDistance = 2;
-    public float wiggleRoom = .1f;
-    public float moveIncrements = .1f;
+    public float wiggleRoom = .01f;//Small area where the height isnt moved up or down everyfram if havent moved too much
     public float lerpSpeed = 1f;
+    public float raydistance = 100;
+    public float gravityRayDistance = 1000;//
+    private Rigidbody rb;
 
     private int layerMask;//Mask for choosing what layer the raycast hits
     // Start is called before the first frame update
     void Start()
     {
+        bodyObj = this.gameObject;
         layerMask = 1 << 8;//THis is bit shifting layer 8 so that only hit colliders on layer 8
-        bodyObj.transform.position = new Vector3(bodyObj.transform.position.x, 2, bodyObj.transform.position.z);
+        
+        
+        RaycastHit hit;
+        if (Physics.Raycast(positionerMeasuringObj.transform.position, Vector3.down, out hit, 100, layerMask))
+        {
+            bodyObj.transform.position = hit.point; //+ new Vector3(0, 2, 0);//place a little above the ground point
+        }
+
+        //rb = transform.parent.gameObject.AddComponent<Rigidbody>();
     }
+    
 
     // Update is called once per frame
     void Update()
     {
+        //Todo have an isGrounded system so the animal can fall convincingly
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 100,layerMask))
+        if (Physics.Raycast(positionerMeasuringObj.transform.position, Vector3.down, out hit, raydistance,layerMask))
         {
-            //Debug.DrawRay(transform.position, Vector3.down, Color.blue, 1000);
-//            Debug.Log("hoverboj hit: "+hit.transform.name+" hit distance: "+hit.distance+ " hover dist: "+heightDistance);
-            
-            var transformPosition = bodyObj.transform.position;
-            if (hit.distance < heightDistance - wiggleRoom)//is too low so go higher
+            Vector3 transformPosition = bodyObj.transform.position;
+            if (hit.distance != heightDistance)//is too low so go higher//+wiggleRoom || hit.distance > heightDistance-wiggleRoom
             {
-//                Debug.Log("too low");
-                bodyObj.transform.position = Vector3.Lerp(bodyObj.transform.position, new Vector3(transformPosition.x, transformPosition.y + moveIncrements, transformPosition.z), lerpSpeed);
-                //bodyObj.transform.position = new Vector3(bodyObj.transform.position.x, bodyObj.transform.position.y + moveIncrements, bodyObj.transform.position.z);
+//                Debug.Log("go higher");
+                bodyObj.transform.position = Vector3.Lerp(bodyObj.transform.position, new Vector3(transformPosition.x, hit.point.y+heightDistance, transformPosition.z), lerpSpeed*Time.deltaTime);
             }
-            else if (hit.distance > heightDistance + wiggleRoom)//is too high so go lower
-            {
-//                Debug.Log("too high");
-                bodyObj.transform.position = Vector3.Lerp(bodyObj.transform.position, new Vector3(transformPosition.x, transformPosition.y - moveIncrements, transformPosition.z), lerpSpeed);
-
-                //bodyObj.transform.position = new Vector3(bodyObj.transform.position.x, bodyObj.transform.position.y - moveIncrements, bodyObj.transform.position.z);
-                
-            }
+//            if(rb.useGravity == true)
+               // rb.useGravity = false;
         }
+        else if (Physics.Raycast(positionerMeasuringObj.transform.position, Vector3.down, out hit, gravityRayDistance,layerMask))//
+        {
+       //     rb.useGravity = true;
+        }
+//        Debug.Log("body pos ray dist: "+hit.distance);
     }
     
     

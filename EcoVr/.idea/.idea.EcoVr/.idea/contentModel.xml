@@ -36,6 +36,7 @@
             </e>
           </e>
         </e>
+        <e p="ObjSpawnManager.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="CreatureMovement.cs" t="Include" />
           <e p="CreatureStats.cs" t="Include" />
