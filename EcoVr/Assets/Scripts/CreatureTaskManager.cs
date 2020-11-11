@@ -122,14 +122,17 @@ public class CreatureTaskManager : MonoBehaviour
             creatureStats.reproductiveUrge = 0;
             currentTask = null;
             target = null;
-            GameObject baby;
-            if(this.gameObject.transform.parent != null)
-                baby = Instantiate(this.gameObject.transform.parent.gameObject);//check if they have a parent
-            else
-                baby = Instantiate(this.gameObject);
-            baby.transform.name = this.transform.name + " Gen"+(creatureStats.gen+1);//Display generations for testing
-            baby.GetComponent<CreatureStats>().gen = creatureStats.gen + 1;
-            baby.GetComponent<CreatureStats>().Born();
+            if (GameObject.FindGameObjectsWithTag(this.transform.tag).Length < 200) //Make a hard cap for animals so it doesnt crash
+            {
+                GameObject baby;
+                if(this.gameObject.transform.parent != null)
+                    baby = Instantiate(this.gameObject.transform.parent.gameObject);//check if they have a parent
+                else
+                    baby = Instantiate(this.gameObject);
+                baby.transform.name = this.transform.name + " Gen"+(creatureStats.gen+1);//Display generations for testing
+                baby.GetComponent<CreatureStats>().gen = creatureStats.gen + 1;
+                baby.GetComponent<CreatureStats>().Born();
+            }
         }
         else//
         {
@@ -169,8 +172,6 @@ public class CreatureTaskManager : MonoBehaviour
                 if (!taskList.Contains("Eat") && !taskList.Contains("Drink"))
                 {
                     target = getClosestTargetWithTag(this.tag);
-//                Debug.Log("Mate target: "+target);
-                    //Remove from list and set current task to it
                     currentTask = possibleTask;
                     taskList.Remove(possibleTask);
                     return;

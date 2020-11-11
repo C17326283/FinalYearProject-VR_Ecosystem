@@ -54,10 +54,10 @@ public class CreatureStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hunger = hunger - hungerDecrement/100;// div 100 to keep it within normal numbers for testing
-        thirst = thirst - thirstDecrement/100;
-        reproductiveUrge = reproductiveUrge + reproductiveIncrement/100;
-        age = age + ageIncrement/100;
+        hunger = hunger - hungerDecrement * Time.deltaTime;// div 100 to keep it within normal numbers for testing
+        thirst = thirst - thirstDecrement * Time.deltaTime;
+        reproductiveUrge = reproductiveUrge + reproductiveIncrement * Time.deltaTime;
+        age = age + ageIncrement * Time.deltaTime;
         
         if(taskText != null)
             taskText.text = creatureTaskManager.currentTask;//For displaying text
@@ -78,7 +78,7 @@ public class CreatureStats : MonoBehaviour
             }
             if (hunger <= 10)
             {
-                health = health - healthStarveDecrement/100;
+                health = health - healthStarveDecrement* Time.deltaTime;
             }
         }
         if (thirst <= 30)//CHange it to a better priority system than else if
@@ -89,7 +89,7 @@ public class CreatureStats : MonoBehaviour
             }
             if (thirst <= 10)
             {
-                health = health - healthStarveDecrement/100;
+                health = health - healthStarveDecrement* Time.deltaTime;
             }
         }
         if (reproductiveUrge > 90)//CHange it to a better priority system than else if
@@ -149,29 +149,27 @@ public class CreatureStats : MonoBehaviour
         float percentDif = 0;
 
         percentDif = healthStarveDecrement * change;
-        healthStarveDecrement = Random.Range(healthStarveDecrement-percentDif, healthStarveDecrement+percentDif);
+        healthStarveDecrement = Mathf.Clamp(Random.Range(healthStarveDecrement-percentDif, healthStarveDecrement+percentDif), 0, 30);
         percentDif = hungerDecrement * change;
-        hungerDecrement = Random.Range(hungerDecrement-percentDif, hungerDecrement+percentDif);
+        hungerDecrement = Mathf.Clamp(Random.Range(hungerDecrement-percentDif, hungerDecrement+percentDif), 0, 30);
         percentDif = thirstDecrement * change;
-        thirstDecrement = Random.Range(thirstDecrement-percentDif, thirstDecrement+percentDif);
+        thirstDecrement = Mathf.Clamp(Random.Range(thirstDecrement-percentDif, thirstDecrement+percentDif), 0, 30);
         percentDif = reproductiveIncrement * change;
-        reproductiveIncrement = Random.Range(reproductiveIncrement-percentDif, reproductiveIncrement+percentDif);
-        percentDif = ageIncrement * change;
-        ageIncrement = Random.Range(ageIncrement-percentDif, ageIncrement+percentDif);
+        reproductiveIncrement = Mathf.Clamp(Random.Range(reproductiveIncrement-percentDif, reproductiveIncrement+percentDif), 0, 30);
         percentDif = memoryLossRate * change;
-        memoryLossRate = Random.Range(memoryLossRate-percentDif, memoryLossRate+percentDif);
+        memoryLossRate = Mathf.Clamp(Random.Range(memoryLossRate-percentDif, memoryLossRate+percentDif), 0, 100);
         percentDif = sensoryRange * change;
-        sensoryRange = Random.Range(sensoryRange-percentDif, sensoryRange+percentDif);
+        sensoryRange = Mathf.Clamp(Random.Range(sensoryRange-percentDif, sensoryRange+percentDif), 0, 100);
         percentDif = healthStarveDecrement * change;
-        healthStarveDecrement = Random.Range(maxHealth-percentDif, maxHealth+percentDif);
+        healthStarveDecrement = Mathf.Clamp(Random.Range(maxHealth-percentDif, maxHealth+percentDif), 0, 30);
         percentDif = moveSpeed * change;
-        moveSpeed = Random.Range(moveSpeed-percentDif, moveSpeed+percentDif);
+        moveSpeed = Mathf.Clamp(Random.Range(moveSpeed-percentDif, moveSpeed+percentDif), 0, 30);
         percentDif = rotSpeed * change;
-        rotSpeed = Random.Range(rotSpeed-percentDif, rotSpeed+percentDif);
+        rotSpeed = Mathf.Clamp(Random.Range(rotSpeed-percentDif, rotSpeed+percentDif), 0, 100);
         percentDif = wanderRadius * change;
-        wanderRadius = Random.Range(wanderRadius-percentDif, wanderRadius+percentDif);
+        wanderRadius = Mathf.Clamp(Random.Range(wanderRadius-percentDif, wanderRadius+percentDif), 0, 30);
         percentDif = forwardWanderBias * change;
-        forwardWanderBias = Random.Range(forwardWanderBias-percentDif, forwardWanderBias+percentDif);
+        forwardWanderBias = Mathf.Clamp(Random.Range(forwardWanderBias-percentDif, forwardWanderBias+percentDif), 0, 30);
     }
 
     

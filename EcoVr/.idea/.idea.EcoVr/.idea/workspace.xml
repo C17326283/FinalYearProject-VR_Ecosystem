@@ -20,18 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16577aa3-976f-4891-b0e9-0b99b7a76c12" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.EcoVr/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EcoVr/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EcoVr/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FootRaycastPositioner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FootRaycastPositioner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Animals.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Animals.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CreatureStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CreatureStats.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CreatureTaskManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CreatureTaskManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/AnnotationManager" beforeDir="false" afterPath="$PROJECT_DIR$/Library/AnnotationManager" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,10 +54,10 @@
         <option value="$PROJECT_DIR$/Assets/MakeFootPositioningPoints.cs" />
         <option value="$PROJECT_DIR$/Assets/SpineAnimatorManager.cs" />
         <option value="$PROJECT_DIR$/Assets/SpineAnimator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CreatureStats.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CreatureTaskManager.cs" />
         <option value="$PROJECT_DIR$/Assets/FootRaycastPositioner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CreatureStats.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CreatureTaskManager.cs" />
       </list>
     </option>
   </component>
@@ -123,7 +114,7 @@
       <workItem from="1604665022311" duration="11393000" />
       <workItem from="1604758273239" duration="19913000" />
       <workItem from="1604841814627" duration="18147000" />
-      <workItem from="1605096134127" duration="4991000" />
+      <workItem from="1605096134127" duration="6735000" />
     </task>
     <servers />
   </component>
