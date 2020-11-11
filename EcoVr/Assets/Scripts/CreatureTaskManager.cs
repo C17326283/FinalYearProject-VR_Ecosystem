@@ -23,6 +23,7 @@ public class CreatureTaskManager : MonoBehaviour
     
     private int numOfTasks = 0;
     private int layerMask;
+    public float targetDistToTarget = 2;
 
 
     private void Start()
@@ -76,7 +77,7 @@ public class CreatureTaskManager : MonoBehaviour
             targetPos = target.transform.position;//Need a vector3 form to access the single axis?
             targetPos.y = transform.position.y;//Cancel y so it only moves on x and z and wander target obj stays at same y
 
-            if (Vector3.Distance(this.transform.position, targetPos) > 1.5f)//If over a certain distance then keep moving towards it
+            if (Vector3.Distance(this.transform.position, targetPos) > targetDistToTarget)//If over a certain distance then keep moving towards it
             {
                 //Lerp rotation
                 Vector3 relativePos = targetPos - transform.position;
@@ -216,7 +217,7 @@ public class CreatureTaskManager : MonoBehaviour
         foreach (GameObject badObj in inactiveMemoryObjs)
         {
             objSensedMemory.Remove(badObj);
-            Debug.Log("badObj removed from memory");
+//            Debug.Log("badObj removed from memory");
         }
 
 
@@ -247,7 +248,7 @@ public class CreatureTaskManager : MonoBehaviour
             if (Physics.Raycast(possiblePos, Vector3.down, out hit, 100,layerMask) &&
                 hit.transform.CompareTag("Ground"))
             {
-                Debug.Log("GetValidWanderPosition() worked");
+//                Debug.Log("GetValidWanderPosition() worked");
                 Debug.DrawRay(possiblePos,Vector3.down,Color.blue);
                 hasFound = true;
                 wanderPosObj.transform.position = hit.point;
@@ -255,7 +256,7 @@ public class CreatureTaskManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("GetValidWanderPosition() timed out"+this.gameObject.name);
+//                Debug.Log("GetValidWanderPosition() timed out"+this.gameObject.name);
             }
 
             i++;

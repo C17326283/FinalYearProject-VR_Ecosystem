@@ -46,6 +46,8 @@
           <e p="SensoryScript.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
         </e>
+        <e p="SpineAnimator.cs" t="Include" />
+        <e p="SpineAnimatorManager.cs" t="Include" />
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
             <e p="LiberationSans - OFL.txt" t="Include" />

@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class CreatureStats : MonoBehaviour
 {
@@ -21,12 +22,6 @@ public class CreatureStats : MonoBehaviour
     public float thirstDecrement = 0.01f;
     public float reproductiveIncrement = 0.01f;
     public float ageIncrement = 0.5f;
-    public TextMeshProUGUI taskText;
-    public Slider healthSlider;
-    public Slider hungerSlider;
-    public Slider thirstSlider;
-    public Slider reproSlider;
-    public int gen = 1;
     
     public float memoryLossRate = 20;
     public float sensoryRange = 15;
@@ -35,6 +30,15 @@ public class CreatureStats : MonoBehaviour
     public float wanderRadius = 5;
     public float forwardWanderBias = 2;
     public String foodTag = "Food";
+    public float maxMutatePercent = 2;
+    
+    public TextMeshProUGUI taskText;
+    public Slider healthSlider;
+    public Slider hungerSlider;
+    public Slider thirstSlider;
+    public Slider reproSlider;
+    public int gen = 1;
+    
     
     
     public CreatureTaskManager creatureTaskManager;
@@ -60,8 +64,9 @@ public class CreatureStats : MonoBehaviour
         
         if (health <= 0)
         {
-            healthSlider.value = 0;
             Die();
+            if(healthSlider != null)
+                healthSlider.value = 0;
         }
 
         //Add tasks to task list if stats are too low
@@ -128,12 +133,45 @@ public class CreatureStats : MonoBehaviour
 
     public void Born()
     {
+        //Need a better mating system with father and mother and get a base stat based on the 2 of them
           health = 100;
           hunger = 100;
           thirst = 100;
           reproductiveUrge = 0;
           age = 0;
+          MutateStats();
           creatureTaskManager.GetNewTask();
+    }
+
+    public void MutateStats()
+    {
+        float change = maxMutatePercent / 100;//get float as percent
+        float percentDif = 0;
+
+        percentDif = healthStarveDecrement * change;
+        healthStarveDecrement = Random.Range(healthStarveDecrement-percentDif, healthStarveDecrement+percentDif);
+        percentDif = hungerDecrement * change;
+        hungerDecrement = Random.Range(hungerDecrement-percentDif, hungerDecrement+percentDif);
+        percentDif = thirstDecrement * change;
+        thirstDecrement = Random.Range(thirstDecrement-percentDif, thirstDecrement+percentDif);
+        percentDif = reproductiveIncrement * change;
+        reproductiveIncrement = Random.Range(reproductiveIncrement-percentDif, reproductiveIncrement+percentDif);
+        percentDif = ageIncrement * change;
+        ageIncrement = Random.Range(ageIncrement-percentDif, ageIncrement+percentDif);
+        percentDif = memoryLossRate * change;
+        memoryLossRate = Random.Range(memoryLossRate-percentDif, memoryLossRate+percentDif);
+        percentDif = sensoryRange * change;
+        sensoryRange = Random.Range(sensoryRange-percentDif, sensoryRange+percentDif);
+        percentDif = healthStarveDecrement * change;
+        healthStarveDecrement = Random.Range(maxHealth-percentDif, maxHealth+percentDif);
+        percentDif = moveSpeed * change;
+        moveSpeed = Random.Range(moveSpeed-percentDif, moveSpeed+percentDif);
+        percentDif = rotSpeed * change;
+        rotSpeed = Random.Range(rotSpeed-percentDif, rotSpeed+percentDif);
+        percentDif = wanderRadius * change;
+        wanderRadius = Random.Range(wanderRadius-percentDif, wanderRadius+percentDif);
+        percentDif = forwardWanderBias * change;
+        forwardWanderBias = Random.Range(forwardWanderBias-percentDif, forwardWanderBias+percentDif);
     }
 
     

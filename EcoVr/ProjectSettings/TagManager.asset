@@ -11,6 +11,7 @@ TagManager:
   - 4LegCreature
   - Chicken
   - Ground
+  - Cheetah
   layers:
   - Default
   - TransparentFX

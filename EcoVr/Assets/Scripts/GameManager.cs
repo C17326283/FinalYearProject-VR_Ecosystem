@@ -33,6 +33,6 @@ public class GameManager : MonoBehaviour
 
     void DisplayNums()
     {
-        Debug.Log(GameObject.FindGameObjectsWithTag("Fox").Length+" Foxes, "+GameObject.FindGameObjectsWithTag("Chicken").Length+" Chickens  ,"+Time.time);
+        Debug.Log(GameObject.FindGameObjectsWithTag("Fox").Length+" Foxes, "+GameObject.FindGameObjectsWithTag("Chicken").Length+" Chickens  ,"+GameObject.FindGameObjectsWithTag("Cheetah").Length+" Cheetahs, "+Time.time);
     }
 }
