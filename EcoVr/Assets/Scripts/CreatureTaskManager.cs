@@ -79,6 +79,7 @@ public class CreatureTaskManager : MonoBehaviour
 
             if (Vector3.Distance(this.transform.position, targetPos) > targetDistToTarget)//If over a certain distance then keep moving towards it
             {
+                //todo move only the head and let the body follow
                 //Lerp rotation
                 Vector3 relativePos = targetPos - transform.position;
                 Quaternion toRotation = Quaternion.LookRotation(relativePos);

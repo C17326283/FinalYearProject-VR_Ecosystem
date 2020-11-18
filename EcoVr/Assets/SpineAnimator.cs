@@ -10,16 +10,17 @@ public class SpineAnimator : MonoBehaviour {
     public bool useSpineAnimatorSystem = false;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         for (int i = 0; i < bones.Count; i++)//perform operation on every child segment
         {
             Transform current = bones[i];
             if (i > 0)
             {
-                Transform prev = bones[i];//use last segment as prev for positioning current
+                Transform prev = bones[i-1];//use last segment as prev for positioning current
                 Vector3 offset = current.transform.position - prev.transform.position; //get the offset between the legs
-                Debug.Log(offset);
+                Quaternion rotationOffset = current.transform.rotation; //get the offset between the legs
+                Debug.Log("offset"+offset+""+current.transform.position+""+prev.transform.position);
                 offset = Quaternion.Inverse(prev.transform.rotation) * offset;
                 offsets.Add(offset);//Save offset to list
             }            
@@ -46,7 +47,7 @@ public class SpineAnimator : MonoBehaviour {
             Quaternion wantedRotation = prev.rotation;
 
             current.position = Vector3.Lerp(current.position, wantedPosition, Time.deltaTime * damping);
-            current.rotation = Quaternion.Slerp(current.rotation, wantedRotation, Time.deltaTime * damping);
+            //current.rotation = Quaternion.Slerp(current.rotation, wantedRotation, Time.deltaTime * damping);
         }
     }
 }
