@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Animals.unity
+- path: Assets/Scenes/TerrainGen.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

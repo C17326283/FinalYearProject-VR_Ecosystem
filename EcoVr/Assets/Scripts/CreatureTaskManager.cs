@@ -24,6 +24,9 @@ public class CreatureTaskManager : MonoBehaviour
     private int numOfTasks = 0;
     private int layerMask;
     public float targetDistToTarget = 2;
+    
+    public List<FootRaycastPositioner> footPositioners = new List<FootRaycastPositioner>();
+    
 
 
     private void Start()
@@ -71,22 +74,34 @@ public class CreatureTaskManager : MonoBehaviour
         {
             GetNewTask();
         }
-        else//move toward location
+        else//move toward location//todo move this to new script
         {
             //todo add a time out that adds task back to list if cant reach target anymore
             targetPos = target.transform.position;//Need a vector3 form to access the single axis?
             targetPos.y = transform.position.y;//Cancel y so it only moves on x and z and wander target obj stays at same y
 
+            float legsOnGround = 0;
+            foreach (var foot in footPositioners)
+            {
+                if(foot.footAtPosition)
+                    legsOnGround += 1;
+            }
+
             if (Vector3.Distance(this.transform.position, targetPos) > targetDistToTarget)//If over a certain distance then keep moving towards it
             {
-                //todo move only the head and let the body follow
-                //Lerp rotation
-                Vector3 relativePos = targetPos - transform.position;
-                Quaternion toRotation = Quaternion.LookRotation(relativePos);
-                transform.rotation = Quaternion.Lerp( transform.rotation, toRotation, creatureStats.rotSpeed * Time.deltaTime );
-            
-                //Move Towards
-                transform.position = Vector3.MoveTowards(transform.position, targetPos, creatureStats.moveSpeed*Time.deltaTime);
+                if (legsOnGround >= 2 || footPositioners.Count < 1)
+                {
+                    //todo move only the head and let the body follow
+                    //Lerp rotation
+                    Vector3 relativePos = targetPos - transform.position;
+                    Quaternion toRotation = Quaternion.LookRotation(relativePos);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, toRotation,
+                        creatureStats.rotSpeed * Time.deltaTime);
+
+                    //Move Towards
+                    transform.position = Vector3.MoveTowards(transform.position, targetPos,
+                        creatureStats.moveSpeed * Time.deltaTime);
+                }
             }
             else//Have reached target
             {

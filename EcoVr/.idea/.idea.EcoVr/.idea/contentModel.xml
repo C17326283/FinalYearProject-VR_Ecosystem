@@ -7,7 +7,11 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="BodyRaycastPositioner.cs" t="Include" />
+        <e p="BrokenVector" t="Include">
+          <e p="LowPolyTreePack" t="Include">
+            <e p="README.txt" t="Include" />
+          </e>
+        </e>
         <e p="Default" t="Include">
           <e p="TutorialInfo" t="Include">
             <e p="Scripts" t="Include">
@@ -18,7 +22,6 @@
             </e>
           </e>
         </e>
-        <e p="FootRaycastPositioner.cs" t="Include" />
         <e p="Imports" t="Include">
           <e p="FastIK" t="Include">
             <e p="Documentation.txt" t="Include" />
@@ -36,18 +39,33 @@
             </e>
           </e>
         </e>
-        <e p="ObjSpawnManager.cs" t="Include" />
+        <e p="LowPolyFantasyClouds" t="Include">
+          <e p="Shaders" t="Include">
+            <e p="CloudsShader.shader" t="Include" />
+          </e>
+        </e>
         <e p="Scripts" t="Include">
+          <e p="BodyRaycastPositioner.cs" t="Include" />
           <e p="CreatureMovement.cs" t="Include" />
           <e p="CreatureStats.cs" t="Include" />
           <e p="CreatureTaskManager.cs" t="Include" />
           <e p="FacePlayer.cs" t="Include" />
+          <e p="FootRaycastPositioner.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
+          <e p="HeightPositioner.cs" t="Include" />
+          <e p="ObjSpawnManager.cs" t="Include" />
           <e p="SensoryScript.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
+          <e p="SpineAnimator.cs" t="Include" />
+          <e p="SpineAnimatorManager.cs" t="Include" />
         </e>
-        <e p="SpineAnimator.cs" t="Include" />
-        <e p="SpineAnimatorManager.cs" t="Include" />
+        <e p="TerrainGen" t="Include">
+          <e p="InfiniteTerrain.cs" t="Include" />
+          <e p="TerrainPlane.cs" t="Include" />
+          <e p="TerrainShader1.shader" t="Include" />
+          <e p="TerrainTile.cs" t="Include" />
+          <e p="Utilities.cs" t="Include" />
+        </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
             <e p="LiberationSans - OFL.txt" t="Include" />
