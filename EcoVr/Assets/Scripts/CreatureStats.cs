@@ -174,23 +174,4 @@ public class CreatureStats : MonoBehaviour
 
     
     //todo
-    private void OnBecameInvisible()
-    {
-        Destroy(this.gameObject);
-        Debug.Log("Invis");
-        Transform[] allChildren = GetComponentsInChildren<Transform>();
-        foreach (Transform child in allChildren)
-        {
-            child.GetComponent<Renderer>().enabled = false;
-        }
-    }
-    
-    private void OnBecameVisible()
-    {
-        Transform[] allChildren = GetComponentsInChildren<Transform>();
-        foreach (Transform child in allChildren)
-        {
-            child.GetComponent<Renderer>().enabled = true;
-        }
-    }
 }

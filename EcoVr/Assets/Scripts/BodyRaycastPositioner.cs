@@ -49,14 +49,12 @@ public class BodyRaycastPositioner : MonoBehaviour
         if (Physics.Raycast(positionerMeasuringObj.transform.position, -transform.up, out hit, raydistance,layerMask))
         {
             Vector3 transformPosition = bodyObj.transform.position;
-            if (hit.distance != heightDistance)//is too low so go higher//+wiggleRoom || hit.distance > heightDistance-wiggleRoom
+            if (hit.distance != heightDistance)//is too low so go higher
             {
                 bodyObj.transform.position = Vector3.Lerp(bodyObj.transform.position, new Vector3(transformPosition.x, hit.point.y+heightDistance, transformPosition.z), lerpSpeed*Time.deltaTime);
-
             }
             
-            //use second raycast at back to rotate body 
-            
+            //use second raycast at back to tilt body 
             RaycastHit backHit;
             if (Physics.Raycast(backRotFixingObj.transform.position, -transform.up, out backHit, raydistance, layerMask))
             {
@@ -68,10 +66,8 @@ public class BodyRaycastPositioner : MonoBehaviour
                 {
                     bodyObj.transform.Rotate (levelingRotIncrements,0,0);
                 }
-
             }
         }
-        
     }
     
     
