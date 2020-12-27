@@ -61,6 +61,16 @@
               </e>
             </e>
           </e>
+          <e p="SimplexNoise3D" t="Include">
+            <e p="SimplexNoise3D.hlsl" t="Include" />
+          </e>
+          <e p="Starfield Skybox" t="Include">
+            <e p="Demo" t="Include">
+              <e p="Script" t="Include">
+                <e p="LookCamera.cs" t="Include" />
+              </e>
+            </e>
+          </e>
         </e>
         <e p="LowPolyFantasyClouds" t="Include">
           <e p="Shaders" t="Include">
@@ -69,18 +79,32 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="BodyRaycastPositioner.cs" t="Include" />
+          <e p="ColourGenerator.cs" t="Include" />
           <e p="CreatureMovement.cs" t="Include" />
           <e p="CreatureStats.cs" t="Include" />
           <e p="CreatureTaskManager.cs" t="Include" />
           <e p="FacePlayer.cs" t="Include" />
+          <e p="FakeGravity.cs" t="Include" />
           <e p="FootRaycastPositioner.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="HeightPositioner.cs" t="Include" />
+          <e p="LookAtLerp.cs" t="Include" />
+          <e p="Noise.cs" t="Include" />
+          <e p="NoiseLayer.cs" t="Include" />
+          <e p="ObjectPool.cs" t="Include" />
           <e p="ObjSpawnManager.cs" t="Include" />
+          <e p="Planet.cs" t="Include" />
+          <e p="PlanetSettings.cs" t="Include" />
+          <e p="PlanetSpawner.cs" t="Include" />
+          <e p="RandomGenSpawner.cs" t="Include" />
+          <e p="RayCastTest.cs" t="Include" />
+          <e p="RotateEnvironment.cs" t="Include" />
           <e p="SensoryScript.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
           <e p="SpineAnimator.cs" t="Include" />
           <e p="SpineAnimatorManager.cs" t="Include" />
+          <e p="TerrainFace.cs" t="Include" />
+          <e p="TerrainMinMaxHeights.cs" t="Include" />
         </e>
         <e p="TerrainGen" t="Include">
           <e p="InfiniteTerrain.cs" t="Include" />
