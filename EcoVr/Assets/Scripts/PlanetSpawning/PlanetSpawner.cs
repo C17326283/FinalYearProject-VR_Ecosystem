@@ -179,6 +179,9 @@ public class PlanetSpawner : MonoBehaviour
     //Start playing by hiding the guis and giving access to the movement of the camera
     public void Explore()
     {
+        //Make all the mesh colliders
+        planet.GetComponent<Planet>().CreateColliders();
+        
         Generate();
         this.GetComponent<RotateEnvironment>().enabled = false;
         //Tried to get bettr player controller but it didnt work

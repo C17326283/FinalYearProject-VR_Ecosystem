@@ -73,10 +73,6 @@ public class Planet : MonoBehaviour
                 waterMeshFilters[i].sharedMesh = new Mesh();
                 meshFilters[i].sharedMesh.name = "sharedMesh";
                 waterMeshFilters[i].sharedMesh.name = "sharedWaterMesh";
-                MeshCollider collider = meshObj.AddComponent<MeshCollider>();
-                collider.sharedMesh = meshFilters[i].sharedMesh;
-                MeshCollider waterCollider = waterObj.AddComponent<MeshCollider>();
-                waterCollider.sharedMesh = waterMeshFilters[i].sharedMesh;
             }
             
             //Update the biome objects and shader
@@ -89,12 +85,6 @@ public class Planet : MonoBehaviour
             //add to list of faces
             terrainFaces[i] = new TerrainFace(meshFilters[i].sharedMesh,res,directions[i],elevationMinMax, planetSettings,true);
             waterFaces[i] = new TerrainFace(waterMeshFilters[i].sharedMesh,res,directions[i],elevationMinMax, planetSettings,false);
-
-            //Reset the mesh colliders//Didnt work without this, raycasts were going straight through
-            meshFilters[i].GetComponent<MeshCollider>().convex = true;
-            meshFilters[i].GetComponent<MeshCollider>().convex = false;
-            waterMeshFilters[i].GetComponent<MeshCollider>().convex = true;
-            waterMeshFilters[i].GetComponent<MeshCollider>().convex = false;
         }
     }
 
@@ -105,6 +95,26 @@ public class Planet : MonoBehaviour
         GenerateMesh();
         GenerateColours();//turn this back on, its just annoying for editing
         
+    }
+
+    public void CreateColliders()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            if (meshFilters[i].GetComponent<MeshCollider>() == null)
+            {
+                MeshCollider collider = meshFilters[i].gameObject.AddComponent<MeshCollider>();
+                collider.sharedMesh = meshFilters[i].sharedMesh;
+                MeshCollider waterCollider = waterMeshFilters[i].gameObject.AddComponent<MeshCollider>();
+                waterCollider.sharedMesh = waterMeshFilters[i].sharedMesh;
+            }
+            
+            //Reset the mesh colliders//Didnt work without this, raycasts were going straight through
+            meshFilters[i].GetComponent<MeshCollider>().convex = true;
+            meshFilters[i].GetComponent<MeshCollider>().convex = false;
+            waterMeshFilters[i].GetComponent<MeshCollider>().convex = true;
+            waterMeshFilters[i].GetComponent<MeshCollider>().convex = false;
+        }
     }
     
     //Make mesh from all terrain faces
