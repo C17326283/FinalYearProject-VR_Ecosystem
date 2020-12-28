@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="16577aa3-976f-4891-b0e9-0b99b7a76c12" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EcoVr/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EcoVr/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EcoVr/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Animals.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Animals.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TerrainGen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TerrainGen.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BodyRaycastPositioner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BodyRaycastPositioner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CreatureStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CreatureStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FootRaycastPositioner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FootRaycastPositioner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TerrainGen/shaderGraphTest.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TerrainGen/shaderGraphTest.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/LastSceneManagerSetup.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/LastSceneManagerSetup.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/TerrainGen/TerrainTile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CreatureTaskManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/TerrainGen/InfiniteTerrain.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SensoryScript.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/Creature.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CreatureMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/FastIK/Scripts/FastIK/FastIKFabric.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FacePlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/EnemyManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ObjSpawnManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SensoryScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/MakeFootPositioningPoints.cs" />
+        <option value="$PROJECT_DIR$/Assets/SpineAnimatorManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CreatureStats.cs" />
+        <option value="$PROJECT_DIR$/Assets/SpineAnimator.cs" />
+        <option value="$PROJECT_DIR$/Assets/HeightPositioner.cs" />
+        <option value="$PROJECT_DIR$/Assets/BodyRaycastPositioner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CreatureTaskManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/FootRaycastPositioner.cs" />
+        <option value="$PROJECT_DIR$/Assets/MeshGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TerrainFaces.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SpineAnimatorManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SpineAnimator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ObjSpawnManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/TerrainGen/TerrainTile.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FootRaycastPositioner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BodyRaycastPositioner.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1jW6yI6QSFalBQziNa2CMexdkI3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30010834" />
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="16577aa3-976f-4891-b0e9-0b99b7a76c12" name="Default Changelist" comment="" />
+      <created>1603907753533</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603907753533</updated>
+      <workItem from="1603907762907" duration="2782000" />
+      <workItem from="1603976530122" duration="20960000" />
+      <workItem from="1604058823617" duration="9535000" />
+      <workItem from="1604162290933" duration="1499000" />
+      <workItem from="1604402196866" duration="25572000" />
+      <workItem from="1604489583849" duration="12977000" />
+      <workItem from="1604573901995" duration="16003000" />
+      <workItem from="1604624490010" duration="2966000" />
+      <workItem from="1604665022311" duration="11393000" />
+      <workItem from="1604758273239" duration="19913000" />
+      <workItem from="1604841814627" duration="18147000" />
+      <workItem from="1605096134127" duration="22056000" />
+      <workItem from="1605204515702" duration="15524000" />
+      <workItem from="1605278295056" duration="5370000" />
+      <workItem from="1605698743371" duration="5187000" />
+      <workItem from="1605780591374" duration="7950000" />
+      <workItem from="1605800203462" duration="5706000" />
+      <workItem from="1606258706932" duration="1573000" />
+      <workItem from="1606916815327" duration="5405000" />
+      <workItem from="1607358106579" duration="738000" />
+      <workItem from="1607525158227" duration="2984000" />
+      <workItem from="1607801395049" duration="299000" />
+      <workItem from="1607982894733" duration="714000" />
+      <workItem from="1608088224413" duration="612000" />
+      <workItem from="1608122078657" duration="5168000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1877" height="375" key="GridCell.Tab.0.bottom" timestamp="1604628872039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872039" />
+    <state width="1877" height="375" key="GridCell.Tab.0.center" timestamp="1604628872039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.center/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872039" />
+    <state width="1877" height="375" key="GridCell.Tab.0.left" timestamp="1604628872039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.left/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872039" />
+    <state width="1877" height="375" key="GridCell.Tab.0.right" timestamp="1604628872039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.right/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872039" />
+    <state width="1877" height="375" key="GridCell.Tab.1.bottom" timestamp="1604628872039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872039" />
+    <state width="1877" height="375" key="GridCell.Tab.1.center" timestamp="1604628872039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.1.center/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872039" />
+    <state width="1877" height="375" key="GridCell.Tab.1.left" timestamp="1604628872039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.1.left/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872039" />
+    <state width="1877" height="375" key="GridCell.Tab.1.right" timestamp="1604628872039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.1.right/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872039" />
+    <state width="1877" height="375" key="GridCell.Tab.2.bottom" timestamp="1604628872040">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872040" />
+    <state width="1877" height="375" key="GridCell.Tab.2.center" timestamp="1604628872039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.center/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872039" />
+    <state width="1877" height="375" key="GridCell.Tab.2.left" timestamp="1604628872039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.left/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872039" />
+    <state width="1877" height="375" key="GridCell.Tab.2.right" timestamp="1604628872040">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.right/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872040" />
+    <state width="1877" height="375" key="GridCell.Tab.3.bottom" timestamp="1604628872040">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.bottom/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872040" />
+    <state width="1877" height="375" key="GridCell.Tab.3.center" timestamp="1604628872040">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.center/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872040" />
+    <state width="1877" height="375" key="GridCell.Tab.3.left" timestamp="1604628872040">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.left/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872040" />
+    <state width="1877" height="375" key="GridCell.Tab.3.right" timestamp="1604628872040">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.right/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1604628872040" />
+    <state x="-1828" y="178" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1604678455930">
+      <screen x="-1920" y="86" width="1920" height="1040" />
+    </state>
+    <state x="-1828" y="178" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1604678455930" />
+    <state x="-1293" y="339" width="666" height="534" key="find.popup" timestamp="1604449936912">
+      <screen x="-1920" y="86" width="1920" height="1040" />
+    </state>
+    <state x="-1293" y="339" width="666" height="534" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1604449936912" />
+    <state x="-1297" y="311" width="672" height="678" key="search.everywhere.popup" timestamp="1604492916261">
+      <screen x="-1920" y="86" width="1920" height="1040" />
+    </state>
+    <state x="-1297" y="311" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1604492916261" />
+    <state x="623" y="225" key="search.everywhere.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1603992583368" />
+  </component>
+</project>
