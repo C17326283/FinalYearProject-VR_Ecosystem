@@ -63,7 +63,7 @@ public class TerrainFace : MonoBehaviour
                     vertices[i] = AddHeightToVertex(pointOnUnitSphere);
                 else
                 {
-                    vertices[i] = pointOnUnitSphere * (settings.planetRadius+waterHeight);
+                    vertices[i] = pointOnUnitSphere * (settings.planetRadius+waterHeight+5f);//default height +height the water is at+extra to cover bottom colour layer
                 }
                 
                 //get trianle points from points on mesh

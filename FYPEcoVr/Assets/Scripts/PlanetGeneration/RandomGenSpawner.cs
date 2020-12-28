@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 //I used a pool system i had in an old project and adapted it to this, since im not despawnin objects they dont go back into the pool but it would be useful in future for animals
 public class RandomGenSpawner : MonoBehaviour
 {
+    public bool waitUntillTriggered = true;
     [SerializeField]//Make private visible in inspector, need private so doesnt give error
     private ObjectPool multObjectPoolObj;//Pool of the objects to pull from
     public GameObject parentObject;
@@ -34,9 +35,19 @@ public class RandomGenSpawner : MonoBehaviour
     
     void Awake()
     {
+        //start spawning objects
+        if(waitUntillTriggered == false)
+            StartCoroutine(Spawn());
+    }
+
+    public void TriggerSpawn()
+    {
         //Move the spawner object
         Resposition();
-        multObjectPoolObj = GetAssociatedPool();
+        //multObjectPoolObj = GetAssociatedPool();
+        if (multObjectPoolObj == null)
+            multObjectPoolObj = this.gameObject.GetComponent<ObjectPool>();
+        
         if (planetObject == null)
         {
             planetObject = this.transform.root.gameObject; //get the base object which will be the planet
@@ -48,10 +59,11 @@ public class RandomGenSpawner : MonoBehaviour
 
         core = planetObject.transform.position;
         multObjectPoolObj.InitPool();//force pool to be initiated instead of waiting for awake
+
         
-        //start spawning objects
         StartCoroutine(Spawn());
     }
+    
 
 
     //Spawn objects from pool in loop
@@ -66,7 +78,7 @@ public class RandomGenSpawner : MonoBehaviour
             RaycastHit hit; //shoot ray and if its ground then spawn at that location
             if (Physics.Raycast(transform.position, core - gameObject.transform.position, out hit, 10000))
             {
-                Debug.Log("hit"+hit.transform.name + hit.transform.position);
+//                Debug.Log("hit"+hit.transform.name + hit.transform.position);
                 if (hit.transform.CompareTag(tagToSpawnOn)) //Checks its allowed spawn there
                 {
                     newObj = multObjectPoolObj.GetObj();
@@ -103,8 +115,10 @@ public class RandomGenSpawner : MonoBehaviour
             Resposition();
         }
     }
+    
 
 
+    /*
     //Get the pool based on the index number, this allows for infinite pools to be definted
     public ObjectPool GetAssociatedPool()
     {
@@ -117,6 +131,7 @@ public class RandomGenSpawner : MonoBehaviour
         }
         return null;
     }
+    */
     
     //Move the spawner to a different positon around the globe
     public void Resposition()

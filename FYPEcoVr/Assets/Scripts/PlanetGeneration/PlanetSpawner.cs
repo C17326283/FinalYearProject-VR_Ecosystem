@@ -19,7 +19,8 @@ public class PlanetSpawner : MonoBehaviour
     public Material mat;
     public Material waterMat;
     public Material atmosphereMat;
-    public GameObject extras;//Spawners
+    //public GameObject extras;//Spawners
+    public GameObject allSpawnersObjects;//object in scene thats the parent of all the spawners
 
     private GameObject spawnedExtras;
     private Planet planetScript;
@@ -87,17 +88,26 @@ public class PlanetSpawner : MonoBehaviour
     //Adding the spawner objects which fill the terrain with trees etc
     public void AddExtras()
     {
-        if (spawnedExtras == null)
+        
+        //add spawners
+        foreach (Transform spawnerObj in allSpawnersObjects.transform)
         {
-            spawnedExtras = Instantiate(extras, planet.transform);
-            GameObject atmosphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            atmosphere.GetComponent<Collider>().enabled = false;
-            atmosphere.transform.localScale = (Vector3.one * (planetSettings.planetRadius*2)) + (Vector3.one * (planet.GetComponent<Planet>().elevationMinMax.Max/2));//make it outside the radius
-            atmosphere.GetComponent<Renderer>().material = atmosphereMat;
-            atmosphere.layer = 8;//atmosphere layer for reverse lighting
-            FlipNormals(atmosphere);
-
+            if (spawnerObj.GetComponent<RandomGenSpawner>() != null)
+            {
+                RandomGenSpawner sp = spawnerObj.GetComponent<RandomGenSpawner>();
+                GameObject holder = new GameObject("holder");
+                sp.parentObject = holder.gameObject;
+                sp.planetObject = this.gameObject;
+                sp.TriggerSpawn();
+            }
         }
+        //add atmosphere
+        GameObject atmosphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        atmosphere.GetComponent<Collider>().enabled = false;
+        atmosphere.transform.localScale = (Vector3.one * (planetSettings.planetRadius*2)) + (Vector3.one * (planet.GetComponent<Planet>().elevationMinMax.Max/2));//make it outside the radius
+        atmosphere.GetComponent<Renderer>().material = atmosphereMat;
+        atmosphere.layer = 8;//atmosphere layer for reverse lighting
+        FlipNormals(atmosphere);
     }
 
     
