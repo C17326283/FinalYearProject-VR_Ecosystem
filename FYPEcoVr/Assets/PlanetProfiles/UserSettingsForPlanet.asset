@@ -97,20 +97,20 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 6
     m_NumAlphaKeys: 2
-  planetMaterial: {fileID: 0}
-  waterMaterial: {fileID: 0}
-  planetRadius: 100
+  planetMaterial: {fileID: 2100000, guid: b6fcab61b5092c24eb9f7bab873c2274, type: 2}
+  waterMaterial: {fileID: 2100000, guid: ea2e4fb9ccc03924cae5d28a909c2e9d, type: 2}
+  planetRadius: 1e+11
   noiseLayers:
   - enabled: 1
     useFirstLayerAsMask: 1
-    strength: 0.3252654
-    roughness: 1.1913613
+    strength: 0.1783406
+    roughness: 1.62
     NumOfNoiseCycles: 5
-    persistance: 0.59912574
-    baseRoughness: 2.2197163
-    minValue: 1
+    persistance: 0.59
+    baseRoughness: 1.23
+    minValue: 1.13
     centre: {x: 0, y: 446.32, z: 0}
-  - enabled: 0
+  - enabled: 1
     useFirstLayerAsMask: 1
     strength: 41.29
     roughness: 3.15

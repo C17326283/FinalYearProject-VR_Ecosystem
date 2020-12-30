@@ -7,10 +7,7 @@ using Random = UnityEngine.Random;
 //The alctual core object
 public class Planet : MonoBehaviour
 {
-    //resolution for the amount of square that makes up a face, max 256
-    [Range(20, 256)] 
-    public int res = 100;
-    
+
     //settings to pull from for generation
     public PlanetSettings planetSettings;
     
@@ -27,8 +24,8 @@ public class Planet : MonoBehaviour
     
     
     public TerrainMinMaxHeights elevationMinMax;//for getting the highest and lowest points
-    public GameObject[] biomeObjs;//4
-    
+    public GameObject[] biomeObjs;//4 object fro being placed around globe
+
 
     //Make all the faces and filters if they arent already or update them if they are
     void Create()
@@ -83,8 +80,8 @@ public class Planet : MonoBehaviour
             waterMeshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = planetSettings.waterMaterial;
             
             //add to list of faces
-            terrainFaces[i] = new TerrainFace(meshFilters[i].sharedMesh,res,directions[i],elevationMinMax, planetSettings,true);
-            waterFaces[i] = new TerrainFace(waterMeshFilters[i].sharedMesh,res,directions[i],elevationMinMax, planetSettings,false);
+            terrainFaces[i] = new TerrainFace(meshFilters[i].sharedMesh,planetSettings.res,directions[i],elevationMinMax, planetSettings,true);
+            waterFaces[i] = new TerrainFace(waterMeshFilters[i].sharedMesh,planetSettings.res,directions[i],elevationMinMax, planetSettings,false);
         }
     }
 

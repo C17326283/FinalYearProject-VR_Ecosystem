@@ -26,7 +26,7 @@ public class ColourGenerator
                 textures[i] = new Texture2D(textureResolution,1);
             }
         }
-    }
+    }   
     
     //update all the material parametes with the elevation heights so terrain levels are always correct
     public void UpdateHeightInShader(TerrainMinMaxHeights elevationMinMax)
