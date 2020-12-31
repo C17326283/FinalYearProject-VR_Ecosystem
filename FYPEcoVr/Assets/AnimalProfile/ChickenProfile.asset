@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9bbea3655ab8f9488423b44b0b2a909, type: 3}
+  m_Name: ChickenProfile
+  m_EditorClassIdentifier: 
+  name: Chicken
+  model: {fileID: 4652543879994953833, guid: e212f379338cde542b9ea7175def6293, type: 3}
+  health: 100
+  hunger: 11.943853
+  thirst: 70.64784
+  reproductiveUrge: 1481.7186
+  age: 246.95291
+  maxHealth: 100
+  maxStat: 100
+  healthStarveDecrement: 3
+  hungerDecrement: 3
+  thirstDecrement: 1
+  reproductiveIncrement: 6
+  ageIncrement: 1
+  memoryLossRate: 20
+  sensoryRange: 15
+  moveSpeed: 5
+  rotSpeed: 50
+  wanderRadius: 5
+  forwardWanderBias: 2
+  foodTag: Food
+  maxMutatePercent: 2
+  numOfLegs: 4
+  gen: 1

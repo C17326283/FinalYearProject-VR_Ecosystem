@@ -7,6 +7,9 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="AnimalProfile" t="Include">
+          <e p="AnimalProfile.cs" t="Include" />
+        </e>
         <e p="Default" t="Include">
           <e p="TutorialInfo" t="Include">
             <e p="Scripts" t="Include">
@@ -109,6 +112,7 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="AnimalManager.cs" t="Include" />
           <e p="BodyRaycastPositioner.cs" t="Include" />
           <e p="CreatureMovement.cs" t="Include" />
           <e p="CreatureStats.cs" t="Include" />
@@ -118,6 +122,7 @@
           <e p="GameManager.cs" t="Include" />
           <e p="HeightPositioner.cs" t="Include" />
           <e p="LookAtLerp.cs" t="Include" />
+          <e p="NewTaskManager.cs" t="Include" />
           <e p="PlanetGeneration" t="Include">
             <e p="ColourGenerator.cs" t="Include" />
             <e p="FakeGravity.cs" t="Include" />

@@ -12,6 +12,9 @@ TagManager:
   - Chicken
   - Ground
   - Cheetah
+  - Undefined
+  - Leg
+  - Head
   layers:
   - Default
   - TransparentFX
