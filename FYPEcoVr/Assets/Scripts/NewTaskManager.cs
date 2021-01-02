@@ -36,6 +36,15 @@ public class NewTaskManager : MonoBehaviour
 
     private void OnEnable()
     {
+        if (animalProfile != null)
+        {
+            CreateObjs();
+        }
+        
+    }
+
+    public void CreateObjs()
+    {
         wanderPosObj = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         wanderPosObj.transform.name = transform.name+" WanderPoint";
         wanderPosObj.transform.position = transform.position + new Vector3(.2f, .2f, .2f);
@@ -47,11 +56,14 @@ public class NewTaskManager : MonoBehaviour
             sensorySphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             sensorySphere.GetComponent<Renderer>().enabled = false;
             sensorySphere.transform.name = "SenseSphere";
+            Debug.Log(sensorySphere.GetComponent<SphereCollider>().radius+" : "+animalProfile.sensoryRange);
             sensorySphere.GetComponent<SphereCollider>().radius = animalProfile.sensoryRange * 2;
             sensorySphere.GetComponent<Collider>().isTrigger = true;
             sensorySphere.transform.parent = this.gameObject.transform;
             sensorySphere.transform.position = this.transform.position;
-            sensorySphere.AddComponent<SensoryScript>();
+            SensoryScript sensescript = sensorySphere.AddComponent<SensoryScript>();
+            sensescript.taskManager = this;
+            sensescript.animalProfile = animalProfile;
             Rigidbody rb = sensorySphere.AddComponent<Rigidbody>();//Needs kinematic to register collisions
             rb.useGravity = false;
             rb.isKinematic = true;

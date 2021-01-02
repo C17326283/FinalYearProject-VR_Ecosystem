@@ -36,6 +36,7 @@ public class AnimalManager : MonoBehaviour
         animalObj = Instantiate(animalData.model);
         animalObj.transform.parent = this.transform;
         animalObj.transform.position = this.transform.position;
+        animalObj.tag = animalData.Tag;
 
         //add components to animal
         collider = animalObj.AddComponent<BoxCollider>();
@@ -49,7 +50,7 @@ public class AnimalManager : MonoBehaviour
         Transform[] allChildObjects = GetComponentsInChildren<Transform>();
         foreach (Transform childBone in allChildObjects)
         {
-            Debug.Log("child "+childBone.name+childBone.tag);
+//            Debug.Log("child "+childBone.name+childBone.tag);
             if(childBone.CompareTag("Head"))//find the head and end of the legs of the animals
             {
                 head = childBone.gameObject;
@@ -71,6 +72,7 @@ public class AnimalManager : MonoBehaviour
 
         taskManager = animalObj.AddComponent<NewTaskManager>();
         taskManager.animalProfile = animalData;
+        taskManager.CreateObjs();
         
 
     }

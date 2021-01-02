@@ -93,7 +93,7 @@ public class FootRaycastPositioner : MonoBehaviour
         if (Vector3.Distance(footIKPositionObj.transform.position, nextFootPos) > footMoveStopDist) //If distance of current footpos and rayhit is over stepdistance then take a step
         {
             float footLift = footHeightMult * (Vector3.Distance(footIKPositionObj.transform.position, nextFootPos) /3);
-            print(nextFootPos.y+" , "+footLift+""+(footIKPositionObj.transform.up*footLift));
+//            print(nextFootPos.y+" , "+footLift+""+(footIKPositionObj.transform.up*footLift));
 
             //only move foot if the other food is grounded or both feet had a problem and arent grounded
             if (otherFootRaycastPositioner.footAtPosition == true || (otherFootRaycastPositioner.footAtPosition == false && this.footAtPosition == false))
