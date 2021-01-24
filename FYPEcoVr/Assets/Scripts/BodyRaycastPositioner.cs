@@ -14,15 +14,24 @@ public class BodyRaycastPositioner : MonoBehaviour
     public float levelingRotIncrements = 0.1f;
     private Rigidbody rb;
     public GameObject core;
+    public float force;
 
     private int layerMask;//Mask for choosing what layer the raycast hits
     // Start is called before the first frame update
     void Start()
     {
-        heightDistance = gameObject.GetComponentInChildren<MeshRenderer>().bounds.size.y;
+        heightDistance = gameObject.GetComponentInChildren<MeshRenderer>().bounds.size.y/2;
         bodyObj = this.gameObject;
         layerMask = 1 << 8;//THis is bit shifting layer 8 so that only hit colliders on layer 8
 
+        if (core == null)
+        {
+            if (GameObject.Find("Core"))
+            {
+                core = GameObject.Find("Core");
+            }
+        }
+        
         //making an object to check if the back of the animal is level with the front
         if (backRotFixingObj == null)
         {
@@ -37,6 +46,8 @@ public class BodyRaycastPositioner : MonoBehaviour
             //bodyObj.transform.position = hit.point; //+ new Vector3(0, 2, 0);//place a little above the ground point
             bodyObj.transform.position = new Vector3(bodyObj.transform.position.x, hit.point.y+heightDistance, bodyObj.transform.position.z);
         }
+
+        rb = transform.GetComponent<Rigidbody>();
     }
     
 
@@ -51,38 +62,48 @@ public class BodyRaycastPositioner : MonoBehaviour
 
     void CorePositioning()
     {
-        //Todo have an isGroundeda system so the animal can fall convincingly
+        //Todo have an isGrounded system so the animal can fall convincingly
         RaycastHit hit;
         if (Physics.Raycast(positionerMeasuringObj.transform.position, core.transform.position, out hit, raydistance,layerMask))
         {
+            Debug.Log("corePositioning");
             Vector3 transformPosition = bodyObj.transform.position;
             if (hit.distance != heightDistance)//is too low so go higher
             {
-                bodyObj.transform.position = Vector3.Lerp(bodyObj.transform.position, new Vector3(transformPosition.x, hit.point.y+heightStepIncrements, transformPosition.z), lerpSpeed*Time.deltaTime);
-            }
-            
-            //use second raycast at back to tilt body 
-            RaycastHit backHit;
-            if (Physics.Raycast(backRotFixingObj.transform.position, core.transform.position, out backHit, raydistance, layerMask))
-            {
-                if (backHit.distance > hit.distance + 0.1f) //back is too high, need to decrease x rotation//todo add dead zone
-                {
-                    bodyObj.transform.Rotate (-levelingRotIncrements,0,0);
-                }
-                else if (backHit.distance < hit.distance - 0.1f) //back is too high, need to decrease x rotation
-                {
-                    bodyObj.transform.Rotate (levelingRotIncrements,0,0);
-                }
+                bodyObj.transform.position = Vector3.Lerp(bodyObj.transform.position, new Vector3(transformPosition.x, hit.point.y+heightDistance, transformPosition.z), lerpSpeed*Time.deltaTime);
+                
             }
         }
     }
 
     void flatPositioning()
-    {
+    {/*
+        RaycastHit hit;
+        if (Physics.Raycast(positionerMeasuringObj.transform.position, -transform.up, out hit, heightDistance*2,
+            layerMask))
+        {
+            //rb.useGravity = false;
+            rb.isKinematic = false;
+            if (hit.distance < heightDistance*2)
+            {
+                Debug.Log("adjust height");
+                rb.AddForce(transform.up * force * Time.deltaTime);
+            }
+
+        }
+        else
+        {
+            Debug.Log("gravity");
+            rb.useGravity = true;
+        }
+*/
+        
         //Todo have an isGroundeda system so the animal can fall convincingly
         RaycastHit hit;
-        if (Physics.Raycast(positionerMeasuringObj.transform.position, -transform.up, out hit, raydistance,layerMask))
+        if (Physics.Raycast(positionerMeasuringObj.transform.position, -transform.up, out hit, heightDistance*2,layerMask))
         {
+            rb.useGravity = false;
+            rb.isKinematic = true;
             Vector3 transformPosition = bodyObj.transform.position;
             if (hit.distance != heightDistance)//is too low so go higher
             {
@@ -90,6 +111,7 @@ public class BodyRaycastPositioner : MonoBehaviour
                 
             }
             
+            /*
             //use second raycast at back to tilt body 
             RaycastHit backHit;
             if (Physics.Raycast(backRotFixingObj.transform.position, -transform.up, out backHit, raydistance, layerMask))
@@ -103,7 +125,14 @@ public class BodyRaycastPositioner : MonoBehaviour
                     bodyObj.transform.Rotate (levelingRotIncrements,0,0);
                 }
             }
+            */
         }
+        else
+        {
+            rb.isKinematic = false;
+            rb.useGravity = true;
+        }
+        
     }
     
     

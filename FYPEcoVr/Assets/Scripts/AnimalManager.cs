@@ -18,6 +18,8 @@ public class AnimalManager : MonoBehaviour
 
     public GameObject head;
     public List<GameObject> legs;
+
+    public GameObject core;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +44,8 @@ public class AnimalManager : MonoBehaviour
         collider = animalObj.AddComponent<BoxCollider>();
         collider.size = gameObject.GetComponentInChildren<MeshRenderer>().bounds.size;
         bodyPositioner = animalObj.AddComponent<BodyRaycastPositioner>();
+        if (core != null)
+            bodyPositioner.core = core;
         rb = animalObj.AddComponent<Rigidbody>();
         rb.useGravity = false;
         rb.isKinematic = true;

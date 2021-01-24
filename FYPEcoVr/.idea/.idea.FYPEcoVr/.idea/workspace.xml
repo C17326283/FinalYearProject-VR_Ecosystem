@@ -21,14 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="1c86a74b-a54b-44cd-a93d-b82d2bbe20ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimalProfile/AnimalProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AnimalProfile/AnimalProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimalProfile/ChickenProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AnimalProfile/ChickenProfile.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/NewAnimal.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/NewAnimal.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/AnimalManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AnimalManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FootRaycastPositioner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FootRaycastPositioner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewTaskManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewTaskManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BodyRaycastPositioner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BodyRaycastPositioner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SensoryScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SensoryScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,12 +53,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/ColourGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/AnimalInfo.cs" />
         <option value="$PROJECT_DIR$/Assets/AnimalProfile/DefaultAnimal.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/BodyRaycastPositioner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FootRaycastPositioner.cs" />
         <option value="$PROJECT_DIR$/Assets/AnimalProfile/AnimalProfile.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AnimalManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewTaskManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SensoryScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewTaskManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BodyRaycastPositioner.cs" />
       </list>
     </option>
   </component>
@@ -110,7 +109,8 @@
       <workItem from="1609249486670" duration="10846000" />
       <workItem from="1609338643767" duration="21476000" />
       <workItem from="1609423804676" duration="3422000" />
-      <workItem from="1609590110871" duration="347000" />
+      <workItem from="1609590110871" duration="1316000" />
+      <workItem from="1611495646158" duration="7449000" />
     </task>
     <servers />
   </component>

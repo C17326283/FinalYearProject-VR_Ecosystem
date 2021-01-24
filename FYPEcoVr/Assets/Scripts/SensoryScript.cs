@@ -24,7 +24,7 @@ public class SensoryScript : MonoBehaviour
         {
             forgettingObjs.Remove(other.gameObject);
         }
-        else if (!other.transform.CompareTag("Untagged") && !taskManager.objSensedMemory.Contains(other.gameObject)) //Certain tags the animal shouldnt care about and it shouldnt add objs twice
+        else if (other != this.transform.parent && !other.transform.CompareTag("Untagged") && !taskManager.objSensedMemory.Contains(other.gameObject)) //Certain tags the animal shouldnt care about and it shouldnt add objs twice
         {
             taskManager.objSensedMemory.Add(other.gameObject);
         }
