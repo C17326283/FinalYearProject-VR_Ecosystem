@@ -111,6 +111,7 @@
             </e>
           </e>
         </e>
+        <e p="NavTest.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="AnimalManager.cs" t="Include" />
           <e p="BodyRaycastPositioner.cs" t="Include" />
@@ -120,6 +121,8 @@
           <e p="FacePlayer.cs" t="Include" />
           <e p="FootRaycastPositioner.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
+          <e p="GravityAIMovement.cs" t="Include" />
+          <e p="GravityPlayer.cs" t="Include" />
           <e p="HeightPositioner.cs" t="Include" />
           <e p="LookAtLerp.cs" t="Include" />
           <e p="NewTaskManager.cs" t="Include" />
