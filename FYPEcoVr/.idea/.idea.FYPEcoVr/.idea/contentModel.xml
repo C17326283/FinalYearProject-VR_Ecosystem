@@ -111,7 +111,12 @@
             </e>
           </e>
         </e>
-        <e p="NavTest.cs" t="Include" />
+        <e p="Scenes" t="Include">
+          <e p="NavmeshTest" t="Include">
+            <e p="GitNavMesheditor.cs" t="Include" />
+            <e p="GitNavMeshSpher.cs" t="Include" />
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="AnimalManager.cs" t="Include" />
           <e p="BodyRaycastPositioner.cs" t="Include" />
@@ -125,6 +130,7 @@
           <e p="GravityPlayer.cs" t="Include" />
           <e p="HeightPositioner.cs" t="Include" />
           <e p="LookAtLerp.cs" t="Include" />
+          <e p="NavTest.cs" t="Include" />
           <e p="NewTaskManager.cs" t="Include" />
           <e p="PlanetGeneration" t="Include">
             <e p="ColourGenerator.cs" t="Include" />
