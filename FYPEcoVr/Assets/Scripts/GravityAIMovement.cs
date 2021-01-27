@@ -5,7 +5,6 @@ using UnityEngine;
 public class GravityAIMovement : MonoBehaviour
 {
     public GameObject core;
-    public bool grounded = false;
     public Rigidbody rb;
     public float gravityStrength = 100;
     public Vector3 groundNormal;
@@ -15,27 +14,17 @@ public class GravityAIMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        core = GameObject.Find("Core");
+        //core = GameObject.Find("Core");
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        gravityStrength = 100;
+        moveSpeed = 0.2f;//temp, assigned by stats in future
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveForward();
-        /*
-        if (target != null)
-        {
-            //LookAtTarget();//aim towards target
-            MoveForward();
-        }
-        */
-        //Vector3 toTar = player.position - transform.position;
-        //Vector3 dotToTar = new Vector3.Dot(transform.forward, target.transform.position);
-        
-        
-        
+
         //Get ground position
         RaycastHit hit = new RaycastHit();
         if (Physics.Raycast(transform.position, -transform.up, out hit, 100))
@@ -47,22 +36,12 @@ public class GravityAIMovement : MonoBehaviour
         //Add gravity down
         Vector3 gravityDir = (transform.position - core.transform.position).normalized;
         rb.AddForce(gravityDir*-gravityStrength);
-        
-        //Rotate so body is to ground
-        //Quaternion toRotation = Quaternion.FromToRotation(transform.up,groundNormal)*transform.rotation;
-        
-        //transform.rotation = Quaternion.Lerp(transform.rotation,toRotation,0.2f);
-        
-        /*
-        if (target != null)
+
+        if (target!= null && Vector3.Distance(this.transform.position, target.transform.position) > 2.0f)
         {
-            Vector3 relativePos = target.transform.position - transform.position;
-            
-            Quaternion toRotation = Quaternion.LookRotation(relativePos,gravityDir);
-            //Quaternion toRotation = Quaternion.FromToRotation(transform.forward,target.transform.position)*transform.rotation;
-            transform.rotation = Quaternion.Lerp(transform.rotation,toRotation,0.2f);
+            transform.LookAt(target.transform, gravityDir);
+            MoveForward();
         }
-        */
     }
 
     public void MoveForward()

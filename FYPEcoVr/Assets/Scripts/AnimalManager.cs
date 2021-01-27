@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DitzelGames.FastIK;
 using UnityEngine;
 
 public class AnimalManager : MonoBehaviour
@@ -17,7 +18,8 @@ public class AnimalManager : MonoBehaviour
     public Rigidbody rb;
 
     public GameObject head;
-    public List<GameObject> legs;
+    public List<GameObject> feet;//for manageing all the leg objects
+    public List<FootRaycastPositioner> feetPositioners;//for linking legs together
 
     public GameObject core;
     // Start is called before the first frame update
@@ -29,6 +31,8 @@ public class AnimalManager : MonoBehaviour
 
     void InitialiseAnimal()
     {
+        core = GameObject.Find("Core");
+        
         //set the stats to max
         animalData.health = animalData.maxHealth;
         animalData.hunger = animalData.maxStat;
@@ -42,13 +46,18 @@ public class AnimalManager : MonoBehaviour
 
         //add components to animal
         collider = animalObj.AddComponent<BoxCollider>();
-        collider.size = gameObject.GetComponentInChildren<MeshRenderer>().bounds.size;
+        collider.size = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().bounds.size/2;
         bodyPositioner = animalObj.AddComponent<BodyRaycastPositioner>();
         if (core != null)
             bodyPositioner.core = core;
         rb = animalObj.AddComponent<Rigidbody>();
         rb.useGravity = false;
-        rb.isKinematic = true;
+        rb.isKinematic = false;//true for testing but normally false
+        
+        
+        GravityAIMovement movementScript = animalObj.AddComponent<GravityAIMovement>();
+        movementScript.core = core;
+        
         
         //make array of all child objects and check bones for correct ones
         Transform[] allChildObjects = GetComponentsInChildren<Transform>();
@@ -61,7 +70,10 @@ public class AnimalManager : MonoBehaviour
             }
             else if(childBone.CompareTag("Leg"))
             {
-                legs.Add(childBone.gameObject);
+                feet.Add(childBone.gameObject);
+
+                SetUpFootPositioner(childBone);
+
             }
         }
         
@@ -74,10 +86,11 @@ public class AnimalManager : MonoBehaviour
         bodyPositioner.backRotFixingObj.transform.parent = animalObj.transform;
         bodyPositioner.backRotFixingObj.transform.position = animalObj.transform.position - transform.forward;
 
+        /*
         taskManager = animalObj.AddComponent<NewTaskManager>();
         taskManager.animalProfile = animalData;
         taskManager.CreateObjs();
-        
+        */
 
     }
 
@@ -201,5 +214,34 @@ public class AnimalManager : MonoBehaviour
         animalData.wanderRadius = Mathf.Clamp(Random.Range(animalData.wanderRadius-percentDif, animalData.wanderRadius+percentDif), 0, 30);
         percentDif = animalData.forwardWanderBias * change;
         animalData.forwardWanderBias = Mathf.Clamp(Random.Range(animalData.forwardWanderBias-percentDif, animalData.forwardWanderBias+percentDif), 0, 30);
+    }
+
+    void SetUpFootPositioner(Transform childBone)
+    {
+        //Make the foot positioner stuff for inverse kinematics
+        FastIKFabric ikScript = childBone.gameObject.AddComponent<FastIKFabric>();
+        
+        GameObject footPositioner = new GameObject("FootPositioner_"+childBone.name);
+        footPositioner.transform.parent = animalObj.transform;
+        footPositioner.transform.position = childBone.transform.position;//+(-animalObj.transform.forward*0.5f)
+        FootRaycastPositioner footScript = footPositioner.AddComponent<FootRaycastPositioner>();
+        feetPositioners.Add(footScript);
+
+        footScript.endBoneObj = childBone.gameObject;
+        footScript.animalObj = animalObj.gameObject;
+        
+        GameObject ikPole = new GameObject("ikPole_"+childBone.name);
+        ikPole.transform.parent = animalObj.transform;
+        ikPole.transform.position = footPositioner.transform.position+(-footPositioner.transform.forward * 10)+(footPositioner.transform.up * 2);
+        ikScript.Pole = ikPole.transform;
+        //footScript.footIKPositionObj = childBone.gameObject;
+        
+        //Match the legs so not walking with both feet off the ground
+        if (feet.Count % 2 == 0) //Then an even leg number, we can assume it will get the front 2 legs first, this leg is added before function runs
+        {
+            footScript.otherFootRaycastPositioner = feetPositioners[feet.Count - 2];
+            feetPositioners[feet.Count - 2].otherFootRaycastPositioner = footScript;
+            footScript.hasOffset = true;
+        }
     }
 }

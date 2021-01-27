@@ -20,7 +20,9 @@ public class BodyRaycastPositioner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        heightDistance = gameObject.GetComponentInChildren<MeshRenderer>().bounds.size.y/2;
+        //heightDistance = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().bounds.size.y/2;
+        heightDistance = 2;
+        //heightDistance = gameObject.GetComponent<AnimalManager>().collider.size.y;
         bodyObj = this.gameObject;
         layerMask = 1 << 8;//THis is bit shifting layer 8 so that only hit colliders on layer 8
 
