@@ -152,6 +152,7 @@
           <e p="SimpleCameraController.cs" t="Include" />
           <e p="SpineAnimator.cs" t="Include" />
           <e p="SpineAnimatorManager.cs" t="Include" />
+          <e p="SpineNew.cs" t="Include" />
         </e>
       </e>
       <e p="FYPEcoVr.sln" t="IncludeFlat" />

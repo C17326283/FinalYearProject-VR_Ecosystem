@@ -805,7 +805,7 @@ Transform:
   m_Children:
   - {fileID: 1918246123}
   m_Father: {fileID: 0}
-  m_RootOrder: 64
+  m_RootOrder: 78
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &20286143
 GameObject:
@@ -2665,7 +2665,7 @@ Transform:
   m_LocalScale: {x: 1.4466, y: 1.4466, z: 1.4466}
   m_Children: []
   m_Father: {fileID: 186581479}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &71037019
 GameObject:
@@ -4432,7 +4432,7 @@ Transform:
   - {fileID: 2089687676}
   - {fileID: 2083319763}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &124846117 stripped
 GameObject:
@@ -4516,6 +4516,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1531006952}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &129552673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 129552674}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &129552674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129552673}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &130163187
 GameObject:
@@ -5222,21 +5252,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.5
   nextFootPos: {x: 8.289361, y: 2.115168e-16, z: -9.52587}
   lerpSpeed: 20
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &155855547
@@ -5809,9 +5836,11 @@ Transform:
   m_LocalScale: {x: 0.11940999, y: 0.11940999, z: 0.11940999}
   m_Children:
   - {fileID: 602262133}
-  - {fileID: 3549158}
+  - {fileID: 1491495811}
+  - {fileID: 741328061}
+  - {fileID: 621457389}
   m_Father: {fileID: 0}
-  m_RootOrder: 40
+  m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &177815563
 GameObject:
@@ -5941,7 +5970,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &183030715 stripped
 Transform:
@@ -6536,6 +6565,66 @@ Transform:
   m_Father: {fileID: 1014814434}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &213088663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 213088664}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &213088664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213088663}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &214762552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 214762553}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &214762553
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214762552}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &216369494
 GameObject:
   m_ObjectHideFlags: 0
@@ -6651,21 +6740,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 10
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &224311093
@@ -7863,21 +7949,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 1521379491}
   forwardStepDist: 4
   sideStepDist: 1
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 1
-  timeOffset: 0.1
   animalObj: {fileID: 310524802}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 1194749503}
   extraSpace: 1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &263541368
@@ -8280,7 +8363,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d75090a6aa124b747a842bf2b5ae80cd, type: 3}
       propertyPath: m_RootOrder
-      value: 61
+      value: 74
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d75090a6aa124b747a842bf2b5ae80cd, type: 3}
       propertyPath: m_LocalScale.x
@@ -8405,7 +8488,7 @@ Transform:
   m_LocalScale: {x: 0.26969, y: 0.26969007, z: 0.26969007}
   m_Children: []
   m_Father: {fileID: 3549158}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &273014031
 MonoBehaviour:
@@ -8419,21 +8502,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 602262129}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 870621303}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &275455173
@@ -8635,7 +8715,7 @@ Transform:
   - {fileID: 74011757}
   - {fileID: 981662346}
   m_Father: {fileID: 0}
-  m_RootOrder: 49
+  m_RootOrder: 61
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &276774691
 GameObject:
@@ -8666,21 +8746,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 399504319}
   forwardStepDist: 4
   sideStepDist: 1
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 1
-  timeOffset: 0.1
   animalObj: {fileID: 1161367502}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 601313295}
   extraSpace: 1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!4 &276774693
@@ -9385,7 +9462,7 @@ Transform:
   m_LocalScale: {x: 0.26969, y: 0.26969007, z: 0.26969007}
   m_Children: []
   m_Father: {fileID: 3549158}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &286890744
 MonoBehaviour:
@@ -9399,21 +9476,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 602262129}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 133784203}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &288570951
@@ -9475,7 +9549,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 27640d3d967620847a2d15233c0de71a, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 27640d3d967620847a2d15233c0de71a, type: 3}
       propertyPath: m_LocalScale.x
@@ -10955,6 +11029,36 @@ MonoBehaviour:
   bones: []
   damping: 10
   useSpineAnimatorSystem: 0
+--- !u!1 &333981419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 333981420}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &333981420
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333981419}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &335483124
 GameObject:
   m_ObjectHideFlags: 0
@@ -11316,21 +11420,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 266386281}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 568364553}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 1
-  timeOffset: 0.1
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &340279746
@@ -11571,7 +11672,7 @@ Transform:
   m_LocalScale: {x: 0.26969, y: 0.26969007, z: 0.26969007}
   m_Children: []
   m_Father: {fileID: 1010984210}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!114 &347379039
 MonoBehaviour:
@@ -11585,21 +11686,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.5
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &351370510
@@ -11645,21 +11743,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 254391197}
   forwardStepDist: 4
   sideStepDist: 1
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 2082161174}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 1532294399}
   extraSpace: 1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &352839895
@@ -11811,21 +11906,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.2
   nextFootPos: {x: 8.289361, y: 2.115168e-16, z: -9.52587}
   lerpSpeed: 10
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &354633561 stripped
@@ -12741,7 +12833,7 @@ Transform:
   m_LocalScale: {x: 1.4466, y: 1.4466, z: 1.4466}
   m_Children: []
   m_Father: {fileID: 3549158}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &380826267
 GameObject:
@@ -13160,7 +13252,7 @@ Transform:
   m_LocalScale: {x: 0.11940999, y: 0.11940999, z: 0.11940999}
   m_Children: []
   m_Father: {fileID: 282360318}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &387742290
 SphereCollider:
@@ -13283,7 +13375,7 @@ Transform:
   m_LocalScale: {x: 1.4466, y: 1.4466, z: 1.4466}
   m_Children: []
   m_Father: {fileID: 186581479}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &390779502
 GameObject:
@@ -13541,7 +13633,7 @@ Transform:
   - {fileID: 266386285}
   - {fileID: 831411727}
   m_Father: {fileID: 0}
-  m_RootOrder: 41
+  m_RootOrder: 53
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &406061626
 GameObject:
@@ -13865,7 +13957,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &417923485
 GameObject:
@@ -14320,7 +14412,7 @@ Transform:
   - {fileID: 1208933108}
   - {fileID: 1213778372}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &428171989
 MonoBehaviour:
@@ -14850,7 +14942,7 @@ Transform:
   - {fileID: 1167437885}
   - {fileID: 543450653157637719}
   m_Father: {fileID: 0}
-  m_RootOrder: 44
+  m_RootOrder: 56
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &441504040
 GameObject:
@@ -14943,7 +15035,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &442825884
 GameObject:
@@ -15081,21 +15173,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 1546163120}
   forwardStepDist: 4
   sideStepDist: 1
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 1
-  timeOffset: 0.1
   animalObj: {fileID: 1918246122}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 1931105816}
   extraSpace: 1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!4 &444520734
@@ -16057,7 +16146,7 @@ Transform:
   - {fileID: 179431401}
   - {fileID: 149518756}
   m_Father: {fileID: 0}
-  m_RootOrder: 52
+  m_RootOrder: 64
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &463953319
 GameObject:
@@ -16789,7 +16878,7 @@ Transform:
   - {fileID: 1735858815}
   - {fileID: 256352449}
   m_Father: {fileID: 0}
-  m_RootOrder: 42
+  m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &491834506
 GameObject:
@@ -17198,7 +17287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d75090a6aa124b747a842bf2b5ae80cd, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d75090a6aa124b747a842bf2b5ae80cd, type: 3}
       propertyPath: m_LocalScale.x
@@ -18001,7 +18090,7 @@ Transform:
   - {fileID: 885660141}
   - {fileID: 2140906135}
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 99.491, z: 0}
 --- !u!1 &524603615
 GameObject:
@@ -18537,21 +18626,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.2
   nextFootPos: {x: 7.423915, y: 2.2183449e-16, z: -9.990538}
   lerpSpeed: 10
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &544822370
@@ -18688,7 +18774,7 @@ Transform:
   m_LocalScale: {x: 0.26969, y: 0.26969007, z: 0.26969007}
   m_Children: []
   m_Father: {fileID: 186581479}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &552217385
 MonoBehaviour:
@@ -18702,21 +18788,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 330037576}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 936076407}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &552488052
@@ -19096,21 +19179,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 1589152315}
   forwardStepDist: 4
   sideStepDist: 1
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 1918246122}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 1948677514}
   extraSpace: 1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1001 &566522341
@@ -19968,7 +20048,7 @@ Transform:
   m_LocalScale: {x: 0.26969, y: 0.26969007, z: 0.26969007}
   m_Children: []
   m_Father: {fileID: 3549158}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &600121455
 MonoBehaviour:
@@ -19982,21 +20062,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 602262129}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 1821832859}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &600463208
@@ -20153,21 +20230,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 2025051954}
   forwardStepDist: 4
   sideStepDist: 1
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 1161367502}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 276774692}
   extraSpace: 1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &602262129
@@ -20383,21 +20457,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1167437884}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 7678847389735414006}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &605700867
@@ -20464,7 +20535,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &612954875 stripped
 Transform:
@@ -20864,6 +20935,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db15549e5e1189f418668ae0c15969e1, type: 3}
+--- !u!4 &621457389 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 621457388}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &622642643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20877,7 +20953,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d75090a6aa124b747a842bf2b5ae80cd, type: 3}
       propertyPath: m_RootOrder
-      value: 55
+      value: 67
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d75090a6aa124b747a842bf2b5ae80cd, type: 3}
       propertyPath: m_LocalScale.x
@@ -21085,21 +21161,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.2
   nextFootPos: {x: 7.423915, y: 2.2183449e-16, z: -9.990538}
   lerpSpeed: 10
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &630282441
@@ -21502,7 +21575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d75090a6aa124b747a842bf2b5ae80cd, type: 3}
       propertyPath: m_RootOrder
-      value: 54
+      value: 66
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d75090a6aa124b747a842bf2b5ae80cd, type: 3}
       propertyPath: m_LocalScale.x
@@ -22377,7 +22450,7 @@ Transform:
   - {fileID: 2063685186}
   - {fileID: 1344108638}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &666033561
 GameObject:
@@ -22407,7 +22480,7 @@ Transform:
   m_LocalScale: {x: 1.4466, y: 1.4466, z: 1.4466}
   m_Children: []
   m_Father: {fileID: 186581479}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &668893751
 MonoBehaviour:
@@ -22852,7 +22925,7 @@ Transform:
   m_Children:
   - {fileID: 2082161175}
   m_Father: {fileID: 0}
-  m_RootOrder: 65
+  m_RootOrder: 79
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &683218771
 GameObject:
@@ -23907,21 +23980,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 1865851013}
   forwardStepDist: 4
   sideStepDist: 1
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 310524802}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 1472366923}
   extraSpace: 1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &719805296
@@ -24484,6 +24554,66 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735425620}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &736317423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 736317424}
+  m_Layer: 0
+  m_Name: Bone.005FR (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &736317424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736317423}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &741328060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 741328061}
+  m_Layer: 0
+  m_Name: CheetahMesh (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &741328061
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741328060}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 177193894}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &741544722 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 470440, guid: 8ed1fa325ca228645ad26dd6eff14768, type: 3}
@@ -24821,7 +24951,7 @@ Transform:
   m_LocalScale: {x: 1.4466, y: 1.4466, z: 1.4466}
   m_Children: []
   m_Father: {fileID: 1010984210}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &752477688
 GameObject:
@@ -25133,7 +25263,7 @@ Transform:
   m_Children:
   - {fileID: 1161367503}
   m_Father: {fileID: 0}
-  m_RootOrder: 66
+  m_RootOrder: 80
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &760447826
 GameObject:
@@ -25164,7 +25294,7 @@ Transform:
   m_LocalScale: {x: 0.26969, y: 0.26969007, z: 0.26969007}
   m_Children: []
   m_Father: {fileID: 3549158}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &760447828
 MonoBehaviour:
@@ -25178,21 +25308,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 602262129}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 686227906}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &764703555
@@ -25441,7 +25568,7 @@ Transform:
   m_LocalScale: {x: 0.26969, y: 0.26969007, z: 0.26969007}
   m_Children: []
   m_Father: {fileID: 186581479}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &772137428
 MonoBehaviour:
@@ -25455,21 +25582,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 330037576}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 205377759}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &772744006
@@ -26345,7 +26469,7 @@ Transform:
   - {fileID: 1935169}
   - {fileID: 2137496630}
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &789223447
 GameObject:
@@ -26739,21 +26863,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 747881687}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 6334342250976077072}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &796366906
@@ -28019,7 +28140,7 @@ Transform:
   - {fileID: 1292665280}
   - {fileID: 883589534}
   m_Father: {fileID: 0}
-  m_RootOrder: 48
+  m_RootOrder: 59
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &826830313
 GameObject:
@@ -28206,7 +28327,7 @@ Transform:
   m_LocalScale: {x: 0.0026969002, y: 0.0026969004, z: 0.0026969}
   m_Children: []
   m_Father: {fileID: 2000086972}
-  m_RootOrder: 7
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!114 &832225446
 MonoBehaviour:
@@ -28220,21 +28341,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.2
   nextFootPos: {x: 6.553519, y: 1.6872198e-16, z: -7.5985627}
   lerpSpeed: 5
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1001 &838802388
@@ -28424,7 +28542,7 @@ Transform:
   m_LocalScale: {x: 1.4466, y: 1.4466, z: 1.4466}
   m_Children: []
   m_Father: {fileID: 3549158}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &844173179
 GameObject:
@@ -29055,7 +29173,7 @@ Transform:
   m_LocalScale: {x: 0.0026969002, y: 0.0026969004, z: 0.0026969}
   m_Children: []
   m_Father: {fileID: 2000086972}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!114 &860045273
 MonoBehaviour:
@@ -29069,21 +29187,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 5
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &860172812
@@ -30245,7 +30360,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &891995143
 GameObject:
@@ -30355,6 +30470,38 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &902827119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 902827120}
+  m_Layer: 0
+  m_Name: Bone.005FR (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &902827120
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902827119}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 282360318}
+  - {fileID: 2000086972}
+  m_Father: {fileID: 0}
+  m_RootOrder: 76
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &907055201
 GameObject:
   m_ObjectHideFlags: 0
@@ -30606,21 +30753,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 266386281}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 257293145}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &909522443
@@ -31299,7 +31443,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 169.3, y: -33.8, z: 0}
 --- !u!1 &921478124
 GameObject:
@@ -31889,7 +32033,7 @@ Transform:
   - {fileID: 1931464417}
   - {fileID: 448023035}
   m_Father: {fileID: 0}
-  m_RootOrder: 53
+  m_RootOrder: 65
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &927821332
 GameObject:
@@ -32046,7 +32190,7 @@ Transform:
   m_Children:
   - {fileID: 543450653558028345}
   m_Father: {fileID: 0}
-  m_RootOrder: 43
+  m_RootOrder: 55
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &936076407 stripped
 GameObject:
@@ -33145,21 +33289,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 747881687}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 7678847390133299335}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &969653032
@@ -33539,21 +33680,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1167437884}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 6874389072556249254}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 1
-  timeOffset: 0.1
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &977656684
@@ -33599,21 +33737,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 1434392980}
   forwardStepDist: 4
   sideStepDist: 1
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 2082161174}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 1808261386}
   extraSpace: 1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &978642460
@@ -34190,7 +34325,7 @@ Transform:
   - {fileID: 140263985}
   - {fileID: 1045852108}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1000567379
 GameObject:
@@ -34374,7 +34509,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1002452033
 GameObject:
@@ -34725,7 +34860,7 @@ Transform:
   - {fileID: 1784937489}
   - {fileID: 481571150}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1017965612
 GameObject:
@@ -36725,7 +36860,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1080588221
 GameObject:
@@ -38108,7 +38243,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!114 &1105170464
 MonoBehaviour:
@@ -38500,7 +38635,7 @@ Transform:
   m_LocalScale: {x: 0.26969, y: 0.26969007, z: 0.26969007}
   m_Children: []
   m_Father: {fileID: 186581479}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1113922418
 MonoBehaviour:
@@ -38514,21 +38649,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 330037576}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 1062481379}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1114184613
@@ -38574,21 +38706,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.5
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1119600104
@@ -39360,23 +39489,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 10
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
+--- !u!1 &1149739582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1149739583}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1149739583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149739582}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1150702361
 GameObject:
   m_ObjectHideFlags: 0
@@ -40313,7 +40469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1168768509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40330,7 +40486,7 @@ MonoBehaviour:
   rotOffsets: []
   bones: []
   damping: 10
-  useSpineAnimatorSystem: 0
+  useSpineAnimatorSystem: 1
 --- !u!4 &1168768510
 Transform:
   m_ObjectHideFlags: 0
@@ -40347,7 +40503,7 @@ Transform:
   - {fileID: 1637960379}
   - {fileID: 2062809395}
   m_Father: {fileID: 0}
-  m_RootOrder: 38
+  m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1168869775
 GameObject:
@@ -40470,6 +40626,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1185692517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1185692518}
+  m_Layer: 0
+  m_Name: Cheetah6 1 (2) (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1185692518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185692517}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1010984210}
+  m_Father: {fileID: 0}
+  m_RootOrder: 73
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1185874682
 GameObject:
   m_ObjectHideFlags: 0
@@ -41333,21 +41520,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 1865851013}
   forwardStepDist: 4
   sideStepDist: 1
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 310524802}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 260983565}
   extraSpace: 1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!4 &1194749504
@@ -42023,6 +42207,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219191897}
   m_CullTransparentMesh: 0
+--- !u!1 &1220194630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1220194631}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1220194631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220194630}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1220999752
 GameObject:
   m_ObjectHideFlags: 0
@@ -42725,6 +42939,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248034638}
   m_CullTransparentMesh: 0
+--- !u!1 &1250311008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1250311009}
+  m_Layer: 0
+  m_Name: Cheetah6 1 (2) (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1250311009
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250311008}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1251883912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42738,7 +42982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d75090a6aa124b747a842bf2b5ae80cd, type: 3}
       propertyPath: m_RootOrder
-      value: 57
+      value: 69
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d75090a6aa124b747a842bf2b5ae80cd, type: 3}
       propertyPath: m_LocalScale.x
@@ -42978,7 +43222,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1263340080
 GameObject:
@@ -43628,7 +43872,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &1279464848
 GameObject:
@@ -43666,6 +43910,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 470440, guid: 8ed1fa325ca228645ad26dd6eff14768, type: 3}
   m_PrefabInstance: {fileID: 1880041563}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1284079589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1284079590}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1284079590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284079589}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1289840578
 GameObject:
   m_ObjectHideFlags: 0
@@ -43995,7 +44269,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1296858927
 GameObject:
@@ -44076,21 +44350,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 10
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1297714957
@@ -44488,21 +44759,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.2
   nextFootPos: {x: 8.289361, y: 2.115168e-16, z: -9.52587}
   lerpSpeed: 10
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!4 &1305888438 stripped
@@ -44539,7 +44807,7 @@ Transform:
   m_Children:
   - {fileID: 472140834}
   m_Father: {fileID: 0}
-  m_RootOrder: 67
+  m_RootOrder: 81
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1310549687
 MonoBehaviour:
@@ -45289,7 +45557,7 @@ Transform:
   - {fileID: 730713526}
   - {fileID: 1347653072}
   m_Father: {fileID: 0}
-  m_RootOrder: 51
+  m_RootOrder: 63
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1328745184
 GameObject:
@@ -46079,7 +46347,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1361498230
 GameObject:
@@ -47503,21 +47771,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 266386281}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 14813363}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1401287316
@@ -47638,21 +47903,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.5
   nextFootPos: {x: 6.553519, y: 1.6872198e-16, z: -7.5985627}
   lerpSpeed: 20
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1405907846
@@ -47927,6 +48189,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1415886550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1415886551}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1415886551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415886550}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1418399940
 GameObject:
   m_ObjectHideFlags: 0
@@ -47955,7 +48247,7 @@ Transform:
   m_LocalScale: {x: 1.4466, y: 1.4466, z: 1.4466}
   m_Children: []
   m_Father: {fileID: 3549158}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1420619272
 GameObject:
@@ -48187,7 +48479,7 @@ Transform:
   - {fileID: 810067712}
   - {fileID: 866497168}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1422999306
 GameObject:
@@ -48345,7 +48637,7 @@ Transform:
   - {fileID: 747881691}
   - {fileID: 543450652758769190}
   m_Father: {fileID: 0}
-  m_RootOrder: 46
+  m_RootOrder: 58
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1431701527
 GameObject:
@@ -48618,7 +48910,7 @@ Transform:
   m_LocalScale: {x: 0.26969, y: 0.26969007, z: 0.26969007}
   m_Children: []
   m_Father: {fileID: 1010984210}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!114 &1434906311
 MonoBehaviour:
@@ -48632,21 +48924,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.5
   nextFootPos: {x: 7.423915, y: 2.2183449e-16, z: -9.990538}
   lerpSpeed: 20
   hasOffset: 0
-  timeOffset: 0.05
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1441340280
@@ -48903,21 +49192,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1167437884}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 3565213247858275878}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1445056459
@@ -49119,7 +49405,7 @@ Transform:
   - {fileID: 1697844742}
   - {fileID: 563387347}
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1445355746
 GameObject:
@@ -50281,21 +50567,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 1521379491}
   forwardStepDist: 4
   sideStepDist: 1
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 1
-  timeOffset: 0.1
   animalObj: {fileID: 310524802}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 718705808}
   extraSpace: 1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!4 &1472366924
@@ -50520,9 +50803,11 @@ Transform:
   m_LocalScale: {x: 0.11940999, y: 0.11940999, z: 0.11940999}
   m_Children:
   - {fileID: 330037580}
-  - {fileID: 186581479}
+  - {fileID: 2000284667}
+  - {fileID: 2078790344}
+  - {fileID: 1749020305}
   m_Father: {fileID: 0}
-  m_RootOrder: 45
+  m_RootOrder: 57
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1476368407
 GameObject:
@@ -50755,21 +51040,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.2
   nextFootPos: {x: 6.553519, y: 1.6872198e-16, z: -7.5985627}
   lerpSpeed: 10
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1485739098
@@ -50801,7 +51083,7 @@ Transform:
   m_LocalScale: {x: 0.26969, y: 0.26969007, z: 0.26969007}
   m_Children: []
   m_Father: {fileID: 186581479}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1485739100
 MonoBehaviour:
@@ -50815,21 +51097,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 330037576}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 2044557531}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1485912279
@@ -51084,21 +51363,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.2
   nextFootPos: {x: 8.289361, y: 2.115168e-16, z: -9.52587}
   lerpSpeed: 10
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1489869182
@@ -51176,23 +51452,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 747881687}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 3565213248272873047}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
+--- !u!1 &1491495810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1491495811}
+  m_Layer: 0
+  m_Name: CheetahMesh (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1491495811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491495810}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3549158}
+  m_Father: {fileID: 177193894}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1492132382
 GameObject:
   m_ObjectHideFlags: 0
@@ -51524,7 +51828,7 @@ Transform:
   - {fileID: 1110210683}
   - {fileID: 191891204}
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 99.491, z: 0}
 --- !u!4 &1500490079 stripped
 Transform:
@@ -51891,21 +52195,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 2084087709}
   forwardStepDist: 4
   sideStepDist: 1
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 1161367502}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 1682301788}
   extraSpace: 1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1512257785
@@ -51987,21 +52288,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 3565213248531099720}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 919132149305041539}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1513659695
@@ -52069,7 +52367,7 @@ Transform:
   m_Children:
   - {fileID: 1595508201}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1517522509
 GameObject:
@@ -52383,7 +52681,7 @@ Transform:
   - {fileID: 1960483651}
   - {fileID: 129096051}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1532294398
 GameObject:
@@ -52414,21 +52712,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 35072146}
   forwardStepDist: 4
   sideStepDist: 1
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 1
-  timeOffset: 0.1
   animalObj: {fileID: 2082161174}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 351370512}
   extraSpace: 1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!4 &1532294400
@@ -52738,21 +53033,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 7678847390407782040}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 919132149305041539}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1540860593
@@ -53741,7 +54033,7 @@ Transform:
   m_LocalScale: {x: 1.4466, y: 1.4466, z: 1.4466}
   m_Children: []
   m_Father: {fileID: 1010984210}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1562238467
 GameObject:
@@ -54566,21 +54858,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1167437884}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 6334342251122304353}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 1
-  timeOffset: 0.1
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1579824337
@@ -54867,21 +55156,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 398125104}
   forwardStepDist: 4
   sideStepDist: 1
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 1
-  timeOffset: 0.1
   animalObj: {fileID: 310524802}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 2119417160}
   extraSpace: 1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!4 &1591521496
@@ -55499,7 +55785,7 @@ Transform:
   m_LocalScale: {x: 0.26969, y: 0.26969007, z: 0.26969007}
   m_Children: []
   m_Father: {fileID: 1010984210}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!114 &1604800750
 MonoBehaviour:
@@ -55513,21 +55799,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.5
   nextFootPos: {x: 6.553519, y: 1.6872198e-16, z: -7.5985627}
   lerpSpeed: 20
   hasOffset: 0
-  timeOffset: 0.05
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1605903396
@@ -55827,7 +56110,7 @@ Transform:
   m_LocalScale: {x: 0.26969, y: 0.26969007, z: 0.26969007}
   m_Children: []
   m_Father: {fileID: 1010984210}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!114 &1616705191
 MonoBehaviour:
@@ -55841,21 +56124,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.5
   nextFootPos: {x: 8.289361, y: 2.115168e-16, z: -9.52587}
   lerpSpeed: 20
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1617809901
@@ -56197,7 +56477,7 @@ Transform:
   - {fileID: 459384923}
   - {fileID: 672926863}
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 99.491, z: 0}
 --- !u!1 &1626057687
 GameObject:
@@ -56228,6 +56508,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4206392}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1626303716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1626303717}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1626303717
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626303716}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1627885187
 GameObject:
@@ -56549,7 +56859,7 @@ Transform:
   m_Children:
   - {fileID: 310524803}
   m_Father: {fileID: 0}
-  m_RootOrder: 63
+  m_RootOrder: 77
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1635976000
 GameObject:
@@ -56944,21 +57254,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.2
   nextFootPos: {x: 6.553519, y: 1.6872198e-16, z: -7.5985627}
   lerpSpeed: 10
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1001 &1641965796
@@ -57446,21 +57753,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.2
   nextFootPos: {x: 7.423915, y: 2.2183449e-16, z: -9.990538}
   lerpSpeed: 10
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1653941650 stripped
@@ -58283,21 +58587,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 747881687}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 6874389072148893911}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1668841006
@@ -58422,7 +58723,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1677090135
 GameObject:
@@ -59100,21 +59401,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 41144466}
   forwardStepDist: 4
   sideStepDist: 1
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 1
-  timeOffset: 0.1
   animalObj: {fileID: 1161367502}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 1512221790}
   extraSpace: 1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!4 &1682301789
@@ -59621,7 +59919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d75090a6aa124b747a842bf2b5ae80cd, type: 3}
       propertyPath: m_RootOrder
-      value: 56
+      value: 68
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d75090a6aa124b747a842bf2b5ae80cd, type: 3}
       propertyPath: m_LocalScale.x
@@ -59759,7 +60057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d75090a6aa124b747a842bf2b5ae80cd, type: 3}
       propertyPath: m_RootOrder
-      value: 58
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d75090a6aa124b747a842bf2b5ae80cd, type: 3}
       propertyPath: m_LocalScale.x
@@ -60507,7 +60805,7 @@ Transform:
   - {fileID: 813032752}
   - {fileID: 612954875}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1728042420
 GameObject:
@@ -61245,6 +61543,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db15549e5e1189f418668ae0c15969e1, type: 3}
+--- !u!4 &1749020305 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1749020304}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1749127810
 GameObject:
   m_ObjectHideFlags: 0
@@ -62237,7 +62540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d75090a6aa124b747a842bf2b5ae80cd, type: 3}
       propertyPath: m_RootOrder
-      value: 60
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d75090a6aa124b747a842bf2b5ae80cd, type: 3}
       propertyPath: m_LocalScale.x
@@ -63275,21 +63578,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 509154964}
   forwardStepDist: 4
   sideStepDist: 1
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 1
-  timeOffset: 0.1
   animalObj: {fileID: 2082161174}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 977656686}
   extraSpace: 1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!4 &1808261387
@@ -63953,7 +64253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d75090a6aa124b747a842bf2b5ae80cd, type: 3}
       propertyPath: m_RootOrder
-      value: 59
+      value: 71
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d75090a6aa124b747a842bf2b5ae80cd, type: 3}
       propertyPath: m_LocalScale.x
@@ -64172,21 +64472,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.2
   nextFootPos: {x: 6.553519, y: 1.6872198e-16, z: -7.5985627}
   lerpSpeed: 10
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1832280789
@@ -64776,7 +65073,7 @@ Transform:
   m_LocalScale: {x: 0.0026969002, y: 0.0026969004, z: 0.0026969}
   m_Children: []
   m_Father: {fileID: 2000086972}
-  m_RootOrder: 9
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!114 &1851428797
 MonoBehaviour:
@@ -64790,21 +65087,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.2
   nextFootPos: {x: 8.289361, y: 2.115168e-16, z: -9.52587}
   lerpSpeed: 5
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1851544020
@@ -65241,7 +65535,7 @@ Transform:
   - {fileID: 631825516}
   - {fileID: 387411225}
   m_Father: {fileID: 0}
-  m_RootOrder: 50
+  m_RootOrder: 62
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1852392375
 GameObject:
@@ -65403,7 +65697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d75090a6aa124b747a842bf2b5ae80cd, type: 3}
       propertyPath: m_RootOrder
-      value: 62
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d75090a6aa124b747a842bf2b5ae80cd, type: 3}
       propertyPath: m_LocalScale.x
@@ -66784,7 +67078,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 93c4e26cc9e96004597df284c661e4ac, type: 3}
       propertyPath: m_RootOrder
-      value: 47
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 93c4e26cc9e96004597df284c661e4ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -67936,7 +68230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4142490498178998, guid: 4ed1e0628e5ec2a409b6e3e2eaa84a34, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4142490498178998, guid: 4ed1e0628e5ec2a409b6e3e2eaa84a34, type: 3}
       propertyPath: m_LocalPosition.x
@@ -68053,21 +68347,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 6874389071887029960}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 1
-  timeOffset: 0.1
   animalObj: {fileID: 919132149305041539}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1931105814
@@ -68113,21 +68404,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 877024741}
   forwardStepDist: 4
   sideStepDist: 1
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 1918246122}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 444520733}
   extraSpace: 1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!4 &1931464417 stripped
@@ -68425,7 +68713,7 @@ Transform:
   m_LocalScale: {x: 1.4466, y: 1.4466, z: 1.4466}
   m_Children: []
   m_Father: {fileID: 1010984210}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1948115991
 GameObject:
@@ -68517,21 +68805,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 1216892653}
   forwardStepDist: 4
   sideStepDist: 1
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 1
-  timeOffset: 0.1
   animalObj: {fileID: 1918246122}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 565785816}
   extraSpace: 1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!4 &1948677515
@@ -69253,7 +69538,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1976307020
 MonoBehaviour:
@@ -69466,21 +69751,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 6334342250717848335}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 1
-  timeOffset: 0.1
   animalObj: {fileID: 919132149305041539}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &1996536693
@@ -69768,6 +70050,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8879528566716807029, guid: f1e29b1572227924abd0e8f71889d0d5, type: 3}
   m_PrefabInstance: {fileID: 847849069}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2000284666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2000284667}
+  m_Layer: 0
+  m_Name: CheetahMesh (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2000284667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000284666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 186581479}
+  m_Father: {fileID: 1475199111}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2000858204
 GameObject:
   m_ObjectHideFlags: 0
@@ -69935,21 +70248,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.5
   nextFootPos: {x: 7.423915, y: 2.2183449e-16, z: -9.990538}
   lerpSpeed: 20
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &2006900927
@@ -70472,7 +70782,7 @@ Transform:
   - {fileID: 1192753413}
   - {fileID: 1823178722}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2016349455
 GameObject:
@@ -70503,7 +70813,7 @@ Transform:
   m_LocalScale: {x: 0.0026969002, y: 0.0026969004, z: 0.0026969}
   m_Children: []
   m_Father: {fileID: 2000086972}
-  m_RootOrder: 8
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!114 &2016349457
 MonoBehaviour:
@@ -70517,21 +70827,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 0}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 0}
   forwardStepDist: 2
   sideStepDist: 0.2
   nextFootPos: {x: 7.423915, y: 2.2183449e-16, z: -9.990538}
   lerpSpeed: 5
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &2018984811
@@ -72572,6 +72879,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074801558}
   m_CullTransparentMesh: 0
+--- !u!1 &2078790343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2078790344}
+  m_Layer: 0
+  m_Name: CheetahMesh (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2078790344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078790343}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1475199111}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2081359981
 GameObject:
   m_ObjectHideFlags: 0
@@ -73714,7 +74051,7 @@ Transform:
   m_LocalScale: {x: 200, y: 1000, z: 200}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2109474763
 GameObject:
@@ -73851,6 +74188,36 @@ Transform:
   - {fileID: 524603616}
   m_Father: {fileID: 752477689}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2114665362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2114665363}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2114665363
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114665362}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2115660052
 GameObject:
@@ -74069,21 +74436,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 1735858814}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 1948358961}
   forwardStepDist: 4
   sideStepDist: 1
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 0
-  timeOffset: 0
   animalObj: {fileID: 310524802}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 1591521495}
   extraSpace: 1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &2120585490
@@ -74945,21 +75309,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061d07a8045cec43a6d2b9ec337cd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footIKPositionObj: {fileID: 0}
-  tempNextPosObj: {fileID: 266386281}
+  footIKTargetObj: {fileID: 0}
   endBoneObj: {fileID: 551584173}
   forwardStepDist: 4
   sideStepDist: 2
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 13
   hasOffset: 1
-  timeOffset: 0.1
   animalObj: {fileID: 0}
   footHeightMult: 1
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 0}
   extraSpace: 0.1
-  footOnGroundDist: 0.4
   footMoveStopDist: 0.1
   rb: {fileID: 0}
 --- !u!1 &2140906134
@@ -75562,7 +75923,7 @@ Transform:
   - {fileID: 3745622627630787608}
   - {fileID: 1343470613}
   m_Father: {fileID: 0}
-  m_RootOrder: 39
+  m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!4 &543450653157637719
 Transform:
@@ -76535,7 +76896,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2724169625604061351, guid: 2531339069f751d46822c50a42e5227c, type: 3}
       propertyPath: m_RootOrder
-      value: 28
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: 2724169625604061351, guid: 2531339069f751d46822c50a42e5227c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -76993,7 +77354,7 @@ Transform:
   - {fileID: 618423549}
   - {fileID: 713705030}
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3565213247858275878
 GameObject:
