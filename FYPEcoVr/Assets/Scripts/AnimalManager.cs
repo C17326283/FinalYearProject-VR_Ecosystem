@@ -46,13 +46,14 @@ public class AnimalManager : MonoBehaviour
 
         //add components to animal
         collider = animalObj.AddComponent<BoxCollider>();
-        collider.size = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().bounds.size/2;
+        Vector3 colliderVector = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().bounds.size/2;
+        colliderVector.y = colliderVector.y / 2;//Half the height so it can have a body floating above ground and legs work liek springs
+        collider.size = colliderVector;
         bodyPositioner = animalObj.AddComponent<BodyRaycastPositioner>();
         if (core != null)
             bodyPositioner.core = core;
         rb = animalObj.AddComponent<Rigidbody>();
-        rb.useGravity = false;
-        rb.isKinematic = false;//true for testing but normally false
+        
         
         
         GravityAIMovement movementScript = animalObj.AddComponent<GravityAIMovement>();

@@ -117,6 +117,7 @@ public class FootRaycastPositioner : MonoBehaviour
 
     public void GetDesiredFootPosition(string axis)
     {
+        bool gotNewPos = false;
         if (axis == "Forward")//move back
         {
             //position the raycast start in the opposite direction of where foot currently is so get a balanced middle
@@ -126,6 +127,7 @@ public class FootRaycastPositioner : MonoBehaviour
             if (Physics.Raycast(raycastStart, -animalObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
             {
                 nextFootPos = hit.point;
+                gotNewPos = true;
                 //todo find a way to allow it to use mid/corner points not just exact positions of forward back left right. ie move forward left
             } 
             
@@ -140,6 +142,7 @@ public class FootRaycastPositioner : MonoBehaviour
             if (Physics.Raycast(raycastStart, -animalObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
             {
                 nextFootPos = hit.point;
+                gotNewPos = true;
             } 
         }
         if (axis == "Left")
@@ -150,6 +153,7 @@ public class FootRaycastPositioner : MonoBehaviour
             if (Physics.Raycast(raycastStart, -animalObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
             {
                 nextFootPos = hit.point;
+                gotNewPos = true;
             } 
         }
         else if (axis == "Right")//move left
@@ -160,8 +164,13 @@ public class FootRaycastPositioner : MonoBehaviour
             if (Physics.Raycast(raycastStart, -animalObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
             {
                 nextFootPos = hit.point;
+                gotNewPos = true;
             } 
         }
+        
+        //Set a default to straigth below if couldnt find foot pos
+        if (gotNewPos == false)
+            nextFootPos = animalObj.transform.position-(animalObj.transform.up * 20);
 
         nextFootPos = nextFootPos + (animalObj.transform.up * 0.1f);//put alightly above new point
     }

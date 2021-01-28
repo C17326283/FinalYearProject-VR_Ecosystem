@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody)),RequireComponent(typeof(Collider))]
 public class GravityAIMovement : MonoBehaviour
 {
     public GameObject core;
@@ -10,20 +11,37 @@ public class GravityAIMovement : MonoBehaviour
     public Vector3 groundNormal;
     public float moveSpeed = 50;
     public GameObject target;
+
+    public bool hasPlanetGravity = true;
+    public bool hasUpForce = true;
+    public float upMultiplier = 2f;
+    public Vector3 gravityDir;
     
     // Start is called before the first frame update
     void Start()
     {
+        hasPlanetGravity = true;
+        if(core == null)
+            core = GameObject.Find("Core");
         //core = GameObject.Find("Core");
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        gravityStrength = 100;
-        moveSpeed = 0.2f;//temp, assigned by stats in future
+        moveSpeed = 0.02f;//temp, assigned by stats in future
+        gravityStrength = 200;
+        upMultiplier = 30;
+
+
+        rb.mass = 10;
+        rb.drag = 2;
+        rb.angularDrag = 2;
+        rb.useGravity = false;
+        rb.isKinematic = false;//true for testing but normally false
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
+        /*
 
         //Get ground position
         RaycastHit hit = new RaycastHit();
@@ -33,14 +51,30 @@ public class GravityAIMovement : MonoBehaviour
             groundNormal = hit.normal;
         }
 
+*/
         //Add gravity down
-        Vector3 gravityDir = (transform.position - core.transform.position).normalized;
-        rb.AddForce(gravityDir*-gravityStrength);
-
-        if (target!= null && Vector3.Distance(this.transform.position, target.transform.position) > 2.0f)
+        if (hasPlanetGravity)
         {
-            transform.LookAt(target.transform, gravityDir);
-            MoveForward();
+            gravityDir = (transform.position - core.transform.position).normalized;
+
+            if (hasUpForce)
+            {
+                ApplyUpForce();
+            }
+            rb.AddForce(gravityDir * -gravityStrength);
+
+            if (target != null && Vector3.Distance(this.transform.position, target.transform.position) > 4.0f)
+            {
+                if (hasPlanetGravity)
+                {
+                    transform.LookAt(target.transform, gravityDir);
+                    MoveForward();
+                }
+            }
+            else
+            {
+                OrientWithoutTarget();
+            }
         }
     }
 
@@ -49,15 +83,32 @@ public class GravityAIMovement : MonoBehaviour
         
         transform.Translate(0,0,moveSpeed);
     }
-    
-    public void LookAtTarget()
+
+    public void ApplyUpForce()
     {
-        Vector3 targetPostition = new Vector3( this.transform.position.x, target.transform.position.x, this.transform.position.z ) ;
-        this.transform.LookAt( targetPostition ) ;
-        
-        Quaternion toRotation = Quaternion.LookRotation(target.transform.position);
-        transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, 10 * Time.deltaTime);
+        RaycastHit hit;
+        if (Physics.Raycast(this.transform.position, -gravityDir, out hit,50f))
+        {
+            float upForce = 0;
+            upForce = Mathf.Abs(1 / (hit.point.y - transform.position.y));
+            rb.AddForceAtPosition(gravityDir * upForce*upMultiplier,transform.position,ForceMode.Acceleration);
+
+        }
     }
+
     
+    public void OrientWithoutTarget()
+    {
+        //Get ground position
+        RaycastHit hit = new RaycastHit();
+        if (Physics.Raycast(transform.position, -transform.up, out hit))
+        {
+            Debug.DrawRay(transform.position, -transform.up, Color.green);
+            groundNormal = hit.normal;
+            
+            Quaternion toRotation = Quaternion.FromToRotation(transform.up,groundNormal)*transform.rotation;
+            transform.rotation = Quaternion.Lerp(transform.rotation,toRotation,1f);
+        }
+    }
     
 }
