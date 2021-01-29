@@ -5,20 +5,26 @@ using UnityEngine;
 public class SpineNew : MonoBehaviour {
     public List<Vector3> offsets = new List<Vector3>();
     public List<Transform> spineContainers = new List<Transform>();
-    //public List<Transform> children = new List<Transform>();
     
     public GameObject head;
     private GameObject armatureBase;//one above head
-    
-    
-    
-    public float damping = 10.0f;
+
+    public float damping = 20.0f;
 
     private GameObject spinesHolder;
 
     // Use this for initialization
     void Start()
     {
+        /*Problem with this causing initialise to run twice even if no head
+        if (head != null)
+            InitializeSpine();//else if will be called from the animal manager
+        */
+    }
+
+    public void InitializeSpine()
+    {
+        print("InitializeSpine()");
         armatureBase = head.transform.parent.gameObject;
         if (spinesHolder == null)
         {
@@ -31,9 +37,8 @@ public class SpineNew : MonoBehaviour {
 
         GetSpineObjRecursively(head);
         
-        
-        
-        
+
+
         // This iterates through all the children transforms
         for (int i = 0; i < spineContainers.Count; i++)
         {
@@ -51,40 +56,27 @@ public class SpineNew : MonoBehaviour {
         }
         
         MatchLegsToSpine();
-        /*
-        for (int i = 0; i < spinesHolder.transform.childCount; i++)
-        {
-            Transform current = spinesHolder.transform.GetChild(i);
-            if (i > 0)
-            {
-                Transform prev = spinesHolder.transform.GetChild(i - 1);
-                // Offset from previous to current
-                Vector3 offset = current.transform.position - prev.transform.position; 
-                
-                // Rotating from world back to local
-                offset = Quaternion.Inverse(prev.transform.rotation) * offset;
-                offsets.Add(offset);                
-            }            
-            children.Add(current);
-        }
-        */
     }
 
-    public void GetSpineObjRecursively(GameObject obj)
+    public void GetSpineObjRecursively(GameObject head)
     {
-        MakeSpineObjHolder(obj);
 
-        foreach (Transform child in obj.transform)//expect only one or 0 children but foreach works better
+        Transform[] spineObjs =  head.GetComponentsInChildren<Transform>();
+        print(spineObjs);
+        
+        foreach (Transform spineObj in spineObjs)//expect only one or 0 children but foreach works better
         {
-            GetSpineObjRecursively(child.gameObject);
+            print(spineObj.transform.name);
+            MakeSpineObjHolder(spineObj.gameObject);
         }
     }
 
 
+    //Make a blank object where this one is so the conatiner can follow prev object but maintain rotatation of bone
     public void MakeSpineObjHolder(GameObject spineObj)
     {
-        
-        GameObject spineContainer = new GameObject("Spine"+spineContainers.Count+" container");
+        //print("make obj holder"+spineObj.transform.name);
+        GameObject spineContainer = new GameObject("Spine"+spineContainers.Count+" container"+"for"+spineObj.transform.name);
         spineContainer.transform.position = spineObj.transform.position;
         spineContainer.transform.parent = spinesHolder.transform;
         
@@ -103,11 +95,13 @@ public class SpineNew : MonoBehaviour {
         foreach (Transform child in armatureBase.transform)
         {
             allLimbs.Add(child);
+            if(child.transform.tag == "Head")
+                print("Headfound in childArmature");
         }
 
         foreach (Transform limb in allLimbs)
         {
-            print("limb"+limb);
+//            print("limb"+limb);
             float closestCont = 999999f;
             foreach (var spineContainer in spineContainers)
             {
@@ -127,8 +121,10 @@ public class SpineNew : MonoBehaviour {
     }
     
     
+    
     // Update is called once per frame
-    void Update () {
+    void Update ()
+    {
         
         
         for (int i = 1; i < spineContainers.Count; i++)
@@ -147,6 +143,7 @@ public class SpineNew : MonoBehaviour {
             //uses containers to preserve the natural bone rotations so containers match the head
             current.rotation = Quaternion.Slerp(current.rotation, prev.rotation, Time.deltaTime * damping);
         }
+        
         
     }
     

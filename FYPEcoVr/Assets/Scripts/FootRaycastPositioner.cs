@@ -19,7 +19,7 @@ public class FootRaycastPositioner : MonoBehaviour
     public float lerpSpeed = 15;
     public bool hasOffset = false;
     //public float timeOffset = 0.0f;
-    public GameObject animalObj;//for using for forward direction of whole animal
+    public GameObject forwardFacingObj;//for using for forward direction of whole animal
     public float footHeightMult = 1;
     public bool footAtPosition = true;
     public FootRaycastPositioner otherFootRaycastPositioner;
@@ -38,14 +38,13 @@ public class FootRaycastPositioner : MonoBehaviour
     {
         layerMask = 1 << 8;//THis is bit shifting layer 8 so that only hit colliders on layer 8
         //animalObj = this.GetComponentInParent<CreatureStats>().gameObject;//get the first obj going up in hierarchy with animal stats script
-        transform.rotation = animalObj.transform.rotation;
+        transform.rotation = forwardFacingObj.transform.rotation;
 
         //Make target if none exists, better to do this way anyways
         if (footIKTargetObj == null)
         {
-            footIKTargetObj = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            footIKTargetObj.transform.name = "FootTargetObj";
-            footIKTargetObj.transform.localScale = footIKTargetObj.transform.localScale * 0.01f;
+            footIKTargetObj = new GameObject("FootTargetObj");
+            //footIKTargetObj.transform.localScale = footIKTargetObj.transform.localScale * 0.01f;
             footIKTargetObj.transform.parent = transform.root; //Set it to highest level parent as they need to move independently
         }
 
@@ -54,9 +53,9 @@ public class FootRaycastPositioner : MonoBehaviour
 
         //just shoot rays to figure out where to put feet at start
         RaycastHit hit;//hit information
-        if (Physics.Raycast(transform.position+new Vector3(0,20,0), -animalObj.transform.up, out hit, 30,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
+        if (Physics.Raycast(transform.position+new Vector3(0,20,0), -forwardFacingObj.transform.up, out hit, 30,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
         {
-            Debug.DrawLine(transform.position, -animalObj.transform.up * hit.distance, Color.red);//For testing
+            Debug.DrawLine(transform.position, -forwardFacingObj.transform.up * hit.distance, Color.red);//For testing
             footIKTargetObj.transform.position = hit.point;
             nextFootPos = hit.point;
         }
@@ -67,7 +66,7 @@ public class FootRaycastPositioner : MonoBehaviour
     {
         //todo make the lerpspeed and stepdistance increase along with movespped, if animal is running they stides get bigger and feet are faster
         //footIKPositionObj.transform.rotation = animalObj.transform.rotation;
-        footIKTargetObj.transform.forward = animalObj.transform.forward;
+        footIKTargetObj.transform.forward = forwardFacingObj.transform.forward;
         
         //find differences on specific axis
         Vector3 axisDifferences = this.transform.InverseTransformPoint(footIKTargetObj.transform.position);
@@ -124,7 +123,7 @@ public class FootRaycastPositioner : MonoBehaviour
             Vector3 raycastStart = transform.position + (transform.forward*-(forwardStepDist/4)) + new Vector3(0,5,0);//put x distance behind,
             
             RaycastHit hit;//hit information
-            if (Physics.Raycast(raycastStart, -animalObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
+            if (Physics.Raycast(raycastStart, -forwardFacingObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
             {
                 nextFootPos = hit.point;
                 gotNewPos = true;
@@ -136,10 +135,10 @@ public class FootRaycastPositioner : MonoBehaviour
         }
         else if (axis == "Behind")
         {
-            Vector3 raycastStart = transform.position +(animalObj.transform.forward*(forwardStepDist/4))+ new Vector3(0,5,0);//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
+            Vector3 raycastStart = transform.position +(forwardFacingObj.transform.forward*(forwardStepDist/4))+ new Vector3(0,5,0);//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
 
             RaycastHit hit;//hit information
-            if (Physics.Raycast(raycastStart, -animalObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
+            if (Physics.Raycast(raycastStart, -forwardFacingObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
             {
                 nextFootPos = hit.point;
                 gotNewPos = true;
@@ -147,10 +146,10 @@ public class FootRaycastPositioner : MonoBehaviour
         }
         if (axis == "Left")
         {
-            Vector3 raycastStart = transform.position +(animalObj.transform.right*(sideStepDist/4))+ new Vector3(0,5,0);//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
+            Vector3 raycastStart = transform.position +(forwardFacingObj.transform.right*(sideStepDist/4))+ new Vector3(0,5,0);//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
 
             RaycastHit hit;//hit information
-            if (Physics.Raycast(raycastStart, -animalObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
+            if (Physics.Raycast(raycastStart, -forwardFacingObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
             {
                 nextFootPos = hit.point;
                 gotNewPos = true;
@@ -158,10 +157,10 @@ public class FootRaycastPositioner : MonoBehaviour
         }
         else if (axis == "Right")//move left
         {
-            Vector3 raycastStart = transform.position +(animalObj.transform.right*-(sideStepDist/4))+ new Vector3(0,5,0);//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
+            Vector3 raycastStart = transform.position +(forwardFacingObj.transform.right*-(sideStepDist/4))+ new Vector3(0,5,0);//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
 
             RaycastHit hit;//hit information
-            if (Physics.Raycast(raycastStart, -animalObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
+            if (Physics.Raycast(raycastStart, -forwardFacingObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
             {
                 nextFootPos = hit.point;
                 gotNewPos = true;
@@ -170,9 +169,9 @@ public class FootRaycastPositioner : MonoBehaviour
         
         //Set a default to straigth below if couldnt find foot pos
         if (gotNewPos == false)
-            nextFootPos = animalObj.transform.position-(animalObj.transform.up * 20);
+            nextFootPos = forwardFacingObj.transform.position-(forwardFacingObj.transform.up * 20);
 
-        nextFootPos = nextFootPos + (animalObj.transform.up * 0.1f);//put alightly above new point
+        nextFootPos = nextFootPos + (forwardFacingObj.transform.up * 0.1f);//put alightly above new point
     }
 
     

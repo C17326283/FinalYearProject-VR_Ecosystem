@@ -68,7 +68,7 @@ public class BodyRaycastPositioner : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(positionerMeasuringObj.transform.position, core.transform.position, out hit, raydistance,layerMask))
         {
-            Debug.Log("corePositioning");
+//            Debug.Log("corePositioning");
             Vector3 transformPosition = bodyObj.transform.position;
             if (hit.distance != heightDistance)//is too low so go higher
             {

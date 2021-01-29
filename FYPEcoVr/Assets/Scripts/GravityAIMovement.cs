@@ -28,7 +28,7 @@ public class GravityAIMovement : MonoBehaviour
         rb.freezeRotation = true;
         moveSpeed = 0.02f;//temp, assigned by stats in future
         gravityStrength = 200;
-        upMultiplier = 30;
+        upMultiplier = 100;
 
 
         rb.mass = 10;

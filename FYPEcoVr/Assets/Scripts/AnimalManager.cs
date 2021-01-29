@@ -22,6 +22,8 @@ public class AnimalManager : MonoBehaviour
     public List<FootRaycastPositioner> feetPositioners;//for linking legs together
 
     public GameObject core;
+
+    public GameObject movementOrigin;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,21 +45,7 @@ public class AnimalManager : MonoBehaviour
         animalObj.transform.parent = this.transform;
         animalObj.transform.position = this.transform.position;
         animalObj.tag = animalData.Tag;
-
-        //add components to animal
-        collider = animalObj.AddComponent<BoxCollider>();
-        Vector3 colliderVector = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().bounds.size/2;
-        colliderVector.y = colliderVector.y / 2;//Half the height so it can have a body floating above ground and legs work liek springs
-        collider.size = colliderVector;
-        bodyPositioner = animalObj.AddComponent<BodyRaycastPositioner>();
-        if (core != null)
-            bodyPositioner.core = core;
-        rb = animalObj.AddComponent<Rigidbody>();
         
-        
-        
-        GravityAIMovement movementScript = animalObj.AddComponent<GravityAIMovement>();
-        movementScript.core = core;
         
         
         //make array of all child objects and check bones for correct ones
@@ -68,17 +56,43 @@ public class AnimalManager : MonoBehaviour
             if(childBone.CompareTag("Head"))//find the head and end of the legs of the animals
             {
                 head = childBone.gameObject;
+                
+                //Done here because the head is needed to make spine and position legs
+                SpineNew SpineScript = animalObj.AddComponent<SpineNew>();
+                SpineScript.head = head;
+                SpineScript.InitializeSpine();
+                movementOrigin = head.transform.parent.gameObject;//set in spinescript to control head so need this to have the rigidbody to allow spine animation;
             }
             else if(childBone.CompareTag("Leg"))
             {
                 feet.Add(childBone.gameObject);
-
-                SetUpFootPositioner(childBone);
-
             }
         }
+
+        foreach (var foot in feet)
+        {
+            //Needs to have found a head first to be successfull
+            SetUpFootPositioner(foot.transform);
+        }
+
+        //add components to animal and position it to center of mass
+        collider = movementOrigin.AddComponent<BoxCollider>();
+        Vector3 meshBounds = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().bounds.size;
+
+        //move the collider back to the body even though we need it attached to the head
+        collider.center = (animalObj.transform.position -movementOrigin.transform.position)+Vector3.up;//a bit higher so legs can have sprign without collider hitting ground
         
+        //edit the bounds to be smaller and reasign
+        meshBounds = meshBounds / 2;
+        meshBounds.y = meshBounds.y / 3;//Half the height so it can have a body floating above ground and legs work liek springs
         
+        collider.size = meshBounds;
+        
+        /*
+        bodyPositioner = animalObj.AddComponent<BodyRaycastPositioner>();
+        if (core != null)
+            bodyPositioner.core = core;
+            
         //Make the positioning objects
         bodyPositioner.positionerMeasuringObj = new GameObject("front positioner");
         bodyPositioner.positionerMeasuringObj.transform.parent = animalObj.transform;
@@ -86,6 +100,16 @@ public class AnimalManager : MonoBehaviour
         bodyPositioner.backRotFixingObj = new GameObject("back positioner");
         bodyPositioner.backRotFixingObj.transform.parent = animalObj.transform;
         bodyPositioner.backRotFixingObj.transform.position = animalObj.transform.position - transform.forward;
+        */
+        rb = movementOrigin.AddComponent<Rigidbody>();
+        
+        
+        
+        GravityAIMovement movementScript = movementOrigin.AddComponent<GravityAIMovement>();
+        movementScript.core = core;
+        
+        
+        
 
         /*
         taskManager = animalObj.AddComponent<NewTaskManager>();
@@ -217,31 +241,31 @@ public class AnimalManager : MonoBehaviour
         animalData.forwardWanderBias = Mathf.Clamp(Random.Range(animalData.forwardWanderBias-percentDif, animalData.forwardWanderBias+percentDif), 0, 30);
     }
 
-    void SetUpFootPositioner(Transform childBone)
+    void SetUpFootPositioner(Transform foot)
     {
         //Make the foot positioner stuff for inverse kinematics
-        FastIKFabric ikScript = childBone.gameObject.AddComponent<FastIKFabric>();
+        FastIKFabric ikScript = foot.gameObject.AddComponent<FastIKFabric>();
         
-        GameObject footPositioner = new GameObject("FootPositioner_"+childBone.name);
-        footPositioner.transform.parent = animalObj.transform;
-        footPositioner.transform.position = childBone.transform.position;//+(-animalObj.transform.forward*0.5f)
+        GameObject footPositioner = new GameObject("FootPositioner_"+foot.name);
+        footPositioner.transform.parent = movementOrigin.transform;//todo try set to the spinecontainer of this leg
+        footPositioner.transform.position = foot.transform.position;//+(-animalObj.transform.forward*0.5f)
         FootRaycastPositioner footScript = footPositioner.AddComponent<FootRaycastPositioner>();
         feetPositioners.Add(footScript);
 
-        footScript.endBoneObj = childBone.gameObject;
-        footScript.animalObj = animalObj.gameObject;
+        footScript.endBoneObj = foot.gameObject;
+        footScript.forwardFacingObj = movementOrigin.gameObject;
         
-        GameObject ikPole = new GameObject("ikPole_"+childBone.name);
-        ikPole.transform.parent = animalObj.transform;
+        GameObject ikPole = new GameObject("ikPole_"+foot.name);
+        ikPole.transform.parent = movementOrigin.transform;
         ikPole.transform.position = footPositioner.transform.position+(-footPositioner.transform.forward * 10)+(footPositioner.transform.up * 2);
         ikScript.Pole = ikPole.transform;
         //footScript.footIKPositionObj = childBone.gameObject;
         
         //Match the legs so not walking with both feet off the ground
-        if (feet.Count % 2 == 0) //Then an even leg number, we can assume it will get the front 2 legs first, this leg is added before function runs
+        if (feetPositioners.Count % 2 == 0) //Then an even leg number, we can assume it will get the front 2 legs first, this leg is added before function runs
         {
-            footScript.otherFootRaycastPositioner = feetPositioners[feet.Count - 2];
-            feetPositioners[feet.Count - 2].otherFootRaycastPositioner = footScript;
+            footScript.otherFootRaycastPositioner = feetPositioners[feetPositioners.Count - 2];
+            feetPositioners[feetPositioners.Count - 2].otherFootRaycastPositioner = footScript;
             footScript.hasOffset = true;
         }
     }

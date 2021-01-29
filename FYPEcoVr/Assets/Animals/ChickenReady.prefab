@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2513775118956615422}
   m_Layer: 0
-  m_Name: Chicken 1
+  m_Name: ChickenReady
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,6 +99,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2480909740878747892, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905609870639353253, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
       propertyPath: m_TagString
       value: Head
       objectReference: {fileID: 0}

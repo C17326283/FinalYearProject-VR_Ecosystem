@@ -443,6 +443,7 @@ MonoBehaviour:
   feet: []
   feetPositioners: []
   core: {fileID: 0}
+  movementOrigin: {fileID: 0}
 --- !u!4 &55376002
 Transform:
   m_ObjectHideFlags: 0
@@ -671,7 +672,7 @@ MonoBehaviour:
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 0
-  animalObj: {fileID: 393696512}
+  forwardFacingObj: {fileID: 0}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 748962728}
@@ -717,6 +718,7 @@ MonoBehaviour:
   feet: []
   feetPositioners: []
   core: {fileID: 0}
+  movementOrigin: {fileID: 0}
 --- !u!4 &223749239
 Transform:
   m_ObjectHideFlags: 0
@@ -1193,7 +1195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &387138130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1216,6 +1218,7 @@ MonoBehaviour:
   feet: []
   feetPositioners: []
   core: {fileID: 0}
+  movementOrigin: {fileID: 0}
 --- !u!4 &387138131
 Transform:
   m_ObjectHideFlags: 0
@@ -2514,7 +2517,7 @@ MonoBehaviour:
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 1
-  animalObj: {fileID: 393696512}
+  forwardFacingObj: {fileID: 0}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 84981508}
@@ -3377,6 +3380,7 @@ MonoBehaviour:
   feet: []
   feetPositioners: []
   core: {fileID: 0}
+  movementOrigin: {fileID: 0}
 --- !u!4 &955595737
 Transform:
   m_ObjectHideFlags: 0
@@ -5028,7 +5032,7 @@ MonoBehaviour:
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 0
-  animalObj: {fileID: 393696512}
+  forwardFacingObj: {fileID: 0}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 1551189748}
@@ -5074,6 +5078,7 @@ MonoBehaviour:
   feet: []
   feetPositioners: []
   core: {fileID: 0}
+  movementOrigin: {fileID: 0}
 --- !u!4 &1537850471
 Transform:
   m_ObjectHideFlags: 0
@@ -5124,7 +5129,7 @@ MonoBehaviour:
   nextFootPos: {x: 5.7953014, y: 1.8217453e-16, z: -8.204411}
   lerpSpeed: 20
   hasOffset: 1
-  animalObj: {fileID: 393696512}
+  forwardFacingObj: {fileID: 0}
   footHeightMult: 2
   footAtPosition: 1
   otherFootRaycastPositioner: {fileID: 1529755684}
@@ -6598,6 +6603,7 @@ MonoBehaviour:
   feet: []
   feetPositioners: []
   core: {fileID: 0}
+  movementOrigin: {fileID: 0}
 --- !u!1001 &737159220500673166
 PrefabInstance:
   m_ObjectHideFlags: 0
