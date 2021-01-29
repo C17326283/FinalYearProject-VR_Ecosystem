@@ -104,20 +104,20 @@ MonoBehaviour:
   noiseLayers:
   - enabled: 1
     useFirstLayerAsMask: 1
-    strength: 0.01
-    roughness: 1.6
+    strength: 0.04
+    roughness: 2
     NumOfNoiseCycles: 10
-    persistance: 0.55
-    baseRoughness: 0.8
-    minValue: 0.8
+    persistance: 0.45
+    baseRoughness: 1.22
+    minValue: 0.6
     centre: {x: 0, y: 446.32, z: 0}
   - enabled: 1
     useFirstLayerAsMask: 1
-    strength: 0.4
-    roughness: 1
+    strength: 1.25
+    roughness: 1.2
     NumOfNoiseCycles: 10
-    persistance: 1.5
-    baseRoughness: 0.4
-    minValue: 6
+    persistance: 1.11
+    baseRoughness: 1.3
+    minValue: 1.3
     centre: {x: 0, y: 1.36, z: 0}
   havePoles: 1

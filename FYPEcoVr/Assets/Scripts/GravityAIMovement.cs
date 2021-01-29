@@ -14,8 +14,11 @@ public class GravityAIMovement : MonoBehaviour
 
     public bool hasPlanetGravity = true;
     public bool hasUpForce = true;
-    public float upMultiplier = 2f;
+    public float upBaseAmount = 100f;
+    public float upMultiplier = 16f;
     public Vector3 gravityDir;
+    public float stoppingDistance = 8;
+    public float animalHeight;
     
     // Start is called before the first frame update
     void Start()
@@ -28,12 +31,14 @@ public class GravityAIMovement : MonoBehaviour
         rb.freezeRotation = true;
         moveSpeed = 0.02f;//temp, assigned by stats in future
         gravityStrength = 200;
-        upMultiplier = 100;
 
 
         rb.mass = 10;
-        rb.drag = 2;
-        rb.angularDrag = 2;
+        rb.drag = 1;
+        rb.angularDrag = 1;
+        
+        
+
         rb.useGravity = false;
         rb.isKinematic = false;//true for testing but normally false
     }
@@ -63,7 +68,7 @@ public class GravityAIMovement : MonoBehaviour
             }
             rb.AddForce(gravityDir * -gravityStrength);
 
-            if (target != null && Vector3.Distance(this.transform.position, target.transform.position) > 4.0f)
+            if (target != null && Vector3.Distance(this.transform.position, target.transform.position) > stoppingDistance)
             {
                 if (hasPlanetGravity)
                 {
@@ -90,8 +95,9 @@ public class GravityAIMovement : MonoBehaviour
         if (Physics.Raycast(this.transform.position, -gravityDir, out hit,50f))
         {
             float upForce = 0;
-            upForce = Mathf.Abs(1 / (hit.point.y - transform.position.y));
-            rb.AddForceAtPosition(gravityDir * upForce*upMultiplier,transform.position,ForceMode.Acceleration);
+            upForce = Mathf.Abs(1 / ((hit.point.y - transform.position.y)));
+            //add upforce to fight gravity scaled to height of animal
+            rb.AddForceAtPosition(gravityDir * (upForce * upMultiplier*animalHeight),transform.position,ForceMode.Acceleration);
 
         }
     }
@@ -103,7 +109,7 @@ public class GravityAIMovement : MonoBehaviour
         RaycastHit hit = new RaycastHit();
         if (Physics.Raycast(transform.position, -transform.up, out hit))
         {
-            Debug.DrawRay(transform.position, -transform.up, Color.green);
+            Debug.DrawRay(transform.position, -transform.up, Color.gray);
             groundNormal = hit.normal;
             
             Quaternion toRotation = Quaternion.FromToRotation(transform.up,groundNormal)*transform.rotation;

@@ -24,7 +24,7 @@ public class SpineNew : MonoBehaviour {
 
     public void InitializeSpine()
     {
-        print("InitializeSpine()");
+//        print("InitializeSpine()");
         armatureBase = head.transform.parent.gameObject;
         if (spinesHolder == null)
         {
@@ -62,11 +62,11 @@ public class SpineNew : MonoBehaviour {
     {
 
         Transform[] spineObjs =  head.GetComponentsInChildren<Transform>();
-        print(spineObjs);
+//        print(spineObjs);
         
         foreach (Transform spineObj in spineObjs)//expect only one or 0 children but foreach works better
         {
-            print(spineObj.transform.name);
+//            print(spineObj.transform.name);
             MakeSpineObjHolder(spineObj.gameObject);
         }
     }

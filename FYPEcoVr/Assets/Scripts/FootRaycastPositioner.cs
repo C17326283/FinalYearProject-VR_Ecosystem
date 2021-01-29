@@ -13,8 +13,8 @@ public class FootRaycastPositioner : MonoBehaviour
     public GameObject footIKTargetObj;//the objects that the foot will stretch to, these are in the animal container not parented to animal itself
     //public GameObject tempNextPosObj;//point for moving the target foot positions to, allows lerping feat
     public GameObject endBoneObj;//bone at foot position or object that is child at foot position. Not always bone with Ik script so check parents
-    public float forwardStepDist = 1;
-    public float sideStepDist = .2f;
+    public float forwardStepDist = 1.4f;//todo set dynamically
+    public float sideStepDist = .6f;
     public Vector3 nextFootPos;
     public float lerpSpeed = 15;
     public bool hasOffset = false;

@@ -81,12 +81,12 @@ public class AnimalManager : MonoBehaviour
 
         //move the collider back to the body even though we need it attached to the head
         collider.center = (animalObj.transform.position -movementOrigin.transform.position)+Vector3.up;//a bit higher so legs can have sprign without collider hitting ground
-        
         //edit the bounds to be smaller and reasign
-        meshBounds = meshBounds / 2;
-        meshBounds.y = meshBounds.y / 3;//Half the height so it can have a body floating above ground and legs work liek springs
+        Vector3 newMeshBounds = meshBounds / 2;
         
-        collider.size = meshBounds;
+        newMeshBounds.y = newMeshBounds.y / 3;//Half the height so it can have a body floating above ground and legs work liek springs
+        
+        collider.size = newMeshBounds;
         
         /*
         bodyPositioner = animalObj.AddComponent<BodyRaycastPositioner>();
@@ -107,9 +107,11 @@ public class AnimalManager : MonoBehaviour
         
         GravityAIMovement movementScript = movementOrigin.AddComponent<GravityAIMovement>();
         movementScript.core = core;
-        
-        
-        
+        //get animal height so correct upforce can be applied
+        print(head.transform.position.y-feet[0].transform.position.y+","+animalObj.transform.name);
+        movementScript.animalHeight = head.transform.position.y-feet[0].transform.position.y;
+
+
 
         /*
         taskManager = animalObj.AddComponent<NewTaskManager>();
@@ -241,14 +243,14 @@ public class AnimalManager : MonoBehaviour
         animalData.forwardWanderBias = Mathf.Clamp(Random.Range(animalData.forwardWanderBias-percentDif, animalData.forwardWanderBias+percentDif), 0, 30);
     }
 
-    void SetUpFootPositioner(Transform foot)
+    void SetUpFootPositioner(Transform foot)//todo connect to bone not base obj
     {
         //Make the foot positioner stuff for inverse kinematics
         FastIKFabric ikScript = foot.gameObject.AddComponent<FastIKFabric>();
         
         GameObject footPositioner = new GameObject("FootPositioner_"+foot.name);
         footPositioner.transform.parent = movementOrigin.transform;//todo try set to the spinecontainer of this leg
-        footPositioner.transform.position = foot.transform.position;//+(-animalObj.transform.forward*0.5f)
+        footPositioner.transform.position = foot.transform.position+(footPositioner.transform.forward);//+(-animalObj.transform.forward*0.5f)
         FootRaycastPositioner footScript = footPositioner.AddComponent<FootRaycastPositioner>();
         feetPositioners.Add(footScript);
 

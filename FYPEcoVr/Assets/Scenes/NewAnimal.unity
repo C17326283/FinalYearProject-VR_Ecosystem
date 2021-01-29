@@ -314,6 +314,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10412238}
   m_CullTransparentMesh: 0
+--- !u!1 &27602259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 27602261}
+  - component: {fileID: 27602260}
+  m_Layer: 0
+  m_Name: ' An1 (6)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &27602260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27602259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6b2fec86973d44a891440051ade92d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalData: {fileID: 11400000, guid: 37b47e6228fae784d8b77270fc285e42, type: 2}
+  animalObj: {fileID: 0}
+  taskManager: {fileID: 0}
+  collider: {fileID: 0}
+  bodyPositioner: {fileID: 0}
+  rb: {fileID: 0}
+  head: {fileID: 0}
+  feet: []
+  feetPositioners: []
+  core: {fileID: 0}
+  movementOrigin: {fileID: 0}
+--- !u!4 &27602261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27602259}
+  m_LocalRotation: {x: 0.11325745, y: -0.35329574, z: 0.043155786, w: 0.9276273}
+  m_LocalPosition: {x: 2854.9, y: 1595.9, z: -21.7}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &42605099
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,6 +1010,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8179af335b0337e4f8ecd55458dad529, type: 3}
+--- !u!1 &304593452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 304593454}
+  - component: {fileID: 304593453}
+  m_Layer: 0
+  m_Name: ' An1 (7)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &304593453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304593452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6b2fec86973d44a891440051ade92d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalData: {fileID: 11400000, guid: 90cc2ec8d2ab72541b5dff655ba83a30, type: 2}
+  animalObj: {fileID: 0}
+  taskManager: {fileID: 0}
+  collider: {fileID: 0}
+  bodyPositioner: {fileID: 0}
+  rb: {fileID: 0}
+  head: {fileID: 0}
+  feet: []
+  feetPositioners: []
+  core: {fileID: 0}
+  movementOrigin: {fileID: 0}
+--- !u!4 &304593454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304593452}
+  m_LocalRotation: {x: 0.11325745, y: -0.35329574, z: 0.043155786, w: 0.9276273}
+  m_LocalPosition: {x: 2783.01, y: 1594.27, z: -64.08}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &306131433
 GameObject:
   m_ObjectHideFlags: 0
@@ -4808,8 +4916,11 @@ MonoBehaviour:
   target: {fileID: 0}
   hasPlanetGravity: 1
   hasUpForce: 1
+  upBaseAmount: 100
   upMultiplier: 2
   gravityDir: {x: 0, y: 0, z: 0}
+  stoppingDistance: 0
+  animalHeight: 0
 --- !u!54 &1425384391
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5908,8 +6019,11 @@ MonoBehaviour:
   target: {fileID: 66961635}
   hasPlanetGravity: 0
   hasUpForce: 0
+  upBaseAmount: 100
   upMultiplier: 2
   gravityDir: {x: 0, y: 0, z: 0}
+  stoppingDistance: 0
+  animalHeight: 0
 --- !u!54 &1829815485
 Rigidbody:
   m_ObjectHideFlags: 0
