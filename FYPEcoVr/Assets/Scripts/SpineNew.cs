@@ -9,7 +9,7 @@ public class SpineNew : MonoBehaviour {
     public GameObject head;
     private GameObject armatureBase;//one above head
 
-    public float damping = 20.0f;
+    public float damping = 30.0f;
 
     private GameObject spinesHolder;
 

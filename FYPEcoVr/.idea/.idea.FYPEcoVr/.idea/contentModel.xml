@@ -118,6 +118,7 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="AnBoidMove.cs" t="Include" />
           <e p="AnimalManager.cs" t="Include" />
           <e p="BodyRaycastPositioner.cs" t="Include" />
           <e p="CreatureMovement.cs" t="Include" />
@@ -133,6 +134,7 @@
           <e p="NavTest.cs" t="Include" />
           <e p="NewTaskManager.cs" t="Include" />
           <e p="PlanetGeneration" t="Include">
+            <e p="AnimalsSpawner.cs" t="Include" />
             <e p="ColourGenerator.cs" t="Include" />
             <e p="FakeGravity.cs" t="Include" />
             <e p="Noise.cs" t="Include" />

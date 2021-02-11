@@ -99,7 +99,7 @@ public class FootRaycastPositioner : MonoBehaviour
             if (otherFootRaycastPositioner.footAtPosition == true || (otherFootRaycastPositioner.footAtPosition == false && this.footAtPosition == false))
             {
                 footAtPosition = false;//has started moving to next position so set to false and only becomes true if gets close enough to next position
-                footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos+(footIKTargetObj.transform.up*footLift), lerpSpeed * Time.deltaTime);
+                footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos+(forwardFacingObj.transform.up*footLift), lerpSpeed * Time.deltaTime);
             }
         }
         else
@@ -120,7 +120,7 @@ public class FootRaycastPositioner : MonoBehaviour
         if (axis == "Forward")//move back
         {
             //position the raycast start in the opposite direction of where foot currently is so get a balanced middle
-            Vector3 raycastStart = transform.position + (transform.forward*-(forwardStepDist/4)) + new Vector3(0,5,0);//put x distance behind,
+            Vector3 raycastStart = transform.position + (forwardFacingObj.transform.forward*-(forwardStepDist/4)) + (forwardFacingObj.transform.up*5);//put x distance behind,
             
             RaycastHit hit;//hit information
             if (Physics.Raycast(raycastStart, -forwardFacingObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
@@ -135,7 +135,7 @@ public class FootRaycastPositioner : MonoBehaviour
         }
         else if (axis == "Behind")
         {
-            Vector3 raycastStart = transform.position +(forwardFacingObj.transform.forward*(forwardStepDist/4))+ new Vector3(0,5,0);//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
+            Vector3 raycastStart = transform.position +(forwardFacingObj.transform.forward*(forwardStepDist/4))+ (forwardFacingObj.transform.up*5);//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
 
             RaycastHit hit;//hit information
             if (Physics.Raycast(raycastStart, -forwardFacingObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
@@ -146,7 +146,7 @@ public class FootRaycastPositioner : MonoBehaviour
         }
         if (axis == "Left")
         {
-            Vector3 raycastStart = transform.position +(forwardFacingObj.transform.right*(sideStepDist/4))+ new Vector3(0,5,0);//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
+            Vector3 raycastStart = transform.position +(forwardFacingObj.transform.right*(sideStepDist/4))+ (forwardFacingObj.transform.up*5);//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
 
             RaycastHit hit;//hit information
             if (Physics.Raycast(raycastStart, -forwardFacingObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
@@ -157,7 +157,7 @@ public class FootRaycastPositioner : MonoBehaviour
         }
         else if (axis == "Right")//move left
         {
-            Vector3 raycastStart = transform.position +(forwardFacingObj.transform.right*-(sideStepDist/4))+ new Vector3(0,5,0);//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
+            Vector3 raycastStart = transform.position +(forwardFacingObj.transform.right*-(sideStepDist/4))+ (forwardFacingObj.transform.up*5);//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
 
             RaycastHit hit;//hit information
             if (Physics.Raycast(raycastStart, -forwardFacingObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer

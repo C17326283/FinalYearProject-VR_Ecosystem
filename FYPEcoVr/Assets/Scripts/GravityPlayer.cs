@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class GravityPlayer : MonoBehaviour
     public float gravityStrength = 100;
     public Vector3 groundNormal;
     public float moveSpeed = 50;
+    public Vector3 gravityDir;
     
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,22 @@ public class GravityPlayer : MonoBehaviour
         core = GameObject.Find("Core");
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+    }
+
+    private void OnEnable()
+    {
+        core = GameObject.Find("Core");
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
+        
+        gravityDir = (transform.position - core.transform.position).normalized;
+        RaycastHit hit = new RaycastHit();
+        if (Physics.Raycast(transform.position, -gravityDir, out hit, 100))
+        {
+            print("pos");
+            transform.position = hit.point + (gravityDir * 5);
+        }
     }
 
     // Update is called once per frame
@@ -50,7 +68,7 @@ public class GravityPlayer : MonoBehaviour
             groundNormal = hit.normal;
         }
 
-        Vector3 gravityDir = (transform.position - core.transform.position).normalized;
+        gravityDir = (transform.position - core.transform.position).normalized;
         rb.AddForce(gravityDir*-gravityStrength);
         
         Quaternion toRotation = Quaternion.FromToRotation(transform.up,groundNormal)*transform.rotation;

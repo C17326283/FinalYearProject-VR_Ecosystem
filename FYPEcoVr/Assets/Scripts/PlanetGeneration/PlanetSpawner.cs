@@ -219,6 +219,10 @@ public class PlanetSpawner : MonoBehaviour
                 sp.planetObject = this.gameObject;
                 sp.TriggerSpawn();
             }
+            else if (spawnerObj.GetComponent<AnimalsSpawner>() != null)
+            {
+                spawnerObj.GetComponent<AnimalsSpawner>().TriggerSpawn();
+            }
         }
         //add atmosphere
         GameObject atmosphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
@@ -227,6 +231,8 @@ public class PlanetSpawner : MonoBehaviour
         atmosphere.GetComponent<Renderer>().material = atmosphereMat;
         atmosphere.layer = 8;//atmosphere layer for reverse lighting
         FlipNormals(atmosphere);
+        GameObject core = new GameObject("Core");
+
     }
 
     //Make a different center point for the noise, this makes different terrain with all the same settings

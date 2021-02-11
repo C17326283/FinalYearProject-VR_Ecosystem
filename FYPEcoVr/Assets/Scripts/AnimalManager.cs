@@ -24,14 +24,17 @@ public class AnimalManager : MonoBehaviour
     public GameObject core;
 
     public GameObject movementOrigin;
+
+    public bool initialiseOnStart = false;
     // Start is called before the first frame update
     void Start()
     {
-        InitialiseAnimal();
+        //if(initialiseOnStart) 
+            InitialiseAnimal();
 
     }
 
-    void InitialiseAnimal()
+    public void InitialiseAnimal()
     {
         core = GameObject.Find("Core");
         
@@ -46,7 +49,8 @@ public class AnimalManager : MonoBehaviour
         animalObj.transform.position = this.transform.position;
         animalObj.tag = animalData.Tag;
         
-        
+        feet = new List<GameObject> ();
+        feetPositioners = new List<FootRaycastPositioner> ();
         
         //make array of all child objects and check bones for correct ones
         Transform[] allChildObjects = GetComponentsInChildren<Transform>();
@@ -65,7 +69,9 @@ public class AnimalManager : MonoBehaviour
             }
             else if(childBone.CompareTag("Leg"))
             {
-                feet.Add(childBone.gameObject);
+                print(childBone.transform.name);
+                print(feet);
+                feet.Add(childBone.transform.gameObject);
             }
         }
 
@@ -102,14 +108,26 @@ public class AnimalManager : MonoBehaviour
         bodyPositioner.backRotFixingObj.transform.position = animalObj.transform.position - transform.forward;
         */
         rb = movementOrigin.AddComponent<Rigidbody>();
-        
-        
-        
+        rb.freezeRotation = true;
+        rb.useGravity = false;
+        rb.mass = 10;
+        rb.drag = 1;
+        rb.angularDrag = 1;
+
+
+
+
+        /*
         GravityAIMovement movementScript = movementOrigin.AddComponent<GravityAIMovement>();
         movementScript.core = core;
         //get animal height so correct upforce can be applied
         print(head.transform.position.y-feet[0].transform.position.y+","+animalObj.transform.name);
         movementScript.animalHeight = head.transform.position.y-feet[0].transform.position.y;
+        */
+        AnBoidMove movementScript = movementOrigin.AddComponent<AnBoidMove>();
+        movementScript.core = core;
+        movementScript.animalHeight = head.transform.position.y-feet[0].transform.position.y;
+        movementScript.desiredHeight =movementScript.animalHeight;
 
 
 
