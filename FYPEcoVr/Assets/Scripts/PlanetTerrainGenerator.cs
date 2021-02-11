@@ -5,7 +5,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 //The alctual core object
-public class Planet : MonoBehaviour
+public class PlanetTerrainGenerator : MonoBehaviour
 {
 
     //settings to pull from for generation
@@ -26,6 +26,14 @@ public class Planet : MonoBehaviour
     public TerrainMinMaxHeights elevationMinMax;//for getting the highest and lowest points
     public GameObject[] biomeObjs;//4 object fro being placed around globe
 
+    //Call the functions needed for planet
+    public void GeneratePlanet()
+    {
+        Create();
+        GenerateMesh();
+        GenerateColours();//turn this back on, its just annoying for editing
+        
+    }
 
     //Make all the faces and filters if they arent already or update them if they are
     void Create()
@@ -61,6 +69,8 @@ public class Planet : MonoBehaviour
                 waterObj.transform.position = transform.position;
                 meshObj.transform.tag = "Ground";//for letting the spawners hit it
                 waterObj.transform.tag = "Water";
+                meshObj.layer = 8;
+                waterObj.layer = 8;//set environment for feetpositioner raycast to 
             
                 meshObj.AddComponent<MeshRenderer>();
                 waterObj.AddComponent<MeshRenderer>();
@@ -84,15 +94,7 @@ public class Planet : MonoBehaviour
             waterFaces[i] = new TerrainFace(waterMeshFilters[i].sharedMesh,planetSettings.res,directions[i],elevationMinMax, planetSettings,false);
         }
     }
-
-    //Call the functions needed for planet
-    public void GeneratePlanet()
-    {
-        Create();
-        GenerateMesh();
-        GenerateColours();//turn this back on, its just annoying for editing
-        
-    }
+    
     
     //Make mesh from all terrain faces
     void GenerateMesh()

@@ -88,7 +88,7 @@ public class AnimalsSpawner : MonoBehaviour
 
 
                     print(newObj.transform.position);
-                    //manager.InitialiseAnimal();
+                    manager.InitialiseAnimal();
                 }
             }
             else

@@ -30,6 +30,7 @@ public class FootRaycastPositioner : MonoBehaviour
     private int layerMask;//Mask for choosing what layer the raycast hits
     
     public Rigidbody rb;
+    public bool debug = false;
     
     
     
@@ -62,7 +63,7 @@ public class FootRaycastPositioner : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //todo make the lerpspeed and stepdistance increase along with movespped, if animal is running they stides get bigger and feet are faster
         //footIKPositionObj.transform.rotation = animalObj.transform.rotation;
@@ -117,55 +118,43 @@ public class FootRaycastPositioner : MonoBehaviour
     public void GetDesiredFootPosition(string axis)
     {
         bool gotNewPos = false;
+        Vector3 raycastStart;
         if (axis == "Forward")//move back
         {
             //position the raycast start in the opposite direction of where foot currently is so get a balanced middle
-            Vector3 raycastStart = transform.position + (forwardFacingObj.transform.forward*-(forwardStepDist/4)) + (forwardFacingObj.transform.up*5);//put x distance behind,
+            raycastStart = transform.position + (forwardFacingObj.transform.forward*-(forwardStepDist/4)) + (forwardFacingObj.transform.up*5);//put x distance behind,
             
-            RaycastHit hit;//hit information
-            if (Physics.Raycast(raycastStart, -forwardFacingObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
-            {
-                nextFootPos = hit.point;
-                gotNewPos = true;
-                //todo find a way to allow it to use mid/corner points not just exact positions of forward back left right. ie move forward left
-            } 
-            
-            //if (tempNextPosObj != null)
-            //    tempNextPosObj.transform.position = raycastStart;
         }
         else if (axis == "Behind")
         {
-            Vector3 raycastStart = transform.position +(forwardFacingObj.transform.forward*(forwardStepDist/4))+ (forwardFacingObj.transform.up*5);//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
-
-            RaycastHit hit;//hit information
-            if (Physics.Raycast(raycastStart, -forwardFacingObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
-            {
-                nextFootPos = hit.point;
-                gotNewPos = true;
-            } 
+            raycastStart = transform.position +(forwardFacingObj.transform.forward*(forwardStepDist/4))+ (forwardFacingObj.transform.up*5);//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
         }
         if (axis == "Left")
         {
-            Vector3 raycastStart = transform.position +(forwardFacingObj.transform.right*(sideStepDist/4))+ (forwardFacingObj.transform.up*5);//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
+            raycastStart = transform.position +(forwardFacingObj.transform.right*(sideStepDist/4))+ (forwardFacingObj.transform.up*5);//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
 
-            RaycastHit hit;//hit information
-            if (Physics.Raycast(raycastStart, -forwardFacingObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
-            {
-                nextFootPos = hit.point;
-                gotNewPos = true;
-            } 
         }
         else if (axis == "Right")//move left
         {
-            Vector3 raycastStart = transform.position +(forwardFacingObj.transform.right*-(sideStepDist/4))+ (forwardFacingObj.transform.up*5);//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
-
-            RaycastHit hit;//hit information
-            if (Physics.Raycast(raycastStart, -forwardFacingObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
-            {
-                nextFootPos = hit.point;
-                gotNewPos = true;
-            } 
+            raycastStart = transform.position +(forwardFacingObj.transform.right*-(sideStepDist/4))+ (forwardFacingObj.transform.up*5);//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
         }
+        else
+        {
+            raycastStart = transform.position + (forwardFacingObj.transform.up*5);
+        }
+        
+        
+        RaycastHit hit;//hit informationf
+        if (Physics.Raycast(raycastStart, -forwardFacingObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
+        {
+            if (debug)
+            {
+                Debug.DrawRay(raycastStart, -forwardFacingObj.transform.up, Color.green);
+                print(hit.point);
+            }
+            nextFootPos = hit.point;
+            gotNewPos = true;
+        } 
         
         //Set a default to straigth below if couldnt find foot pos
         if (gotNewPos == false)

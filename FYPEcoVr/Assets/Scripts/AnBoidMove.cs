@@ -15,12 +15,9 @@ public class AnBoidMove : MonoBehaviour
     public float mass = 1;
 
     public bool seekEnabled = true;
-    public Transform seekTargetTransform;
-    public Vector3 seekTarget;
+    public Transform targetTransform;
 
     public bool arriveEnabled = false;
-    public Transform arriveTargetTransform;
-    public Vector3 arriveTarget;
     public float slowingDistance = 10;
     
     public GameObject core;
@@ -34,7 +31,7 @@ public class AnBoidMove : MonoBehaviour
     public float distToGround;
     public float desiredHeight;
     public GameObject headHeightPosObj;
-    public float lerpSpeed = 1;
+    public float lerpSpeed = 3;
     
     public Vector3 vertForce;
 
@@ -53,7 +50,7 @@ public class AnBoidMove : MonoBehaviour
         if (arriveEnabled)
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(arriveTargetTransform.position, slowingDistance);
+            Gizmos.DrawWireSphere(targetTransform.position, slowingDistance);
         }
 
     }
@@ -65,6 +62,8 @@ public class AnBoidMove : MonoBehaviour
             core = GameObject.Find("Core");
         rb = GetComponent<Rigidbody>();
         desiredHeight = animalHeight * .8f;
+        //temp for testing
+        targetTransform = GameObject.Find("Player").transform;
 
     }
 
@@ -92,20 +91,18 @@ public class AnBoidMove : MonoBehaviour
         Vector3 f = Vector3.zero;
         if (seekEnabled )
         {
-            if (seekTargetTransform != null)
+            if (targetTransform != null)
             {
-                seekTarget = seekTargetTransform.position;
-                f += Seek(seekTarget);
+                f += Seek(targetTransform.position);
             }
             
         }
 
         if (arriveEnabled)
         {
-            if (arriveTargetTransform != null)
+            if (targetTransform != null)
             {
-                arriveTarget = arriveTargetTransform.position;  
-                f += Arrive(arriveTarget);
+                f += Arrive(targetTransform.position);
             }
             
         }
@@ -220,6 +217,7 @@ public class AnBoidMove : MonoBehaviour
         return f;
     }
 
+    
     public void HeightPositioning(RaycastHit hit)
     {
         
@@ -234,14 +232,14 @@ public class AnBoidMove : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void FixedUpdate()
     {
         gravityDir = (core.transform.position-transform.position).normalized;//todo flip dir
-
+ 
         
         force = CalculateForce();
         acceleration = force / mass;
-        if(arriveTarget!=null)
+        if(targetTransform!=null)
             rb.velocity = rb.velocity + acceleration * Time.deltaTime;
         
         /*
@@ -257,24 +255,21 @@ public class AnBoidMove : MonoBehaviour
 
         }
         */
-        if(arriveTarget!=null)
-            transform.position = transform.position + velocity * Time.deltaTime;
         
+        transform.position = transform.position + velocity * Time.deltaTime;
+
+
+
+        Quaternion rotation;
         speed = rb.velocity.magnitude;
-        if (speed > 0)
+        if (targetTransform != null)
         {
-            /*
-            Quaternion toRotation = Quaternion.FromToRotation(transform.up,-gravityDir)*transform.rotation;
-            transform.rotation = Quaternion.Lerp(transform.rotation,toRotation,1f);
-            
-            transform.forward = velocity;
-            */
-            //transform.forward = velocity;
-            
-            //set the forward with relation to the gravity
-            Quaternion rotation = Quaternion.LookRotation(rb.velocity, -gravityDir);
+            rotation = Quaternion.LookRotation(rb.velocity, -gravityDir);
             transform.rotation = rotation;
-            //transform.RotateAround(target.transform.position, Vector3.up, 20 * Time.deltaTime);
-        }        
+        }
+        else
+        {
+            transform.up = -gravityDir;
+        }
     }
 }

@@ -14,7 +14,7 @@ public class PlanetSpawner : MonoBehaviour
     public GameObject player;
     [HideInInspector] 
     public GameObject planetObj;
-    private Planet planetScript;
+    private PlanetTerrainGenerator planetScript;
     public PlanetSettings planetSettings;
     public PlanetSettings defaultPlanetSettings;//The default eath like settings to copy from for the start
     public Material mat;
@@ -82,7 +82,7 @@ public class PlanetSpawner : MonoBehaviour
             Debug.Log("Gen planet");
             planetObj = new GameObject("Spawned planet");
             planetObj.transform.parent = this.transform;
-            planetScript = planetObj.AddComponent<Planet>();
+            planetScript = planetObj.AddComponent<PlanetTerrainGenerator>();
             planetScript.planetSettings = planetSettings;
             planetScript.planetSettings.planetMaterial = mat;
             planetScript.planetSettings.waterMaterial = waterMat;
@@ -227,9 +227,9 @@ public class PlanetSpawner : MonoBehaviour
         //add atmosphere
         GameObject atmosphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         atmosphere.GetComponent<Collider>().enabled = false;
-        atmosphere.transform.localScale = (Vector3.one * (planetSettings.planetRadius*2)) + (Vector3.one * (planetObj.GetComponent<Planet>().elevationMinMax.Max/2));//make it outside the radius
+        atmosphere.transform.localScale = (Vector3.one * (planetSettings.planetRadius*2)) + (Vector3.one * (planetObj.GetComponent<PlanetTerrainGenerator>().elevationMinMax.Max/2));//make it outside the radius
         atmosphere.GetComponent<Renderer>().material = atmosphereMat;
-        atmosphere.layer = 8;//atmosphere layer for reverse lighting
+        atmosphere.layer = 9;//atmosphere layer for reverse lighting
         FlipNormals(atmosphere);
         GameObject core = new GameObject("Core");
 
@@ -246,7 +246,7 @@ public class PlanetSpawner : MonoBehaviour
     public void Explore()
     {
         Generate();
-        planetObj.GetComponent<Planet>().GenerateColliders();
+        planetObj.GetComponent<PlanetTerrainGenerator>().GenerateColliders();
         this.GetComponent<RotateEnvironment>().enabled = false;
         //Tried to get bettr player controller but it didnt work
         //player.transform.position = (planet.transform.up * planetSettings.planetRadius)+ (Vector3.up * 110);
@@ -261,7 +261,7 @@ public class PlanetSpawner : MonoBehaviour
     {
         
         planetSettings.havePoles = false;
-        planetObj.GetComponent<Planet>().SetBiomes();
+        planetObj.GetComponent<PlanetTerrainGenerator>().SetBiomes();
         Generate();
     }
 

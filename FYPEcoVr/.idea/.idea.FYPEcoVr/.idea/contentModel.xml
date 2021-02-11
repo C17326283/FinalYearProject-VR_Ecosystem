@@ -141,9 +141,9 @@
             <e p="NoiseLayer.cs" t="Include" />
             <e p="ObjectPool.cs" t="Include" />
             <e p="ObjSpawnManager.cs" t="Include" />
-            <e p="Planet.cs" t="Include" />
             <e p="PlanetSettings.cs" t="Include" />
             <e p="PlanetSpawner.cs" t="Include" />
+            <e p="PlanetTerrainGenerator.cs" t="Include" />
             <e p="RandomGenSpawner.cs" t="Include" />
             <e p="RotateEnvironment.cs" t="Include" />
             <e p="TerrainFace.cs" t="Include" />

@@ -10,6 +10,7 @@ public class GravityPlayer : MonoBehaviour
     public Rigidbody rb;
     public float gravityStrength = 100;
     public Vector3 groundNormal;
+    public float maxSpeed = 100;
     public float moveSpeed = 50;
     public Vector3 gravityDir;
     
@@ -45,6 +46,7 @@ public class GravityPlayer : MonoBehaviour
         float x = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
         float z = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
         
+        
         transform.Translate(x,0,z);
         
         if (Input.GetKey(KeyCode.E))
@@ -55,13 +57,20 @@ public class GravityPlayer : MonoBehaviour
         {
             transform.Rotate(0, -150 * Time.deltaTime, 0);
         }
-        
-        
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            moveSpeed = maxSpeed;
+        }
+        else
+        {
+            moveSpeed = maxSpeed / 2;
+        }
         
         
         
         RaycastHit hit = new RaycastHit();
-        if (Physics.Raycast(transform.position, -transform.up, out hit, 100))
+        if (Physics.Raycast(transform.position+(transform.up*5), -transform.up, out hit, 100))
         {
             Debug.DrawRay(transform.position, -transform.up, Color.green);
             float distanceToGround = hit.distance;
@@ -72,6 +81,6 @@ public class GravityPlayer : MonoBehaviour
         rb.AddForce(gravityDir*-gravityStrength);
         
         Quaternion toRotation = Quaternion.FromToRotation(transform.up,groundNormal)*transform.rotation;
-        transform.rotation = Quaternion.Lerp(transform.rotation,toRotation,0.1f);
+        transform.rotation = Quaternion.Lerp(transform.rotation,toRotation,0.01f);
     }
 }

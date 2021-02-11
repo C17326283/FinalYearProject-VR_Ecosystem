@@ -29,7 +29,7 @@ public class AnimalManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //if(initialiseOnStart) 
+        if(initialiseOnStart) 
             InitialiseAnimal();
 
     }
@@ -267,7 +267,7 @@ public class AnimalManager : MonoBehaviour
         FastIKFabric ikScript = foot.gameObject.AddComponent<FastIKFabric>();
         
         GameObject footPositioner = new GameObject("FootPositioner_"+foot.name);
-        footPositioner.transform.parent = movementOrigin.transform;//todo try set to the spinecontainer of this leg
+        footPositioner.transform.parent = movementOrigin.transform.GetChild(0);//set them to the child so the container isnt stretched
         footPositioner.transform.position = foot.transform.position+(footPositioner.transform.forward);//+(-animalObj.transform.forward*0.5f)
         FootRaycastPositioner footScript = footPositioner.AddComponent<FootRaycastPositioner>();
         feetPositioners.Add(footScript);
@@ -276,7 +276,7 @@ public class AnimalManager : MonoBehaviour
         footScript.forwardFacingObj = movementOrigin.gameObject;
         
         GameObject ikPole = new GameObject("ikPole_"+foot.name);
-        ikPole.transform.parent = movementOrigin.transform;
+        ikPole.transform.parent = movementOrigin.transform.GetChild(0);
         ikPole.transform.position = footPositioner.transform.position+(-footPositioner.transform.forward * 10)+(footPositioner.transform.up * 2);
         ikScript.Pole = ikPole.transform;
         //footScript.footIKPositionObj = childBone.gameObject;
