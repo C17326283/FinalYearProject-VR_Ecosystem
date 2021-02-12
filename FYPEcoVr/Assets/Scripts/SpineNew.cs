@@ -50,7 +50,7 @@ public class SpineNew : MonoBehaviour {
                 Vector3 offset = current.transform.position - prev.transform.position; 
                 
                 // Rotating from world back to local
-                offset = Quaternion.Inverse(prev.transform.rotation) * offset;
+                offset = Quaternion.Inverse(prev.transform.rotation) * offset;//rotate it so it stays at the original rotation
                 offsets.Add(offset);                
             }            
         }

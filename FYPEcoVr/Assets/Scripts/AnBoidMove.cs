@@ -16,6 +16,7 @@ public class AnBoidMove : MonoBehaviour
 
     public bool seekEnabled = true;
     public Transform targetTransform;
+    public Vector3 movePosTransform;//for keeping inlien to terrain
 
     public bool arriveEnabled = false;
     public float slowingDistance = 10;
@@ -34,6 +35,7 @@ public class AnBoidMove : MonoBehaviour
     public float lerpSpeed = 3;
     
     public Vector3 vertForce;
+    private int layerMask;
 
 
     public void OnDrawGizmos()
@@ -64,6 +66,7 @@ public class AnBoidMove : MonoBehaviour
         desiredHeight = animalHeight * .8f;
         //temp for testing
         targetTransform = GameObject.Find("Player").transform;
+        layerMask = 1 << 8;//bit shift to get mask
 
     }
 
@@ -86,68 +89,45 @@ public class AnBoidMove : MonoBehaviour
         return desired - velocity;
     }
 
+    //For setting the target to the a pos above terrain instead of aiming through ground
+    public Vector3 TerrainPosCorrecting(Vector3 target)
+    {
+        Vector3 toTarget = target - transform.position;
+        RaycastHit hit;
+        if (Physics.Raycast(this.transform.position, toTarget, out hit, layerMask))
+        {
+            return hit.point + (-gravityDir * desiredHeight);
+        }
+        else
+        {
+            return target;
+        }
+    }
+
     public Vector3 CalculateForce()
     {
+        movePosTransform = TerrainPosCorrecting(targetTransform.position);
+
+
         Vector3 f = Vector3.zero;
         if (seekEnabled )
         {
             if (targetTransform != null)
             {
-                f += Seek(targetTransform.position);
+                f += Seek(movePosTransform);
             }
-            
         }
 
         if (arriveEnabled)
         {
             if (targetTransform != null)
             {
-                f += Arrive(targetTransform.position);
+                f += Arrive(movePosTransform);
             }
-            
         }
-        
-        
-        //add grav
-        /*
-        RaycastHit hit;
-        if (Physics.Raycast(this.transform.position, gravityDir, out hit,desiredHeight))
-        {
-            //HeightPositioning(hit);
-            
-            Vector3 upForce;
-            
-            distToGround = hit.distance;
-            if (distToGround > desiredHeight+0.02)
-                upForce = -(gravityDir * (gravityStrength));
-                f = f + upForce;
-            else
-            {
-                verticalF = Mathf.Abs(1 / ((hit.point.y - transform.position.y)));
-                upForce = gravityDir * (verticalF * upMultiplier * animalHeight * Time.deltaTime);
-
-                f = f + upForce;
-            }
-            
-            //f = f+(gravityDir * (gravityStrength * Time.deltaTime));
-            
-            float upForce = 0;
-            upForce = Mathf.Abs(1 / ((hit.point.y - transform.position.y)));
-            //add upforce to fight gravity scaled to height of animal
-            rb.AddForceAtPosition(gravityDir * (upForce * upMultiplier * animalHeight * Time.deltaTime),
-                transform.position, ForceMode.Acceleration);
-            
-            
-
-        }
-        else
-        {
-            f = f+(gravityDir * (gravityStrength * Time.deltaTime));
-        }
-        */
         
         RaycastHit hit;
-        if (Physics.Raycast(this.transform.position, gravityDir, out hit))
+        if (Physics.Raycast(this.transform.position, -transform.up, out hit,layerMask))
         {
             distToGround = hit.distance;
             float distToDesired = Mathf.Abs(distToGround - desiredHeight);
@@ -155,67 +135,15 @@ public class AnBoidMove : MonoBehaviour
             //Lerp height, force was taking too long to do so i may come back to it
             HeightPositioning(hit);
 
-            //Force gravity
-            /*
-            if (distToGround > desiredHeight + 0.1f)
-            {
-                //print("down");
-                float downForce = 0;
-                downForce = distToDesired*gravityStrength;//will be normal gravity unless its less than 1 then it will make gravity weaker
-                downForce = Mathf.Clamp(downForce,0, gravityStrength);
-                
-                
-                vertForce = (gravityDir * (downForce));
-            }
-            
-            else if(distToGround < desiredHeight - 0.1f)
-            {
-                float upForce = 0;
-                upForce = (gravityStrength / distToDesired);//* animalHeight
-                upForce = Mathf.Clamp(upForce, 0,gravityStrength);
-                
-                
-                print("upforce"+upForce);
-
-                vertForce = -gravityDir * (upForce * upMultiplier);//* animalHeight
-            }
-
-
-
-            f = f+vertForce;
-            */
         }
-
-
-        /*
-        RaycastHit hit;
-        if (Physics.Raycast(this.transform.position, gravityDir, out hit))
+        else//nothing below
         {
-            headHeightPosObj.transform.position = hit.point + (-gravityDir * desiredHeight);
-            Vector3 desiredHeadDir = (desiredHeadPos - transform.position).normalized;
-            
-            Vector3 newPosition;
-            newPosition.y = Mathf.Lerp(this.transform.localPosition.z, desiredHeadPos.z, Time.deltaTime * 1);
-            headHeightPosObj.transform.position = Vector3.Lerp((headHeightPosObj.transform.position.x,headHeightPosObj.transform.position.y,headHeightPosObj.transform.position.z),headHeightPosObj.transform.position,5*Time.deltaTime);
-            
-            
-            transform.localPosition = newPosition;
-            
-            if(Vector3.Distance(transform.position,desiredHeadPos)>0.5f)
-                f = f + (desiredHeadDir * (gravityStrength));
-            else
-            {
-                f = f + (desiredHeadDir);
-            }
-            
+            print("below ground");
+            transform.position = transform.position+(Vector3.up*5);
         }
-        */
-
-
-
-
         return f;
     }
+    
 
     
     public void HeightPositioning(RaycastHit hit)
@@ -242,21 +170,7 @@ public class AnBoidMove : MonoBehaviour
         if(targetTransform!=null)
             rb.velocity = rb.velocity + acceleration * Time.deltaTime;
         
-        /*
-        RaycastHit hit;
-        if (Physics.Raycast(this.transform.position, -gravityDir, out hit,2))
-        {
-            float upForce = 0;
-            upForce = Mathf.Abs(1 / ((hit.point.y - transform.position.y)));
-            //add upforce to fight gravity scaled to height of animal
-            rb.AddForceAtPosition(gravityDir * (upForce * upMultiplier * animalHeight * Time.deltaTime),
-                transform.position, ForceMode.Acceleration);
-            //rb.AddForceAtPosition((gravityDir * upBaseAmount) + (gravityDir * (upForce * upMultiplier*animalHeight)),transform.position,ForceMode.Acceleration);
-
-        }
-        */
-        
-        transform.position = transform.position + velocity * Time.deltaTime;
+        //transform.position = transform.position + velocity * Time.deltaTime;
 
 
 

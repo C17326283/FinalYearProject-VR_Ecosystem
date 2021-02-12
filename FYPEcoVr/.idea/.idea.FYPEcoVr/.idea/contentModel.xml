@@ -143,12 +143,12 @@
             <e p="ObjSpawnManager.cs" t="Include" />
             <e p="PlanetSettings.cs" t="Include" />
             <e p="PlanetSpawner.cs" t="Include" />
-            <e p="PlanetTerrainGenerator.cs" t="Include" />
             <e p="RandomGenSpawner.cs" t="Include" />
             <e p="RotateEnvironment.cs" t="Include" />
             <e p="TerrainFace.cs" t="Include" />
             <e p="TerrainMinMaxHeights.cs" t="Include" />
           </e>
+          <e p="PlanetTerrainGenerator.cs" t="Include" />
           <e p="RayCastTest.cs" t="Include" />
           <e p="SensoryScript.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />

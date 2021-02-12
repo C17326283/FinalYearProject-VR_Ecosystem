@@ -69,8 +69,8 @@ public class AnimalManager : MonoBehaviour
             }
             else if(childBone.CompareTag("Leg"))
             {
-                print(childBone.transform.name);
-                print(feet);
+//                print(childBone.transform.name);
+//                print(feet);
                 feet.Add(childBone.transform.gameObject);
             }
         }

@@ -20,17 +20,18 @@ public class FootRaycastPositioner : MonoBehaviour
     public bool hasOffset = false;
     //public float timeOffset = 0.0f;
     public GameObject forwardFacingObj;//for using for forward direction of whole animal
-    public float footHeightMult = 1;
+    public float footHeightMult = 2;
     public bool footAtPosition = true;
     public FootRaycastPositioner otherFootRaycastPositioner;
     public float extraSpace = 0.1f;
     //public float footOnGroundDist = 0.2f;
-    public float footMoveStopDist = 0.1f;
+    public float footMoveStopDist = 0.01f;
 
     private int layerMask;//Mask for choosing what layer the raycast hits
     
     public Rigidbody rb;
     public bool debug = false;
+    public float animalHeight = 1;
     
     
     
@@ -60,6 +61,8 @@ public class FootRaycastPositioner : MonoBehaviour
             footIKTargetObj.transform.position = hit.point;
             nextFootPos = hit.point;
         }
+        
+        
     }
 
     // Update is called once per frame
@@ -69,7 +72,7 @@ public class FootRaycastPositioner : MonoBehaviour
         //footIKPositionObj.transform.rotation = animalObj.transform.rotation;
         footIKTargetObj.transform.forward = forwardFacingObj.transform.forward;
         
-        //find differences on specific axis
+        //find differences on specific axis, this allows different side and forward distances and ignores height
         Vector3 axisDifferences = this.transform.InverseTransformPoint(footIKTargetObj.transform.position);
         
         //Check if foot has got too far from desired position 
