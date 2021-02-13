@@ -18,7 +18,7 @@ public class AnBoidMove : MonoBehaviour
     public Transform targetTransform;
     public Vector3 movePosTransform;//for keeping inlien to terrain
 
-    public bool arriveEnabled = false;
+    public bool arriveEnabled = true;
     public float slowingDistance = 10;
     
     public GameObject core;
@@ -138,7 +138,7 @@ public class AnBoidMove : MonoBehaviour
         }
         else//nothing below
         {
-            print("below ground");
+//            print("below ground");
             transform.position = transform.position+(Vector3.up*5);
         }
         return f;
@@ -164,8 +164,8 @@ public class AnBoidMove : MonoBehaviour
     {
         gravityDir = (core.transform.position-transform.position).normalized;//todo flip dir
  
-        
-        force = CalculateForce();
+        if(Vector3.Distance(targetTransform.position,transform.position)>2)
+            force = CalculateForce();
         acceleration = force / mass;
         if(targetTransform!=null)
             rb.velocity = rb.velocity + acceleration * Time.deltaTime;

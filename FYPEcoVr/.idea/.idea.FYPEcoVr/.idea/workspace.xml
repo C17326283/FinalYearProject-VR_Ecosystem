@@ -22,8 +22,12 @@
     <list default="true" id="1c86a74b-a54b-44cd-a93d-b82d2bbe20ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetTerrainGenerator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetTerrainGenerator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GeneratePlanetTerrain.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GeneratePlanetTerrain.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AnBoidMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AnBoidMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AnimalManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AnimalManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +43,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AnBoidMove.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.oculus@1.6.1/Runtime/OculusLoader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BoidSensoryScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GravityAIMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/NavmeshTest/GitNavMesheditor.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -65,11 +70,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GravityAIMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/AnimalsSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetTerrainGenerator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SpineNew.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/AnimalManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FootRaycastPositioner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GravityPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BoidSensoryScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AnimalManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BoidTaskManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AnBoidMove.cs" />
       </list>
     </option>
@@ -134,7 +141,8 @@
       <workItem from="1612636061576" duration="830000" />
       <workItem from="1612963094615" duration="9567000" />
       <workItem from="1613045104002" duration="16003000" />
-      <workItem from="1613126706319" duration="11397000" />
+      <workItem from="1613126706319" duration="12684000" />
+      <workItem from="1613250835072" duration="2080000" />
     </task>
     <servers />
   </component>

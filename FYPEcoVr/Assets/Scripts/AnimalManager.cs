@@ -115,20 +115,17 @@ public class AnimalManager : MonoBehaviour
         rb.angularDrag = 1;
 
 
-
-
-        /*
-        GravityAIMovement movementScript = movementOrigin.AddComponent<GravityAIMovement>();
-        movementScript.core = core;
-        //get animal height so correct upforce can be applied
-        print(head.transform.position.y-feet[0].transform.position.y+","+animalObj.transform.name);
-        movementScript.animalHeight = head.transform.position.y-feet[0].transform.position.y;
-        */
         AnBoidMove movementScript = movementOrigin.AddComponent<AnBoidMove>();
         movementScript.core = core;
         movementScript.animalHeight = head.transform.position.y-feet[0].transform.position.y;
         movementScript.desiredHeight =movementScript.animalHeight;
-
+        
+        /*
+        BoidTaskManager taskManager = movementOrigin.AddComponent<BoidTaskManager>();
+        taskManager.animalProfile = animalData;
+        taskManager.boidMovementScript = movementScript;
+        taskManager.Initialize();
+        */
 
 
         /*
@@ -146,71 +143,7 @@ public class AnimalManager : MonoBehaviour
         animalData.thirst = animalData.thirst - animalData.thirstDecrement * Time.deltaTime;
         animalData.reproductiveUrge = animalData.reproductiveUrge + animalData.reproductiveIncrement * Time.deltaTime;
         animalData.age = animalData.age + animalData.ageIncrement * Time.deltaTime;
-        /*
-        if(animalData.taskText != null)
-            animalData.taskText.text = animalData.creatureTaskManager.currentTask;//For displaying text
-        
-        if (animalData.health <= 0)
-        {
-            Die();
-            if(animalData.healthSlider != null)
-                animalData.healthSlider.value = 0;
-        }
-
-        //Add tasks to task list if stats are too low
-        if (animalData.hunger <= 50)
-        {
-            if (animalData.creatureTaskManager.taskList.Contains("Eat") == false && animalData.creatureTaskManager.currentTask != "Eat")
-            {
-                animalData.creatureTaskManager.taskList.Add("Eat");
-            }
-            if (animalData.hunger <= 10)
-            {
-                animalData.health = animalData.health - animalData.healthStarveDecrement* Time.deltaTime;
-            }
-        }
-        if (animalData.thirst <= 30)//CHange it to a better priority system than else if
-        {
-            if (animalData.creatureTaskManager.taskList.Contains("Drink") == false && animalData.creatureTaskManager.currentTask != "Drink")
-            {
-                animalData.creatureTaskManager.taskList.Add("Drink");
-            }
-            if (animalData.thirst <= 10)
-            {
-                animalData.health = animalData.health - animalData.healthStarveDecrement* Time.deltaTime;
-            }
-        }
-        if (animalData.reproductiveUrge > 90)//CHange it to a better priority system than else if
-        {
-            if (animalData.creatureTaskManager.taskList.Contains("Mate") == false && animalData.creatureTaskManager.currentTask != "Mate")
-            {
-                animalData.creatureTaskManager.taskList.Add("Mate");
-            }
-        }
-        if (animalData.age >= 100)
-        {
-            Debug.Log("Died of old age");
-            Die();
-        }
-            
-        //Update info sliders
-        if (animalData.healthSlider != null)
-        {
-            animalData.healthSlider.value = animalData.health/animalData.maxHealth;
-        }
-        if (animalData.hungerSlider != null)
-        {
-            animalData.hungerSlider.value = animalData.hunger/animalData.maxStat;
-        }
-        if (animalData.thirstSlider != null)
-        {
-            animalData.thirstSlider.value = animalData.thirst/animalData.maxStat;
-        }
-        if (animalData.reproSlider != null)
-        {
-            animalData.reproSlider.value = animalData.reproductiveUrge/animalData.maxStat;
-        }
-        */
+       
     }
 
     public void Die()

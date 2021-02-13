@@ -121,6 +121,8 @@
           <e p="AnBoidMove.cs" t="Include" />
           <e p="AnimalManager.cs" t="Include" />
           <e p="BodyRaycastPositioner.cs" t="Include" />
+          <e p="BoidSensoryScript.cs" t="Include" />
+          <e p="BoidTaskManager.cs" t="Include" />
           <e p="CreatureMovement.cs" t="Include" />
           <e p="CreatureStats.cs" t="Include" />
           <e p="CreatureTaskManager.cs" t="Include" />
