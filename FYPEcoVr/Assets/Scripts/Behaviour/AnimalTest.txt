@@ -1,0 +1,15 @@
+tree("Root")
+	tree("ToAndFrom")
+
+tree("ToAndFrom")
+    fallback
+        tree("GoTo")
+        tree("GoFrom")
+ 
+ tree("GoTo")
+    while 
+    IsChaser()
+        MoveAnimal()
+    
+  tree("GoFrom")
+     Run()
