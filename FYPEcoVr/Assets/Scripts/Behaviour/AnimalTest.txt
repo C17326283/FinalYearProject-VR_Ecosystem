@@ -1,15 +1,23 @@
 tree("Root")
-	tree("ToAndFrom")
-
-tree("ToAndFrom")
+    fallback 
+        tree("Run1")
+        tree("Seek1")
+        tree("Wander1")
+	    
+tree("Run1")
+    while not IsChaser()
+        Run1()
+            
+                
+        
+tree("Seek1")
+    while
+        IsChaser()
+        sequence
+            Chase1()
+            CatchOther()
+            
+        
+tree("Wander1")
     fallback
-        tree("GoTo")
-        tree("GoFrom")
- 
- tree("GoTo")
-    while 
-    IsChaser()
-        MoveAnimal()
-    
-  tree("GoFrom")
-     Run()
+        Wander1()

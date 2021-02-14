@@ -181,6 +181,9 @@
           <e p="AnimalManager.cs" t="Include" />
           <e p="Behaviour" t="Include">
             <e p="AnimalTest.txt" t="Include" />
+            <e p="BoidBase.txt" t="Include" />
+            <e p="BoidBase2.txt" t="Include" />
+            <e p="Brain.cs" t="Include" />
             <e p="BtTest1.cs" t="Include" />
           </e>
           <e p="BodyRaycastPositioner.cs" t="Include" />

@@ -21,10 +21,15 @@
   <component name="ChangeListManager">
     <list default="true" id="1c86a74b-a54b-44cd-a93d-b82d2bbe20ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/BehaviourTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BehaviourTest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Behaviour/AnimalTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Behaviour/AnimalTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Behaviour/BtTest1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Behaviour/BtTest1.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +43,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpineNew.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GravityPlayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AnBoidMove.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.oculus@1.6.1/Runtime/OculusLoader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BoidSensoryScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GravityAIMovement.cs" root0="FORCE_HIGHLIGHTING" />
@@ -77,8 +81,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/AnimalManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BoidTaskManager.cs" />
         <option value="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/01_Move/Assets/Move.BT.txt" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Behaviour/BtTest1.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Behaviour/AnimalTest.txt" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Behaviour/BtTest1.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Behaviour/BoidBase.txt" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Behaviour/Brain.cs" />
       </list>
     </option>
   </component>
@@ -144,6 +150,7 @@
       <workItem from="1613045104002" duration="16003000" />
       <workItem from="1613126706319" duration="12684000" />
       <workItem from="1613250835072" duration="6747000" />
+      <workItem from="1613333048593" duration="11004000" />
     </task>
     <servers />
   </component>
@@ -248,6 +255,10 @@
     </state>
     <state width="1877" height="270" key="GridCell.Tab.3.right/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1609339641488" />
     <state width="1743" height="216" key="GridCell.Tab.3.right/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1612991224356" />
+    <state x="2660" y="453" key="VCS.ChangelistChooser" timestamp="1613334167637">
+      <screen x="1920" y="47" width="1786" height="986" />
+    </state>
+    <state x="2660" y="453" key="VCS.ChangelistChooser/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1613334167637" />
     <state x="1968" y="47" width="1754" height="1028" key="dock-window-1" timestamp="1612016709720">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
@@ -261,9 +272,9 @@
     </state>
     <state x="1920" y="47" width="1802" height="1028" key="dock-window-3/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1612029046947" />
     <state x="1971" y="32" width="1802" height="1028" key="dock-window-3/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1612136677779" />
-    <state x="2480" y="139" width="666" height="801" key="find.popup" timestamp="1609178548647">
+    <state x="2480" y="139" width="666" height="801" key="find.popup" timestamp="1613338277844">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
-    <state x="2480" y="139" width="666" height="801" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1609178548647" />
+    <state x="2480" y="139" width="666" height="801" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1613338277844" />
   </component>
 </project>
