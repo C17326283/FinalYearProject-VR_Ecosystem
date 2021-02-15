@@ -1,0 +1,17 @@
+tree("Root")
+    fallback 
+        tree("CheckForEnemies")
+        tree("Hunt")
+	    
+tree("CheckForEnemies")
+    sequence
+        CheckIfEnemyClose()
+        FleeFromEnemy()
+            
+tree("Hunt")
+    sequence
+        CheckIfFoodClose()
+        SeekTarget()
+        fallback
+            AttackTarget()
+            EatTarget()

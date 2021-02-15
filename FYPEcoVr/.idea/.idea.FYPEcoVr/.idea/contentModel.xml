@@ -178,11 +178,12 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="AnBoidMove.cs" t="Include" />
-          <e p="AnimalManager.cs" t="Include" />
           <e p="Behaviour" t="Include">
             <e p="AnimalTest.txt" t="Include" />
             <e p="BoidBase.txt" t="Include" />
             <e p="BoidBase2.txt" t="Include" />
+            <e p="BoidBehaviour.txt" t="Include" />
+            <e p="BoidBrain.cs" t="Include" />
             <e p="Brain.cs" t="Include" />
             <e p="BtTest1.cs" t="Include" />
           </e>
@@ -198,8 +199,14 @@
           <e p="GravityAIMovement.cs" t="Include" />
           <e p="GravityPlayer.cs" t="Include" />
           <e p="HeightPositioner.cs" t="Include" />
+          <e p="InitializeAnimal.cs" t="Include" />
           <e p="LookAtLerp.cs" t="Include" />
           <e p="NavTest.cs" t="Include" />
+          <e p="NewAnimal" t="Include">
+            <e p="AnimalBehaviours.cs" t="Include" />
+            <e p="AnimalBrain.cs" t="Include" />
+            <e p="AnimalInitializer.cs" t="Include" />
+          </e>
           <e p="NewTaskManager.cs" t="Include" />
           <e p="PlanetGeneration" t="Include">
             <e p="AnimalsSpawner.cs" t="Include" />

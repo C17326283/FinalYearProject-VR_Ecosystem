@@ -83,7 +83,7 @@ public class AnimalsSpawner : MonoBehaviour
                     newObj.transform.up = newObj.transform.position - core; //set rotation so orients properly
                     newObj.transform.position = hit.point + newObj.transform.up * heightFromHitPoint; //repoisition to correct height from hit
                     
-                    AnimalManager manager = newObj.AddComponent<AnimalManager>();
+                    InitializeAnimal manager = newObj.AddComponent<InitializeAnimal>();
                     manager.animalData = animalProfiles[Random.Range(0, animalProfiles.Length)];
 
 

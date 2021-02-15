@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using DitzelGames.FastIK;
 using UnityEngine;
 
-public class AnimalManager : MonoBehaviour
+public class InitializeAnimal : MonoBehaviour
 {
     public AnimalProfile animalData;
     [HideInInspector]
@@ -115,6 +115,7 @@ public class AnimalManager : MonoBehaviour
         rb.angularDrag = 1;
 
 
+        
         AnBoidMove movementScript = movementOrigin.AddComponent<AnBoidMove>();
         movementScript.core = core;
         movementScript.animalHeight = head.transform.position.y-feet[0].transform.position.y;

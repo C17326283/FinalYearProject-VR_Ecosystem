@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 817784108}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -733,6 +733,8 @@ GameObject:
   - component: {fileID: 1446509751}
   - component: {fileID: 1446509750}
   - component: {fileID: 1446509754}
+  - component: {fileID: 1446509756}
+  - component: {fileID: 1446509755}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -839,6 +841,43 @@ MonoBehaviour:
     breakPointStatuses: 
     collapsedLines: 
     btScript: 
+--- !u!54 &1446509755
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446509749}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1446509756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446509749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8d4161da6c4ba4dbb8a6e0786cf9c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objSensedMemory:
+  - {fileID: 2033717302}
+  - {fileID: 817784107}
+  - {fileID: 1727956543}
+  rb: {fileID: 1446509755}
+  maxSpeed: 10
+  tooCloseDist: 5
+  attackRange: 1
+  target: {fileID: 0}
 --- !u!1 &1727956543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,7 +1120,7 @@ GameObject:
   - component: {fileID: 2033717303}
   m_Layer: 0
   m_Name: Capsule (1)
-  m_TagString: Untagged
+  m_TagString: Fox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

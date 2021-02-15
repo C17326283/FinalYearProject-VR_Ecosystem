@@ -21,15 +21,14 @@
   <component name="ChangeListManager">
     <list default="true" id="1c86a74b-a54b-44cd-a93d-b82d2bbe20ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/BehaviourTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BehaviourTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Behaviour/AnimalTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Behaviour/AnimalTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Behaviour/BtTest1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Behaviour/BtTest1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/NewAnimal.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/NewAnimal.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AnimalManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AnimalManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/AnimalsSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/AnimalsSpawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +40,10 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpineNew.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GravityPlayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AnBoidMove.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/InitializeAnimal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BoidSensoryScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GravityAIMovement.cs" root0="FORCE_HIGHLIGHTING" />
@@ -70,7 +71,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/BodyRaycastPositioner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/Planet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GravityAIMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/AnimalsSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetTerrainGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SpineNew.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FootRaycastPositioner.cs" />
@@ -78,13 +78,22 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BoidSensoryScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AnBoidMove.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/AnimalManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BoidTaskManager.cs" />
         <option value="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/01_Move/Assets/Move.BT.txt" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Behaviour/AnimalTest.txt" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Behaviour/BtTest1.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Behaviour/BoidBase.txt" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Behaviour/Brain.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Behaviour/BoidBrain.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AnimalManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/AnimalsSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimaInitialiser.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimaInitializer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/InitializeAnimal.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalStatsManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBrain.cs" />
       </list>
     </option>
   </component>
@@ -150,7 +159,7 @@
       <workItem from="1613045104002" duration="16003000" />
       <workItem from="1613126706319" duration="12684000" />
       <workItem from="1613250835072" duration="6747000" />
-      <workItem from="1613333048593" duration="11004000" />
+      <workItem from="1613333048593" duration="15449000" />
     </task>
     <servers />
   </component>
