@@ -12,6 +12,11 @@ public class AnimalBrain : MonoBehaviour
     public AnimalProfile animalBaseDNA;
     
     public List<GameObject> objSensedMemory = new List<GameObject>();
+    public List<GameObject> forgettingObjs = new List<GameObject>();//List for objects that animal is no longer touching but are still in memory
+
+    public List<String> toHunt = new List<String>();
+    public List<String> huntedBy = new List<String>();
+    
     public Transform currentTarget;//set from behaviour tree so positioner can use
     
     public float health = 100;
@@ -36,7 +41,18 @@ public class AnimalBrain : MonoBehaviour
     public float forwardWanderBias = 2;
     public float maxMutatePercent = 2;
 
-    
+
+    void Awake()
+    {
+        objSensedMemory = new List<GameObject>();
+        forgettingObjs = new List<GameObject>();
+        huntedBy = new List<String>();
+        toHunt = new List<String>();
+        //temp
+        huntedBy.Add("Cheetah");
+        toHunt.Add("Food");
+    }
+
     // Start is called before the first frame update
     void Start()
     {

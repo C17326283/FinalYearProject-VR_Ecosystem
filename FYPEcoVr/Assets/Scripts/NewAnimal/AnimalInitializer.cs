@@ -36,13 +36,15 @@ public class AnimalInitializer : MonoBehaviour
     public BehaviourTree behaviourTreeManager;
     
     public AnimalBodyPositioner bodyPositioner;
+
+    public GameObject sensorySphere;
     
     
     
 
     public bool initialiseOnStart = false;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if(initialiseOnStart) 
             InitialiseAnimal();
@@ -107,12 +109,12 @@ public class AnimalInitializer : MonoBehaviour
 
         
         
-        AnimalBrain brain = this.gameObject.AddComponent<AnimalBrain>();
+        brain = this.gameObject.AddComponent<AnimalBrain>();
         brain.animalBaseDNA = animalDNA;
         //behaviours = this.gameObject.AddComponent<AnimalBehaviours>();
         behaviours.brain = brain;
         behaviours.rb = rb;
-        behaviours.target = core.transform;
+        
         
         //behaviourTreeManager = this.gameObject.AddComponent<BehaviourTree>();//todo get a way to add this at runtime
         //behaviourTreeManager.scripts = btTexts;
@@ -123,6 +125,9 @@ public class AnimalInitializer : MonoBehaviour
         bodyPositioner.animalHeight = head.transform.position.y-feet[0].transform.position.y;//this would be the height of the animal
         bodyPositioner.animalLength = head.transform.position.z-feet[feet.Count-1].transform.position.z;
         bodyPositioner.headHeightPosObj = head;
+
+        addSenses();
+
     }
 
 
@@ -152,6 +157,26 @@ public class AnimalInitializer : MonoBehaviour
             footScript.otherFootRaycastPositioner = feetPositioners[feetPositioners.Count - 2];
             feetPositioners[feetPositioners.Count - 2].otherFootRaycastPositioner = footScript;
             footScript.hasOffset = true;
+        }
+    }
+
+    public void addSenses()
+    {
+        if (sensorySphere == null)
+        {
+            sensorySphere = new GameObject("SenseSphere");
+            AnimalSenses senses = sensorySphere.AddComponent<AnimalSenses>();
+            senses.brain = brain;
+            print(senses.brain);
+            SphereCollider col = sensorySphere.AddComponent<SphereCollider>();
+            (col as SphereCollider).radius  = 10 * 2;
+            sensorySphere.GetComponent<Collider>().isTrigger = true;
+            sensorySphere.transform.parent = movementOriginObj.gameObject.transform;
+            sensorySphere.transform.position = movementOriginObj.transform.position;
+            Rigidbody rb = sensorySphere.AddComponent<Rigidbody>();//Needs kinematic to register collisions
+            rb.useGravity = false;
+            rb.isKinematic = true;
+            
         }
     }
 }

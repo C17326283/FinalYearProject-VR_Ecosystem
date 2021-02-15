@@ -12,7 +12,10 @@ public class AnimalBehaviours : MonoBehaviour
     public float maxSpeed = 10;
     public float tooCloseDist = 5;
     public float attackRange = 1;
-    public Transform target;
+    public Transform toTarget;
+    public Transform fromTarget;
+    
+    
     
     
     [Task]
@@ -21,35 +24,36 @@ public class AnimalBehaviours : MonoBehaviour
         bool found = false;
         foreach (var obj in brain.objSensedMemory)
         {
-            if (obj.transform.CompareTag("Fox") && Vector3.Distance(obj.transform.position,rb.transform.position)<tooCloseDist)
+            if (found == false)
             {
-                Task.current.Succeed();
-                found = true;
-                break;
+                print("obj");
+                foreach (var tag in brain.huntedBy)
+                {
+                    print("tag");
+                    //todo run from multiple
+                    if (found==false && obj.transform.CompareTag(tag) && Vector3.Distance(obj.transform.position,rb.transform.position)<tooCloseDist)
+                    {
+                        print("found");
+                        found = true;
+                        fromTarget = obj.transform;
+                        Task.current.Succeed();
+                        break;
+                    }
+                }
             }
-            
         }
-        if(found==false)
+
+        if (found == false)
+            fromTarget = null;
             Task.current.Fail();
     }
     
     [Task]
     void FleeFromEnemy()
     {
-        foreach (var obj in brain.objSensedMemory)
-        {
-            if (obj.transform.CompareTag("Fox"))
-            {
-                print("found fox");
-                Vector3 awayDir;
-                awayDir = (transform.position - rb.transform.position).normalized;
-                
-                rb.AddForce(awayDir * maxSpeed);
-                break;
-                
-            }
-            
-        }
+        Vector3 fleeDir;
+        fleeDir = (rb.transform.position-toTarget.position).normalized;
+        rb.AddForce(fleeDir * maxSpeed);
         Task.current.Succeed();//if found no enemies
     }
     
@@ -62,15 +66,16 @@ public class AnimalBehaviours : MonoBehaviour
         {
             if (obj.transform.CompareTag("Food") && found==false)
             {
+                toTarget = obj.transform;
                 Task.current.Succeed();
-                target = obj.transform;
                 found = true;
+                break;
             }
         }
 
         if (found == false)
         {
-            target = null;
+            toTarget = null;
             Task.current.Fail();
         }
     }
@@ -78,21 +83,54 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void SeekTarget()
     {
-        Vector3 seekDir;
-        seekDir = (target.position - rb.transform.position).normalized;
+
+        if (Vector3.Distance(toTarget.transform.position, rb.transform.position) > attackRange)
+        {
+            Vector3 seekDir;
+            seekDir = (toTarget.position - rb.transform.position).normalized;
+            rb.AddForce(seekDir * maxSpeed);
+            Task.current.Succeed();//if found no enemies
+        }
+        else
+        {
+            Task.current.Fail();
+            
+        }
+            
                 
-        rb.AddForce(seekDir * maxSpeed);
-        Task.current.Succeed();//if found no enemies
+        
+    }
+
+    [Task]
+    void ArriveTarget()
+    {
+        float distance = Vector3.Distance(toTarget.transform.position, rb.transform.position);
+        if (distance < attackRange/4)
+        {
+            Task.current.Succeed();
+        }
+        else if (distance < attackRange)
+        {
+            Vector3 seekDir;
+            seekDir = (toTarget.position - rb.transform.position).normalized;
+            rb.AddForce(seekDir * (maxSpeed/4));//slow down approach
+            Task.current.Succeed();
+        }
+        else
+        {
+            Task.current.Fail();
+        }
+
     }
     
     [Task]
     void AttackTarget()
     {
-        if (target.GetComponent<Rigidbody>() && Vector3.Distance(target.position,rb.transform.position)<attackRange)//if has health
+        if (toTarget.GetComponent<Rigidbody>() && Vector3.Distance(toTarget.position,rb.transform.position)<attackRange)//if has health
         {
-            Rigidbody otherRb = target.GetComponent<Rigidbody>();
+            Rigidbody otherRb = toTarget.GetComponent<Rigidbody>();
             Vector3 attackDir;
-            attackDir = (target.position - rb.transform.position).normalized;
+            attackDir = (toTarget.position - rb.transform.position).normalized;
                 
             rb.AddForce(attackDir * 2);
             Task.current.Succeed();
@@ -107,7 +145,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void EatTarget()//if health lower than x
     {
-        if (target.GetComponent<Rigidbody>())
+        if (toTarget.GetComponent<Rigidbody>())
         {
             
             Task.current.Succeed();

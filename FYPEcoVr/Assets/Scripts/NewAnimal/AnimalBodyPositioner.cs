@@ -34,6 +34,8 @@ public class AnimalBodyPositioner : MonoBehaviour
     public GameObject lookPoint;
     public Vector3 moveVel;//for velocity without the up and down force
 
+    private Vector3 groundNormal;
+
 
     public void OnDrawGizmos()
     {
@@ -106,7 +108,7 @@ public class AnimalBodyPositioner : MonoBehaviour
             {
                 isGrounded = true;
                 Debug.DrawRay(point.transform.position, gravityDir, Color.green);
-                print("hit");
+//                print("hit");
                 float upForce = 0;
                 upForce = Mathf.Abs(1 / ((hit.point.y - point.transform.position.y)));
                 rb.AddForceAtPosition(-gravityDir * (upForce * upMultiplier * animalHeight),
@@ -140,25 +142,27 @@ public class AnimalBodyPositioner : MonoBehaviour
         locVel.y = 0;
         moveVel = transform.TransformDirection(locVel);
 
-        //print(locVel);
-        Quaternion rotation;
-        if (brain.currentTarget != null)
+//        print("locVel.magnitude"+locVel.magnitude);
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, gravityDir, out hit, 100,layerMask))
         {
-            //TerrainPosCorrecting();//moves the lookpoint to either the target or the terrain in front of it
-            
-            
-            Vector3 dir =  lookPoint.transform.position -transform.position;
-            print("look t");
-            rotation = Quaternion.LookRotation(moveVel, -gravityDir);
-            //rotation = Quaternion.LookRotation(locVel, -gravityDir);
-            transform.rotation = rotation;
+            groundNormal = hit.normal;
+            Quaternion rotation;
+            if (locVel.magnitude>.1f)
+            {
+                //TerrainPosCorrecting();//moves the lookpoint to either the target or the terrain in front of it
+                rotation = Quaternion.LookRotation(moveVel, groundNormal);//look to velocity, align with ground
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 10*Time.deltaTime);//do it over time
+            }
+            else
+            {
+                //TerrainPosCorrecting();//moves the lookpoint to either the target or the terrain in front of it
+                rotation = Quaternion.LookRotation(transform.forward, groundNormal);//look to velocity, align with ground
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, .0001f*Time.deltaTime);
+            }
         }
-        else
-        {
-            print("no t");
-            rotation = Quaternion.LookRotation(brain.transform.position, -gravityDir);
-            transform.rotation = rotation;
-        }
+        
+        
         
     }
 }
