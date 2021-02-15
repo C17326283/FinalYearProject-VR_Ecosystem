@@ -181,6 +181,7 @@
           <e p="Behaviour" t="Include">
             <e p="AnimalTest.txt" t="Include" />
             <e p="BoidBase.txt" t="Include" />
+            <e p="BoidBase2 - Copy.txt" t="Include" />
             <e p="BoidBase2.txt" t="Include" />
             <e p="BoidBehaviour.txt" t="Include" />
             <e p="BoidBrain.cs" t="Include" />
@@ -204,7 +205,9 @@
           <e p="NavTest.cs" t="Include" />
           <e p="NewAnimal" t="Include">
             <e p="AnimalBehaviours.cs" t="Include" />
+            <e p="AnimalBodyPositioner.cs" t="Include" />
             <e p="AnimalBrain.cs" t="Include" />
+            <e p="AnimalBT.txt" t="Include" />
             <e p="AnimalInitializer.cs" t="Include" />
           </e>
           <e p="NewTaskManager.cs" t="Include" />
@@ -230,6 +233,7 @@
           <e p="SpineAnimator.cs" t="Include" />
           <e p="SpineAnimatorManager.cs" t="Include" />
           <e p="SpineNew.cs" t="Include" />
+          <e p="TestBetterGravity.cs" t="Include" />
         </e>
       </e>
       <e p="FYPEcoVr.sln" t="IncludeFlat" />

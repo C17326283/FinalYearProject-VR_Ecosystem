@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using DitzelGames.FastIK;
+using Panda;
 using UnityEngine;
 
 public class AnimalInitializer : MonoBehaviour
 {
-    public AnimalProfile animalData;
+    public AnimalProfile animalDNA;
+    public TextAsset[] btTexts;
+    
     [HideInInspector]
     public GameObject animalObj;
     [HideInInspector]
     public BoxCollider collider;
-    [HideInInspector]
-    public BodyRaycastPositioner bodyPositioner;
     [HideInInspector]
     public Rigidbody rb;
 
@@ -28,9 +29,13 @@ public class AnimalInitializer : MonoBehaviour
     
     [HideInInspector]
     public AnimalBrain brain;//manages memory and senses
-    [HideInInspector]
+    
     public AnimalBehaviours behaviours;//The behaviours uses by behaviour tree
     
+    [HideInInspector]
+    public BehaviourTree behaviourTreeManager;
+    
+    public AnimalBodyPositioner bodyPositioner;
     
     
     
@@ -49,10 +54,10 @@ public class AnimalInitializer : MonoBehaviour
         core = GameObject.Find("Core");
         
         //make the animal object
-        animalObj = Instantiate(animalData.model);
+        animalObj = Instantiate(animalDNA.model);
         animalObj.transform.parent = this.transform;
         animalObj.transform.position = this.transform.position;
-        animalObj.tag = animalData.Tag;
+        animalObj.tag = animalDNA.Tag;
         
         feet = new List<GameObject> ();//for setting up foot positioners
         feetPositioners = new List<FootRaycastPositioner> ();
@@ -99,13 +104,25 @@ public class AnimalInitializer : MonoBehaviour
         rb.mass = 10;
         rb.drag = 1;
         rb.angularDrag = 1;
+
+        
         
         AnimalBrain brain = this.gameObject.AddComponent<AnimalBrain>();
-        AnimalBehaviours behaviours = this.gameObject.AddComponent<AnimalBehaviours>();
+        brain.animalBaseDNA = animalDNA;
+        //behaviours = this.gameObject.AddComponent<AnimalBehaviours>();
+        behaviours.brain = brain;
+        behaviours.rb = rb;
+        behaviours.target = core.transform;
         
-
-
-
+        //behaviourTreeManager = this.gameObject.AddComponent<BehaviourTree>();//todo get a way to add this at runtime
+        //behaviourTreeManager.scripts = btTexts;
+        //behaviourTreeManager.Compile();
+        
+        bodyPositioner = movementOriginObj.AddComponent<AnimalBodyPositioner>();
+        bodyPositioner.brain = brain;
+        bodyPositioner.animalHeight = head.transform.position.y-feet[0].transform.position.y;//this would be the height of the animal
+        bodyPositioner.animalLength = head.transform.position.z-feet[feet.Count-1].transform.position.z;
+        bodyPositioner.headHeightPosObj = head;
     }
 
 

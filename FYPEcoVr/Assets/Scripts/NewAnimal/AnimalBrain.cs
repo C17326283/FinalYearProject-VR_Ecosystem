@@ -12,6 +12,7 @@ public class AnimalBrain : MonoBehaviour
     public AnimalProfile animalBaseDNA;
     
     public List<GameObject> objSensedMemory = new List<GameObject>();
+    public Transform currentTarget;//set from behaviour tree so positioner can use
     
     public float health = 100;
     public float hunger = 100;
@@ -39,9 +40,8 @@ public class AnimalBrain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth;
-        hunger = maxStat;
-        thirst = maxStat;
+        SetStatsFromDNA();
+        Born();
     }
 
     // Update is called once per frame
@@ -67,13 +67,14 @@ public class AnimalBrain : MonoBehaviour
     public void Born()
     {
         //Need a better mating system with father and mother and get a base stat based on the 2 of them
-          health = 100;
-          hunger = 100;
-          thirst = 100;
+          health = maxHealth;
+          hunger = maxStat;
+          thirst = maxStat;
           reproductiveUrge = 0;
           age = 0;
           MutateStats();
     }
+    
 
     public void MutateStats()
     {
@@ -103,4 +104,24 @@ public class AnimalBrain : MonoBehaviour
         percentDif = forwardWanderBias * change;
         forwardWanderBias = Mathf.Clamp(Random.Range(forwardWanderBias-percentDif, forwardWanderBias+percentDif), 0, 30);
     }
+
+    public void SetStatsFromDNA()
+    {
+        maxHealth = animalBaseDNA.maxHealth;
+        maxStat = animalBaseDNA.maxStat;
+        healthStarveDecrement = animalBaseDNA.healthStarveDecrement;
+        hungerDecrement = animalBaseDNA.hungerDecrement;
+        thirstDecrement = animalBaseDNA.thirstDecrement;
+        reproductiveIncrement = animalBaseDNA.reproductiveIncrement;
+        ageIncrement = animalBaseDNA.ageIncrement;
+        
+        memoryLossRate = animalBaseDNA.memoryLossRate;
+        sensoryRange = animalBaseDNA.sensoryRange;
+        moveSpeed = animalBaseDNA.moveSpeed;
+        rotSpeed = animalBaseDNA.rotSpeed;
+        wanderRadius = animalBaseDNA.wanderRadius;
+        forwardWanderBias = animalBaseDNA.forwardWanderBias;
+        maxMutatePercent = animalBaseDNA.maxMutatePercent;
+    }
+    
 }
