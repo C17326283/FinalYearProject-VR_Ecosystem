@@ -2,6 +2,7 @@ tree("Root")
     fallback 
         tree("CheckForEnemies")
         tree("Hunt")
+        tree("Wander")
 	    
 tree("CheckForEnemies")
     sequence
@@ -17,3 +18,15 @@ tree("Hunt")
                 ArriveTarget()
                 AttackTarget()
                 EatTarget()
+           
+tree("Wander")
+    sequence
+        fallback
+            CheckWanderTarget()
+            GetWanderTarget()
+        fallback
+            SeekTarget()
+            GetWanderTarget()
+        
+ 
+        

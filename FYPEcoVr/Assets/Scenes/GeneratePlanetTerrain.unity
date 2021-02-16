@@ -6543,6 +6543,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ab106465f1c545e4c90f0fd82910b929, type: 2}
   - {fileID: 11400000, guid: fb46446b8d30e0b4d9e8ddf6a0ce7c9d, type: 2}
   - {fileID: 11400000, guid: 90cc2ec8d2ab72541b5dff655ba83a30, type: 2}
+  btTexts:
+  - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
   RandomiseScaleAndRotation: 0
   minScale: 1
   maxScale: 1

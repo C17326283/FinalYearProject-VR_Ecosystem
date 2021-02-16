@@ -111,14 +111,21 @@ public class AnimalInitializer : MonoBehaviour
         
         brain = this.gameObject.AddComponent<AnimalBrain>();
         brain.animalBaseDNA = animalDNA;
-        //behaviours = this.gameObject.AddComponent<AnimalBehaviours>();
+        if (GetComponent<AnimalBehaviours>() == null) //incase i have it attached for testing
+            behaviours =
+                this.gameObject.AddComponent<AnimalBehaviours>(); //todo get a way to add this at runtime
+        else
+            behaviours = GetComponent<AnimalBehaviours>();
         behaviours.brain = brain;
         behaviours.rb = rb;
-        
-        
-        //behaviourTreeManager = this.gameObject.AddComponent<BehaviourTree>();//todo get a way to add this at runtime
-        //behaviourTreeManager.scripts = btTexts;
-        //behaviourTreeManager.Compile();
+
+        if (GetComponent<BehaviourTree>() == null) //incase i have it attached for testing
+            behaviourTreeManager =
+                this.gameObject.AddComponent<BehaviourTree>(); //todo get a way to add this at runtime
+        else
+            behaviourTreeManager = GetComponent<BehaviourTree>();
+        behaviourTreeManager.scripts = btTexts;
+        behaviourTreeManager.Compile();
         
         bodyPositioner = movementOriginObj.AddComponent<AnimalBodyPositioner>();
         bodyPositioner.brain = brain;

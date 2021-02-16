@@ -1,23 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 using Panda;
+using Random = UnityEngine.Random;
+
 public class AnimalBehaviours : MonoBehaviour
 {
     public AnimalBrain brain;
     
     //use these by reference instead
     public Rigidbody rb;
-    public float maxSpeed = 10;
-    public float tooCloseDist = 5;
+    public float maxSpeed = 1000;
+    public float tooCloseDist = 20;
     public float attackRange = 1;
     public Transform toTarget;
     public Transform fromTarget;
-    
-    
-    
-    
+    public GameObject wanderObj;
+
+
+    private void Awake()
+    {
+        wanderObj=new GameObject();
+    }
+
     [Task]
     void CheckIfEnemyClose()
     {
@@ -168,4 +175,38 @@ public class AnimalBehaviours : MonoBehaviour
             Task.current.Fail();
         }
     }
+
+    [Task]
+    void CheckWanderTarget()
+    {
+        toTarget = wanderObj.transform;
+        if (Vector3.Distance(wanderObj.transform.position, rb.transform.position) < 60)
+        {
+            Task.current.Succeed();
+        }
+        else
+        {
+            Task.current.Fail();
+        }
+    }
+
+    [Task]
+    void GetWanderTarget()
+    {
+        Vector3 randomePos = rb.position + Random.insideUnitSphere * 60;
+        randomePos.y = rb.position.y+20;//set at random height
+        
+        RaycastHit hit; //shoot ray and if its ground then spawn at that location
+        if (Physics.Raycast(randomePos, -rb.transform.up, out hit, 100))
+        {
+            wanderObj.transform.position = hit.point;
+            toTarget = wanderObj.transform;
+            Task.current.Succeed();
+        }
+        else
+        {
+            Task.current.Fail();
+        }
+    }
+
 }

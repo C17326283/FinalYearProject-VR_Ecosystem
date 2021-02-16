@@ -2288,8 +2288,6 @@ GameObject:
   m_Component:
   - component: {fileID: 304593454}
   - component: {fileID: 304593453}
-  - component: {fileID: 304593455}
-  - component: {fileID: 304593456}
   m_Layer: 0
   m_Name: ' An1 (7)'
   m_TagString: Untagged
@@ -2321,8 +2319,8 @@ MonoBehaviour:
   core: {fileID: 0}
   movementOriginObj: {fileID: 0}
   brain: {fileID: 0}
-  behaviours: {fileID: 304593456}
-  behaviourTreeManager: {fileID: 304593455}
+  behaviours: {fileID: 0}
+  behaviourTreeManager: {fileID: 0}
   bodyPositioner: {fileID: 0}
   sensorySphere: {fileID: 0}
   initialiseOnStart: 1
@@ -2340,47 +2338,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &304593455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 304593452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17e43e7170fb45b4b81dcd16d0ff55d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scripts:
-  - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
-  autoReset: 1
-  tickOn: 0
-  sourceInfos:
-  - isFoldout: 1
-    breakPoints: 
-    breakPointStatuses: 
-    collapsedLines: 
-    btScript: 
---- !u!114 &304593456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 304593452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86f016117d2e6bb4b85dac04e2c8ee1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brain: {fileID: 0}
-  rb: {fileID: 0}
-  maxSpeed: 1000
-  tooCloseDist: 20
-  attackRange: 2
-  toTarget: {fileID: 0}
-  fromTarget: {fileID: 0}
 --- !u!1 &306131433
 GameObject:
   m_ObjectHideFlags: 0

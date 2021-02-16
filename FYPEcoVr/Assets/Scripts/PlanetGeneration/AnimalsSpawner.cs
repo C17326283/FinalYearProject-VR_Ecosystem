@@ -23,6 +23,7 @@ public class AnimalsSpawner : MonoBehaviour
     public int poolIndexNumber = 0;
 
     public AnimalProfile[] animalProfiles;
+    public TextAsset[] btTexts;
 
     //For adding variation
     [Header("Only randomises if condition is true")]
@@ -32,6 +33,7 @@ public class AnimalsSpawner : MonoBehaviour
     public float randomXZTilt = 2f;
 
     private GameObject newObj;//declare here so can edit in reposition
+    public 
 
     // Start is called before the first frame update
     
@@ -83,8 +85,9 @@ public class AnimalsSpawner : MonoBehaviour
                     newObj.transform.up = newObj.transform.position - core; //set rotation so orients properly
                     newObj.transform.position = hit.point + newObj.transform.up * heightFromHitPoint; //repoisition to correct height from hit
                     
-                    InitializeAnimal manager = newObj.AddComponent<InitializeAnimal>();
-                    manager.animalData = animalProfiles[Random.Range(0, animalProfiles.Length)];
+                    AnimalInitializer manager = newObj.AddComponent<AnimalInitializer>();
+                    manager.animalDNA = animalProfiles[Random.Range(0, animalProfiles.Length)];
+                    manager.btTexts = btTexts;
 
 
                     print(newObj.transform.position);
