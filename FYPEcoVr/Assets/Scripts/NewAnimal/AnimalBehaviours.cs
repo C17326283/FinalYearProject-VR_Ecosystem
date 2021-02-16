@@ -36,7 +36,7 @@ public class AnimalBehaviours : MonoBehaviour
         {
             if (found == false)
             {
-                print("obj");
+//                print("obj");
                 foreach (var tag in brain.huntedBy)
                 {
                     print(tag);
@@ -154,7 +154,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void AttackTarget()
     {
-        if (toTarget.GetComponent<Rigidbody>() && Vector3.Distance(toTarget.position,rb.transform.position)<attackRange)//if has health
+        if (toTarget.GetComponent<AnimalBrain>() && Vector3.Distance(toTarget.position,rb.transform.position)<attackRange)//if has health
         {
             Rigidbody otherRb = toTarget.GetComponent<Rigidbody>();
             Vector3 attackDir;
@@ -182,7 +182,7 @@ public class AnimalBehaviours : MonoBehaviour
     void CheckWanderTarget()
     {
         toTarget = wanderObj.transform;
-        if (Vector3.Distance(wanderObj.transform.position, rb.transform.position) < 60)
+        if (Vector3.Distance(wanderObj.transform.position, rb.transform.position) < brain.wanderRadius)
         {
             Task.current.Succeed();
         }
@@ -195,7 +195,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void GetWanderTarget()
     {
-        Vector3 randomePos = rb.position + Random.insideUnitSphere * 60;
+        Vector3 randomePos = rb.position + Random.insideUnitSphere * brain.wanderRadius;
         randomePos.y = rb.position.y+20;//set at random height
         
         RaycastHit hit; //shoot ray and if its ground then spawn at that location
@@ -215,7 +215,7 @@ public class AnimalBehaviours : MonoBehaviour
     void CheckGettingCloser()
     {
         float distThisFrame = Vector3.Distance(rb.transform.position, toTarget.transform.position);
-        print("distThisFrame"+distThisFrame+"  distLastFrame"+distLastFrame+  "  failCloserChecks"+failCloserChecks);
+//        print("distThisFrame"+distThisFrame+"  distLastFrame"+distLastFrame+  "  failCloserChecks"+failCloserChecks);
         if (distThisFrame+0.01f < distLastFrame)
         {
             Task.current.Succeed();

@@ -118,6 +118,7 @@ public class AnimalInitializer : MonoBehaviour
             behaviours = GetComponent<AnimalBehaviours>();
         behaviours.brain = brain;
         behaviours.rb = rb;
+        //behaviours.maxSpeed = brain.moveSpeed*100;
 
         if (GetComponent<BehaviourTree>() == null) //incase i have it attached for testing
             behaviourTreeManager =
