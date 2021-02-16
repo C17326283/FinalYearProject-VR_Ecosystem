@@ -14,10 +14,13 @@ public class AnimalBehaviours : MonoBehaviour
     public Rigidbody rb;
     public float maxSpeed = 1000;
     public float tooCloseDist = 20;
-    public float attackRange = 1;
+    public float attackRange = 2;
     public Transform toTarget;
     public Transform fromTarget;
     public GameObject wanderObj;
+
+    public float distLastFrame;
+    public float failCloserChecks;
 
 
     private void Awake()
@@ -106,14 +109,20 @@ public class AnimalBehaviours : MonoBehaviour
             seekDir = (toTarget.position - rb.transform.position).normalized;
             Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
             locDir.y = 0;
-            Vector3 force = locDir * maxSpeed;
-            rb.AddRelativeForce(force);
-            Task.current.Succeed();//if found no enemies
+            if (locDir.z < -1) //if theres a force pushing back then  cant seek in that dir
+            {
+                Task.current.Fail();
+            }
+            else
+            {
+                Vector3 force = locDir * maxSpeed;
+                rb.AddRelativeForce(force);
+                Task.current.Succeed();//if found no enemies
+            }
         }
         else
         {
             Task.current.Fail();
-            
         }
             
                 
@@ -164,16 +173,9 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void EatTarget()//if health lower than x
     {
-        if (toTarget.GetComponent<Rigidbody>())
-        {
-            
-            Task.current.Succeed();
-            print("eat");
-        }
-        else
-        {
-            Task.current.Fail();
-        }
+        Task.current.Succeed();
+        brain.hunger = 100;
+        print("eat");
     }
 
     [Task]
@@ -208,5 +210,58 @@ public class AnimalBehaviours : MonoBehaviour
             Task.current.Fail();
         }
     }
+
+    [Task]
+    void CheckGettingCloser()
+    {
+        float distThisFrame = Vector3.Distance(rb.transform.position, toTarget.transform.position);
+        print("distThisFrame"+distThisFrame+"  distLastFrame"+distLastFrame+  "  failCloserChecks"+failCloserChecks);
+        if (distThisFrame+0.01f < distLastFrame)
+        {
+            Task.current.Succeed();
+            failCloserChecks = 0;
+        }
+        else
+        {
+            Task.current.Succeed();
+            failCloserChecks += 1;
+        }
+
+        if (failCloserChecks > 10)
+        {
+            Task.current.Fail();
+        }
+
+        distLastFrame = distThisFrame;
+    }
+
+
+    [Task]
+    void IsHungry()
+    {
+        if (brain.hunger < 20)
+        {
+            Task.current.Succeed();
+        }
+        else
+        {
+            Task.current.Fail();
+        }
+    }
+    
+    [Task]
+    void IsThirsty()
+    {
+        if (brain.thirst < 20)
+        {
+            Task.current.Succeed();
+        }
+        else
+        {
+            Task.current.Fail();
+        }
+    }
+    
+    
 
 }

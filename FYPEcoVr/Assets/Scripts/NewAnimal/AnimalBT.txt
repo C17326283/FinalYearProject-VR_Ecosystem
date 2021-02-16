@@ -11,13 +11,17 @@ tree("CheckForEnemies")
             
 tree("Hunt")
     sequence
+        IsHungry()
         CheckIfFoodClose()
         fallback
-            SeekTarget()
+            sequence
+                SeekTarget()
+                CheckGettingCloser()
             sequence
                 ArriveTarget()
-                AttackTarget()
-                EatTarget()
+                fallback
+                    AttackTarget()
+                    EatTarget()
            
 tree("Wander")
     sequence
@@ -25,7 +29,9 @@ tree("Wander")
             CheckWanderTarget()
             GetWanderTarget()
         fallback
-            SeekTarget()
+            sequence
+                SeekTarget()
+                CheckGettingCloser()
             GetWanderTarget()
         
  
