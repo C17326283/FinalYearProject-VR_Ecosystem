@@ -29,7 +29,7 @@ public class AnimalBehaviours : MonoBehaviour
                 print("obj");
                 foreach (var tag in brain.huntedBy)
                 {
-                    print("tag");
+                    print(tag);
                     //todo run from multiple
                     if (found==false && obj.transform.CompareTag(tag) && Vector3.Distance(obj.transform.position,rb.transform.position)<tooCloseDist)
                     {
@@ -44,17 +44,26 @@ public class AnimalBehaviours : MonoBehaviour
         }
 
         if (found == false)
+        {
             fromTarget = null;
             Task.current.Fail();
+        }
+        
     }
     
     [Task]
     void FleeFromEnemy()
     {
-        Vector3 fleeDir;
-        fleeDir = (rb.transform.position-toTarget.position).normalized;
-        rb.AddForce(fleeDir * maxSpeed);
-        Task.current.Succeed();//if found no enemies
+        if (fromTarget != null)
+        {
+            Vector3 fleeDir;
+            fleeDir = (rb.transform.position - fromTarget.position).normalized;
+            Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
+            locDir.y = 0;
+            Vector3 force = locDir * maxSpeed;
+            rb.AddRelativeForce(force);
+            Task.current.Succeed(); //if found no enemies
+        }
     }
     
     [Task]
@@ -88,7 +97,10 @@ public class AnimalBehaviours : MonoBehaviour
         {
             Vector3 seekDir;
             seekDir = (toTarget.position - rb.transform.position).normalized;
-            rb.AddForce(seekDir * maxSpeed);
+            Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
+            locDir.y = 0;
+            Vector3 force = locDir * maxSpeed;
+            rb.AddRelativeForce(force);
             Task.current.Succeed();//if found no enemies
         }
         else

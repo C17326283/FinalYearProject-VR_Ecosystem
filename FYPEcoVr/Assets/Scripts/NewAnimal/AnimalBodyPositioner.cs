@@ -138,21 +138,22 @@ public class AnimalBodyPositioner : MonoBehaviour
             
         //this took about a week to find a solution to but it allows gravity without messing up the targetting
         //convert velocity to local then remove the y so can have gravity without it focing animal to look up and down
-        Vector3 locVel = transform.InverseTransformDirection(rb.velocity);
-        locVel.y = 0;
-        moveVel = transform.TransformDirection(locVel);
-
 //        print("locVel.magnitude"+locVel.magnitude);
         RaycastHit hit;
         if (Physics.Raycast(transform.position, gravityDir, out hit, 100,layerMask))
         {
             groundNormal = hit.normal;
+            
+            Vector3 locVel = transform.InverseTransformDirection(rb.velocity);
+            locVel.y = 0;
+            moveVel = transform.TransformDirection(locVel);
+            
             Quaternion rotation;
             if (locVel.magnitude>.1f)
             {
                 //TerrainPosCorrecting();//moves the lookpoint to either the target or the terrain in front of it
                 rotation = Quaternion.LookRotation(moveVel, groundNormal);//look to velocity, align with ground
-                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 10*Time.deltaTime);//do it over time
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 100*Time.deltaTime);//do it over time
             }
             else
             {
