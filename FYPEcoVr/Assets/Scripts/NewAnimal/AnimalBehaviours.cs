@@ -39,7 +39,7 @@ public class AnimalBehaviours : MonoBehaviour
 //                print("obj");
                 foreach (var tag in brain.huntedBy)
                 {
-                    print(tag);
+//                    print(tag);
                     //todo run from multiple
                     if (found==false && obj.transform.CompareTag(tag) && Vector3.Distance(obj.transform.position,rb.transform.position)<tooCloseDist)
                     {
@@ -216,7 +216,7 @@ public class AnimalBehaviours : MonoBehaviour
     {
         float distThisFrame = Vector3.Distance(rb.transform.position, toTarget.transform.position);
 //        print("distThisFrame"+distThisFrame+"  distLastFrame"+distLastFrame+  "  failCloserChecks"+failCloserChecks);
-        if (distThisFrame+0.01f < distLastFrame)
+        if (distThisFrame+0.01f < distLastFrame)//todo switch to time not frame
         {
             Task.current.Succeed();
             failCloserChecks = 0;
@@ -227,7 +227,7 @@ public class AnimalBehaviours : MonoBehaviour
             failCloserChecks += 1;
         }
 
-        if (failCloserChecks > 10)
+        if (failCloserChecks > 50)
         {
             Task.current.Fail();
         }

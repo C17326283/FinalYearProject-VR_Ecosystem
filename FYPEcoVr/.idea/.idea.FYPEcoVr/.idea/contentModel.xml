@@ -208,8 +208,10 @@
             <e p="AnimalBodyPositioner.cs" t="Include" />
             <e p="AnimalBrain.cs" t="Include" />
             <e p="AnimalBT.txt" t="Include" />
+            <e p="AnimalFeetPositioner.cs" t="Include" />
             <e p="AnimalInitializer.cs" t="Include" />
             <e p="AnimalSenses.cs" t="Include" />
+            <e p="SpineNew.cs" t="Include" />
           </e>
           <e p="NewTaskManager.cs" t="Include" />
           <e p="PlanetGeneration" t="Include">
@@ -233,7 +235,6 @@
           <e p="SimpleCameraController.cs" t="Include" />
           <e p="SpineAnimator.cs" t="Include" />
           <e p="SpineAnimatorManager.cs" t="Include" />
-          <e p="SpineNew.cs" t="Include" />
           <e p="TestBetterGravity.cs" t="Include" />
         </e>
       </e>

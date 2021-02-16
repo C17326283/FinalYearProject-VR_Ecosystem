@@ -21,7 +21,7 @@ public class AnimalInitializer : MonoBehaviour
     [HideInInspector]
     public List<GameObject> feet;//for manageing all the leg objects
     [HideInInspector]
-    public List<FootRaycastPositioner> feetPositioners;//for linking legs together
+    public List<AnimalFeetPositioner> feetPositioners;//for linking legs together
     [HideInInspector]
     public GameObject core;
     [HideInInspector]
@@ -38,6 +38,10 @@ public class AnimalInitializer : MonoBehaviour
     public AnimalBodyPositioner bodyPositioner;
 
     public GameObject sensorySphere;
+
+    public SpineNew SpineScript;
+
+    public float animalHeight=2;
     
     
     
@@ -53,6 +57,8 @@ public class AnimalInitializer : MonoBehaviour
 
     public void InitialiseAnimal()
     {
+        feet = new List<GameObject> ();//for setting up foot positioners
+        feetPositioners = new List<AnimalFeetPositioner> ();
         core = GameObject.Find("Core");
         
         //make the animal object
@@ -61,8 +67,7 @@ public class AnimalInitializer : MonoBehaviour
         animalObj.transform.position = this.transform.position;
         animalObj.tag = animalDNA.Tag;
         
-        feet = new List<GameObject> ();//for setting up foot positioners
-        feetPositioners = new List<FootRaycastPositioner> ();
+        
         
         //make array of all child objects and check bones for correct ones
         Transform[] allChildObjects = GetComponentsInChildren<Transform>();
@@ -73,9 +78,9 @@ public class AnimalInitializer : MonoBehaviour
                 head = childBone.gameObject;
                 
                 //Done here because the head is needed to make spine and position legs
-                SpineNew SpineScript = animalObj.AddComponent<SpineNew>();
+                SpineScript = animalObj.AddComponent<SpineNew>();
                 SpineScript.head = head;
-                SpineScript.InitializeSpine();
+                SpineScript.InitializeSpine();//initiallise once all the feet have been added
                 movementOriginObj = head.transform.parent.gameObject;//set in spinescript to control head so need this to have the rigidbody to allow spine animation;
             }
             else if(childBone.CompareTag("Leg"))
@@ -83,13 +88,16 @@ public class AnimalInitializer : MonoBehaviour
                 feet.Add(childBone.transform.gameObject);
             }
         }
+        
+        
+        
 
         foreach (var foot in feet)
         {
             //Needs to have found a head first to be successfull
             SetUpFootPositioner(foot.transform);
         }
-
+        
         //add components to animal and position it to center of mass
         collider = movementOriginObj.AddComponent<BoxCollider>();
         Vector3 meshBounds = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().bounds.size;
@@ -99,6 +107,9 @@ public class AnimalInitializer : MonoBehaviour
         Vector3 newMeshBounds = meshBounds / 2;
         newMeshBounds.y = newMeshBounds.y / 3;//Half the height so it can have a body floating above ground and legs work liek springs
         collider.size = newMeshBounds;
+        
+
+        
         
         rb = movementOriginObj.AddComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -118,7 +129,6 @@ public class AnimalInitializer : MonoBehaviour
             behaviours = GetComponent<AnimalBehaviours>();
         behaviours.brain = brain;
         behaviours.rb = rb;
-        //behaviours.maxSpeed = brain.moveSpeed*100;
 
         if (GetComponent<BehaviourTree>() == null) //incase i have it attached for testing
             behaviourTreeManager =
@@ -131,10 +141,17 @@ public class AnimalInitializer : MonoBehaviour
         bodyPositioner = movementOriginObj.AddComponent<AnimalBodyPositioner>();
         bodyPositioner.brain = brain;
         bodyPositioner.animalHeight = head.transform.position.y-feet[0].transform.position.y;//this would be the height of the animal
+        brain.animalHeight = bodyPositioner.animalHeight;
         bodyPositioner.animalLength = head.transform.position.z-feet[feet.Count-1].transform.position.z;
         bodyPositioner.headHeightPosObj = head;
 
         addSenses();
+        
+        //This needs to be done after setup because the feet are used to get the height
+        foreach (var footPositioner in feetPositioners)
+        {
+            footPositioner.animalHeight = 27;
+        }
 
     }
 
@@ -145,19 +162,22 @@ public class AnimalInitializer : MonoBehaviour
         FastIKFabric ikScript = foot.gameObject.AddComponent<FastIKFabric>();
         
         GameObject footPositioner = new GameObject("FootPositioner_"+foot.name);
-        footPositioner.transform.parent = movementOriginObj.transform.GetChild(0);//set them to the child so the container isnt stretched
+        footPositioner.transform.parent = GetRecursiveParentTag(foot);
         footPositioner.transform.position = foot.transform.position+(footPositioner.transform.forward);//+(-animalObj.transform.forward*0.5f)
-        FootRaycastPositioner footScript = footPositioner.AddComponent<FootRaycastPositioner>();
+        AnimalFeetPositioner footScript = footPositioner.AddComponent<AnimalFeetPositioner>();
         feetPositioners.Add(footScript);
-
+        footScript.footIKTargetObj = new GameObject("FootTargetObj");
+        footScript.footIKTargetObj.transform.parent = this.transform; //Set it to highest level parent as they need to move independently
         footScript.endBoneObj = foot.gameObject;
         footScript.forwardFacingObj = movementOriginObj.gameObject;
+        footScript.animalHeight = animalHeight;
         
         GameObject ikPole = new GameObject("ikPole_"+foot.name);
-        ikPole.transform.parent = movementOriginObj.transform.GetChild(0);
+        ikPole.transform.parent = footPositioner.transform;
         ikPole.transform.position = footPositioner.transform.position+(-footPositioner.transform.forward * 10)+(footPositioner.transform.up * 2);
         ikScript.Pole = ikPole.transform;
-        //footScript.footIKPositionObj = childBone.gameObject;
+        
+        
         
         //Match the legs so not walking with both feet off the ground
         if (feetPositioners.Count % 2 == 0) //Then an even leg number, we can assume it will get the front 2 legs first, this leg is added before function runs
@@ -167,6 +187,24 @@ public class AnimalInitializer : MonoBehaviour
             footScript.hasOffset = true;
         }
     }
+    
+
+    //Checks if parent has tag to allow proper parenting of spines
+    public Transform GetRecursiveParentTag(Transform foot)
+    {
+        if (foot.CompareTag("SpineContainer"))
+        {
+            print("t");
+            return foot;
+        }
+        else
+        {
+            print("o");
+            return GetRecursiveParentTag(foot.parent);
+        }
+        
+    }
+    
 
     public void addSenses()
     {

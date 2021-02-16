@@ -28,9 +28,9 @@ MonoBehaviour:
   ageIncrement: 1
   memoryLossRate: 20
   sensoryRange: 15
-  moveSpeed: 5
+  moveSpeed: 294.28
   rotSpeed: 50
-  wanderRadius: 5
+  wanderRadius: 1265.9
   forwardWanderBias: 2
   foodTag: Food
   maxMutatePercent: 2

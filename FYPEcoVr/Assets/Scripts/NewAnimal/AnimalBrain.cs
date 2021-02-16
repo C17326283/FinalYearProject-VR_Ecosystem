@@ -41,6 +41,8 @@ public class AnimalBrain : MonoBehaviour
     public float forwardWanderBias = 2;
     public float maxMutatePercent = 2;
 
+    public float animalHeight;
+
 
     void Awake()
     {

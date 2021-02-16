@@ -15,6 +15,7 @@ TagManager:
   - Undefined
   - Leg
   - Head
+  - SpineContainer
   layers:
   - Default
   - TransparentFX

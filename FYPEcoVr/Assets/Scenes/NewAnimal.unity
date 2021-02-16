@@ -458,6 +458,7 @@ MonoBehaviour:
   behaviourTreeManager: {fileID: 0}
   bodyPositioner: {fileID: 0}
   sensorySphere: {fileID: 0}
+  SpineScript: {fileID: 0}
   initialiseOnStart: 1
 --- !u!4 &304593454
 Transform:
@@ -608,6 +609,7 @@ MonoBehaviour:
   behaviourTreeManager: {fileID: 0}
   bodyPositioner: {fileID: 0}
   sensorySphere: {fileID: 0}
+  SpineScript: {fileID: 0}
   initialiseOnStart: 1
 --- !u!4 &471986423
 Transform:
@@ -995,6 +997,7 @@ MonoBehaviour:
   behaviourTreeManager: {fileID: 0}
   bodyPositioner: {fileID: 0}
   sensorySphere: {fileID: 0}
+  SpineScript: {fileID: 0}
   initialiseOnStart: 1
 --- !u!4 &855422920
 Transform:
@@ -1105,7 +1108,6 @@ GameObject:
   - component: {fileID: 1206164281}
   - component: {fileID: 1206164280}
   - component: {fileID: 1206164279}
-  - component: {fileID: 1206164278}
   - component: {fileID: 1206164277}
   - component: {fileID: 1206164282}
   m_Layer: 0
@@ -1146,25 +1148,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1206164278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1206164275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cc47b6faa4002e4dbf614424d63aaa2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  core: {fileID: 927105571}
-  grounded: 0
-  rb: {fileID: 1206164277}
-  gravityStrength: 100
-  groundNormal: {x: 0, y: 0, z: 0}
-  moveSpeed: 50
-  defaultSpeed: 50
 --- !u!136 &1206164279
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1582,6 +1565,7 @@ MonoBehaviour:
   behaviourTreeManager: {fileID: 0}
   bodyPositioner: {fileID: 0}
   sensorySphere: {fileID: 0}
+  SpineScript: {fileID: 0}
   initialiseOnStart: 1
 --- !u!4 &1932826633
 Transform:
