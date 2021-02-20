@@ -110,6 +110,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Leg
       objectReference: {fileID: 0}
+    - target: {fileID: -3272106112100924687, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3272106112100924687, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3272106112100924687, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -2902335289109103213, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
       propertyPath: m_TagString
       value: Leg

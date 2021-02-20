@@ -42,8 +42,8 @@ public class AnimalFeetPositioner : MonoBehaviour
         layerMask = 1 << 8;//THis is bit shifting layer 8 so that only hit colliders on layer 8
         //animalObj = this.GetComponentInParent<CreatureStats>().gameObject;//get the first obj going up in hierarchy with animal stats script
         transform.rotation = forwardFacingObj.transform.rotation;
-        forwardStepDist = animalLength / 3f;
-        sideStepDist = animalLength / 5;
+        forwardStepDist = animalLength / 4f;
+        sideStepDist = animalLength / 6f;
 
         endBoneObj.GetComponentInParent<FastIKFabric>().Target = footIKTargetObj.transform;
 

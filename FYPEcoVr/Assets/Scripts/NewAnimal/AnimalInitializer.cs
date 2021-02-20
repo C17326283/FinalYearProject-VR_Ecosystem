@@ -103,7 +103,11 @@ public class AnimalInitializer : MonoBehaviour
         collider = movementOriginObj.AddComponent<BoxCollider>();
         Vector3 meshBounds = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().bounds.size;
         //move the collider back to the body even though we need it attached to the head
-        collider.center = (animalObj.transform.position -movementOriginObj.transform.position)+Vector3.up;//a bit higher so legs can have sprign without collider hitting ground
+        //todo tails to allow for this to correctly position
+        //collider.center = (animalObj.transform.position -movementOriginObj.transform.position)+Vector3.up;//a bit higher so legs can have sprign without collider hitting ground
+        //collider.center = (SpineScript.spineContainers[0].transform.position+SpineScript.spineContainers[SpineScript.spineContainers.Count-1].transform.position)/2;//a bit higher so legs can have sprign without collider hitting ground
+        collider.center = (SpineScript.spineContainers[SpineScript.spineContainers.Count-1].transform.localPosition-SpineScript.spineContainers[0].transform.localPosition)/2;
+
         //edit the bounds to be smaller and reasign
         Vector3 newMeshBounds = meshBounds / 2;
         newMeshBounds.y = newMeshBounds.y / 3;//Half the height so it can have a body floating above ground and legs work liek springs
@@ -178,9 +182,17 @@ public class AnimalInitializer : MonoBehaviour
         footScript.forwardFacingObj = movementOriginObj.gameObject;
         footScript.animalHeight = animalHeight;
         
+        
         GameObject ikPole = new GameObject("ikPole_"+foot.name);
         ikPole.transform.parent = footPositioner.transform;
-        ikPole.transform.position = footPositioner.transform.position+(-footPositioner.transform.forward * 10)+(footPositioner.transform.up * 2);
+        if (feetPositioners.Count > 2) //If not the front 2 legs
+        {
+            ikPole.transform.position = footPositioner.transform.position+(footPositioner.transform.forward * 10)+(footPositioner.transform.up * 2);
+        }
+        else
+        {
+            ikPole.transform.position = footPositioner.transform.position+(-footPositioner.transform.forward * 10)+(footPositioner.transform.up * 2);
+        }
         ikScript.Pole = ikPole.transform;
         
         
