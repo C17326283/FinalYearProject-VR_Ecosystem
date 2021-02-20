@@ -16,14 +16,14 @@ public class AnimalFeetPositioner : MonoBehaviour
     public float forwardStepDist = 1.4f;//todo set dynamically
     public float sideStepDist = .6f;
     public Vector3 nextFootPos;
-    public float lerpSpeed = 15;
+    public float lerpSpeed = 15;//todo set based on speed or size
     public bool hasOffset = false;
     //public float timeOffset = 0.0f;
     public GameObject forwardFacingObj;//for using for forward direction of whole animal
     public float footHeightMult = 2;
     public bool footAtPosition = true;
     public AnimalFeetPositioner otherFootRaycastPositioner;
-    public float extraSpace = 0.1f;
+    public float extraSpace = 0.2f;
     //public float footOnGroundDist = 0.2f;
     public float footMoveStopDist = 0.01f;
 
@@ -32,6 +32,7 @@ public class AnimalFeetPositioner : MonoBehaviour
     public Rigidbody rb;
     public bool debug = false;
     public float animalHeight = 1;
+    public float animalLength = 1;
     
     
     
@@ -41,8 +42,8 @@ public class AnimalFeetPositioner : MonoBehaviour
         layerMask = 1 << 8;//THis is bit shifting layer 8 so that only hit colliders on layer 8
         //animalObj = this.GetComponentInParent<CreatureStats>().gameObject;//get the first obj going up in hierarchy with animal stats script
         transform.rotation = forwardFacingObj.transform.rotation;
-        animalHeight = GetComponentInParent<AnimalBrain>().animalHeight;
-        forwardStepDist = animalHeight / 2;
+        forwardStepDist = animalLength / 3f;
+        sideStepDist = animalLength / 5;
 
         endBoneObj.GetComponentInParent<FastIKFabric>().Target = footIKTargetObj.transform;
 
@@ -62,27 +63,29 @@ public class AnimalFeetPositioner : MonoBehaviour
         //todo make the lerpspeed and stepdistance increase along with movespped, if animal is running they stides get bigger and feet are faster
  
         Vector3 axisDifferences = this.transform.InverseTransformPoint(footIKTargetObj.transform.position);
+        footIKTargetObj.transform.forward = forwardFacingObj.transform.forward;//this prevents the feet from beign twisted
+
         
         Vector3 raycastStart = transform.position;
         //Check if foot has got too far from desired position 
         if (axisDifferences.z > forwardStepDist +extraSpace) //If distance of current footpos and rayhit is over stepdistance then take a step
         {
-            raycastStart = raycastStart + (forwardFacingObj.transform.forward*-(forwardStepDist/4));
+            raycastStart = raycastStart + (forwardFacingObj.transform.forward*-(forwardStepDist));
             GetDesiredFootPosition(raycastStart);
         }
         else if (axisDifferences.z < -forwardStepDist -extraSpace) //If distance of current footpos and rayhit is over stepdistance then take a step
         {
-            raycastStart = raycastStart + (forwardFacingObj.transform.forward*(forwardStepDist/4));//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
+            raycastStart = raycastStart + (forwardFacingObj.transform.forward*(forwardStepDist));//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
             GetDesiredFootPosition(raycastStart);
         }
         if(axisDifferences.x > sideStepDist+extraSpace)//Double check overall distance instead of just forward and sides
         {
-            raycastStart = raycastStart + (forwardFacingObj.transform.right*-(sideStepDist/4));//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
+            raycastStart = raycastStart + (forwardFacingObj.transform.right*-(sideStepDist));//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
             GetDesiredFootPosition(raycastStart);
         }
         else if(axisDifferences.x < -sideStepDist-extraSpace)//Double check overall distance instead of just forward and sides
         {
-            raycastStart = raycastStart + (forwardFacingObj.transform.right*(sideStepDist/4));//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
+            raycastStart = raycastStart + (forwardFacingObj.transform.right*(sideStepDist));//put raycast start x distance forward and in air to raycast down//(transform.forward * forwardStepDist)
             GetDesiredFootPosition(raycastStart);
         }
 
@@ -92,15 +95,26 @@ public class AnimalFeetPositioner : MonoBehaviour
         //if foot too far away from where it should be then move closer
         if (distToNext > footMoveStopDist) //If distance of current footpos and rayhit is over stepdistance then take a step
         {
-            float footLift = footHeightMult * (distToNext / 3);
-            
-            footAtPosition = false;//has started moving to next position so set to false and only becomes true if gets close enough to next position
+            float footLift = footHeightMult * (Vector3.Distance(footIKTargetObj.transform.position, nextFootPos) /5);            
 
             //only move foot if the other food is grounded or both feet had a problem and arent grounded
-            if (otherFootRaycastPositioner.footAtPosition == true || (otherFootRaycastPositioner.footAtPosition == false && this.footAtPosition == false))
+            if (otherFootRaycastPositioner.footAtPosition == true  || distToNext>(forwardStepDist+extraSpace)*2 || (otherFootRaycastPositioner.footAtPosition == false && this.footAtPosition == false))
             {
-                float footMoveSpeed = Mathf.Max(lerpSpeed,distToNext*lerpSpeed);
+                footAtPosition = false;//has started moving to next position so set to false and only becomes true if gets close enough to next position
+                float footMoveSpeed = Mathf.Max(lerpSpeed,(distToNext/3)*lerpSpeed);
                 footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos+(forwardFacingObj.transform.up*footLift), footMoveSpeed * Time.deltaTime);
+            }
+            else if(distToNext>(forwardStepDist+extraSpace)*4)
+            {
+                print("far foot");
+                footAtPosition = false;//has started moving to next position so set to false and only becomes true if gets close enough to next position
+
+                footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos, lerpSpeed*10 * Time.deltaTime);
+
+            }
+            else
+            {
+//                print("other foot:" + otherFootRaycastPositioner.footAtPosition);
             }
             
         }
@@ -109,11 +123,13 @@ public class AnimalFeetPositioner : MonoBehaviour
             footAtPosition = true;
         }
         
+        /*
         //if theres a porblem causing leg to be very far then fix
         if (Vector3.Distance(footIKTargetObj.transform.position, nextFootPos) > 5) //If distance of current footpos and rayhit is over stepdistance then take a step
         {
             footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos, 20);
         }
+        */
     }
 
     public void GetDesiredFootPosition(Vector3 raycastStart)
@@ -122,7 +138,7 @@ public class AnimalFeetPositioner : MonoBehaviour
         
         
         RaycastHit hit;//hit informationf
-        if (Physics.Raycast(raycastStart+ (forwardFacingObj.transform.up*5), -forwardFacingObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
+        if (Physics.Raycast(raycastStart+ (forwardFacingObj.transform.up*10), -forwardFacingObj.transform.up, out hit, 20,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
         {
             if (debug)
             {
@@ -137,7 +153,7 @@ public class AnimalFeetPositioner : MonoBehaviour
         if (gotNewPos == false)
             nextFootPos = forwardFacingObj.transform.position-(forwardFacingObj.transform.up * 20);
 
-        nextFootPos = nextFootPos + (forwardFacingObj.transform.up * 0.1f);//put alightly above new point
+        //nextFootPos = nextFootPos + (forwardFacingObj.transform.up * 0.1f);//put alightly above new point
     }
 
     

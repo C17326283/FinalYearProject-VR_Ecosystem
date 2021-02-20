@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9bbea3655ab8f9488423b44b0b2a909, type: 3}
-  m_Name: ChickenProfile
+  m_Name: BearProfile
   m_EditorClassIdentifier: 
   Tag: Chicken
-  model: {fileID: 4652543879994953833, guid: e212f379338cde542b9ea7175def6293, type: 3}
+  model: {fileID: 2695039514763521788, guid: 141057e92b1a49f43ab428d29b38f413, type: 3}
   health: 100
-  hunger: -12.578402
-  thirst: 62.47375
-  reproductiveUrge: 26521.143
-  age: 4420.4214
+  hunger: -1896.2942
+  thirst: -565.43097
+  reproductiveUrge: 25749.543
+  age: 4292.0737
   maxHealth: 100
   maxStat: 100
   healthStarveDecrement: 3
@@ -28,11 +28,11 @@ MonoBehaviour:
   ageIncrement: 1
   memoryLossRate: 60
   sensoryRange: 50
-  moveSpeed: 100
+  moveSpeed: 200
   rotSpeed: 50
-  wanderRadius: 50
+  wanderRadius: 80
   forwardWanderBias: 2
   foodTag: Food
   maxMutatePercent: 2
   numOfLegs: 4
-  gen: 1
+  gen: 0

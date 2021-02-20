@@ -6,20 +6,14 @@ public class AnimalBodyPositioner : MonoBehaviour
 {
 
     public AnimalBrain brain;
-    public float maxSpeed = 5;
-    public float maxForce = 10;
-
-    public float mass = 1;
 
     public GameObject core;
-    public float gravityStrength = 1000;
-    public bool hasUpForce = true;
-    public float upMultiplier = 5f;
+    public float gravityStrength = 5000;//todo check correct
+    public float upMultiplier = 20f;
     public Vector3 gravityDir;
     public float animalHeight;
     public float animalLength;
     public Rigidbody rb;
-    public float distToGround;
     public float desiredHeight;
     public GameObject headHeightPosObj;
     public float lerpSpeed = 3;
@@ -29,7 +23,6 @@ public class AnimalBodyPositioner : MonoBehaviour
 
     public List<GameObject> forcePoints;
 
-    public bool isGrounded = false;
 
     public GameObject lookPoint;
     public Vector3 moveVel;//for velocity without the up and down force
@@ -54,7 +47,7 @@ public class AnimalBodyPositioner : MonoBehaviour
         if(core == null)
             core = GameObject.Find("Core");
         rb = GetComponent<Rigidbody>();
-        desiredHeight = animalHeight * .8f;
+        desiredHeight = animalHeight * .7f;
         layerMask = 1 << 8;//bit shift to get mask
 
         rb.mass = 100;
@@ -73,7 +66,8 @@ public class AnimalBodyPositioner : MonoBehaviour
         //temp assume 2 points, front and back
         forcePoints[0].transform.position = headHeightPosObj.transform.position;
         forcePoints[1].transform.position = headHeightPosObj.transform.position+(-transform.forward * (animalLength));
-        
+
+        transform.up = -gravityDir;
 
     }
 
@@ -106,17 +100,12 @@ public class AnimalBodyPositioner : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(point.transform.position, gravityDir, out hit, animalHeight, layerMask))
             {
-                isGrounded = true;
                 Debug.DrawRay(point.transform.position, gravityDir, Color.green);
 //                print("hit");
                 float upForce = 0;
                 upForce = Mathf.Abs(1 / ((hit.point.y - point.transform.position.y)));
                 rb.AddForceAtPosition(-gravityDir * (upForce * upMultiplier * animalHeight),
                     point.transform.position, ForceMode.Acceleration);
-            }
-            else
-            {
-                isGrounded = false;
             }
         }
     }
@@ -153,7 +142,7 @@ public class AnimalBodyPositioner : MonoBehaviour
             {
                 //TerrainPosCorrecting();//moves the lookpoint to either the target or the terrain in front of it
                 rotation = Quaternion.LookRotation(moveVel, groundNormal);//look to velocity, align with ground
-                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 100*Time.deltaTime);//do it over time
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 50*Time.deltaTime);//do it over time
             }
             else
             {

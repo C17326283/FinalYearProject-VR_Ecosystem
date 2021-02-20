@@ -42,6 +42,7 @@ public class AnimalInitializer : MonoBehaviour
     public SpineNew SpineScript;
 
     public float animalHeight=2;
+    public float animalLength=2;
     
     
     
@@ -140,9 +141,10 @@ public class AnimalInitializer : MonoBehaviour
         
         bodyPositioner = movementOriginObj.AddComponent<AnimalBodyPositioner>();
         bodyPositioner.brain = brain;
-        bodyPositioner.animalHeight = head.transform.position.y-feet[0].transform.position.y;//this would be the height of the animal
-        brain.animalHeight = bodyPositioner.animalHeight;
-        bodyPositioner.animalLength = head.transform.position.z-feet[feet.Count-1].transform.position.z;
+        animalHeight = head.transform.position.y-feet[0].transform.position.y;
+        bodyPositioner.animalHeight = animalHeight;//this would be the height of the animal
+        animalLength = head.transform.position.z-feet[feet.Count-1].transform.position.z;
+        bodyPositioner.animalLength = animalLength;
         bodyPositioner.headHeightPosObj = head;
 
         addSenses();
@@ -150,7 +152,11 @@ public class AnimalInitializer : MonoBehaviour
         //This needs to be done after setup because the feet are used to get the height
         foreach (var footPositioner in feetPositioners)
         {
-            footPositioner.animalHeight = 27;
+            footPositioner.animalHeight = animalHeight;
+            footPositioner.animalLength = animalLength;
+            //footPositioner.lerpSpeed = brain.moveSpeed;
+            footPositioner.rb = rb;
+            print(footPositioner.animalHeight);
         }
 
     }
@@ -163,7 +169,7 @@ public class AnimalInitializer : MonoBehaviour
         
         GameObject footPositioner = new GameObject("FootPositioner_"+foot.name);
         footPositioner.transform.parent = GetRecursiveParentTag(foot);
-        footPositioner.transform.position = foot.transform.position+(footPositioner.transform.forward);//+(-animalObj.transform.forward*0.5f)
+        footPositioner.transform.position = foot.transform.position;//-(footPositioner.transform.forward)
         AnimalFeetPositioner footScript = footPositioner.AddComponent<AnimalFeetPositioner>();
         feetPositioners.Add(footScript);
         footScript.footIKTargetObj = new GameObject("FootTargetObj");
@@ -194,12 +200,10 @@ public class AnimalInitializer : MonoBehaviour
     {
         if (foot.CompareTag("SpineContainer"))
         {
-            print("t");
             return foot;
         }
         else
         {
-            print("o");
             return GetRecursiveParentTag(foot.parent);
         }
         

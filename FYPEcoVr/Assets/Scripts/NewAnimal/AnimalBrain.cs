@@ -100,31 +100,32 @@ public class AnimalBrain : MonoBehaviour
         float percentDif = 0;
 
         percentDif = healthStarveDecrement * change;
-        healthStarveDecrement = Mathf.Clamp(Random.Range(healthStarveDecrement-percentDif, healthStarveDecrement+percentDif), 0, 30);
+        healthStarveDecrement = Mathf.Clamp(Random.Range(healthStarveDecrement-percentDif, healthStarveDecrement+percentDif), 0, 30000);
         percentDif = hungerDecrement * change;
-        hungerDecrement = Mathf.Clamp(Random.Range(hungerDecrement-percentDif, hungerDecrement+percentDif), 0, 30);
+        hungerDecrement = Mathf.Clamp(Random.Range(hungerDecrement-percentDif, hungerDecrement+percentDif), 0, 30000);
         percentDif = thirstDecrement * change;
-        thirstDecrement = Mathf.Clamp(Random.Range(thirstDecrement-percentDif, thirstDecrement+percentDif), 0, 30);
+        thirstDecrement = Mathf.Clamp(Random.Range(thirstDecrement-percentDif, thirstDecrement+percentDif), 0, 30000);
         percentDif = reproductiveIncrement * change;
-        reproductiveIncrement = Mathf.Clamp(Random.Range(reproductiveIncrement-percentDif, reproductiveIncrement+percentDif), 0, 30);
+        reproductiveIncrement = Mathf.Clamp(Random.Range(reproductiveIncrement-percentDif, reproductiveIncrement+percentDif), 0, 300000);
         percentDif = memoryLossRate * change;
-        memoryLossRate = Mathf.Clamp(Random.Range(memoryLossRate-percentDif, memoryLossRate+percentDif), 0, 100);
+        memoryLossRate = Mathf.Clamp(Random.Range(memoryLossRate-percentDif, memoryLossRate+percentDif), 0, 100000);
         percentDif = sensoryRange * change;
-        sensoryRange = Mathf.Clamp(Random.Range(sensoryRange-percentDif, sensoryRange+percentDif), 0, 100);
+        sensoryRange = Mathf.Clamp(Random.Range(sensoryRange-percentDif, sensoryRange+percentDif), 0, 100000);
         percentDif = healthStarveDecrement * change;
-        healthStarveDecrement = Mathf.Clamp(Random.Range(maxHealth-percentDif, maxHealth+percentDif), 0, 30);
+        healthStarveDecrement = Mathf.Clamp(Random.Range(maxHealth-percentDif, maxHealth+percentDif), 0, 30000);
         percentDif = moveSpeed * change;
-        moveSpeed = Mathf.Clamp(Random.Range(moveSpeed-percentDif, moveSpeed+percentDif), 0, 30);
+        moveSpeed = Mathf.Clamp(Random.Range(moveSpeed-percentDif, moveSpeed+percentDif), 0, 300000);
         percentDif = rotSpeed * change;
-        rotSpeed = Mathf.Clamp(Random.Range(rotSpeed-percentDif, rotSpeed+percentDif), 0, 100);
+        rotSpeed = Mathf.Clamp(Random.Range(rotSpeed-percentDif, rotSpeed+percentDif), 0, 1000000);
         percentDif = wanderRadius * change;
-        wanderRadius = Mathf.Clamp(Random.Range(wanderRadius-percentDif, wanderRadius+percentDif), 0, 30);
+        wanderRadius = Mathf.Clamp(Random.Range(wanderRadius-percentDif, wanderRadius+percentDif), 0, 300000);
         percentDif = forwardWanderBias * change;
-        forwardWanderBias = Mathf.Clamp(Random.Range(forwardWanderBias-percentDif, forwardWanderBias+percentDif), 0, 30);
+        forwardWanderBias = Mathf.Clamp(Random.Range(forwardWanderBias-percentDif, forwardWanderBias+percentDif), 0, 300000);
     }
 
     public void SetStatsFromDNA()
     {
+        
         maxHealth = animalBaseDNA.maxHealth;
         maxStat = animalBaseDNA.maxStat;
         healthStarveDecrement = animalBaseDNA.healthStarveDecrement;
@@ -140,6 +141,8 @@ public class AnimalBrain : MonoBehaviour
         wanderRadius = animalBaseDNA.wanderRadius;
         forwardWanderBias = animalBaseDNA.forwardWanderBias;
         maxMutatePercent = animalBaseDNA.maxMutatePercent;
+        print("SetStatsFromDNA"+animalBaseDNA.moveSpeed);
+        print("moveSpeed"+moveSpeed);
     }
     
 }

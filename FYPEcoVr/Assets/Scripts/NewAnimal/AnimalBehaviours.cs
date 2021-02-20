@@ -12,7 +12,6 @@ public class AnimalBehaviours : MonoBehaviour
     
     //use these by reference instead
     public Rigidbody rb;
-    public float maxSpeed = 1000;
     public float tooCloseDist = 20;
     public float attackRange = 2;
     public Transform toTarget;
@@ -70,7 +69,7 @@ public class AnimalBehaviours : MonoBehaviour
             fleeDir = (rb.transform.position - fromTarget.position).normalized;
             Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
             locDir.y = 0;
-            Vector3 force = locDir * maxSpeed;
+            Vector3 force = locDir * brain.moveSpeed;
             rb.AddRelativeForce(force);
             Task.current.Succeed(); //if found no enemies
         }
@@ -115,7 +114,7 @@ public class AnimalBehaviours : MonoBehaviour
             }
             else
             {
-                Vector3 force = locDir * maxSpeed;
+                Vector3 force = locDir * brain.moveSpeed;
                 rb.AddRelativeForce(force);
                 Task.current.Succeed();//if found no enemies
             }
@@ -141,7 +140,7 @@ public class AnimalBehaviours : MonoBehaviour
         {
             Vector3 seekDir;
             seekDir = (toTarget.position - rb.transform.position).normalized;
-            rb.AddForce(seekDir * (maxSpeed/4));//slow down approach
+            rb.AddForce(seekDir * (brain.moveSpeed/4));//slow down approach
             Task.current.Succeed();
         }
         else
@@ -227,7 +226,7 @@ public class AnimalBehaviours : MonoBehaviour
             failCloserChecks += 1;
         }
 
-        if (failCloserChecks > 50)
+        if (failCloserChecks > 100)
         {
             Task.current.Fail();
         }

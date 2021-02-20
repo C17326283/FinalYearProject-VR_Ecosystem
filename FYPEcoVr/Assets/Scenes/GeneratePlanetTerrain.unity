@@ -6533,7 +6533,7 @@ MonoBehaviour:
   multObjectPoolObj: {fileID: 0}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 50
+  amountToSpawn: 100
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 20
   tagToSpawnOn: Ground

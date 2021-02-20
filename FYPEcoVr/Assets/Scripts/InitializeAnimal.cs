@@ -180,17 +180,17 @@ public class InitializeAnimal : MonoBehaviour
         percentDif = animalData.reproductiveIncrement * change;
         animalData.reproductiveIncrement = Mathf.Clamp(Random.Range(animalData.reproductiveIncrement-percentDif, animalData.reproductiveIncrement+percentDif), 0, 30);
         percentDif = animalData.memoryLossRate * change;
-        animalData.memoryLossRate = Mathf.Clamp(Random.Range(animalData.memoryLossRate-percentDif, animalData.memoryLossRate+percentDif), 0, 100);
+        animalData.memoryLossRate = Mathf.Clamp(Random.Range(animalData.memoryLossRate-percentDif, animalData.memoryLossRate+percentDif), 0, 100000);
         percentDif = animalData.sensoryRange * change;
         animalData.sensoryRange = Mathf.Clamp(Random.Range(animalData.sensoryRange-percentDif, animalData.sensoryRange+percentDif), 0, 100);
         percentDif = animalData.healthStarveDecrement * change;
         animalData.healthStarveDecrement = Mathf.Clamp(Random.Range(animalData.maxHealth-percentDif, animalData.maxHealth+percentDif), 0, 30);
         percentDif = animalData.moveSpeed * change;
-        animalData.moveSpeed = Mathf.Clamp(Random.Range(animalData.moveSpeed-percentDif, animalData.moveSpeed+percentDif), 0, 30);
+        animalData.moveSpeed = Mathf.Clamp(Random.Range(animalData.moveSpeed-percentDif, animalData.moveSpeed+percentDif), 0, 30000);
         percentDif = animalData.rotSpeed * change;
-        animalData.rotSpeed = Mathf.Clamp(Random.Range(animalData.rotSpeed-percentDif, animalData.rotSpeed+percentDif), 0, 100);
+        animalData.rotSpeed = Mathf.Clamp(Random.Range(animalData.rotSpeed-percentDif, animalData.rotSpeed+percentDif), 0, 1000000);
         percentDif =animalData.wanderRadius * change;
-        animalData.wanderRadius = Mathf.Clamp(Random.Range(animalData.wanderRadius-percentDif, animalData.wanderRadius+percentDif), 0, 30);
+        animalData.wanderRadius = Mathf.Clamp(Random.Range(animalData.wanderRadius-percentDif, animalData.wanderRadius+percentDif), 0, 30000);
         percentDif = animalData.forwardWanderBias * change;
         animalData.forwardWanderBias = Mathf.Clamp(Random.Range(animalData.forwardWanderBias-percentDif, animalData.forwardWanderBias+percentDif), 0, 30);
     }

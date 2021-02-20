@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ElephantProfile
   m_EditorClassIdentifier: 
   Tag: Chicken
-  model: {fileID: 468793577576190357, guid: ffde45e188ab4184dbf5e94d8a13ab2a, type: 3}
+  model: {fileID: 3673685167152229560, guid: ffde45e188ab4184dbf5e94d8a13ab2a, type: 3}
   health: 100
   hunger: -12.578402
   thirst: 62.47375
@@ -26,9 +26,9 @@ MonoBehaviour:
   thirstDecrement: 1
   reproductiveIncrement: 6
   ageIncrement: 1
-  memoryLossRate: 20
-  sensoryRange: 15
-  moveSpeed: 7
+  memoryLossRate: 60
+  sensoryRange: 50
+  moveSpeed: 100
   rotSpeed: 50
   wanderRadius: 50
   forwardWanderBias: 2
