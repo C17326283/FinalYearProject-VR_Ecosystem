@@ -105,7 +105,7 @@ PrefabInstance:
     - target: {fileID: 278067603833239686, guid: df91875a6b2623b4aae89cc89c623bba, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e1886781c0022eb4fac42c5f49a676b3, type: 2}
+      objectReference: {fileID: 2100000, guid: 2c2f046918f37a1418c5952618557495, type: 2}
     - target: {fileID: 919132149155446097, guid: df91875a6b2623b4aae89cc89c623bba, type: 3}
       propertyPath: m_Name
       value: Bear

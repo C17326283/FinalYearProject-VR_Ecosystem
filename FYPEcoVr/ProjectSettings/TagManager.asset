@@ -16,6 +16,7 @@ TagManager:
   - Leg
   - Head
   - SpineContainer
+  - OtherLimb
   layers:
   - Default
   - TransparentFX

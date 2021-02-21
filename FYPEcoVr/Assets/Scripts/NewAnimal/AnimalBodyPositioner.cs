@@ -113,6 +113,10 @@ public class AnimalBodyPositioner : MonoBehaviour
                 upForce = Mathf.Abs(1 / ((hit.point.y - point.transform.position.y)));
                 upForce = Mathf.Clamp(upForce, 0f,2f);//Stop adding too much force
 //                print(upForce);
+                float desiredHeight = Mathf.Min(animalHeight*.9f,(animalHeight / rb.velocity.magnitude)*6);//strides get bigger at faster speeds so animate lower body too
+                desiredHeight = Mathf.Clamp(desiredHeight, animalHeight *.6f, animalHeight);
+                
+                print("height"+(animalHeight*.8f)+"vel"+(animalHeight / rb.velocity.magnitude)*5);
                 rb.AddForceAtPosition(-gravityDir * (upForce * upMultiplier * desiredHeight),
                     point.transform.position, ForceMode.Acceleration);
             }

@@ -141,8 +141,8 @@ public class AnimalBrain : MonoBehaviour
         wanderRadius = animalBaseDNA.wanderRadius;
         forwardWanderBias = animalBaseDNA.forwardWanderBias;
         maxMutatePercent = animalBaseDNA.maxMutatePercent;
-        print("SetStatsFromDNA"+animalBaseDNA.moveSpeed);
-        print("moveSpeed"+moveSpeed);
+//        print("SetStatsFromDNA"+animalBaseDNA.moveSpeed);
+//        print("moveSpeed"+moveSpeed);
     }
     
 }

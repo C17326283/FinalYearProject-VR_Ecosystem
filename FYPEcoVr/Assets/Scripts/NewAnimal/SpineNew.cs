@@ -13,6 +13,7 @@ public class SpineNew : MonoBehaviour {
     public float damping = 20.0f;
 
     private GameObject spinesHolder;
+    public bool isLimbSetup = false;
 
 
     //make all the holders and position spines
@@ -26,7 +27,7 @@ public class SpineNew : MonoBehaviour {
         GetSpineObjRecursively(head);
         SaveSpineOffsets();
 
-        MatchLimbsToSpine();
+        //MatchLimbsToSpine();
     }
 
     public void GetSpineObjRecursively(GameObject head)
@@ -46,10 +47,18 @@ public class SpineNew : MonoBehaviour {
     //Make a blank object where this one is so the conatiner can follow prev object but maintain rotatation of bone
     public void PutSpineObjIntoContainer(GameObject spineObj)
     {
-        //print("make obj holder"+spineObj.transform.name);
-        GameObject spineContainer = new GameObject("SpineSection"+spineContainers.Count);
+        GameObject spineContainer;
+        spineContainer = new GameObject("SpineSection"+spineContainers.Count);
+
         if (spineContainers.Count == 0)
+        {
+            if (isLimbSetup)
+            {
+                spineContainer = spineObj.transform.parent.gameObject;
+            }
             spineContainer.transform.name = "SpineSection" + spineContainers.Count + "-PhysicsObject";
+        }
+
         spineContainer.transform.position = spineObj.transform.position;
         spineContainer.transform.parent = spinesHolder.transform;
         spineContainer.transform.tag = "SpineContainer";//so feet positioners can get parented to it too
@@ -60,7 +69,7 @@ public class SpineNew : MonoBehaviour {
     }
 
     //The legs need to stick to the closest spine in the armature model or else theyll stretch 
-    void MatchLimbsToSpine()
+    public void MatchLimbsToSpine()
     {
         //get all the limb bases, so top of legs not feet
         List<Transform> allLimbs = new List<Transform>();

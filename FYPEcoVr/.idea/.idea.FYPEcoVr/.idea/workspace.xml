@@ -21,12 +21,28 @@
   <component name="ChangeListManager">
     <list default="true" id="1c86a74b-a54b-44cd-a93d-b82d2bbe20ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimalProfile/CheetahProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AnimalProfile/CheetahProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimalProfile/FoxProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AnimalProfile/FoxProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animals/Bear.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animals/Bear.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Animals/ChickenReady.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animals/ChickenReady.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animals/Deer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animals/Deer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animals/Elephant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animals/Elephant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animals/Fox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animals/Fox.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Orange.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Orange.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Yellow 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Yellow 1.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Elephant.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Elephant.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Fox.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Fox.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/NewAnimal.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/NewAnimal.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBodyPositioner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBodyPositioner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBrain.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/SpineNew.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/SpineNew.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,13 +109,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/AnimalsSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT.txt" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/SpineNew.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GravityPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBrain.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InitializeAnimal.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBrain.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/SpineNew.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBodyPositioner.cs" />
       </list>
     </option>
@@ -173,7 +189,7 @@
       <workItem from="1613565985187" duration="7519000" />
       <workItem from="1613729678950" duration="593000" />
       <workItem from="1613761459486" duration="2553000" />
-      <workItem from="1613832634968" duration="8450000" />
+      <workItem from="1613832634968" duration="32622000" />
     </task>
     <servers />
   </component>

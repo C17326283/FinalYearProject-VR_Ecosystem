@@ -21,6 +21,8 @@ public class AnimalInitializer : MonoBehaviour
     [HideInInspector]
     public List<GameObject> feet;//for manageing all the leg objects
     [HideInInspector]
+    public List<GameObject> otherLimbs;
+    [HideInInspector]
     public List<AnimalFeetPositioner> feetPositioners;//for linking legs together
     [HideInInspector]
     public GameObject core;
@@ -82,11 +84,16 @@ public class AnimalInitializer : MonoBehaviour
                 SpineScript = animalObj.AddComponent<SpineNew>();
                 SpineScript.head = head;
                 SpineScript.InitializeSpine();//initiallise once all the feet have been added
+                SpineScript.MatchLimbsToSpine();
                 movementOriginObj = head.transform.parent.gameObject;//set in spinescript to control head so need this to have the rigidbody to allow spine animation;
             }
             else if(childBone.CompareTag("Leg"))
             {
                 feet.Add(childBone.transform.gameObject);
+            }
+            else if(childBone.CompareTag("OtherLimb"))
+            {
+                otherLimbs.Add(childBone.transform.gameObject);
             }
         }
         
@@ -97,6 +104,14 @@ public class AnimalInitializer : MonoBehaviour
         {
             //Needs to have found a head first to be successfull
             SetUpFootPositioner(foot.transform);
+        }
+        foreach (var limb in otherLimbs)
+        {
+            SpineNew LimbScript = animalObj.AddComponent<SpineNew>();
+            LimbScript.isLimbSetup = true;
+            LimbScript.head = limb;
+            LimbScript.InitializeSpine();//initiallise once all the feet have been added
+            LimbScript.damping = SpineScript.damping / 2;
         }
         
         //add components to animal and position it to center of mass
@@ -158,9 +173,9 @@ public class AnimalInitializer : MonoBehaviour
         {
             footPositioner.animalHeight = animalHeight;
             footPositioner.animalLength = animalLength;
-            //footPositioner.lerpSpeed = brain.moveSpeed;
+            //footPositioner.lerpSpeed = Mathf.Max(10,brain.moveSpeed/10);
             footPositioner.rb = rb;
-            print(footPositioner.animalHeight);
+//            print(footPositioner.animalHeight);
         }
 
     }
@@ -181,8 +196,9 @@ public class AnimalInitializer : MonoBehaviour
         footScript.endBoneObj = foot.gameObject;
         footScript.forwardFacingObj = movementOriginObj.gameObject;
         footScript.animalHeight = animalHeight;
-        
-        
+        footScript.rb = rb;
+
+
         GameObject ikPole = new GameObject("ikPole_"+foot.name);
         ikPole.transform.parent = footPositioner.transform;
         if (feetPositioners.Count > 2) //If not the front 2 legs
