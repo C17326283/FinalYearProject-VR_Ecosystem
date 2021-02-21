@@ -20,11 +20,24 @@ public class AnimalBehaviours : MonoBehaviour
 
     public float distLastFrame;
     public float failCloserChecks;
+    
+    private int layerMask;
 
+
+    public void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        if(toTarget!=null)
+            Gizmos.DrawSphere(toTarget.transform.position, 1);
+    
+        
+    }
 
     private void Awake()
     {
         wanderObj=new GameObject();
+        layerMask = 1 << 8;//bit shift to get mask for raycasting so only on environment and not other animals
+
     }
 
     [Task]
@@ -194,18 +207,25 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void GetWanderTarget()
     {
-        Vector3 randomePos = rb.position + Random.insideUnitSphere * brain.wanderRadius;
-        randomePos.y = rb.position.y+20;//set at random height
+        Vector3 randomPoint = rb.transform.position +(Random.insideUnitSphere * brain.wanderRadius);
+        Vector3 tarPos = randomPoint +(rb.transform.up*brain.wanderRadius*2)+(rb.transform.forward*brain.forwardWanderBias);//+(rb.transform.forward*brain.forwardWanderBias)
         
+        //Vector3 locTarPos = rb.transform.InverseTransformDirection(tarPos);//cancel out y
+        //locTarPos.y = 0;//cancel out vertical force
+        //tarPos = rb.transform.TransformDirection(locTarPos);//set the new cancelled related velocity
+            
+            
+            
         RaycastHit hit; //shoot ray and if its ground then spawn at that location
-        if (Physics.Raycast(randomePos, -rb.transform.up, out hit, 100))
+        if (Physics.Raycast(tarPos, -rb.transform.up, out hit, 1000,layerMask))
         {
-            wanderObj.transform.position = hit.point;
-            toTarget = wanderObj.transform;
+            Debug.DrawLine(tarPos,hit.point,Color.white);
+            toTarget.transform.position = hit.point+transform.up*brain.animalHeight;
             Task.current.Succeed();
         }
         else
         {
+            //toTarget.transform.position = rb.transform.position + (rb.transform.forward * 10);
             Task.current.Fail();
         }
     }
@@ -226,7 +246,7 @@ public class AnimalBehaviours : MonoBehaviour
             failCloserChecks += 1;
         }
 
-        if (failCloserChecks > 100)
+        if (failCloserChecks > 10000)
         {
             Task.current.Fail();
         }

@@ -198,6 +198,7 @@
           <e p="FootRaycastPositioner.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="GravityAIMovement.cs" t="Include" />
+          <e p="GravityMovement.cs" t="Include" />
           <e p="GravityPlayer.cs" t="Include" />
           <e p="HeightPositioner.cs" t="Include" />
           <e p="InitializeAnimal.cs" t="Include" />
@@ -205,10 +206,11 @@
           <e p="NavTest.cs" t="Include" />
           <e p="NewAnimal" t="Include">
             <e p="AnimalBehaviours.cs" t="Include" />
-            <e p="AnimalBodyPositioner.cs" t="Include" />
             <e p="AnimalBrain.cs" t="Include" />
             <e p="AnimalBT.txt" t="Include" />
             <e p="AnimalFeetPositioner.cs" t="Include" />
+            <e p="AnimalGravity.cs" t="Include" />
+            <e p="AnimalGroundVelocityOrienter.cs" t="Include" />
             <e p="AnimalInitializer.cs" t="Include" />
             <e p="AnimalSenses.cs" t="Include" />
             <e p="SpineNew.cs" t="Include" />

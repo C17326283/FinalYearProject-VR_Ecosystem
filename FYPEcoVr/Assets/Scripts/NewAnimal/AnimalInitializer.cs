@@ -37,7 +37,8 @@ public class AnimalInitializer : MonoBehaviour
     [HideInInspector]
     public BehaviourTree behaviourTreeManager;
     
-    public AnimalBodyPositioner bodyPositioner;
+    public AnimalGravity animalGravity;
+    public AnimalGroundVelocityOrienter groundOrienter;
 
     public GameObject sensorySphere;
 
@@ -62,6 +63,7 @@ public class AnimalInitializer : MonoBehaviour
     {
         feet = new List<GameObject> ();//for setting up foot positioners
         feetPositioners = new List<AnimalFeetPositioner> ();
+        otherLimbs = new List<GameObject> ();
         core = GameObject.Find("Core");
         
         //make the animal object
@@ -158,13 +160,16 @@ public class AnimalInitializer : MonoBehaviour
         behaviourTreeManager.scripts = btTexts;
         behaviourTreeManager.Compile();
         
-        bodyPositioner = movementOriginObj.AddComponent<AnimalBodyPositioner>();
-        bodyPositioner.brain = brain;
+        animalGravity = movementOriginObj.AddComponent<AnimalGravity>();
+        groundOrienter = movementOriginObj.AddComponent<AnimalGroundVelocityOrienter>();
+        groundOrienter.brain = brain;
         animalHeight = head.transform.position.y-feet[0].transform.position.y;
-        bodyPositioner.animalHeight = animalHeight;//this would be the height of the animal
+        animalGravity.animalHeight = animalHeight;//this would be the height of the animal
         animalLength = head.transform.position.z-feet[feet.Count-1].transform.position.z;
-        bodyPositioner.animalLength = animalLength;
-        bodyPositioner.headHeightPosObj = head;
+        animalGravity.animalLength = animalLength;
+        animalGravity.headHeightPosObj = head;
+        animalGravity.Initialize();
+        groundOrienter.Initialize();
 
         addSenses();
         

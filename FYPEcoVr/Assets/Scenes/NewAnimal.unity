@@ -216,7 +216,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &35202391 stripped
 Transform:
@@ -316,7 +316,117 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &179839252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 179839256}
+  - component: {fileID: 179839255}
+  - component: {fileID: 179839254}
+  - component: {fileID: 179839253}
+  m_Layer: 0
+  m_Name: ' An1 (17)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &179839253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179839252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f016117d2e6bb4b85dac04e2c8ee1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 0}
+  rb: {fileID: 0}
+  tooCloseDist: 20
+  attackRange: 5
+  toTarget: {fileID: 0}
+  fromTarget: {fileID: 0}
+  wanderObj: {fileID: 0}
+  distLastFrame: 0
+  failCloserChecks: 0
+--- !u!114 &179839254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179839252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e43e7170fb45b4b81dcd16d0ff55d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
+  autoReset: 1
+  tickOn: 0
+  sourceInfos:
+  - isFoldout: 1
+    breakPoints: 
+    breakPointStatuses: 
+    collapsedLines: 
+    btScript: 
+--- !u!114 &179839255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179839252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f28bc9048ad6b469837e3373bc4bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalDNA: {fileID: 11400000, guid: 37b47e6228fae784d8b77270fc285e42, type: 2}
+  btTexts:
+  - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
+  animalObj: {fileID: 0}
+  collider: {fileID: 0}
+  rb: {fileID: 0}
+  head: {fileID: 0}
+  feet: []
+  otherLimbs: []
+  feetPositioners: []
+  core: {fileID: 0}
+  movementOriginObj: {fileID: 0}
+  brain: {fileID: 0}
+  behaviours: {fileID: 0}
+  behaviourTreeManager: {fileID: 0}
+  animalGravity: {fileID: 0}
+  groundOrienter: {fileID: 0}
+  sensorySphere: {fileID: 0}
+  SpineScript: {fileID: 0}
+  animalHeight: 2
+  animalLength: 2
+  initialiseOnStart: 1
+--- !u!4 &179839256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179839252}
+  m_LocalRotation: {x: 0.11325745, y: -0.35329574, z: 0.043155786, w: 0.9276273}
+  m_LocalPosition: {x: 2795.46, y: 1598.71, z: -2.4000015}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &253572247
 GameObject:
@@ -336,7 +446,7 @@ GameObject:
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &253572248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,13 +510,15 @@ MonoBehaviour:
   rb: {fileID: 0}
   head: {fileID: 0}
   feet: []
+  otherLimbs: []
   feetPositioners: []
   core: {fileID: 0}
   movementOriginObj: {fileID: 0}
   brain: {fileID: 0}
   behaviours: {fileID: 0}
   behaviourTreeManager: {fileID: 0}
-  bodyPositioner: {fileID: 0}
+  animalGravity: {fileID: 0}
+  groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
   SpineScript: {fileID: 0}
   animalHeight: 2
@@ -558,13 +670,15 @@ MonoBehaviour:
   rb: {fileID: 0}
   head: {fileID: 0}
   feet: []
+  otherLimbs: []
   feetPositioners: []
   core: {fileID: 0}
   movementOriginObj: {fileID: 0}
   brain: {fileID: 0}
   behaviours: {fileID: 0}
   behaviourTreeManager: {fileID: 0}
-  bodyPositioner: {fileID: 0}
+  animalGravity: {fileID: 0}
+  groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
   SpineScript: {fileID: 0}
   animalHeight: 2
@@ -582,7 +696,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &304593455
 MonoBehaviour:
@@ -627,6 +741,116 @@ MonoBehaviour:
   wanderObj: {fileID: 0}
   distLastFrame: 0
   failCloserChecks: 0
+--- !u!1 &362311840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 362311844}
+  - component: {fileID: 362311843}
+  - component: {fileID: 362311842}
+  - component: {fileID: 362311841}
+  m_Layer: 0
+  m_Name: ' An1 (15)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &362311841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362311840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f016117d2e6bb4b85dac04e2c8ee1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 0}
+  rb: {fileID: 0}
+  tooCloseDist: 20
+  attackRange: 5
+  toTarget: {fileID: 0}
+  fromTarget: {fileID: 0}
+  wanderObj: {fileID: 0}
+  distLastFrame: 0
+  failCloserChecks: 0
+--- !u!114 &362311842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362311840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e43e7170fb45b4b81dcd16d0ff55d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
+  autoReset: 1
+  tickOn: 0
+  sourceInfos:
+  - isFoldout: 1
+    breakPoints: 
+    breakPointStatuses: 
+    collapsedLines: 
+    btScript: 
+--- !u!114 &362311843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362311840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f28bc9048ad6b469837e3373bc4bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalDNA: {fileID: 11400000, guid: ab106465f1c545e4c90f0fd82910b929, type: 2}
+  btTexts:
+  - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
+  animalObj: {fileID: 0}
+  collider: {fileID: 0}
+  rb: {fileID: 0}
+  head: {fileID: 0}
+  feet: []
+  otherLimbs: []
+  feetPositioners: []
+  core: {fileID: 0}
+  movementOriginObj: {fileID: 0}
+  brain: {fileID: 0}
+  behaviours: {fileID: 0}
+  behaviourTreeManager: {fileID: 0}
+  animalGravity: {fileID: 0}
+  groundOrienter: {fileID: 0}
+  sensorySphere: {fileID: 0}
+  SpineScript: {fileID: 0}
+  animalHeight: 2
+  animalLength: 2
+  initialiseOnStart: 1
+--- !u!4 &362311844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362311840}
+  m_LocalRotation: {x: 0.11325745, y: -0.35329574, z: 0.043155786, w: 0.9276273}
+  m_LocalPosition: {x: 2763, y: 1595.63, z: -62}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &471986419
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,7 +869,7 @@ GameObject:
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &471986420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,13 +933,15 @@ MonoBehaviour:
   rb: {fileID: 0}
   head: {fileID: 0}
   feet: []
+  otherLimbs: []
   feetPositioners: []
   core: {fileID: 0}
   movementOriginObj: {fileID: 0}
   brain: {fileID: 0}
   behaviours: {fileID: 0}
   behaviourTreeManager: {fileID: 0}
-  bodyPositioner: {fileID: 0}
+  animalGravity: {fileID: 0}
+  groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
   SpineScript: {fileID: 0}
   animalHeight: 2
@@ -733,7 +959,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &493727259
 GameObject:
@@ -828,7 +1054,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &655890355
 PrefabInstance:
@@ -941,7 +1167,7 @@ GameObject:
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &683034031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1005,13 +1231,15 @@ MonoBehaviour:
   rb: {fileID: 0}
   head: {fileID: 0}
   feet: []
+  otherLimbs: []
   feetPositioners: []
   core: {fileID: 0}
   movementOriginObj: {fileID: 0}
   brain: {fileID: 0}
   behaviours: {fileID: 0}
   behaviourTreeManager: {fileID: 0}
-  bodyPositioner: {fileID: 0}
+  animalGravity: {fileID: 0}
+  groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
   SpineScript: {fileID: 0}
   animalHeight: 2
@@ -1122,7 +1350,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &855422916
 GameObject:
@@ -1142,7 +1370,7 @@ GameObject:
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &855422917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1206,13 +1434,15 @@ MonoBehaviour:
   rb: {fileID: 0}
   head: {fileID: 0}
   feet: []
+  otherLimbs: []
   feetPositioners: []
   core: {fileID: 0}
   movementOriginObj: {fileID: 0}
   brain: {fileID: 0}
   behaviours: {fileID: 0}
   behaviourTreeManager: {fileID: 0}
-  bodyPositioner: {fileID: 0}
+  animalGravity: {fileID: 0}
+  groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
   SpineScript: {fileID: 0}
   animalHeight: 2
@@ -1230,7 +1460,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 4.02, y: -41.7, z: 0.002}
 --- !u!1 &916162411 stripped
 GameObject:
@@ -1303,7 +1533,7 @@ GameObject:
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1179624596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1367,13 +1597,15 @@ MonoBehaviour:
   rb: {fileID: 0}
   head: {fileID: 0}
   feet: []
+  otherLimbs: []
   feetPositioners: []
   core: {fileID: 0}
   movementOriginObj: {fileID: 0}
   brain: {fileID: 0}
   behaviours: {fileID: 0}
   behaviourTreeManager: {fileID: 0}
-  bodyPositioner: {fileID: 0}
+  animalGravity: {fileID: 0}
+  groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
   SpineScript: {fileID: 0}
   animalHeight: 2
@@ -1437,13 +1669,15 @@ GameObject:
   - component: {fileID: 1206164279}
   - component: {fileID: 1206164277}
   - component: {fileID: 1206164282}
+  - component: {fileID: 1206164278}
+  - component: {fileID: 1206164283}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1206164276
 Transform:
   m_ObjectHideFlags: 0
@@ -1475,6 +1709,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1206164278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206164275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca839468c35e20347918d6273119caa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialiseOnStart: 0
+  brain: {fileID: 0}
+  core: {fileID: 0}
+  gravityDir: {x: 0, y: 0, z: 0}
+  rb: {fileID: 1206164277}
+  turnSpeed: 3
+  moveVel: {x: 0, y: 0, z: 0}
+  orienter: {fileID: 0}
 --- !u!136 &1206164279
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1545,7 +1799,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206164275}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2cc47b6faa4002e4dbf614424d63aaa2, type: 3}
   m_Name: 
@@ -1557,6 +1811,22 @@ MonoBehaviour:
   groundNormal: {x: 0, y: 0, z: 0}
   moveSpeed: 50
   defaultSpeed: 50
+--- !u!114 &1206164283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206164275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506ab9327fd9b9b499bb9635d4b9f4a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  moveSpeed: 0
+  defaultSpeed: 50
+  turnSpeed: 150
 --- !u!1 &1275544352 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6443852219947562045, guid: 8179af335b0337e4f8ecd55458dad529, type: 3}
@@ -1676,6 +1946,336 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405165494}
   m_Mesh: {fileID: 4444728127320036556, guid: 8179af335b0337e4f8ecd55458dad529, type: 3}
+--- !u!1 &1418974606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1418974610}
+  - component: {fileID: 1418974609}
+  - component: {fileID: 1418974608}
+  - component: {fileID: 1418974607}
+  m_Layer: 0
+  m_Name: ' An1 (16)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1418974607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418974606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f016117d2e6bb4b85dac04e2c8ee1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 0}
+  rb: {fileID: 0}
+  tooCloseDist: 20
+  attackRange: 5
+  toTarget: {fileID: 0}
+  fromTarget: {fileID: 0}
+  wanderObj: {fileID: 0}
+  distLastFrame: 0
+  failCloserChecks: 0
+--- !u!114 &1418974608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418974606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e43e7170fb45b4b81dcd16d0ff55d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
+  autoReset: 1
+  tickOn: 0
+  sourceInfos:
+  - isFoldout: 1
+    breakPoints: 
+    breakPointStatuses: 
+    collapsedLines: 
+    btScript: 
+--- !u!114 &1418974609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418974606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f28bc9048ad6b469837e3373bc4bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalDNA: {fileID: 11400000, guid: fb46446b8d30e0b4d9e8ddf6a0ce7c9d, type: 2}
+  btTexts:
+  - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
+  animalObj: {fileID: 0}
+  collider: {fileID: 0}
+  rb: {fileID: 0}
+  head: {fileID: 0}
+  feet: []
+  otherLimbs: []
+  feetPositioners: []
+  core: {fileID: 0}
+  movementOriginObj: {fileID: 0}
+  brain: {fileID: 0}
+  behaviours: {fileID: 0}
+  behaviourTreeManager: {fileID: 0}
+  animalGravity: {fileID: 0}
+  groundOrienter: {fileID: 0}
+  sensorySphere: {fileID: 0}
+  SpineScript: {fileID: 0}
+  animalHeight: 2
+  animalLength: 2
+  initialiseOnStart: 1
+--- !u!4 &1418974610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418974606}
+  m_LocalRotation: {x: 0.03276813, y: -0.3557022, z: 0.012500583, w: 0.9339411}
+  m_LocalPosition: {x: 2762.51, y: 1598.4, z: -22.48}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 4.02, y: -41.7, z: 0.002}
+--- !u!1 &1520006728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1520006732}
+  - component: {fileID: 1520006731}
+  - component: {fileID: 1520006730}
+  - component: {fileID: 1520006729}
+  m_Layer: 0
+  m_Name: ' An1 (19)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1520006729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520006728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f016117d2e6bb4b85dac04e2c8ee1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 0}
+  rb: {fileID: 0}
+  tooCloseDist: 20
+  attackRange: 5
+  toTarget: {fileID: 0}
+  fromTarget: {fileID: 0}
+  wanderObj: {fileID: 0}
+  distLastFrame: 0
+  failCloserChecks: 0
+--- !u!114 &1520006730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520006728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e43e7170fb45b4b81dcd16d0ff55d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
+  autoReset: 1
+  tickOn: 0
+  sourceInfos:
+  - isFoldout: 1
+    breakPoints: 
+    breakPointStatuses: 
+    collapsedLines: 
+    btScript: 
+--- !u!114 &1520006731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520006728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f28bc9048ad6b469837e3373bc4bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalDNA: {fileID: 11400000, guid: 88b846987ed9c4b4ea4352d204f22679, type: 2}
+  btTexts:
+  - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
+  animalObj: {fileID: 0}
+  collider: {fileID: 0}
+  rb: {fileID: 0}
+  head: {fileID: 0}
+  feet: []
+  otherLimbs: []
+  feetPositioners: []
+  core: {fileID: 0}
+  movementOriginObj: {fileID: 0}
+  brain: {fileID: 0}
+  behaviours: {fileID: 0}
+  behaviourTreeManager: {fileID: 0}
+  animalGravity: {fileID: 0}
+  groundOrienter: {fileID: 0}
+  sensorySphere: {fileID: 0}
+  SpineScript: {fileID: 0}
+  animalHeight: 2
+  animalLength: 2
+  initialiseOnStart: 1
+--- !u!4 &1520006732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520006728}
+  m_LocalRotation: {x: -0.015717067, y: -0.3558718, z: -0.0059655877, w: 0.9343836}
+  m_LocalPosition: {x: 2786.83, y: 1594.54, z: -16.23}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: -1.927, y: -41.7, z: 0.002}
+--- !u!1 &1601700661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1601700665}
+  - component: {fileID: 1601700664}
+  - component: {fileID: 1601700663}
+  - component: {fileID: 1601700662}
+  m_Layer: 0
+  m_Name: ' An1 (18)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1601700662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601700661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f016117d2e6bb4b85dac04e2c8ee1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 0}
+  rb: {fileID: 0}
+  tooCloseDist: 20
+  attackRange: 5
+  toTarget: {fileID: 0}
+  fromTarget: {fileID: 0}
+  wanderObj: {fileID: 0}
+  distLastFrame: 0
+  failCloserChecks: 0
+--- !u!114 &1601700663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601700661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e43e7170fb45b4b81dcd16d0ff55d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
+  autoReset: 1
+  tickOn: 0
+  sourceInfos:
+  - isFoldout: 1
+    breakPoints: 
+    breakPointStatuses: 
+    collapsedLines: 
+    btScript: 
+--- !u!114 &1601700664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601700661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f28bc9048ad6b469837e3373bc4bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalDNA: {fileID: 11400000, guid: 90cc2ec8d2ab72541b5dff655ba83a30, type: 2}
+  btTexts:
+  - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
+  animalObj: {fileID: 0}
+  collider: {fileID: 0}
+  rb: {fileID: 0}
+  head: {fileID: 0}
+  feet: []
+  otherLimbs: []
+  feetPositioners: []
+  core: {fileID: 0}
+  movementOriginObj: {fileID: 0}
+  brain: {fileID: 0}
+  behaviours: {fileID: 0}
+  behaviourTreeManager: {fileID: 0}
+  animalGravity: {fileID: 0}
+  groundOrienter: {fileID: 0}
+  sensorySphere: {fileID: 0}
+  SpineScript: {fileID: 0}
+  animalHeight: 2
+  animalLength: 2
+  initialiseOnStart: 1
+--- !u!4 &1601700665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601700661}
+  m_LocalRotation: {x: 0.11325745, y: -0.35329574, z: 0.043155786, w: 0.9276273}
+  m_LocalPosition: {x: 2789.58, y: 1592.07, z: -47.67}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1691335103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1862,7 +2462,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1790429919
 GameObject:
@@ -1894,6 +2494,116 @@ Transform:
   m_Father: {fileID: 1405165495}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1831480644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1831480648}
+  - component: {fileID: 1831480647}
+  - component: {fileID: 1831480646}
+  - component: {fileID: 1831480645}
+  m_Layer: 0
+  m_Name: ' An1 (20)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1831480645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831480644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f016117d2e6bb4b85dac04e2c8ee1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 0}
+  rb: {fileID: 0}
+  tooCloseDist: 20
+  attackRange: 5
+  toTarget: {fileID: 0}
+  fromTarget: {fileID: 0}
+  wanderObj: {fileID: 0}
+  distLastFrame: 0
+  failCloserChecks: 0
+--- !u!114 &1831480646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831480644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e43e7170fb45b4b81dcd16d0ff55d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
+  autoReset: 1
+  tickOn: 0
+  sourceInfos:
+  - isFoldout: 1
+    breakPoints: 
+    breakPointStatuses: 
+    collapsedLines: 
+    btScript: 
+--- !u!114 &1831480647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831480644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f28bc9048ad6b469837e3373bc4bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalDNA: {fileID: 11400000, guid: 7104b5ccd3c514d46a3e2f2acaaa4faa, type: 2}
+  btTexts:
+  - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
+  animalObj: {fileID: 0}
+  collider: {fileID: 0}
+  rb: {fileID: 0}
+  head: {fileID: 0}
+  feet: []
+  otherLimbs: []
+  feetPositioners: []
+  core: {fileID: 0}
+  movementOriginObj: {fileID: 0}
+  brain: {fileID: 0}
+  behaviours: {fileID: 0}
+  behaviourTreeManager: {fileID: 0}
+  animalGravity: {fileID: 0}
+  groundOrienter: {fileID: 0}
+  sensorySphere: {fileID: 0}
+  SpineScript: {fileID: 0}
+  animalHeight: 2
+  animalLength: 2
+  initialiseOnStart: 1
+--- !u!4 &1831480648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831480644}
+  m_LocalRotation: {x: -0.015717067, y: -0.3558718, z: -0.0059655877, w: 0.9343836}
+  m_LocalPosition: {x: 2787.05, y: 1594.44, z: -33.4}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: -1.927, y: -41.7, z: 0.002}
 --- !u!1 &1932826629
 GameObject:
   m_ObjectHideFlags: 0
@@ -1912,7 +2622,7 @@ GameObject:
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1932826630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1976,13 +2686,15 @@ MonoBehaviour:
   rb: {fileID: 0}
   head: {fileID: 0}
   feet: []
+  otherLimbs: []
   feetPositioners: []
   core: {fileID: 0}
   movementOriginObj: {fileID: 0}
   brain: {fileID: 0}
   behaviours: {fileID: 0}
   behaviourTreeManager: {fileID: 0}
-  bodyPositioner: {fileID: 0}
+  animalGravity: {fileID: 0}
+  groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
   SpineScript: {fileID: 0}
   animalHeight: 2
@@ -1996,11 +2708,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932826629}
   m_LocalRotation: {x: 0.11325745, y: -0.35329574, z: 0.043155786, w: 0.9276273}
-  m_LocalPosition: {x: 2789.5, y: 1593.57, z: -39.67}
+  m_LocalPosition: {x: 2788.65, y: 1598.71, z: -38.72}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2003285679
 GameObject:
@@ -2118,3 +2830,113 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &2089832039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2089832043}
+  - component: {fileID: 2089832042}
+  - component: {fileID: 2089832041}
+  - component: {fileID: 2089832040}
+  m_Layer: 0
+  m_Name: ' An1 (14)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2089832040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089832039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f016117d2e6bb4b85dac04e2c8ee1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 0}
+  rb: {fileID: 0}
+  tooCloseDist: 20
+  attackRange: 5
+  toTarget: {fileID: 0}
+  fromTarget: {fileID: 0}
+  wanderObj: {fileID: 0}
+  distLastFrame: 0
+  failCloserChecks: 0
+--- !u!114 &2089832041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089832039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e43e7170fb45b4b81dcd16d0ff55d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
+  autoReset: 1
+  tickOn: 0
+  sourceInfos:
+  - isFoldout: 1
+    breakPoints: 
+    breakPointStatuses: 
+    collapsedLines: 
+    btScript: 
+--- !u!114 &2089832042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089832039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f28bc9048ad6b469837e3373bc4bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalDNA: {fileID: 11400000, guid: 90cc2ec8d2ab72541b5dff655ba83a30, type: 2}
+  btTexts:
+  - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
+  animalObj: {fileID: 0}
+  collider: {fileID: 0}
+  rb: {fileID: 0}
+  head: {fileID: 0}
+  feet: []
+  otherLimbs: []
+  feetPositioners: []
+  core: {fileID: 0}
+  movementOriginObj: {fileID: 0}
+  brain: {fileID: 0}
+  behaviours: {fileID: 0}
+  behaviourTreeManager: {fileID: 0}
+  animalGravity: {fileID: 0}
+  groundOrienter: {fileID: 0}
+  sensorySphere: {fileID: 0}
+  SpineScript: {fileID: 0}
+  animalHeight: 2
+  animalLength: 2
+  initialiseOnStart: 1
+--- !u!4 &2089832043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089832039}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2800.4302, y: 1592.6, z: -79.47}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

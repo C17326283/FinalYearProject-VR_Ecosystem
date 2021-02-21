@@ -873,7 +873,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &223326813
 GameObject:
@@ -1025,7 +1025,7 @@ MonoBehaviour:
   multObjectPoolObj: {fileID: 0}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 1000
+  amountToSpawn: 500
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0
   tagToSpawnOn: Ground
@@ -1055,7 +1055,7 @@ MonoBehaviour:
   - {fileID: 7405846476849542632, guid: c6308cb7062fac34e8e50600086b12a1, type: 3}
   - {fileID: 5202732821079448320, guid: cebfacc247a640945a2c30b442202fca, type: 3}
   initialNum: 10
-  maxAmountActive: 1000
+  maxAmountActive: 500
 --- !u!1 &225112168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,7 +1492,7 @@ Transform:
   m_Children:
   - {fileID: 1427164880}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &350062574
 MonoBehaviour:
@@ -2613,7 +2613,7 @@ Transform:
   - {fileID: 1616289399}
   - {fileID: 1699429189}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &596869499
 GameObject:
@@ -2647,7 +2647,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &596869501
 MonoBehaviour:
@@ -3264,7 +3264,7 @@ Transform:
   - {fileID: 792104340}
   - {fileID: 369969817}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -60}
 --- !u!1 &782749330
 GameObject:
@@ -3360,7 +3360,7 @@ RectTransform:
   - {fileID: 1756128467}
   - {fileID: 551993048}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4032,7 +4032,7 @@ Transform:
   - {fileID: 1330926527}
   - {fileID: 1219441155}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &899736746
 GameObject:
@@ -6037,7 +6037,7 @@ MonoBehaviour:
   multObjectPoolObj: {fileID: 0}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 1000
+  amountToSpawn: 500
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0
   tagToSpawnOn: Ground
@@ -6064,7 +6064,7 @@ MonoBehaviour:
   - {fileID: 8382926230217131611, guid: 26a94f4fee55b5447a15901b233da4a5, type: 3}
   - {fileID: 5118286621860649681, guid: abdb9f5c655569140bd5cf7581dcb773, type: 3}
   initialNum: 10
-  maxAmountActive: 1000
+  maxAmountActive: 500
 --- !u!1 &1275793655
 GameObject:
   m_ObjectHideFlags: 0
@@ -6535,7 +6535,7 @@ MonoBehaviour:
   planetObject: {fileID: 0}
   amountToSpawn: 100
   spawnerDistanceFromCore: 5000
-  heightFromHitPoint: 20
+  heightFromHitPoint: 42.02
   tagToSpawnOn: Ground
   isRotatingObject: 0
   poolIndexNumber: 3
@@ -6543,12 +6543,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ab106465f1c545e4c90f0fd82910b929, type: 2}
   - {fileID: 11400000, guid: fb46446b8d30e0b4d9e8ddf6a0ce7c9d, type: 2}
   - {fileID: 11400000, guid: 90cc2ec8d2ab72541b5dff655ba83a30, type: 2}
+  - {fileID: 11400000, guid: 88b846987ed9c4b4ea4352d204f22679, type: 2}
+  - {fileID: 11400000, guid: 7104b5ccd3c514d46a3e2f2acaaa4faa, type: 2}
   btTexts:
   - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
   RandomiseScaleAndRotation: 0
   minScale: 1
   maxScale: 1
-  randomXZTilt: 2
+  randomXZTilt: 0
 --- !u!1 &1332432136
 GameObject:
   m_ObjectHideFlags: 0
@@ -10301,7 +10303,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059525016}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e161eb118de24da469f9bf8c99cd91fc, type: 3}
   m_Name: 
@@ -10411,7 +10413,7 @@ Transform:
   m_Children:
   - {fileID: 434851633}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2059525023
 MonoBehaviour:
@@ -10420,7 +10422,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059525016}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2cc47b6faa4002e4dbf614424d63aaa2, type: 3}
   m_Name: 
@@ -10731,7 +10733,7 @@ MonoBehaviour:
   multObjectPoolObj: {fileID: 0}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 400
+  amountToSpawn: 300
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 200
   tagToSpawnOn: Ground
@@ -10761,7 +10763,7 @@ MonoBehaviour:
   - {fileID: 8178480083021151761, guid: 64372b485cd5e38479908715ebd55e6c, type: 3}
   - {fileID: 3981082246246885590, guid: 90d2c9cd37ac5b1419534bc77668fcaa, type: 3}
   initialNum: 10
-  maxAmountActive: 10000
+  maxAmountActive: 300
 --- !u!1 &2145469607
 GameObject:
   m_ObjectHideFlags: 0

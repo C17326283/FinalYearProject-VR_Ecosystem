@@ -63,7 +63,7 @@ public class AnimalFeetPositioner : MonoBehaviour
         RaycastHit hit;//hit information
         if (Physics.Raycast(transform.position+ (forwardFacingObj.transform.up*20), -forwardFacingObj.transform.up, out hit, 30,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
         {
-            Debug.DrawLine(transform.position, -forwardFacingObj.transform.up * hit.distance, Color.red);//For testing
+//            Debug.DrawLine(transform.position, -forwardFacingObj.transform.up * hit.distance, Color.red);//For testing
             footIKTargetObj.transform.position = hit.point;
             nextFootPos = hit.point;
         }
@@ -80,7 +80,7 @@ public class AnimalFeetPositioner : MonoBehaviour
 
         float velForwardStep = Mathf.Max(forwardStepDist,(forwardStepDist * rb.velocity.magnitude)/4f);
         
-        print("forwardStepDist"+forwardStepDist+"  velForwardStep"+velForwardStep);
+//        print("forwardStepDist"+forwardStepDist+"  velForwardStep"+velForwardStep);
         
         //Check if foot has got too far from desired position 
         if (axisDifferences.z > velForwardStep +extraSpace) //If distance of current footpos and rayhit is over stepdistance then take a step
@@ -88,13 +88,13 @@ public class AnimalFeetPositioner : MonoBehaviour
             //reset x when moveing forward so not too sideways but 
             nextPosRaycaster.transform.position = transform.position-(forwardFacingObj.transform.forward*velForwardStep);
             needToMove = true;
-            print("too forward");
+//            print("too forward");
         }
         else if (axisDifferences.z < -velForwardStep -extraSpace) //If distance of current footpos and rayhit is over stepdistance then take a step
         {
             nextPosRaycaster.transform.position = transform.position+(forwardFacingObj.transform.forward*velForwardStep);
             needToMove = true;
-            print("too behind");
+//            print("too behind");
 
         }
         
@@ -104,7 +104,7 @@ public class AnimalFeetPositioner : MonoBehaviour
             nextPosRaycaster.transform.position = transform.position-(forwardFacingObj.transform.right*sideStepDist);
             //nextPosRaycaster.transform.position = new Vector3((transform.position-forwardFacingObj.transform.right*sideStepDist).x,nextPosRaycaster.transform.position.y,nextPosRaycaster.transform.position.z);
             needToMove = true;
-            print("too right");
+//            print("too right");
 
         }
         else if(axisDifferences.x < -sideStepDist-extraSpace)//Double check overall distance instead of just forward and sides
@@ -112,7 +112,7 @@ public class AnimalFeetPositioner : MonoBehaviour
             nextPosRaycaster.transform.position = transform.position+(forwardFacingObj.transform.right*sideStepDist);
             //nextPosRaycaster.transform.position = new Vector3((transform.position+forwardFacingObj.transform.right*sideStepDist).x,nextPosRaycaster.transform.position.y,nextPosRaycaster.transform.position.z);
             needToMove = true;
-            print("too left");
+//            print("too left");
 
         }
         else
@@ -126,16 +126,16 @@ public class AnimalFeetPositioner : MonoBehaviour
             
             //IF not at next position
             float distToNext = Vector3.Distance(footIKTargetObj.transform.position, nextFootPos);
-            print(distToNext);
+//            print(distToNext);
             //foot isnt at target position yet
             if (distToNext>footMoveStopDist)
             {
-                print("move ik to next pos");
+//                print("move ik to next pos");
                 //float footLift = footHeightMult * (Vector3.Distance(footIKTargetObj.transform.position, nextFootPos) /5);         
                 
                 float footLift= (Vector3.Distance(footIKTargetObj.transform.position, nextFootPos)*footHeightMult)-footMoveStopDist;
                 footLift= Mathf.Clamp(footLift,0f,(animalHeight/rb.velocity.magnitude)*3);
-                print(footLift);
+//                print(footLift);
 
                 //only move foot if the other food is grounded or both feet had a problem and arent grounded
                 if (otherFootRaycastPositioner.footAtPosition == true  || distToNext>(velForwardStep+extraSpace)*2 || (otherFootRaycastPositioner.footAtPosition == false && this.footAtPosition == false))
@@ -147,7 +147,7 @@ public class AnimalFeetPositioner : MonoBehaviour
                 }
                 else if(distToNext>(velForwardStep+extraSpace)*4)
                 {
-                    print("far foot");
+ //                   print("far foot");
                     footAtPosition = false;//has started moving to next position so set to false and only becomes true if gets close enough to next position
                     footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos, lerpSpeed*10 * Time.deltaTime);
                 }
@@ -155,7 +155,7 @@ public class AnimalFeetPositioner : MonoBehaviour
             else
             {
                 needToMove = false;
-                print("needToMove false");
+//                print("needToMove false");
 
             }
             
@@ -207,7 +207,7 @@ public class AnimalFeetPositioner : MonoBehaviour
         {
             if (debug)
             {
-                Debug.DrawLine(raycastStart, hit.point, Color.yellow);
+                Debug.DrawLine(raycastStart+ (forwardFacingObj.transform.up*10), hit.point, Color.yellow);
                 //print(hit.point);
             }
             nextFootPos = hit.point;
