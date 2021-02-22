@@ -8,18 +8,22 @@ public class GravityMovement : MonoBehaviour
     public float moveSpeed;
     public float defaultSpeed = 50;
     public float turnSpeed=150;
+    public GameObject core;
+    public Vector3 gravityDir;
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        core = GameObject.Find("Core");
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         float x = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
         float z = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
         
@@ -45,5 +49,9 @@ public class GravityMovement : MonoBehaviour
         }
         
         rb.AddRelativeForce(transform.forward * (moveSpeed * z));
+        */
+        gravityDir = (core.transform.position-transform.position).normalized;//todo flip dir
+        transform.up = -gravityDir;
+
     }
 }

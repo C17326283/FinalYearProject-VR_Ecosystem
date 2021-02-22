@@ -1671,13 +1671,14 @@ GameObject:
   - component: {fileID: 1206164282}
   - component: {fileID: 1206164278}
   - component: {fileID: 1206164283}
+  - component: {fileID: 1206164284}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1206164276
 Transform:
   m_ObjectHideFlags: 0
@@ -1716,7 +1717,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206164275}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca839468c35e20347918d6273119caa1, type: 3}
   m_Name: 
@@ -1818,7 +1819,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206164275}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 506ab9327fd9b9b499bb9635d4b9f4a1, type: 3}
   m_Name: 
@@ -1827,6 +1828,28 @@ MonoBehaviour:
   moveSpeed: 0
   defaultSpeed: 50
   turnSpeed: 150
+--- !u!114 &1206164284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206164275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f32347d369c63b547b72da8ae0d33b7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  core: {fileID: 0}
+  gravityStrength: 5000
+  upMultiplier: 14
+  gravityDir: {x: 0, y: 0, z: 0}
+  animalHeight: 2
+  animalLength: 2
+  rb: {fileID: 0}
+  headHeightPosObj: {fileID: 0}
+  forcePoints: []
+  InitializeOnStart: 1
 --- !u!1 &1275544352 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6443852219947562045, guid: 8179af335b0337e4f8ecd55458dad529, type: 3}

@@ -114,26 +114,28 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void SeekTarget()
     {
+        Vector3 seekDir;
+        seekDir = (toTarget.position - rb.transform.position);//dont normalize because need the force amounts
+        Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
+        locDir.y = 0;
 
-        if (Vector3.Distance(toTarget.transform.position, rb.transform.position) > attackRange)
+        if (locDir.magnitude > attackRange)
         {
-            Vector3 seekDir;
-            seekDir = (toTarget.position - rb.transform.position).normalized;
-            Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
-            locDir.y = 0;
+//            print("locDir.magnitude"+locDir.magnitude);
             if (locDir.z < -1) //if theres a force pushing back then  cant seek in that dir
             {
                 Task.current.Fail();
             }
             else
             {
-                Vector3 force = locDir * brain.moveSpeed;
+                Vector3 force = locDir.normalized * brain.moveSpeed;
                 rb.AddRelativeForce(force);
                 Task.current.Succeed();//if found no enemies
             }
         }
         else
         {
+            print("locDir.magnitude"+locDir.magnitude+"  "+attackRange);
             Task.current.Fail();
         }
             

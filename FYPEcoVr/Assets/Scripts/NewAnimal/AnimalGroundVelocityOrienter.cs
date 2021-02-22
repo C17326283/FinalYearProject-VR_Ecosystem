@@ -20,6 +20,16 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
     public  GameObject orienter;
 
 
+    public void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawLine(transform.position, transform.position + rb.velocity);
+        
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + moveVel);
+
+
+    }
 
     // Start is called before the first frame update
     void Awake()
@@ -37,12 +47,6 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         layerMask = 1 << 8;//bit shift to get mask for raycasting so only on environment and not other animals
         
-        //If its an animal then set from settings else use default
-        if (brain != null)
-        {
-            turnSpeed = brain.moveSpeed / 5;
-        }
-
         print("brain"+brain.moveSpeed);
 
         transform.up = -gravityDir;
@@ -56,6 +60,7 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
 
     public void AimToVelOrientedToGround()
     {
+        turnSpeed = brain.moveSpeed / 2;
         //this took about a week to find a solution to but it allows gravity without messing up the targetting
         //convert velocity to local then remove the y so can have gravity without it focing animal to look up and down
         RaycastHit hit;

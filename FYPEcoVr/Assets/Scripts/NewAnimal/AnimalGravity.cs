@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class AnimalGravity : MonoBehaviour
 {
-
-    public AnimalBrain brain;
-
     public GameObject core;
-    public float gravityStrength = 3000;//todo check correct
-    public float upMultiplier = 25f;
+    public float gravityStrength = 5000;//todo check correct
+    public float upMultiplier = 14f;
     public Vector3 gravityDir;
     public float animalHeight = 2;
     public float animalLength = 2;
@@ -20,20 +17,10 @@ public class AnimalGravity : MonoBehaviour
 
     public List<GameObject> forcePoints;
     
-    public Vector3 moveVel;//for velocity without the up and down force
 
     public bool InitializeOnStart = false;
     
-    public void OnDrawGizmos()
-    {
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawLine(transform.position, transform.position + rb.velocity);
-        
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + moveVel);
-
-
-    }
+    
     
     // Update is called once per frame
     void FixedUpdate()
@@ -48,14 +35,16 @@ public class AnimalGravity : MonoBehaviour
     void Awake()
     {
         if (InitializeOnStart)
+        {
+            headHeightPosObj = this.transform.gameObject;
             Initialize();
+        }
     }
 
     public void Initialize()
     {
         //Get center of planet for orienting to
-        if(core == null)
-            core = GameObject.Find("Core");
+        core = GameObject.Find("Core");
         
         rb = GetComponent<Rigidbody>();
         layerMask = 1 << 8;//bit shift to get mask for raycasting so only on environment and not other animals
@@ -85,7 +74,14 @@ public class AnimalGravity : MonoBehaviour
         //Only add if theres environment below
         if (Physics.Raycast(transform.position, gravityDir, out hit, 2000, layerMask))
         {
-            rb.AddForce(gravityDir * (gravityStrength));
+            if (hit.transform.CompareTag("Ground"))
+            {
+                rb.AddForce(gravityDir * (gravityStrength));
+            }
+            else if (hit.transform.CompareTag("Water"))//hit water
+            {
+                rb.AddForce(-gravityDir * (gravityStrength));
+            }
         }
     }
 
@@ -94,17 +90,22 @@ public class AnimalGravity : MonoBehaviour
         foreach (var point in forcePoints)
         {
             RaycastHit hit;
-            if (Physics.Raycast(point.transform.position, gravityDir, out hit, animalHeight, layerMask))
+            if (Physics.Raycast(point.transform.position, gravityDir, out hit, animalHeight*1.2f, layerMask))
             {
                 Debug.DrawRay(point.transform.position, gravityDir, Color.green);
                 float upForce = 0;
-                upForce = Mathf.Abs(1 / ((hit.point.y - point.transform.position.y)));
-                upForce = Mathf.Clamp(upForce, 0f,2f);//Stop adding too much force
-                float desiredHeight = Mathf.Min(animalHeight*.9f,(animalHeight / rb.velocity.magnitude)*3);//strides get bigger at faster speeds so animate lower body too
+                //upForce = Mathf.Abs(10 - Vector3.Distance(hit.point, point.transform.position));
+
+                //print("up"+upForce);
+
+                float desiredHeight = Mathf.Min(animalHeight*.8f,animalHeight-(rb.velocity.magnitude/100));//strides get bigger at faster speeds so animate lower body too
                 desiredHeight = Mathf.Clamp(desiredHeight, animalHeight *.6f, animalHeight);
                 
-                rb.AddForceAtPosition(-gravityDir * (upForce * upMultiplier * desiredHeight),
-                    point.transform.position, ForceMode.Acceleration);
+                upForce = Mathf.Abs(desiredHeight / Vector3.Distance(hit.point, point.transform.position))*2;
+                upForce = Mathf.Clamp(upForce, 0f,10f);//Stop adding too much force
+                
+                rb.AddForceAtPosition(-gravityDir * (upForce * upMultiplier),
+                    point.transform.position, ForceMode.Acceleration);// * desiredHeight
             }
         }
     }

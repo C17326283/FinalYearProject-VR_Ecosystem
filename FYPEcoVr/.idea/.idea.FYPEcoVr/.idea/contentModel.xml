@@ -170,6 +170,25 @@
           </e>
           <e p="README.txt" t="Include" />
         </e>
+        <e p="Samples" t="Include">
+          <e p="OpenXR Plugin" t="Include">
+            <e p="1.0.2" t="Include">
+              <e p="Controller" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="ActionAssetEnabler.cs" t="Include" />
+                  <e p="ActionToButtonISX.cs" t="Include" />
+                  <e p="ActionToSliderISX.cs" t="Include" />
+                  <e p="ActionToVector2SliderISX.cs" t="Include" />
+                  <e p="ActionToVisibilityISX.cs" t="Include" />
+                  <e p="AutomaticTrackingModeChanger.cs" t="Include" />
+                  <e p="ControllerSample.asmdef" t="Include" />
+                  <e p="DisplayDeviceInfoFromActionISX.cs" t="Include" />
+                  <e p="TrackingModeOrigin.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="Scenes" t="Include">
           <e p="NavmeshTest" t="Include">
             <e p="GitNavMesheditor.cs" t="Include" />
@@ -240,6 +259,7 @@
           <e p="TestBetterGravity.cs" t="Include" />
         </e>
       </e>
+      <e p="ControllerSample.csproj" t="IncludeRecursive" />
       <e p="FYPEcoVr.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />

@@ -67,6 +67,7 @@ public class AnimalFeetPositioner : MonoBehaviour
             footIKTargetObj.transform.position = hit.point;
             nextFootPos = hit.point;
         }
+        print("foot setup");
     }
 
     // Update is called once per frame
@@ -79,6 +80,7 @@ public class AnimalFeetPositioner : MonoBehaviour
         footIKTargetObj.transform.forward = forwardFacingObj.transform.forward;//this prevents the feet from beign twisted
 
         float velForwardStep = Mathf.Max(forwardStepDist,(forwardStepDist * rb.velocity.magnitude)/4f);
+        velForwardStep = Mathf.Clamp(velForwardStep, forwardStepDist, forwardStepDist * 2);
         
 //        print("forwardStepDist"+forwardStepDist+"  velForwardStep"+velForwardStep);
         

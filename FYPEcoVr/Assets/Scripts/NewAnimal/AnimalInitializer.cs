@@ -102,19 +102,7 @@ public class AnimalInitializer : MonoBehaviour
         
         
 
-        foreach (var foot in feet)
-        {
-            //Needs to have found a head first to be successfull
-            SetUpFootPositioner(foot.transform);
-        }
-        foreach (var limb in otherLimbs)
-        {
-            SpineNew LimbScript = animalObj.AddComponent<SpineNew>();
-            LimbScript.isLimbSetup = true;
-            LimbScript.head = limb;
-            LimbScript.InitializeSpine();//initiallise once all the feet have been added
-            LimbScript.damping = SpineScript.damping / 2;
-        }
+        
         
         //add components to animal and position it to center of mass
         collider = movementOriginObj.AddComponent<BoxCollider>();
@@ -173,6 +161,20 @@ public class AnimalInitializer : MonoBehaviour
 
         addSenses();
         
+        foreach (var foot in feet)
+        {
+            //Needs to have found a head first to be successfull
+            SetUpFootPositioner(foot.transform);
+        }
+        foreach (var limb in otherLimbs)
+        {
+            SpineNew LimbScript = animalObj.AddComponent<SpineNew>();
+            LimbScript.isLimbSetup = true;
+            LimbScript.head = limb;
+            LimbScript.InitializeSpine();//initiallise once all the feet have been added
+            LimbScript.damping = SpineScript.damping / 2;
+        }
+        
         //This needs to be done after setup because the feet are used to get the height
         foreach (var footPositioner in feetPositioners)
         {
@@ -208,11 +210,12 @@ public class AnimalInitializer : MonoBehaviour
         ikPole.transform.parent = footPositioner.transform;
         if (feetPositioners.Count > 2) //If not the front 2 legs
         {
-            ikPole.transform.position = footPositioner.transform.position+(footPositioner.transform.forward * 10)+(footPositioner.transform.up * 2);
+            ikPole.transform.position = footPositioner.transform.position+(footPositioner.transform.forward * 10)+(footPositioner.transform.up *
+                (animalHeight/2));
         }
         else
         {
-            ikPole.transform.position = footPositioner.transform.position+(-footPositioner.transform.forward * 10)+(footPositioner.transform.up * 2);
+            ikPole.transform.position = footPositioner.transform.position+(-footPositioner.transform.forward * 10)+(footPositioner.transform.up *  (animalHeight/2));
         }
         ikScript.Pole = ikPole.transform;
         

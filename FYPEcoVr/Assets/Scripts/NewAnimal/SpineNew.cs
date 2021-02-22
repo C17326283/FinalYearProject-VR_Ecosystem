@@ -34,7 +34,7 @@ public class SpineNew : MonoBehaviour {
     {
         //get all direct children 
         Transform[] spineObjs =  head.GetComponentsInChildren<Transform>();
-        print(spineObjs.Length);
+//        print(spineObjs.Length);
         
         //Make a holder for each section of the spine and add this to it
         foreach (Transform spineObj in spineObjs)//expect only one or 0 children but foreach works better
