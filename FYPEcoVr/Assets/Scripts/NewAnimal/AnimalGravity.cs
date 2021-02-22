@@ -68,7 +68,7 @@ public class AnimalGravity : MonoBehaviour
         forcePoints[1].transform.position = headHeightPosObj.transform.position+(-transform.forward * (animalLength));
     }
 
-    public void AddGravity()
+    public void AddGravity()//todo fix this mess
     {
         RaycastHit hit;
         //Only add if theres environment below
@@ -80,7 +80,19 @@ public class AnimalGravity : MonoBehaviour
             }
             else if (hit.transform.CompareTag("Water"))//hit water
             {
-                rb.AddForce(-gravityDir * (gravityStrength));
+                RaycastHit upHit;
+                //check if its below terrain and add upfroce to correct
+                if (Physics.Raycast(transform.position + (transform.up * 1000), gravityDir, out upHit, 2000, layerMask))
+                {
+                    if (upHit.transform.CompareTag("Ground"))
+                    {
+                        rb.AddForce(-gravityDir * (gravityStrength));
+                    }
+                    else
+                    {
+                        rb.AddForce(gravityDir * (gravityStrength));
+                    }
+                }
             }
         }
     }

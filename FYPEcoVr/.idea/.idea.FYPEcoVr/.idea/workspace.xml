@@ -21,62 +21,14 @@
   <component name="ChangeListManager">
     <list default="true" id="1c86a74b-a54b-44cd-a93d-b82d2bbe20ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimalProfile/BearProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AnimalProfile/BearProfile.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimalProfile/CheetahProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AnimalProfile/CheetahProfile.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimalProfile/ChickenProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AnimalProfile/ChickenProfile.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimalProfile/Deer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AnimalProfile/Deer.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimalProfile/ElephantProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AnimalProfile/ElephantProfile.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimalProfile/FoxProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AnimalProfile/FoxProfile.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animals/Fox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animals/Fox.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Elephant.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Elephant.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/02_PlayTag/Assets/Computer.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/02_PlayTag/Assets/Computer.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/02_PlayTag/Assets/Floor.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/02_PlayTag/Assets/Floor.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/02_PlayTag/Assets/Player.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/02_PlayTag/Assets/Player.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/03_Shooter/Assets/bullet.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/03_Shooter/Assets/bullet.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/03_Shooter/Assets/ground.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/03_Shooter/Assets/ground.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/03_Shooter/Assets/hunter.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/03_Shooter/Assets/hunter.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/03_Shooter/Assets/patroller.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/03_Shooter/Assets/patroller.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/03_Shooter/Assets/player.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/03_Shooter/Assets/player.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/03_Shooter/Assets/sniper.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/03_Shooter/Assets/sniper.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/03_Shooter/Assets/wall.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/03_Shooter/Assets/wall.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AnimalBehaviours.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AnimalBehaviours.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Animals.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Animals.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BehaviourTest.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BehaviourTest.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GeneratePlanetTerrain.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GeneratePlanetTerrain.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/NavmeshTest.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/NavmeshTest.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/New Scene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/New Scene.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/NewAnimal.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/NewAnimal.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlanetGen.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlanetGen.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ShVertex.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ShVertex.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SpineTest.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SpineTest.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TerrainGen.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TerrainGen.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/VrTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/VrTest.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/SpineNew.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/SpineNew.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XR/XRGeneralSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/XRGeneralSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/PresetManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PresetManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,6 +52,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/UnityVersions/2020.2.3f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/InputModules/BaseInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalSenses.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Editor/EditorInputControlLayoutCache.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/InitializeAnimal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/NavmeshTest/GitNavMesheditor.cs" root0="FORCE_HIGHLIGHTING" />
@@ -109,7 +63,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/RandomGenSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/TerrainFace.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/ColourGenerator.cs" />
@@ -154,12 +107,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBodyPositioner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundOrienter.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/SpineNew.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" />
+        <option value="$PROJECT_DIR$/Assets/InputPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" />
       </list>
     </option>
   </component>
@@ -234,7 +188,7 @@
       <workItem from="1613761459486" duration="2553000" />
       <workItem from="1613832634968" duration="35426000" />
       <workItem from="1613916690417" duration="17948000" />
-      <workItem from="1613998093101" duration="12695000" />
+      <workItem from="1613998093101" duration="19144000" />
     </task>
     <servers />
   </component>

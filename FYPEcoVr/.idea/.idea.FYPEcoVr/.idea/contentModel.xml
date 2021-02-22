@@ -111,6 +111,7 @@
             </e>
           </e>
         </e>
+        <e p="InputPlayer.cs" t="Include" />
         <e p="PandaBehaviour" t="Include">
           <e p="ChangeLog.txt" t="Include" />
           <e p="Core" t="Include">

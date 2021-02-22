@@ -135,7 +135,7 @@ public class AnimalBehaviours : MonoBehaviour
         }
         else
         {
-            print("locDir.magnitude"+locDir.magnitude+"  "+attackRange);
+//            print("locDir.magnitude"+locDir.magnitude+"  "+attackRange);
             Task.current.Fail();
         }
             
