@@ -90,7 +90,7 @@ public class AnimalsSpawner : MonoBehaviour
                     manager.btTexts = btTexts;
 
 
-                    print(newObj.transform.position);
+//                    print(newObj.transform.position);
                     manager.InitialiseAnimal();
                 }
             }

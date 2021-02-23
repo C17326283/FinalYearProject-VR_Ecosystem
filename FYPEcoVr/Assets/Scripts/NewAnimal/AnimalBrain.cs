@@ -54,6 +54,7 @@ public class AnimalBrain : MonoBehaviour
         //temp
         huntedBy.Add("Cheetah");
         toHunt.Add("Food");
+        toHunt.Add("Chicken");
     }
 
     // Start is called before the first frame update

@@ -52,9 +52,9 @@ public class AnimalBehaviours : MonoBehaviour
                 {
 //                    print(tag);
                     //todo run from multiple
-                    if (found==false && obj.transform.name==tag && Vector3.Distance(obj.transform.position,rb.transform.position)<tooCloseDist)
+                    if ( found==false && brain.name !=tag && obj.transform.name==tag && Vector3.Distance(obj.transform.position,rb.transform.position)<tooCloseDist)
                     {
-                        print("found");
+//                        print("found");
                         found = true;
                         fromTarget = obj.transform;
                         Task.current.Succeed();
@@ -82,7 +82,7 @@ public class AnimalBehaviours : MonoBehaviour
             Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
             locDir.y = 0;
             Vector3 force = locDir * brain.moveSpeed;
-            rb.AddRelativeForce(force*Time.deltaTime*100);
+            rb.AddRelativeForce(force*2*Time.deltaTime*100);
             Task.current.Succeed(); //if found no enemies
         }
     }
@@ -220,9 +220,16 @@ public class AnimalBehaviours : MonoBehaviour
         RaycastHit hit; //shoot ray and if its ground then spawn at that location
         if (Physics.Raycast(tarPos, -rb.transform.up, out hit, 1000,layerMask))
         {
-            Debug.DrawLine(tarPos,hit.point,Color.white);
-            toTarget.transform.position = hit.point+transform.up*brain.animalHeight;
-            Task.current.Succeed();
+            if (hit.transform.CompareTag("Ground"))
+            {
+                Debug.DrawLine(tarPos,hit.point,Color.white);
+                toTarget.transform.position = hit.point+transform.up*brain.animalHeight;
+                Task.current.Succeed();
+            }
+            else
+            {
+                Task.current.Fail();
+            }
         }
         else
         {

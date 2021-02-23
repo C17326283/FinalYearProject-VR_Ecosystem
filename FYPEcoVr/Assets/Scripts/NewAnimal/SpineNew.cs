@@ -21,7 +21,7 @@ public class SpineNew : MonoBehaviour {
     {
         armatureBase = head.transform.parent.gameObject;//The object above head has the full armature
         spinesHolder = this.gameObject;
-        spinesHolder.transform.name = "SpinesHolder";
+        //spinesHolder.transform.name = "SpinesHolder";
 
         //get spinal sections which stem from the head
         GetSpineObjRecursively(head);

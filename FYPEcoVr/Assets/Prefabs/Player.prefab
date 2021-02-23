@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 4416744094125069481}
   - component: {fileID: 4416744094125069478}
   - component: {fileID: 4416744094125069476}
-  - component: {fileID: 4416744094125069485}
   - component: {fileID: 4416744094125069484}
+  - component: {fileID: 4416744094125069485}
   - component: {fileID: 4416744094125069487}
   m_Layer: 0
   m_Name: Player
@@ -116,7 +116,28 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!114 &4416744094125069484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416744094125069474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506ab9327fd9b9b499bb9635d4b9f4a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  moveSpeed: 10000
+  defaultSpeed: 50
+  turnSpeed: 150
+  core: {fileID: 0}
+  gravityDir: {x: 0, y: 0, z: 0}
+  rawInputMovement: {x: 0, y: 0, z: 0}
+  turnVal: 0
+  inputAction: {fileID: 0}
 --- !u!114 &4416744094125069485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,27 +160,6 @@ MonoBehaviour:
   headHeightPosObj: {fileID: 0}
   forcePoints: []
   InitializeOnStart: 1
---- !u!114 &4416744094125069484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4416744094125069474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 506ab9327fd9b9b499bb9635d4b9f4a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  moveSpeed: 10000
-  defaultSpeed: 50
-  turnSpeed: 150
-  core: {fileID: 0}
-  gravityDir: {x: 0, y: 0, z: 0}
-  rawInputMovement: {x: 0, y: 0, z: 0}
-  turnVal: 0
-  inputAction: {fileID: 0}
 --- !u!114 &4416744094125069487
 MonoBehaviour:
   m_ObjectHideFlags: 0

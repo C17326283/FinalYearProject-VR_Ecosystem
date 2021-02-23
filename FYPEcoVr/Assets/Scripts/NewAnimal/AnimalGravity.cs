@@ -6,7 +6,7 @@ public class AnimalGravity : MonoBehaviour
 {
     public GameObject core;
     public float gravityStrength = 2000;//todo check correct
-    public float upMultiplier = 290f;
+    public float upMultiplier = 600f;
     public Vector3 gravityDir;
     public float animalHeight = 2;
     public float animalLength = 2;
@@ -14,10 +14,7 @@ public class AnimalGravity : MonoBehaviour
     public GameObject headHeightPosObj;
     
     private int layerMask;
-
     public List<GameObject> forcePoints;
-    
-
     public bool InitializeOnStart = false;
     
     
@@ -76,7 +73,7 @@ public class AnimalGravity : MonoBehaviour
         {
             if (hit.transform.CompareTag("Ground"))
             {
-                rb.AddForce(gravityDir * (gravityStrength));
+                rb.AddForce(gravityDir * ((gravityStrength) * Time.deltaTime * 100));
             }
             else if (hit.transform.CompareTag("Water"))//hit water
             {
@@ -86,11 +83,11 @@ public class AnimalGravity : MonoBehaviour
                 {
                     if (upHit.transform.CompareTag("Ground"))
                     {
-                        rb.AddForce(-gravityDir * ((gravityStrength) * Time.deltaTime));
+                        rb.AddForce(-gravityDir * ((gravityStrength) * Time.deltaTime*100));
                     }
                     else
                     {
-                        rb.AddForce(gravityDir * ((gravityStrength) * Time.deltaTime));
+                        rb.AddForce(gravityDir * ((gravityStrength) * Time.deltaTime*100));
                     }
                 }
             }
@@ -104,11 +101,8 @@ public class AnimalGravity : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(point.transform.position, gravityDir, out hit, animalHeight*1.2f, layerMask))
             {
-                Debug.DrawRay(point.transform.position, gravityDir, Color.green);
+                Debug.DrawLine(point.transform.position, hit.point, Color.white);
                 float upForce = 0;
-                //upForce = Mathf.Abs(10 - Vector3.Distance(hit.point, point.transform.position));
-
-                //print("up"+upForce);
 
                 float desiredHeight = Mathf.Min(animalHeight*.8f,animalHeight-(rb.velocity.magnitude/100));//strides get bigger at faster speeds so animate lower body too
                 desiredHeight = Mathf.Clamp(desiredHeight, animalHeight *.6f, animalHeight);

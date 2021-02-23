@@ -207,7 +207,7 @@ public class PlanetSpawner : MonoBehaviour
     //Adding the spawner objects which fill the terrain with trees etc
     public void AddExtras()
     {
-        
+        print("planet gen "+Time.time);
         //add spawners
         foreach (Transform spawnerObj in allSpawnersObjects.transform)
         {
@@ -235,6 +235,7 @@ public class PlanetSpawner : MonoBehaviour
         FlipNormals(atmosphere);
         GameObject core = new GameObject("Core");
 
+        print("planet fin "+Time.time);
     }
 
     //Make a different center point for the noise, this makes different terrain with all the same settings

@@ -22,6 +22,12 @@ public class GravityMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         core = GameObject.Find("Core");
+        
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, gravityDir, out hit, 2000, 1 << 8))
+        {
+            transform.position = hit.point + (transform.up * 5);
+        }
 
     }
 
@@ -30,9 +36,7 @@ public class GravityMovement : MonoBehaviour
     {
         gravityDir = (core.transform.position-transform.position).normalized;//todo flip dir
         
-        //move
-        rb.AddRelativeForce(rawInputMovement * (moveSpeed * Time.deltaTime*2),ForceMode.Acceleration);
-
+        
         RaycastHit hit;
         if (Physics.Raycast(transform.position, gravityDir, out hit, 2000, 1 << 8))
         {
@@ -41,6 +45,10 @@ public class GravityMovement : MonoBehaviour
 
             transform.RotateAround(transform.position, transform.up, turnVal* turnSpeed * Time.deltaTime);
         }
+        
+        //move
+        rb.AddRelativeForce(rawInputMovement * (moveSpeed * Time.deltaTime*2),ForceMode.Acceleration);
+
         
     }
     

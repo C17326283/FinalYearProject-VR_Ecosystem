@@ -67,7 +67,7 @@ public class AnimalFeetPositioner : MonoBehaviour
             footIKTargetObj.transform.position = hit.point;
             nextFootPos = hit.point;
         }
-        print("foot setup");
+//        print("foot setup");
     }
 
     // Update is called once per frame

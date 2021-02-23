@@ -47,7 +47,7 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         layerMask = 1 << 8;//bit shift to get mask for raycasting so only on environment and not other animals
         
-        print("brain"+brain.moveSpeed);
+//        print("brain"+brain.moveSpeed);
 
         transform.up = -gravityDir;
         
@@ -66,11 +66,11 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, gravityDir, out hit, 100,layerMask))
         {
-            Debug.DrawRay(transform.position, gravityDir, Color.black);
+            Debug.DrawLine(transform.position, hit.point, Color.black);
             orienter.transform.up = hit.normal;
 
             Vector3 locVel = orienter.transform.InverseTransformDirection(rb.velocity);//Find velocity in relation to an object oriented to ground
-            locVel.y = 0;//cancel out vertical force
+            locVel.y = locVel.y*0.01f;//cancel out vertical force but animates better with a small bit
             moveVel = orienter.transform.TransformDirection(locVel);//set the new cancelled related velocity
             
             Quaternion rotation;

@@ -111,7 +111,6 @@
             </e>
           </e>
         </e>
-        <e p="InputPlayer.cs" t="Include" />
         <e p="PandaBehaviour" t="Include">
           <e p="ChangeLog.txt" t="Include" />
           <e p="Core" t="Include">
@@ -197,7 +196,6 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="AnBoidMove.cs" t="Include" />
           <e p="Behaviour" t="Include">
             <e p="AnimalTest.txt" t="Include" />
             <e p="BoidBase.txt" t="Include" />
@@ -208,22 +206,30 @@
             <e p="Brain.cs" t="Include" />
             <e p="BtTest1.cs" t="Include" />
           </e>
-          <e p="BodyRaycastPositioner.cs" t="Include" />
-          <e p="BoidSensoryScript.cs" t="Include" />
-          <e p="BoidTaskManager.cs" t="Include" />
-          <e p="CreatureMovement.cs" t="Include" />
-          <e p="CreatureStats.cs" t="Include" />
-          <e p="CreatureTaskManager.cs" t="Include" />
-          <e p="FacePlayer.cs" t="Include" />
-          <e p="FootRaycastPositioner.cs" t="Include" />
+          <e p="Deprecated" t="Include">
+            <e p="AnBoidMove.cs" t="Include" />
+            <e p="BodyRaycastPositioner.cs" t="Include" />
+            <e p="BoidSensoryScript.cs" t="Include" />
+            <e p="BoidTaskManager.cs" t="Include" />
+            <e p="CreatureMovement.cs" t="Include" />
+            <e p="CreatureStats.cs" t="Include" />
+            <e p="CreatureTaskManager.cs" t="Include" />
+            <e p="FacePlayer.cs" t="Include" />
+            <e p="FootRaycastPositioner.cs" t="Include" />
+            <e p="GravityAIMovement.cs" t="Include" />
+            <e p="GravityPlayer.cs" t="Include" />
+            <e p="HeightPositioner.cs" t="Include" />
+            <e p="InitializeAnimal.cs" t="Include" />
+            <e p="LookAtLerp.cs" t="Include" />
+            <e p="NavTest.cs" t="Include" />
+            <e p="NewTaskManager.cs" t="Include" />
+            <e p="RayCastTest.cs" t="Include" />
+            <e p="SensoryScript.cs" t="Include" />
+            <e p="SimpleCameraController.cs" t="Include" />
+            <e p="TestBetterGravity.cs" t="Include" />
+          </e>
           <e p="GameManager.cs" t="Include" />
-          <e p="GravityAIMovement.cs" t="Include" />
           <e p="GravityMovement.cs" t="Include" />
-          <e p="GravityPlayer.cs" t="Include" />
-          <e p="HeightPositioner.cs" t="Include" />
-          <e p="InitializeAnimal.cs" t="Include" />
-          <e p="LookAtLerp.cs" t="Include" />
-          <e p="NavTest.cs" t="Include" />
           <e p="NewAnimal" t="Include">
             <e p="AnimalBehaviours.cs" t="Include" />
             <e p="AnimalBrain.cs" t="Include" />
@@ -235,7 +241,6 @@
             <e p="AnimalSenses.cs" t="Include" />
             <e p="SpineNew.cs" t="Include" />
           </e>
-          <e p="NewTaskManager.cs" t="Include" />
           <e p="PlanetGeneration" t="Include">
             <e p="AnimalsSpawner.cs" t="Include" />
             <e p="ColourGenerator.cs" t="Include" />
@@ -252,12 +257,9 @@
             <e p="TerrainFace.cs" t="Include" />
             <e p="TerrainMinMaxHeights.cs" t="Include" />
           </e>
-          <e p="RayCastTest.cs" t="Include" />
-          <e p="SensoryScript.cs" t="Include" />
-          <e p="SimpleCameraController.cs" t="Include" />
+          <e p="SceneLoader.cs" t="Include" />
           <e p="SpineAnimator.cs" t="Include" />
           <e p="SpineAnimatorManager.cs" t="Include" />
-          <e p="TestBetterGravity.cs" t="Include" />
         </e>
       </e>
       <e p="ControllerSample.csproj" t="IncludeRecursive" />
