@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bbea3655ab8f9488423b44b0b2a909, type: 3}
   m_Name: CheetahProfile
   m_EditorClassIdentifier: 
-  Tag: Chicken
+  name: Cheetah
   model: {fileID: 2538964707672280359, guid: 9fab756e956f3db449d16edb41901c73, type: 3}
   health: 100
   hunger: -12.578402
@@ -26,8 +26,8 @@ MonoBehaviour:
   thirstDecrement: 1
   reproductiveIncrement: 6
   ageIncrement: 1
-  memoryLossRate: 60
-  sensoryRange: 50
+  memoryLossRate: 600
+  sensoryRange: 100
   moveSpeed: 600
   rotSpeed: 50
   wanderRadius: 50

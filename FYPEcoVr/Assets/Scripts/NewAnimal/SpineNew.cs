@@ -56,7 +56,7 @@ public class SpineNew : MonoBehaviour {
             {
                 spineContainer = spineObj.transform.parent.gameObject;
             }
-            spineContainer.transform.name = "SpineSection" + spineContainers.Count + "-PhysicsObject";
+            //spineContainer.transform.name = "SpineSection" + spineContainers.Count + "-PhysicsObject";
         }
 
         spineContainer.transform.position = spineObj.transform.position;

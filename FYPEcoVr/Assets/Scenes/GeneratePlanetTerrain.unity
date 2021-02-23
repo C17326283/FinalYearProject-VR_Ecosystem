@@ -6417,7 +6417,7 @@ MonoBehaviour:
   multObjectPoolObj: {fileID: 0}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 10
+  amountToSpawn: 30
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 42.02
   tagToSpawnOn: Ground
@@ -9403,7 +9403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4416744094125069484, guid: f206e8208f7a0b8488fb91bd0c062b30, type: 3}
       propertyPath: moveSpeed
-      value: 1000
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 4416744094125069485, guid: f206e8208f7a0b8488fb91bd0c062b30, type: 3}
       propertyPath: animalHeight
@@ -9415,6 +9415,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4416744094125069485, guid: f206e8208f7a0b8488fb91bd0c062b30, type: 3}
       propertyPath: gravityStrength
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416744094938839330, guid: f206e8208f7a0b8488fb91bd0c062b30, type: 3}
+      propertyPath: far clip plane
       value: 10000
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -5,8 +5,8 @@ using UnityEngine;
 public class AnimalGravity : MonoBehaviour
 {
     public GameObject core;
-    public float gravityStrength = 5000;//todo check correct
-    public float upMultiplier = 14f;
+    public float gravityStrength = 2000;//todo check correct
+    public float upMultiplier = 290f;
     public Vector3 gravityDir;
     public float animalHeight = 2;
     public float animalLength = 2;
@@ -86,11 +86,11 @@ public class AnimalGravity : MonoBehaviour
                 {
                     if (upHit.transform.CompareTag("Ground"))
                     {
-                        rb.AddForce(-gravityDir * (gravityStrength));
+                        rb.AddForce(-gravityDir * ((gravityStrength) * Time.deltaTime));
                     }
                     else
                     {
-                        rb.AddForce(gravityDir * (gravityStrength));
+                        rb.AddForce(gravityDir * ((gravityStrength) * Time.deltaTime));
                     }
                 }
             }
@@ -116,7 +116,7 @@ public class AnimalGravity : MonoBehaviour
                 upForce = Mathf.Abs(desiredHeight / Vector3.Distance(hit.point, point.transform.position))*2;
                 upForce = Mathf.Clamp(upForce, 0f,10f);//Stop adding too much force
                 
-                rb.AddForceAtPosition(-gravityDir * (upForce * upMultiplier),
+                rb.AddForceAtPosition(-gravityDir * (upForce * upMultiplier*Time.deltaTime),
                     point.transform.position, ForceMode.Acceleration);// * desiredHeight
             }
         }

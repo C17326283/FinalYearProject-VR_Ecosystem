@@ -70,7 +70,7 @@ public class AnimalInitializer : MonoBehaviour
         animalObj = Instantiate(animalDNA.model);
         animalObj.transform.parent = this.transform;
         animalObj.transform.position = this.transform.position;
-        animalObj.tag = animalDNA.Tag;
+        //animalObj.tag = animalDNA.name;
         
         
         
@@ -83,11 +83,12 @@ public class AnimalInitializer : MonoBehaviour
                 head = childBone.gameObject;
                 
                 //Done here because the head is needed to make spine and position legs
-                SpineScript = animalObj.AddComponent<SpineNew>();
+                SpineScript = this.gameObject.AddComponent<SpineNew>();
                 SpineScript.head = head;
                 SpineScript.InitializeSpine();//initiallise once all the feet have been added
                 SpineScript.MatchLimbsToSpine();
                 movementOriginObj = head.transform.parent.gameObject;//set in spinescript to control head so need this to have the rigidbody to allow spine animation;
+                movementOriginObj.transform.name = animalDNA.name;
             }
             else if(childBone.CompareTag("Leg"))
             {
@@ -134,7 +135,7 @@ public class AnimalInitializer : MonoBehaviour
         brain.animalBaseDNA = animalDNA;
         if (GetComponent<AnimalBehaviours>() == null) //incase i have it attached for testing
             behaviours =
-                this.gameObject.AddComponent<AnimalBehaviours>(); //todo get a way to add this at runtime
+                movementOriginObj.gameObject.AddComponent<AnimalBehaviours>(); //todo get a way to add this at runtime
         else
             behaviours = GetComponent<AnimalBehaviours>();
         behaviours.brain = brain;
@@ -142,7 +143,7 @@ public class AnimalInitializer : MonoBehaviour
 
         if (GetComponent<BehaviourTree>() == null) //incase i have it attached for testing
             behaviourTreeManager =
-                this.gameObject.AddComponent<BehaviourTree>(); //todo get a way to add this at runtime
+                movementOriginObj.gameObject.AddComponent<BehaviourTree>(); //todo get a way to add this at runtime
         else
             behaviourTreeManager = GetComponent<BehaviourTree>();
         behaviourTreeManager.scripts = btTexts;

@@ -18,7 +18,8 @@ public class AnimalBrain : MonoBehaviour
     public List<String> huntedBy = new List<String>();
     
     public Transform currentTarget;//set from behaviour tree so positioner can use
-    
+
+    public String name = "name";
     public float health = 100;
     public float hunger = 100;
     public float thirst = 100;
@@ -97,7 +98,7 @@ public class AnimalBrain : MonoBehaviour
     public void MutateStats()
     {
         float change = maxMutatePercent / 100;//get float as percent
-        float percentDif = 0;
+        float percentDif = 1;
 
         percentDif = healthStarveDecrement * change;
         healthStarveDecrement = Mathf.Clamp(Random.Range(healthStarveDecrement-percentDif, healthStarveDecrement+percentDif), 0, 30000);
@@ -125,7 +126,7 @@ public class AnimalBrain : MonoBehaviour
 
     public void SetStatsFromDNA()
     {
-        
+        name = animalBaseDNA.name;
         maxHealth = animalBaseDNA.maxHealth;
         maxStat = animalBaseDNA.maxStat;
         healthStarveDecrement = animalBaseDNA.healthStarveDecrement;

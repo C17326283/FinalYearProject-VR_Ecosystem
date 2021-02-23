@@ -28,51 +28,20 @@ public class GravityMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        float x = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
-        float z = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
-        
-        //transform.Translate(x,0,z);
-        
-        if (Input.GetKey(KeyCode.E))
-        {
-            transform.Rotate(0, turnSpeed * Time.deltaTime, 0);
-        }
-        if (Input.GetKey(KeyCode.Q))
-        {
-            transform.Rotate(0, -turnSpeed * Time.deltaTime, 0);
-        }
-        
-        
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            moveSpeed = defaultSpeed*2;
-        }
-        else
-        {
-            moveSpeed = defaultSpeed;
-        }
-        
-        rb.AddRelativeForce(transform.forward * (moveSpeed * z));
-        */
         gravityDir = (core.transform.position-transform.position).normalized;//todo flip dir
         
         //move
-        rb.AddRelativeForce(rawInputMovement*moveSpeed);
-        
-        //transform.up = -gravityDir;
-        
-        Quaternion targetRotation = Quaternion.FromToRotation(transform.up,-gravityDir)*transform.rotation;
-        transform.rotation = Quaternion.Slerp(transform.rotation,targetRotation,50*Time.deltaTime);
+        rb.AddRelativeForce(rawInputMovement * (moveSpeed * Time.deltaTime*2),ForceMode.Acceleration);
 
-        //turn
-        //transform.Rotate(0, turnVal * turnSpeed*Time.deltaTime, 0,Space.Self);
-        //transform.Rotate( new Vector3(0, turnVal * turnSpeed, 0), Space.Self );
-        transform.RotateAround(transform.position, transform.up, turnVal* turnSpeed * Time.deltaTime);
-        
-        //print("rawInputMovement"+rawInputMovement);
-        
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, gravityDir, out hit, 2000, 1 << 8))
+        {
+            Quaternion targetRotation = Quaternion.FromToRotation(transform.up,hit.normal)*transform.rotation;
+            transform.rotation = Quaternion.Slerp(transform.rotation,targetRotation,5*Time.deltaTime);
 
+            transform.RotateAround(transform.position, transform.up, turnVal* turnSpeed * Time.deltaTime);
+        }
+        
     }
     
     public void OnMovement(InputAction.CallbackContext value)

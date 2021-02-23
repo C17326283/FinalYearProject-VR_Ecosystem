@@ -22,6 +22,7 @@ public class AnimalBehaviours : MonoBehaviour
     public float failCloserChecks;
     
     private int layerMask;
+    public float lastWanderSuccess;
 
 
     public void OnDrawGizmos()
@@ -29,16 +30,14 @@ public class AnimalBehaviours : MonoBehaviour
         Gizmos.color = Color.yellow;
         if(toTarget!=null)
             Gizmos.DrawSphere(toTarget.transform.position, 1);
-    
-        
     }
 
     private void Awake()
     {
         wanderObj=new GameObject();
         layerMask = 1 << 8;//bit shift to get mask for raycasting so only on environment and not other animals
-
     }
+    
 
     [Task]
     void CheckIfEnemyClose()
@@ -53,7 +52,7 @@ public class AnimalBehaviours : MonoBehaviour
                 {
 //                    print(tag);
                     //todo run from multiple
-                    if (found==false && obj.transform.CompareTag(tag) && Vector3.Distance(obj.transform.position,rb.transform.position)<tooCloseDist)
+                    if (found==false && obj.transform.name==tag && Vector3.Distance(obj.transform.position,rb.transform.position)<tooCloseDist)
                     {
                         print("found");
                         found = true;
@@ -83,7 +82,7 @@ public class AnimalBehaviours : MonoBehaviour
             Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
             locDir.y = 0;
             Vector3 force = locDir * brain.moveSpeed;
-            rb.AddRelativeForce(force);
+            rb.AddRelativeForce(force*Time.deltaTime*100);
             Task.current.Succeed(); //if found no enemies
         }
     }
@@ -129,7 +128,7 @@ public class AnimalBehaviours : MonoBehaviour
             else
             {
                 Vector3 force = locDir.normalized * brain.moveSpeed;
-                rb.AddRelativeForce(force);
+                rb.AddRelativeForce(force*Time.deltaTime*100);
                 Task.current.Succeed();//if found no enemies
             }
         }
@@ -155,7 +154,7 @@ public class AnimalBehaviours : MonoBehaviour
         {
             Vector3 seekDir;
             seekDir = (toTarget.position - rb.transform.position).normalized;
-            rb.AddForce(seekDir * (brain.moveSpeed/4));//slow down approach
+            rb.AddForce(seekDir * (brain.moveSpeed/4*Time.deltaTime)*Time.deltaTime*100);//slow down approach
             Task.current.Succeed();
         }
         else
@@ -174,7 +173,7 @@ public class AnimalBehaviours : MonoBehaviour
             Vector3 attackDir;
             attackDir = (toTarget.position - rb.transform.position).normalized;
                 
-            rb.AddForce(attackDir * 2);
+            rb.AddForce(attackDir * 2*Time.deltaTime*100);
             Task.current.Succeed();
             print("attack");
         }
@@ -240,16 +239,17 @@ public class AnimalBehaviours : MonoBehaviour
         if (distThisFrame+0.01f < distLastFrame)//todo switch to time not frame
         {
             Task.current.Succeed();
-            failCloserChecks = 0;
+            lastWanderSuccess = Time.time;//reset time counter
         }
         else
         {
             Task.current.Succeed();
-            failCloserChecks += 1;
         }
 
-        if (failCloserChecks > 10000)
+        if (Time.time > lastWanderSuccess+1)//if its been over a second since been stuck
         {
+            print("stuck too long. Time"+Time.time+" last success"+lastWanderSuccess+" ob"+this.transform.name);
+            lastWanderSuccess = Time.time;
             Task.current.Fail();
         }
 

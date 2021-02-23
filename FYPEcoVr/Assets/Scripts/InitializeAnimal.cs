@@ -47,7 +47,7 @@ public class InitializeAnimal : MonoBehaviour
         animalObj = Instantiate(animalData.model);
         animalObj.transform.parent = this.transform;
         animalObj.transform.position = this.transform.position;
-        animalObj.tag = animalData.Tag;
+        animalObj.tag = animalData.name;
         
         feet = new List<GameObject> ();
         feetPositioners = new List<FootRaycastPositioner> ();
