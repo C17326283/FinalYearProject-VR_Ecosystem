@@ -227,6 +227,7 @@ public class AnimalInitializer : MonoBehaviour
         feetPositioners.Add(footScript);
         footScript.footIKTargetObj = new GameObject("FootTargetObj");
         footScript.footIKTargetObj.transform.parent = this.transform; //Set it to highest level parent as they need to move independently
+        footScript.footIKTargetObj.transform.position = foot.transform.position;
         footScript.endBoneObj = foot.gameObject;
         footScript.forwardFacingObj = movementOriginObj.gameObject;
         footScript.animalHeight = animalHeight;

@@ -16,7 +16,7 @@ public class AnimalFeetPositioner : MonoBehaviour
     public float forwardStepDist = 1.4f;//todo set dynamically
     public float sideStepDist = .6f;
     public Vector3 nextFootPos;
-    public float lerpSpeed = 10;//todo set based on speed or size
+    public float lerpSpeed = 15;//todo set based on speed or size
     public bool hasOffset = false;
     //public float timeOffset = 0.0f;
     public GameObject forwardFacingObj;//for using for forward direction of whole animal
@@ -52,9 +52,6 @@ public class AnimalFeetPositioner : MonoBehaviour
         transform.rotation = forwardFacingObj.transform.rotation;
         forwardStepDist = animalLength / 5f;
         sideStepDist = animalLength / 10f;
-        //float limbMoveSpeed = (1/animalLength);
-        //print("limbMoveSpeed"+limbMoveSpeed);
-        //lerpSpeed = Mathf.Max(lerpSpeed, 10, limbMoveSpeed);//have a minimum speed
         
 
         endBoneObj.GetComponentInParent<FastIKFabric>().Target = footIKTargetObj.transform;
