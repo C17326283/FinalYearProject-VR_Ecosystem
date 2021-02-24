@@ -11,7 +11,7 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
     public GameObject core;
     public Vector3 gravityDir;
     public Rigidbody rb;
-    public float turnSpeed = 3;
+    public float turnSpeed = 6;
     
     private int layerMask;
 
@@ -77,7 +77,7 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
             if (locVel.magnitude>.1f)
             {
                 rotation = Quaternion.LookRotation(moveVel, orienter.transform.up);//look to velocity, align with ground
-                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turnSpeed*Time.deltaTime);//do it over time
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, (turnSpeed/brain.animalHeight)*Time.deltaTime);//do it over time
             }
             else
             {

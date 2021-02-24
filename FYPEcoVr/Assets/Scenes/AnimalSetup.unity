@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 27285445}
   - component: {fileID: 27285444}
   m_Layer: 0
-  m_Name: water
+  m_Name: Water
   m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,7 +212,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27285443}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 120.15918, y: -41.22168, z: 75.78064}
+  m_LocalPosition: {x: 120.15918, y: -45.25, z: 75.78064}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 250040463}
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 48564997}
   - component: {fileID: 48564996}
   m_Layer: 0
-  m_Name: water
+  m_Name: Water
   m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -591,7 +591,7 @@ GameObject:
   - component: {fileID: 276047425}
   - component: {fileID: 276047424}
   m_Layer: 0
-  m_Name: water (1)
+  m_Name: Water
   m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1001,7 +1001,7 @@ GameObject:
   - component: {fileID: 438338382}
   - component: {fileID: 438338381}
   m_Layer: 0
-  m_Name: food (1)
+  m_Name: Food
   m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1207,7 +1207,7 @@ GameObject:
   - component: {fileID: 493727261}
   - component: {fileID: 493727260}
   m_Layer: 0
-  m_Name: food
+  m_Name: Food
   m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1927,7 +1927,7 @@ GameObject:
   - component: {fileID: 1355835282}
   - component: {fileID: 1355835281}
   m_Layer: 0
-  m_Name: water (2)
+  m_Name: Water
   m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2451,7 +2451,7 @@ GameObject:
   - component: {fileID: 1666672895}
   - component: {fileID: 1666672894}
   m_Layer: 0
-  m_Name: food (2)
+  m_Name: Food
   m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2639,7 +2639,7 @@ GameObject:
   - component: {fileID: 1710403625}
   - component: {fileID: 1710403624}
   m_Layer: 0
-  m_Name: food
+  m_Name: Food
   m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

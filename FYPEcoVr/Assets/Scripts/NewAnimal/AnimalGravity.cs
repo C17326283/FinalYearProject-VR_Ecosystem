@@ -73,29 +73,29 @@ public class AnimalGravity : MonoBehaviour
             //Only add if theres environment below
             if (Physics.Raycast(point.transform.position+(-gravityDir*100), gravityDir, out hit, 2000, layerMask))
             {
+                //get height based on magnitude or default height
+                float desiredHeight = Mathf.Min(animalHeight*.9f,animalHeight-(rb.velocity.magnitude/100));//strides get bigger at faster speeds so animate lower body too
+                desiredHeight = Mathf.Clamp(desiredHeight, animalHeight *.6f, animalHeight);
+                    
+                //get a distance away from target than can be used to reduce force// *8 to decrease range it affects
+                float distForce = Vector3.Distance(hit.point+(transform.up*desiredHeight), point.transform.position)*5;//find dist between current and desired point
+
+//                    print("distFroce"+distForce);
+
+                float gravForce = Mathf.Min(gravityStrength * distForce, gravityStrength);//if close to point then add less force
+
+                Vector3 dir = (hit.point + (-gravityDir * (desiredHeight)) - point.transform.position).normalized;
+
+                rb.AddForceAtPosition(dir * (gravForce * Time.deltaTime), point.transform.position,
+                    ForceMode.Acceleration);
                 
                 if (hit.transform.CompareTag("Ground"))
                 {
                     
-                    //get height based on magnitude or default height
-                    float desiredHeight = Mathf.Min(animalHeight*.9f,animalHeight-(rb.velocity.magnitude/100));//strides get bigger at faster speeds so animate lower body too
-                    desiredHeight = Mathf.Clamp(desiredHeight, animalHeight *.6f, animalHeight);
-                    
-                    //get a distance away from target than can be used to reduce force// *8 to decrease range it affects
-                    float distForce = Vector3.Distance(hit.point+(transform.up*desiredHeight), point.transform.position)*5;//find dist between current and desired point
-
-//                    print("distFroce"+distForce);
-
-                    float gravForce = Mathf.Min(gravityStrength * distForce, gravityStrength);//if close to point then add less force
-
-                    Vector3 dir = (hit.point + (-gravityDir * (desiredHeight)) - point.transform.position).normalized;
-
-                    rb.AddForceAtPosition(dir * (gravForce * Time.deltaTime), point.transform.position,
-                        ForceMode.Acceleration);
                 }
                 else
                 {
-                    print("no ground");
+//                    print("no ground");
                 }
             }
         }

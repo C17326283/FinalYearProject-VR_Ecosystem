@@ -28,7 +28,7 @@ MonoBehaviour:
   ageIncrement: 1
   memoryLossRate: 600
   sensoryRange: 100
-  moveSpeed: 600
+  moveSpeed: 800
   rotSpeed: 50
   wanderRadius: 50
   forwardWanderBias: 2

@@ -131,7 +131,8 @@ public class AnimalFeetPositioner : MonoBehaviour
             {
 //                print("move ik to next pos");
                 //float footLift = footHeightMult * (Vector3.Distance(footIKTargetObj.transform.position, nextFootPos) /5);         
-                
+                float footMoveSpeed = Mathf.Max(lerpSpeed,(lerpSpeed * rb.velocity.magnitude)/3);
+
                 float footLift= (Vector3.Distance(footIKTargetObj.transform.position, nextFootPos)*footHeightMult)-footMoveStopDist;
                 footLift= Mathf.Clamp(footLift,0f,(animalHeight/rb.velocity.magnitude)*3);
 //                print(footLift);
@@ -141,14 +142,13 @@ public class AnimalFeetPositioner : MonoBehaviour
                 {
                     footAtPosition = false;//has started moving to next position so set to false and only becomes true if gets close enough to next position
                     //float footMoveSpeed = Mathf.Max(lerpSpeed,(distToNext/3)*lerpSpeed);
-                    float footMoveSpeed = Mathf.Max(lerpSpeed,(lerpSpeed * rb.velocity.magnitude)/3);
                     footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos+(forwardFacingObj.transform.up*footLift), footMoveSpeed * Time.deltaTime);//+(forwardFacingObj.transform.up*footLift)
                 }
-                else if(distToNext>(velForwardStep+extraSpace)*4)
+                else if(distToNext>forwardStepDist*3)
                 {
  //                   print("far foot");
                     footAtPosition = false;//has started moving to next position so set to false and only becomes true if gets close enough to next position
-                    footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos, lerpSpeed*10 * Time.deltaTime);
+                    footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos, footMoveSpeed*100 * Time.deltaTime);
                 }
             }
             else

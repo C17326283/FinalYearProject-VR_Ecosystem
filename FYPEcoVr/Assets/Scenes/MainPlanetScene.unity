@@ -873,7 +873,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &223326813
 GameObject:
@@ -2531,7 +2531,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &596869501
 MonoBehaviour:
@@ -3916,7 +3916,7 @@ Transform:
   - {fileID: 1330926527}
   - {fileID: 1219441155}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &899736746
 GameObject:
@@ -9415,7 +9415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4416744094125069485, guid: f206e8208f7a0b8488fb91bd0c062b30, type: 3}
       propertyPath: gravityStrength
-      value: 2
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 4416744094938839330, guid: f206e8208f7a0b8488fb91bd0c062b30, type: 3}
       propertyPath: far clip plane

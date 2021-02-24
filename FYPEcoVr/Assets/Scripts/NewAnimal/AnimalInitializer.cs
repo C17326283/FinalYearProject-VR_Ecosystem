@@ -77,6 +77,7 @@ public class AnimalInitializer : MonoBehaviour
         SetRb();
         SetAI();
         SetPositioners();
+        brain.animalHeight = animalHeight;
         SetSenses();
         SetLimbs();
     }
@@ -186,7 +187,7 @@ public class AnimalInitializer : MonoBehaviour
             LimbScript.isLimbSetup = true;
             LimbScript.head = limb;
             LimbScript.InitializeSpine();//initiallise once all the feet have been added
-            LimbScript.damping = SpineScript.damping / 2;
+            LimbScript.damping = SpineScript.damping / 3;
         }
         
         //This needs to be done after setup because the feet are used to get the height

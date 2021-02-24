@@ -13,7 +13,7 @@ public class AnimalBehaviours : MonoBehaviour
     //use these by reference instead
     public Rigidbody rb;
     public float tooCloseDist = 20;
-    public float attackRange = 2;
+    public float attackRange = 1;
     public Transform toTarget;
     public Transform fromTarget;
     public GameObject wanderObj;
@@ -27,7 +27,7 @@ public class AnimalBehaviours : MonoBehaviour
 
     public void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Color.magenta;
         if(toTarget!=null)
             Gizmos.DrawSphere(toTarget.transform.position, 1);
     }
@@ -88,13 +88,13 @@ public class AnimalBehaviours : MonoBehaviour
     }
     
     [Task]
-    void CheckIfFoodClose()
+    void CheckIfRemembersResource(String resource)
     {
         //todo only if not panicked
         bool found = false;
         foreach (var obj in brain.objSensedMemory)
         {
-            if (obj.transform.CompareTag("Food") && found==false)
+            if (obj.transform.name == resource && found==false)
             {
                 toTarget = obj.transform;
                 Task.current.Succeed();
@@ -118,19 +118,11 @@ public class AnimalBehaviours : MonoBehaviour
         Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
         locDir.y = 0;
 
-        if (locDir.magnitude > attackRange)
+        if (locDir.magnitude > 1 && Vector3.Distance(toTarget.transform.position,rb.transform.position)>attackRange+brain.animalHeight)
         {
-//            print("locDir.magnitude"+locDir.magnitude);
-            if (locDir.z < -1) //if theres a force pushing back then  cant seek in that dir
-            {
-                Task.current.Fail();
-            }
-            else
-            {
-                Vector3 force = locDir.normalized * brain.moveSpeed;
-                rb.AddRelativeForce(force*Time.deltaTime*100);
-                Task.current.Succeed();//if found no enemies
-            }
+          Vector3 force = locDir.normalized * brain.moveSpeed;
+            rb.AddRelativeForce(force*Time.deltaTime*100);
+            Task.current.Succeed();//if found no enemies
         }
         else
         {
@@ -150,7 +142,7 @@ public class AnimalBehaviours : MonoBehaviour
         {
             Task.current.Succeed();
         }
-        else if (distance < attackRange)
+        else if (distance < attackRange+brain.animalHeight)
         {
             Vector3 seekDir;
             seekDir = (toTarget.position - rb.transform.position).normalized;
@@ -184,11 +176,24 @@ public class AnimalBehaviours : MonoBehaviour
     }
     
     [Task]
-    void EatTarget()//if health lower than x
+    void ConsumeTarget()//if health lower than x
     {
         Task.current.Succeed();
-        brain.hunger = 100;
-        print("eat");
+        if (toTarget.name == "Food")
+        {
+            brain.hunger = 100;
+            Task.current.Succeed();
+            
+        }
+        else if(toTarget.name == "Water")
+        {
+            brain.thirst = 100;
+            Task.current.Succeed();
+        }
+        else
+        {
+            Task.current.Fail();
+        }
     }
 
     [Task]
@@ -223,7 +228,9 @@ public class AnimalBehaviours : MonoBehaviour
             if (hit.transform.CompareTag("Ground"))
             {
                 Debug.DrawLine(tarPos,hit.point,Color.white);
-                toTarget.transform.position = hit.point+transform.up*brain.animalHeight;
+                wanderObj.transform.position = hit.point+transform.up*brain.animalHeight;
+                toTarget = wanderObj.transform;
+                
                 Task.current.Succeed();
             }
             else
