@@ -22,70 +22,13 @@
     <list default="true" id="1c86a74b-a54b-44cd-a93d-b82d2bbe20ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/Demo.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/Demo/Terrain.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/Demo/Terrain.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/Demo/TerrainScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/Demo/TerrainScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/Effects.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/Effects/NaturePostProcessSetup.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/Effects/NaturePostProcessSetup.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/Effects/Skybox.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/Effects/Skybox.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Materials/Bush_1.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Materials/Bush_1.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Materials/Flower_1.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Materials/Flower_1.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Materials/Grass_1.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Materials/Grass_1.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Materials/TreeLeaf_1.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Materials/TreeLeaf_1.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Materials/TrunkDamage_1.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Materials/TrunkDamage_1.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Materials/Trunk_1.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Materials/Trunk_1.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Models.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Models/Vegetation.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Models/Vegetation.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Prefabs/Bush_1_1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Prefabs/Bush_1_1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Prefabs/Bush_1_2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Prefabs/Bush_1_2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Prefabs/FallenTree_1_1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Prefabs/FallenTree_1_1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Prefabs/FallenTree_1_2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Prefabs/FallenTree_1_2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Prefabs/Grass_1_1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Prefabs/Grass_1_1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Prefabs/Grass_1_2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Prefabs/Grass_1_2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Prefabs/Grass_2_1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Prefabs/Grass_2_1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Prefabs/Plant_1_1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Prefabs/Plant_1_1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Prefabs/Tree_1_1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Prefabs/Tree_1_1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Prefabs/Tree_1_2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Prefabs/Tree_1_2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Textures/GrassColor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Textures/GrassColor.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Textures/LowPolyNormal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeVegetation-LowPolyNature/FreeVegetation/Textures/LowPolyNormal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Imports/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Imports/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AtmoshphereShader.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/AtmoshphereShader.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AtmosphereMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/AtmosphereMaterial.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Planet/Global Volume Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Planet/Global Volume Profile.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainPlanetScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainPlanetScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/AnimalsSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/AnimalsSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/ObjectPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/ObjectPool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/RandomGenSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/RandomGenSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/TerrainFace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/TerrainFace.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
@@ -99,12 +42,14 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/UnityVersions/2020.2.3f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/FinGenSequence.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DeactivateAfterTime.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewAnimal/SpineNew.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Cam.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AutoGen.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/LightAtAngle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@1.0.0-pre.2/Runtime/Interaction/Controllers/ActionBasedController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/UnityVersions/2020.2.3f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/InputModules/BaseInput.cs" root0="SKIP_HIGHLIGHTING" />
@@ -119,9 +64,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/NavTest.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scenes/NavmeshTest/GitNavMesheditor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scenes/NavmeshTest/GitNavMeshSpher.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SpineAnimator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BodyRaycastPositioner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/Planet.cs" />
@@ -160,7 +102,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/SpineNew.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/AnimalsSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/ObjectPool.cs" />
         <option value="$PROJECT_DIR$/Assets/DeactivateAfterTime.cs" />
@@ -170,6 +111,10 @@
         <option value="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/03_Shooter/Assets/FollowCamera.cs" />
         <option value="$PROJECT_DIR$/Assets/AutoGen.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/TerrainFace.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/FinGenSequence.cs" />
+        <option value="$PROJECT_DIR$/Assets/LightAtAngle.cs" />
       </list>
     </option>
   </component>
@@ -248,7 +193,8 @@
       <workItem from="1614078471810" duration="14316000" />
       <workItem from="1614100128514" duration="6742000" />
       <workItem from="1614168349064" duration="9798000" />
-      <workItem from="1614211158640" duration="12297000" />
+      <workItem from="1614211158640" duration="12632000" />
+      <workItem from="1614256022679" duration="12778000" />
     </task>
     <servers />
   </component>
@@ -370,10 +316,10 @@
     </state>
     <state x="1920" y="47" width="1802" height="1028" key="dock-window-3/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1612029046947" />
     <state x="1971" y="32" width="1802" height="1028" key="dock-window-3/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1612136677779" />
-    <state x="2480" y="139" width="666" height="801" key="find.popup" timestamp="1613839063685">
+    <state x="2480" y="139" width="727" height="801" key="find.popup" timestamp="1614264627574">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
-    <state x="2480" y="139" width="666" height="801" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1613839063685" />
+    <state x="2480" y="139" width="727" height="801" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1614264627574" />
     <state x="2476" y="258" width="672" height="678" key="search.everywhere.popup" timestamp="1613870371260">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>

@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("DisplayNums",0,10);
+        //InvokeRepeating("DisplayNums",0,10);
     }
 
     // Update is called once per frame
@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = timeSpeed;
         }
 
+        /*
         if (Input.GetKey(KeyCode.Escape))
         {
             #if UNITY_EDITOR
@@ -28,7 +29,7 @@ public class GameManager : MonoBehaviour
             #else
             Application.Quit();
             #endif
-        }
+        }*/
     }
 
     void DisplayNums()

@@ -127,6 +127,7 @@
             </e>
           </e>
         </e>
+        <e p="FinGenSequence.cs" t="Include" />
         <e p="Imports" t="Include">
           <e p="BlackPeaStudios" t="Include">
             <e p="ScriptDependencyVisualizer" t="Include">
@@ -218,6 +219,7 @@
             </e>
           </e>
         </e>
+        <e p="LightAtAngle.cs" t="Include" />
         <e p="Low Poly Vegetation Pack" t="Include">
           <e p="Bonus Assets" t="Include">
             <e p="Scripts" t="Include">

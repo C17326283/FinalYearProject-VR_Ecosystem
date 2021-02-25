@@ -25,6 +25,8 @@ public class PlanetSpawner : MonoBehaviour
 
     private GameObject spawnedExtras;
 
+    public bool finishedAddingExtras = false;//todo find better way than this
+
     //The references to the gui objects that updates the settings
     public GameObject resolutionOption;
     private Slider resSlider;
@@ -205,9 +207,19 @@ public class PlanetSpawner : MonoBehaviour
     
     
     //Adding the spawner objects which fill the terrain with trees etc
-    public void AddExtras()
+    public IEnumerator AddExtras()
     {
         print("planet gen "+Time.time);
+        GameObject core = new GameObject("Core");
+
+        //add atmosphere
+        GameObject atmosphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        atmosphere.GetComponent<Collider>().enabled = false;
+        atmosphere.transform.localScale = (Vector3.one * (planetSettings.planetRadius*2)) + (Vector3.one * (planetObj.GetComponent<PlanetTerrainGenerator>().elevationMinMax.Max/2));//make it outside the radius
+        atmosphere.GetComponent<Renderer>().material = atmosphereMat;
+        atmosphere.layer = 9;//atmosphere layer for reverse lighting
+        FlipNormals(atmosphere);
+        yield return new WaitForSeconds(.1f);
         //add spawners
         foreach (Transform spawnerObj in allSpawnersObjects.transform)
         {
@@ -226,17 +238,11 @@ public class PlanetSpawner : MonoBehaviour
             {
                 spawnerObj.GetComponent<AnimalsSpawner>().TriggerSpawn();
             }
+            yield return new WaitForSeconds(.5f);
         }
-        //add atmosphere
-        GameObject atmosphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        atmosphere.GetComponent<Collider>().enabled = false;
-        atmosphere.transform.localScale = (Vector3.one * (planetSettings.planetRadius*2)) + (Vector3.one * (planetObj.GetComponent<PlanetTerrainGenerator>().elevationMinMax.Max/2));//make it outside the radius
-        atmosphere.GetComponent<Renderer>().material = atmosphereMat;
-        atmosphere.layer = 9;//atmosphere layer for reverse lighting
-        FlipNormals(atmosphere);
-        GameObject core = new GameObject("Core");
-
         print("planet fin "+Time.time);
+        finishedAddingExtras = true;
+
     }
 
     //Make a different center point for the noise, this makes different terrain with all the same settings
@@ -254,7 +260,7 @@ public class PlanetSpawner : MonoBehaviour
         this.GetComponent<RotateEnvironment>().enabled = false;
         //Tried to get bettr player controller but it didnt work
         //player.transform.position = (planet.transform.up * planetSettings.planetRadius)+ (Vector3.up * 110);
-        player.GetComponent<SimpleCameraController>().enabled = true;
+        //player.GetComponent<SimpleCameraController>().enabled = true;
         //FakeGravity fg = player.AddComponent<FakeGravity>();
         //fg.gravityObject = planet;
 
