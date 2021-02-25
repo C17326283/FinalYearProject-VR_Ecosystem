@@ -10,7 +10,6 @@ public class AnimalsSpawner : MonoBehaviour
 {
     public bool waitUntillTriggered = true;
     [SerializeField]//Make private visible in inspector, need private so doesnt give error
-    private ObjectPool multObjectPoolObj;//Pool of the objects to pull from
     public GameObject parentObject;
     public GameObject planetObject;
     private Vector3 core;//for raycasting to for spawn points

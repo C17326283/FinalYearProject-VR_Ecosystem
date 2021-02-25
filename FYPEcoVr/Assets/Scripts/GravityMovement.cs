@@ -15,11 +15,16 @@ public class GravityMovement : MonoBehaviour
     public Vector3 rawInputMovement;
     public float turnVal;
     public PlayerInputManager inputAction;
+    
+    private int layerMask;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        layerMask = 1 << 8;//bit shift to get mask for raycasting so only on environment and not other animals
+
         rb = GetComponent<Rigidbody>();
         core = GameObject.Find("Core");
         
@@ -38,7 +43,7 @@ public class GravityMovement : MonoBehaviour
         
         
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, gravityDir, out hit, 2000, 1 << 8))
+        if (Physics.Raycast(transform.position, -transform.up, out hit, 2000, 1 << 8))
         {
             Quaternion targetRotation = Quaternion.FromToRotation(transform.up,hit.normal)*transform.rotation;
             transform.rotation = Quaternion.Slerp(transform.rotation,targetRotation,5*Time.deltaTime);

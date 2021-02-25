@@ -2,8 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
+using URandom = UnityEngine.Random;
 
-    //Making the indivual faces
+//Making the indivual faces
 public class TerrainFace : MonoBehaviour
 {
     //private ShapeGenerator shapeGenerator;
@@ -55,16 +57,31 @@ public class TerrainFace : MonoBehaviour
             {
                 int i = x + y * res;//get the point on the grid
                 Vector2 percent = new Vector2(x,y) / (res-1);//percentage of width for even spacing
-                Vector3 pointOnUnitCube = localUp + (percent.x - .5f)*2*axisA + (percent.y - .5f)*2*axisB;//get position of individual point
-                Vector3 pointOnUnitSphere = pointOnUnitCube.normalized;//normalise it to get where it should be on sphere
+                Vector3 pointOnUnitCube;
+                pointOnUnitCube = localUp + (percent.x - .5f)*2*axisA + (percent.y - .5f)*2*axisB;//get position of individual point
 
+                Vector3 pointOnUnitSphere = pointOnUnitCube.normalized;//normalise it to get where it should be on sphere
                 //use the spherized point with noise to find where it should be
-                if(isLand)
+                if (isLand)
+                {
                     vertices[i] = AddHeightToVertex(pointOnUnitSphere);
+                    /*//todo add movement to points for better uneven low poly
+                    if (x > 0 && x < res - 1 && y > 0 && y < res - 1)
+                    {
+                        float movement = 2;
+                        //movement = Mathf.Clamp(movement,0, (percent.x));
+                        vertices[i] = localUp + vertices[i]+new Vector3(URandom.Range(-movement,movement),URandom.Range(-movement,movement),URandom.Range(-movement,movement));
+                    }
+                    */
+                }
                 else
                 {
                     vertices[i] = pointOnUnitSphere * (settings.planetRadius+waterHeight+5f);//default height +height the water is at+extra to cover bottom colour layer
                 }
+
+                
+                    
+
                 
                 //get trianle points from points on mesh
                 if(x != res-1 &&  y != res-1)

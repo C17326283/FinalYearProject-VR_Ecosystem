@@ -217,6 +217,7 @@ public class PlanetSpawner : MonoBehaviour
                 GameObject holder = new GameObject("holder");
                 sp.parentObject = holder.gameObject;
                 sp.planetObject = this.gameObject;
+                sp.biomeObjs = planetScript.biomeObjs;
                 if (sp.isRotatingObject)
                     holder.AddComponent<RotateEnvironment>();
                 sp.TriggerSpawn();
