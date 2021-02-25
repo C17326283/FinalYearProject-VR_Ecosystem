@@ -314,6 +314,8 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="AllAnimalManager.cs" t="Include" />
+          <e p="AnimalDistanceDisabler.cs" t="Include" />
           <e p="Behaviour" t="Include">
             <e p="AnimalTest.txt" t="Include" />
             <e p="BoidBase.txt" t="Include" />

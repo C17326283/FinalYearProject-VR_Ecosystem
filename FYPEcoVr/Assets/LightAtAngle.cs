@@ -35,7 +35,7 @@ public class LightAtAngle : MonoBehaviour
     {
         toPlayer = (core.transform.position-player.transform.position).normalized;
 
-        if (!reverseDir)
+        if (reverseDir)
         {
             toSun = (core.transform.position-sun.transform.position).normalized;
         }
@@ -43,9 +43,20 @@ public class LightAtAngle : MonoBehaviour
         {
             toSun = (sun.transform.position-core.transform.position).normalized;
         }
-        float angleToTarget = Vector2.Angle(toSun, toPlayer);
+        float angleToTarget = Vector3.Angle(toSun, toPlayer);
+        //print("angleToTarget"+angleToTarget);
+        float angleToTargetNorm = (angleToTarget/180)*3;//Bring everything in range 0-3 with 1.5 being midpoint between bright and dark 
+        //print("angleToTargetNorm"+angleToTargetNorm);
+        angleToTargetNorm = angleToTargetNorm-1f;//Bring everything in range -1to2 with .5 being midpoint between bright and dark 
+        //print("angleToTargetNorm"+angleToTargetNorm);
+        angleToTargetNorm = Mathf.Clamp(angleToTargetNorm,0,1);//1f clamped on both sides meaning <0 is 0 to 60deg/0 to 1 is 60to120 degrees and >1 is 120degrees. but all clamped so full brightness if >2/3
+        //print("angleToTargetNorm"+angleToTargetNorm);
+        //angleToTarget += 45;//ant
+        //float
+        
 
-        float lightAmount = Mathf.Clamp((angleToTarget-45)/90,0, 2);
+        float lightAmount = angleToTargetNorm*dayLightIntensity;
+        //print("lightAmount"+lightAmount);
         Light.intensity = lightAmount;
         
 //        print(angleToTarget);

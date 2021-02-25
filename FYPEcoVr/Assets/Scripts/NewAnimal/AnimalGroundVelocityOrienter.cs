@@ -51,6 +51,7 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
 
         transform.up = -gravityDir;
         
+        
         //Todo find more efficient way than adding another obj
         orienter = new GameObject("orienter");
         orienter.transform.parent = this.transform;

@@ -71,6 +71,10 @@ public class AnimalInitializer : MonoBehaviour
         brain.animalHeight = animalHeight;
         SetSenses();
         SetLimbs();
+
+        StartCoroutine(SetDisabler());
+        //temp
+        
     }
 
     public void GetLimbs()
@@ -286,6 +290,16 @@ public class AnimalInitializer : MonoBehaviour
 
         
     }
-    
+
+    IEnumerator SetDisabler()
+    {
+        AnimalDistanceDisabler distDisabler = transform.parent.gameObject.AddComponent<AnimalDistanceDisabler>();
+        distDisabler.enabled = false;
+        distDisabler.animal = movementOriginObj.transform;
+        distDisabler.animalHolder = transform.gameObject;
+        yield return new WaitForSeconds(2);
+        distDisabler.player = GameObject.Find("Player").transform;
+        distDisabler.enabled = true;
+    }
     
 }

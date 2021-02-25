@@ -10,6 +10,7 @@ public class FinGenSequence : MonoBehaviour
     public GameObject spaceCam;
 
     public GameObject player;
+    public GameObject playerCam;
 
     public LightAtAngle[] lights;
 
@@ -42,12 +43,15 @@ public class FinGenSequence : MonoBehaviour
         print("after while"+PlanetSpawner.finishedAddingExtras);
         
         yield return new WaitForSeconds(5f);
-        spaceCam.SetActive(false);
         foreach (var light in lights)
         {
             light.enabled = true;
         }
         player.SetActive(true);
+        
+        yield return new WaitForSeconds(2f);
+        spaceCam.SetActive(false);
         loadingGUI.SetActive(false);
+        playerCam.SetActive(true);
     }
 }

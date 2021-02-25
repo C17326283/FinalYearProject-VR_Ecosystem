@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
+  m_AmbientSkyColor: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 0.9
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.0031554508, g: 0.011184082, b: 0.02198728, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 3c232677ed2f264448bba4fff165e506, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -1065,7 +1065,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 223584068}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 600
+  amountToSpawn: 2000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0
   tagToSpawnOn: Ground
@@ -2837,6 +2837,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 584669666}
+  - component: {fileID: 584669667}
   m_Layer: 0
   m_Name: Management
   m_TagString: Untagged
@@ -2860,6 +2861,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &584669667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584669665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb6b6187f43c51408a658ea92ce3f44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeSpeed: 1
 --- !u!1 &596869499
 GameObject:
   m_ObjectHideFlags: 0
@@ -3228,7 +3242,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.9961557, b: 0.9575472, a: 1}
+  m_Color: {r: 0.9961137, g: 1, b: 0.9575472, a: 1}
   m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
@@ -3238,7 +3252,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.8
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -3309,9 +3323,9 @@ MonoBehaviour:
   Light: {fileID: 697091047}
   core: {fileID: 0}
   sun: {fileID: 1443668991}
-  toPlayer: {x: 0, y: 0, z: 0}
-  toSun: {x: 0, y: 0, z: 0}
-  dayLightIntensity: 2.3
+  toPlayer: {x: 0.002610393, y: -0.9996085, z: 0.027855298}
+  toSun: {x: 0.36383155, y: 0.9074682, z: -0.2100668}
+  dayLightIntensity: 2.5
   reverseDir: 0
 --- !u!1 &709984148
 GameObject:
@@ -3512,7 +3526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61bb3f6dc166d05418a7771b794298f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 4
+  rotateSpeed: 2
 --- !u!4 &760984590
 Transform:
   m_ObjectHideFlags: 0
@@ -3742,9 +3756,11 @@ MonoBehaviour:
   loadingGUI: {fileID: 1603732783}
   spaceCam: {fileID: 596869499}
   player: {fileID: 4416744093512669620}
+  playerCam: {fileID: 4416744093236048936}
   lights:
   - {fileID: 697091049}
   - {fileID: 1735571477}
+  - {fileID: 792104342}
 --- !u!1 &792104339
 GameObject:
   m_ObjectHideFlags: 0
@@ -3755,6 +3771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 792104340}
   - component: {fileID: 792104341}
+  - component: {fileID: 792104342}
   m_Layer: 0
   m_Name: MoonLight
   m_TagString: Untagged
@@ -3838,6 +3855,26 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &792104342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792104339}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e3de900e6301c04f941f729ed45cd76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 4416744093512669620}
+  Light: {fileID: 792104341}
+  core: {fileID: 0}
+  sun: {fileID: 1711375494}
+  toPlayer: {x: 0, y: 0, z: 0}
+  toSun: {x: 0, y: 0, z: 0}
+  dayLightIntensity: 0.4
+  reverseDir: 0
 --- !u!1 &799430266
 GameObject:
   m_ObjectHideFlags: 0
@@ -6419,7 +6456,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 1219441157}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 1000
+  amountToSpawn: 2000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0
   tagToSpawnOn: Ground
@@ -6914,7 +6951,7 @@ MonoBehaviour:
   waitUntillTriggered: 1
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 1
+  amountToSpawn: 3000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 42.02
   tagToSpawnOn: Ground
@@ -6932,6 +6969,7 @@ MonoBehaviour:
   minScale: 1
   maxScale: 1
   randomXZTilt: 0
+  allAnimalManager: {fileID: 0}
 --- !u!1 &1332432136
 GameObject:
   m_ObjectHideFlags: 0
@@ -7137,7 +7175,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 1384593979}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 20000
+  amountToSpawn: 2000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0.01
   tagToSpawnOn: Ground
@@ -8802,7 +8840,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.2688679, g: 0.64095074, b: 1, a: 0.7019608}
+  m_Color: {r: 0.9961137, g: 1, b: 0.9575472, a: 0.6313726}
   m_Intensity: 3
   m_Range: 10
   m_SpotAngle: 30
@@ -8812,7 +8850,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.5
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -8866,13 +8904,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4416744093512669620}
-  Light: {fileID: 697091047}
+  Light: {fileID: 1735571476}
   core: {fileID: 0}
   sun: {fileID: 1443668991}
   toPlayer: {x: 0, y: 0, z: 0}
   toSun: {x: 0, y: 0, z: 0}
-  dayLightIntensity: 3
-  reverseDir: 1
+  dayLightIntensity: 8
+  reverseDir: 0
 --- !u!1 &1737986216
 GameObject:
   m_ObjectHideFlags: 0
@@ -11647,7 +11685,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 2125029175}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 400
+  amountToSpawn: 2000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 200
   tagToSpawnOn: Ground
@@ -11738,7 +11776,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &4416744093236048937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11993,6 +12031,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 1d7eaab2-612a-4b50-a698-d272efd53044
     m_ActionName: PlayerControls/Turning[/Keyboard/q,/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4416744093512669626}
+        m_TargetAssemblyTypeName: GravityMovement, Assembly-CSharp
+        m_MethodName: Sprint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fed081ba-ce9e-45fd-98b6-45ffe15c59a5
+    m_ActionName: PlayerControls/Sprint[/Keyboard/shift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerControls
@@ -12011,14 +12065,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  moveSpeed: 5000
-  defaultSpeed: 50
+  moveSpeed: 3000
+  defaultSpeed: 3000
   turnSpeed: 150
   core: {fileID: 0}
   gravityDir: {x: 0, y: 0, z: 0}
   rawInputMovement: {x: 0, y: 0, z: 0}
   turnVal: 0
-  inputAction: {fileID: 0}
 --- !u!114 &4416744093512669627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12033,9 +12086,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   core: {fileID: 0}
   gravityStrength: 2000
-  upMultiplier: 2
   gravityDir: {x: 0, y: 0, z: 0}
-  animalHeight: 5
+  animalHeight: 1
   animalLength: 2
   rb: {fileID: 0}
   headHeightPosObj: {fileID: 0}

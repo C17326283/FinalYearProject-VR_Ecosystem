@@ -22,15 +22,19 @@
     <list default="true" id="1c86a74b-a54b-44cd-a93d-b82d2bbe20ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/AtmoshphereShader.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/AtmoshphereShader.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/FinGenSequence.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FinGenSequence.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/InputActionProfiles/Player.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/InputActionProfiles/Player.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LightAtAngle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LightAtAngle.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/AtmosphereMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/AtmosphereMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/MoonLight.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/MoonLight.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Planet/Global Volume Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Planet/Global Volume Profile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AnimalSetup.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AnimalSetup.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainPlanetScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainPlanetScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/AnimalsSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/AnimalsSpawner.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +53,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewAnimal/SpineNew.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Cam.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AutoGen.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AnimalDistanceDisabler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/LightAtAngle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@1.0.0-pre.2/Runtime/Interaction/Controllers/ActionBasedController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" root0="FORCE_HIGHLIGHTING" />
@@ -64,7 +69,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/SpineAnimator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BodyRaycastPositioner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/Planet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GravityAIMovement.cs" />
@@ -97,24 +101,25 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetTerrainGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT.txt" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/SpineNew.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/AnimalsSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/ObjectPool.cs" />
         <option value="$PROJECT_DIR$/Assets/DeactivateAfterTime.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/RandomGenSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Cam.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/03_Shooter/Assets/FollowCamera.cs" />
         <option value="$PROJECT_DIR$/Assets/AutoGen.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/TerrainFace.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/FinGenSequence.cs" />
         <option value="$PROJECT_DIR$/Assets/LightAtAngle.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/AnimalsSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AnimalDistanceDisabler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" />
+        <option value="$PROJECT_DIR$/Assets/FinGenSequence.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" />
       </list>
     </option>
   </component>
@@ -194,7 +199,7 @@
       <workItem from="1614100128514" duration="6742000" />
       <workItem from="1614168349064" duration="9798000" />
       <workItem from="1614211158640" duration="12632000" />
-      <workItem from="1614256022679" duration="12778000" />
+      <workItem from="1614256022679" duration="24360000" />
     </task>
     <servers />
   </component>
@@ -316,10 +321,10 @@
     </state>
     <state x="1920" y="47" width="1802" height="1028" key="dock-window-3/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1612029046947" />
     <state x="1971" y="32" width="1802" height="1028" key="dock-window-3/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1612136677779" />
-    <state x="2480" y="139" width="727" height="801" key="find.popup" timestamp="1614264627574">
+    <state x="2480" y="139" width="727" height="801" key="find.popup" timestamp="1614283982247">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
-    <state x="2480" y="139" width="727" height="801" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1614264627574" />
+    <state x="2480" y="139" width="727" height="801" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1614283982247" />
     <state x="2476" y="258" width="672" height="678" key="search.everywhere.popup" timestamp="1613870371260">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>

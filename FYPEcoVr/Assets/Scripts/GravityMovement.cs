@@ -7,14 +7,13 @@ public class GravityMovement : MonoBehaviour
 {
     public Rigidbody rb;
     public float moveSpeed;
-    public float defaultSpeed = 50;
+    public float defaultSpeed = 25;
     public float turnSpeed=150;
     public GameObject core;
     public Vector3 gravityDir;
 
     public Vector3 rawInputMovement;
     public float turnVal;
-    public PlayerInputManager inputAction;
     
     private int layerMask;
 
@@ -37,7 +36,7 @@ public class GravityMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         gravityDir = (core.transform.position-transform.position).normalized;//todo flip dir
         
@@ -82,5 +81,13 @@ public class GravityMovement : MonoBehaviour
             print("debugging2");
         if(context.canceled)
             print("debugging3");
+    }
+    
+    public void Sprint(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            moveSpeed = defaultSpeed * 2;
+        if(context.canceled)
+            moveSpeed = defaultSpeed;
     }
 }
