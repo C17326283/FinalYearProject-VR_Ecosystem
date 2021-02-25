@@ -10,7 +10,11 @@ public class RandomGenSpawner : MonoBehaviour
 {
     public bool waitUntillTriggered = true;
     [SerializeField]//Make private visible in inspector, need private so doesnt give error
-    private ObjectPool multObjectPoolObj;//Pool of the objects to pull from
+    public ObjectPool normalObjectPoolObj;//Pool of the objects to pull from
+    public ObjectPool coldObjectPoolObj;//Pool of the objects to pull from
+    public ObjectPool warmObjectPoolObj;//Pool of the objects to pull from
+
+
     public GameObject parentObject;
     public GameObject planetObject;
     private Vector3 core;//for raycasting to for spawn points
@@ -20,7 +24,6 @@ public class RandomGenSpawner : MonoBehaviour
     public float heightFromHitPoint = 0;
     public String tagToSpawnOn = "Ground";
     public bool isRotatingObject;//for clouds
-    public int poolIndexNumber = 0;
 
     //For adding variation
     [Header("Only randomises if condition is true")]
@@ -30,6 +33,8 @@ public class RandomGenSpawner : MonoBehaviour
     public float randomXZTilt = 2f;
 
     private GameObject newObj;//declare here so can edit in reposition
+    public GameObject[] biomeObjs;
+    public float biomeDist=1000;//set dynamicallu
 
     // Start is called before the first frame update
     
@@ -44,9 +49,11 @@ public class RandomGenSpawner : MonoBehaviour
     {
         //Move the spawner object
         Resposition();
+        /*
         //multObjectPoolObj = GetAssociatedPool();
         if (multObjectPoolObj == null)
             multObjectPoolObj = this.gameObject.GetComponent<ObjectPool>();
+        */
         
         if (planetObject == null)
         {
@@ -58,7 +65,9 @@ public class RandomGenSpawner : MonoBehaviour
         }
 
         core = planetObject.transform.position;
-        multObjectPoolObj.InitPool();//force pool to be initiated instead of waiting for awake
+        normalObjectPoolObj.InitPool();//force pool to be initiated instead of waiting for awake
+        coldObjectPoolObj.InitPool();
+        warmObjectPoolObj.InitPool();
 
         
         StartCoroutine(Spawn());
@@ -74,17 +83,38 @@ public class RandomGenSpawner : MonoBehaviour
         {
             newObj = null;
 
-            
             RaycastHit hit; //shoot ray and if its ground then spawn at that location
             if (Physics.Raycast(transform.position, core - gameObject.transform.position, out hit, 10000))
             {
 //                Debug.Log("hit"+hit.transform.name + hit.transform.position);
                 if (hit.transform.CompareTag(tagToSpawnOn)) //Checks its allowed spawn there
                 {
-                    newObj = multObjectPoolObj.GetObj();
+                    //Find which biome object to spawn
+                    bool foundSpecificBiome = false;
+                    for (int j = 0; j < biomeObjs.Length-1; j++)
+                    {
+                        float dist = Vector3.Distance(biomeObjs[j].transform.position, hit.point);
+                        if (dist < biomeDist)
+                        {
+                            foundSpecificBiome = true;
+                            if (j < 2) //winter
+                            {
+                                newObj = coldObjectPoolObj.GetObj();
+//                                print("cold");
+                            }
+                            else
+                            {
+                                newObj = warmObjectPoolObj.GetObj();
+                            }
+                        }
+                    }
+                    if(foundSpecificBiome == false)
+                        newObj = normalObjectPoolObj.GetObj();
+                    
+                    
+                    
                     if (newObj != null)
                     {
-                        
                         newObj.SetActive(true);
 
                         newObj.transform.position = hit.point; //place object at hit

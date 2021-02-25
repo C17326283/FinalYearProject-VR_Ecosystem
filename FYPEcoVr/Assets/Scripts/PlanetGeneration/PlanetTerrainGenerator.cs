@@ -32,7 +32,7 @@ public class PlanetTerrainGenerator : MonoBehaviour
         Create();
         GenerateMesh();
         GenerateColours();//turn this back on, its just annoying for editing
-        
+
     }
 
     //Make all the faces and filters if they arent already or update them if they are

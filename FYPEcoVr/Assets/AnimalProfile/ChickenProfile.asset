@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bbea3655ab8f9488423b44b0b2a909, type: 3}
   m_Name: ChickenProfile
   m_EditorClassIdentifier: 
-  Tag: Chicken
+  name: Chicken
   model: {fileID: 4652543879994953833, guid: e212f379338cde542b9ea7175def6293, type: 3}
   health: 100
   hunger: -12.578402
@@ -26,9 +26,9 @@ MonoBehaviour:
   thirstDecrement: 1
   reproductiveIncrement: 6
   ageIncrement: 1
-  memoryLossRate: 60
+  memoryLossRate: 600
   sensoryRange: 50
-  moveSpeed: 100
+  moveSpeed: 150
   rotSpeed: 50
   wanderRadius: 50
   forwardWanderBias: 2

@@ -7,7 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Animal Profile",menuName = "Animal Profile")]//Create from asset menu
 public class AnimalProfile : ScriptableObject
 {
-    public String Tag;
+    public String name;
     public GameObject model;
     public float health = 100;
     public float hunger = 100;

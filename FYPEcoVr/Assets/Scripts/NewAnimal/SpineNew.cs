@@ -21,7 +21,7 @@ public class SpineNew : MonoBehaviour {
     {
         armatureBase = head.transform.parent.gameObject;//The object above head has the full armature
         spinesHolder = this.gameObject;
-        spinesHolder.transform.name = "SpinesHolder";
+        //spinesHolder.transform.name = "SpinesHolder";
 
         //get spinal sections which stem from the head
         GetSpineObjRecursively(head);
@@ -34,7 +34,7 @@ public class SpineNew : MonoBehaviour {
     {
         //get all direct children 
         Transform[] spineObjs =  head.GetComponentsInChildren<Transform>();
-        print(spineObjs.Length);
+//        print(spineObjs.Length);
         
         //Make a holder for each section of the spine and add this to it
         foreach (Transform spineObj in spineObjs)//expect only one or 0 children but foreach works better
@@ -56,7 +56,7 @@ public class SpineNew : MonoBehaviour {
             {
                 spineContainer = spineObj.transform.parent.gameObject;
             }
-            spineContainer.transform.name = "SpineSection" + spineContainers.Count + "-PhysicsObject";
+            //spineContainer.transform.name = "SpineSection" + spineContainers.Count + "-PhysicsObject";
         }
 
         spineContainer.transform.position = spineObj.transform.position;

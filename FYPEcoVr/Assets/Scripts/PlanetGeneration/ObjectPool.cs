@@ -5,12 +5,9 @@ using UnityEngine;
 //For holding a list of objects to be called randomly and adding them back here when they are despawned.
 public class ObjectPool : MonoBehaviour
 {
-
     //prefab that the pool will use
     //public GameObject poolPrefab;
-    public int poolIndex;
     public List<GameObject> poolPrefabList;
-    public List<List<GameObject>> lists;
 
     //initial number of element
     public int initialNum = 0;

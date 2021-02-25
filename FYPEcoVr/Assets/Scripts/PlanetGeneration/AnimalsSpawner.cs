@@ -10,7 +10,6 @@ public class AnimalsSpawner : MonoBehaviour
 {
     public bool waitUntillTriggered = true;
     [SerializeField]//Make private visible in inspector, need private so doesnt give error
-    private ObjectPool multObjectPoolObj;//Pool of the objects to pull from
     public GameObject parentObject;
     public GameObject planetObject;
     private Vector3 core;//for raycasting to for spawn points
@@ -32,6 +31,8 @@ public class AnimalsSpawner : MonoBehaviour
     public float maxScale = 2f;
     public float randomXZTilt = 2f;
 
+    public AllAnimalManager allAnimalManager;
+
     private GameObject newObj;//declare here so can edit in reposition
     public 
 
@@ -40,8 +41,11 @@ public class AnimalsSpawner : MonoBehaviour
     void Awake()
     {
         //start spawning objects
-        if(waitUntillTriggered == false)
+        if (waitUntillTriggered == false)
+        {
+            allAnimalManager = new AllAnimalManager();
             StartCoroutine(Spawn());
+        }
     }
 
     public void TriggerSpawn()
@@ -53,6 +57,7 @@ public class AnimalsSpawner : MonoBehaviour
         {
             planetObject = this.transform.root.gameObject; //get the base object which will be the planet
             parentObject = new GameObject("Holder");
+            
         }
 
         core = planetObject.transform.position;
@@ -81,6 +86,8 @@ public class AnimalsSpawner : MonoBehaviour
                     newObj = new GameObject("Animalholder");
                     newObj.transform.parent = parentObject.transform;
                     
+                    
+                    
                     //newObj.transform.position = hit.point; //place object at hit
                     newObj.transform.up = newObj.transform.position - core; //set rotation so orients properly
                     newObj.transform.position = hit.point + newObj.transform.up * heightFromHitPoint; //repoisition to correct height from hit
@@ -90,8 +97,10 @@ public class AnimalsSpawner : MonoBehaviour
                     manager.btTexts = btTexts;
 
 
-                    print(newObj.transform.position);
+//                    print(newObj.transform.position);
                     manager.InitialiseAnimal();
+                    
+                    
                 }
             }
             else

@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StereoRenderingModeDesktop: 0
   m_StereoRenderingModeAndroid: 0
-  SharedDepthBuffer: 1
+  SharedDepthBuffer: 0
   DashSupport: 1
   V2Signing: 1
   LowOverheadMode: 0
   ProtectedContext: 0
   FocusAware: 1
   OptimizeBufferDiscards: 1
+  PhaseSync: 0
+  TargetQuest: 1
+  TargetQuest2: 1

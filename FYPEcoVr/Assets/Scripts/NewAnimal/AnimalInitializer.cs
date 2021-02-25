@@ -31,24 +31,15 @@ public class AnimalInitializer : MonoBehaviour
     
     [HideInInspector]
     public AnimalBrain brain;//manages memory and senses
-    
     public AnimalBehaviours behaviours;//The behaviours uses by behaviour tree
-    
     [HideInInspector]
     public BehaviourTree behaviourTreeManager;
-    
     public AnimalGravity animalGravity;
     public AnimalGroundVelocityOrienter groundOrienter;
-
     public GameObject sensorySphere;
-
     public SpineNew SpineScript;
-
     public float animalHeight=2;
     public float animalLength=2;
-    
-    
-    
 
     public bool initialiseOnStart = false;
     // Start is called before the first frame update
@@ -56,7 +47,6 @@ public class AnimalInitializer : MonoBehaviour
     {
         if(initialiseOnStart) 
             InitialiseAnimal();
-
     }
 
     public void InitialiseAnimal()
@@ -70,10 +60,25 @@ public class AnimalInitializer : MonoBehaviour
         animalObj = Instantiate(animalDNA.model);
         animalObj.transform.parent = this.transform;
         animalObj.transform.position = this.transform.position;
-        animalObj.tag = animalDNA.Tag;
+        //animalObj.tag = animalDNA.name;
         
+        //Todo find more efficient way
+        GetLimbs();
+        SetCollider();
+        SetRb();
+        SetAI();
+        SetPositioners();
+        brain.animalHeight = animalHeight;
+        SetSenses();
+        SetLimbs();
+
+        StartCoroutine(SetDisabler());
+        //temp
         
-        
+    }
+
+    public void GetLimbs()
+    {
         //make array of all child objects and check bones for correct ones
         Transform[] allChildObjects = GetComponentsInChildren<Transform>();
         foreach (Transform childBone in allChildObjects)
@@ -83,11 +88,7 @@ public class AnimalInitializer : MonoBehaviour
                 head = childBone.gameObject;
                 
                 //Done here because the head is needed to make spine and position legs
-                SpineScript = animalObj.AddComponent<SpineNew>();
-                SpineScript.head = head;
-                SpineScript.InitializeSpine();//initiallise once all the feet have been added
-                SpineScript.MatchLimbsToSpine();
-                movementOriginObj = head.transform.parent.gameObject;//set in spinescript to control head so need this to have the rigidbody to allow spine animation;
+                SetUpSpine();
             }
             else if(childBone.CompareTag("Leg"))
             {
@@ -98,55 +99,57 @@ public class AnimalInitializer : MonoBehaviour
                 otherLimbs.Add(childBone.transform.gameObject);
             }
         }
-        
-        
-        
+    }
 
-        foreach (var foot in feet)
-        {
-            //Needs to have found a head first to be successfull
-            SetUpFootPositioner(foot.transform);
-        }
-        foreach (var limb in otherLimbs)
-        {
-            SpineNew LimbScript = animalObj.AddComponent<SpineNew>();
-            LimbScript.isLimbSetup = true;
-            LimbScript.head = limb;
-            LimbScript.InitializeSpine();//initiallise once all the feet have been added
-            LimbScript.damping = SpineScript.damping / 2;
-        }
-        
+    public void SetUpSpine()
+    {
+        SpineScript = this.gameObject.AddComponent<SpineNew>();
+        SpineScript.head = head;
+        SpineScript.InitializeSpine();//initiallise once all the feet have been addedf
+        SpineScript.MatchLimbsToSpine();
+        movementOriginObj = head.transform.parent.gameObject;//set in spinescript to control head so need this to have the rigidbody to allow spine animation;
+        movementOriginObj.transform.name = animalDNA.name;
+        animalObj.transform.parent = movementOriginObj.transform;//Parent mesh to movement to hoepfully fix that stretched mesh
+        animalObj.transform.name = "MeshParent";
+    }
+
+    public void SetCollider()
+    {
         //add components to animal and position it to center of mass
         collider = movementOriginObj.AddComponent<BoxCollider>();
         Vector3 meshBounds = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().bounds.size;
         //move the collider back to the body even though we need it attached to the head
         //todo tails to allow for this to correctly position
-        //collider.center = (animalObj.transform.position -movementOriginObj.transform.position)+Vector3.up;//a bit higher so legs can have sprign without collider hitting ground
-        //collider.center = (SpineScript.spineContainers[0].transform.position+SpineScript.spineContainers[SpineScript.spineContainers.Count-1].transform.position)/2;//a bit higher so legs can have sprign without collider hitting ground
-        collider.center = (SpineScript.spineContainers[SpineScript.spineContainers.Count-1].transform.localPosition-SpineScript.spineContainers[0].transform.localPosition)/2;
+        Vector3 centerpos =
+            (SpineScript.spineContainers[SpineScript.spineContainers.Count - 1].transform.position -
+             SpineScript.spineContainers[0].transform.position) / 2;
+        
+        collider.center = centerpos;
 
         //edit the bounds to be smaller and reasign
         Vector3 newMeshBounds = meshBounds / 2;
         newMeshBounds.y = newMeshBounds.y / 3;//Half the height so it can have a body floating above ground and legs work liek springs
         collider.size = newMeshBounds;
-        
+    }
 
-        
-        
+    void SetRb()
+    {
         rb = movementOriginObj.AddComponent<Rigidbody>();
         rb.freezeRotation = true;
         rb.useGravity = false;
         rb.mass = 10;
         rb.drag = 1;
         rb.angularDrag = 1;
+    }
 
-        
-        
-        brain = this.gameObject.AddComponent<AnimalBrain>();
+    void SetAI()
+    {
+        brain = movementOriginObj.gameObject.AddComponent<AnimalBrain>();
         brain.animalBaseDNA = animalDNA;
+        
         if (GetComponent<AnimalBehaviours>() == null) //incase i have it attached for testing
             behaviours =
-                this.gameObject.AddComponent<AnimalBehaviours>(); //todo get a way to add this at runtime
+                movementOriginObj.gameObject.AddComponent<AnimalBehaviours>(); //todo get a way to add this at runtime
         else
             behaviours = GetComponent<AnimalBehaviours>();
         behaviours.brain = brain;
@@ -154,35 +157,56 @@ public class AnimalInitializer : MonoBehaviour
 
         if (GetComponent<BehaviourTree>() == null) //incase i have it attached for testing
             behaviourTreeManager =
-                this.gameObject.AddComponent<BehaviourTree>(); //todo get a way to add this at runtime
+                movementOriginObj.gameObject.AddComponent<BehaviourTree>(); //todo get a way to add this at runtime
         else
             behaviourTreeManager = GetComponent<BehaviourTree>();
         behaviourTreeManager.scripts = btTexts;
+        //behaviourTreeManager.Compile();
+        behaviourTreeManager.tickOn = BehaviourTree.UpdateOrder.FixedUpdate;
         behaviourTreeManager.Compile();
+        StartCoroutine(RestartAI());
         
-        animalGravity = movementOriginObj.AddComponent<AnimalGravity>();
-        groundOrienter = movementOriginObj.AddComponent<AnimalGroundVelocityOrienter>();
-        groundOrienter.brain = brain;
-        animalHeight = head.transform.position.y-feet[0].transform.position.y;
-        animalGravity.animalHeight = animalHeight;//this would be the height of the animal
-        animalLength = head.transform.position.z-feet[feet.Count-1].transform.position.z;
-        animalGravity.animalLength = animalLength;
-        animalGravity.headHeightPosObj = head;
-        animalGravity.Initialize();
-        groundOrienter.Initialize();
+    }
 
-        addSenses();
+    void SetLimbs()
+    {
+        foreach (var foot in feet)
+        {
+            //Needs to have found a head first to be successfull
+            SetUpFootPositioner(foot.transform);
+        }
+        foreach (var limb in otherLimbs)
+        {
+            SpineNew LimbScript = gameObject.AddComponent<SpineNew>();//Needs to be in global position no childed locally
+            LimbScript.isLimbSetup = true;
+            LimbScript.head = limb;
+            LimbScript.InitializeSpine();//initiallise once all the feet have been added
+            LimbScript.damping = SpineScript.damping / 3;
+        }
         
         //This needs to be done after setup because the feet are used to get the height
         foreach (var footPositioner in feetPositioners)
         {
             footPositioner.animalHeight = animalHeight;
             footPositioner.animalLength = animalLength;
-            //footPositioner.lerpSpeed = Mathf.Max(10,brain.moveSpeed/10);
             footPositioner.rb = rb;
-//            print(footPositioner.animalHeight);
         }
+    }
 
+    void SetPositioners()
+    {
+        animalHeight = head.transform.position.y-feet[0].transform.position.y;
+        animalLength = head.transform.position.z-feet[feet.Count-1].transform.position.z;
+        
+        groundOrienter = movementOriginObj.AddComponent<AnimalGroundVelocityOrienter>();
+        groundOrienter.brain = brain;
+        groundOrienter.Initialize();
+
+        animalGravity = movementOriginObj.AddComponent<AnimalGravity>();
+        animalGravity.animalHeight = animalHeight;//this would be the height of the animal
+        animalGravity.animalLength = animalLength;
+        animalGravity.headHeightPosObj = head;
+        animalGravity.Initialize();
     }
 
 
@@ -198,26 +222,25 @@ public class AnimalInitializer : MonoBehaviour
         feetPositioners.Add(footScript);
         footScript.footIKTargetObj = new GameObject("FootTargetObj");
         footScript.footIKTargetObj.transform.parent = this.transform; //Set it to highest level parent as they need to move independently
+        footScript.footIKTargetObj.transform.position = foot.transform.position;
         footScript.endBoneObj = foot.gameObject;
         footScript.forwardFacingObj = movementOriginObj.gameObject;
         footScript.animalHeight = animalHeight;
         footScript.rb = rb;
 
-
         GameObject ikPole = new GameObject("ikPole_"+foot.name);
         ikPole.transform.parent = footPositioner.transform;
         if (feetPositioners.Count > 2) //If not the front 2 legs
         {
-            ikPole.transform.position = footPositioner.transform.position+(footPositioner.transform.forward * 10)+(footPositioner.transform.up * 2);
+            ikPole.transform.position = footPositioner.transform.position+(footPositioner.transform.forward * 10)+(footPositioner.transform.up *
+                (animalHeight/2));
         }
         else
         {
-            ikPole.transform.position = footPositioner.transform.position+(-footPositioner.transform.forward * 10)+(footPositioner.transform.up * 2);
+            ikPole.transform.position = footPositioner.transform.position+(-footPositioner.transform.forward * 10)+(footPositioner.transform.up *  (animalHeight/2));
         }
         ikScript.Pole = ikPole.transform;
-        
-        
-        
+
         //Match the legs so not walking with both feet off the ground
         if (feetPositioners.Count % 2 == 0) //Then an even leg number, we can assume it will get the front 2 legs first, this leg is added before function runs
         {
@@ -239,27 +262,44 @@ public class AnimalInitializer : MonoBehaviour
         {
             return GetRecursiveParentTag(foot.parent);
         }
-        
     }
     
-
-    public void addSenses()
+    public void SetSenses()
     {
-        if (sensorySphere == null)
-        {
-            sensorySphere = new GameObject("SenseSphere");
-            AnimalSenses senses = sensorySphere.AddComponent<AnimalSenses>();
-            senses.brain = brain;
-            print(senses.brain);
-            SphereCollider col = sensorySphere.AddComponent<SphereCollider>();
-            (col as SphereCollider).radius  = 10 * 2;
-            sensorySphere.GetComponent<Collider>().isTrigger = true;
-            sensorySphere.transform.parent = movementOriginObj.gameObject.transform;
-            sensorySphere.transform.position = movementOriginObj.transform.position;
-            Rigidbody rb = sensorySphere.AddComponent<Rigidbody>();//Needs kinematic to register collisions
-            rb.useGravity = false;
-            rb.isKinematic = true;
-            
-        }
+        sensorySphere = new GameObject("SenseSphere");
+        AnimalSenses senses = sensorySphere.AddComponent<AnimalSenses>();
+        senses.brain = brain;
+        SphereCollider col = sensorySphere.AddComponent<SphereCollider>();
+        (col as SphereCollider).radius  = 10 * 2;
+        sensorySphere.GetComponent<Collider>().isTrigger = true;
+        sensorySphere.transform.parent = movementOriginObj.gameObject.transform;
+        sensorySphere.transform.position = movementOriginObj.transform.position;
+        Rigidbody SenseRb = sensorySphere.AddComponent<Rigidbody>();//Needs kinematic to register collisions
+        SenseRb.useGravity = false;
+        SenseRb.isKinematic = true;
     }
+    
+    IEnumerator RestartAI()
+    {
+        behaviourTreeManager.enabled = false;
+        print(behaviourTreeManager);
+        yield return new WaitForSeconds(1);
+        behaviourTreeManager.enabled = true;
+        behaviourTreeManager.autoReset = true;
+        behaviourTreeManager.Reset();//trying to start properly
+
+        
+    }
+
+    IEnumerator SetDisabler()
+    {
+        AnimalDistanceDisabler distDisabler = transform.parent.gameObject.AddComponent<AnimalDistanceDisabler>();
+        distDisabler.enabled = false;
+        distDisabler.animal = movementOriginObj.transform;
+        distDisabler.animalHolder = transform.gameObject;
+        yield return new WaitForSeconds(2);
+        distDisabler.player = GameObject.Find("Player").transform;
+        distDisabler.enabled = true;
+    }
+    
 }
