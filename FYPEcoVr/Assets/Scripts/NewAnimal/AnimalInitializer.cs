@@ -31,24 +31,15 @@ public class AnimalInitializer : MonoBehaviour
     
     [HideInInspector]
     public AnimalBrain brain;//manages memory and senses
-    
     public AnimalBehaviours behaviours;//The behaviours uses by behaviour tree
-    
     [HideInInspector]
     public BehaviourTree behaviourTreeManager;
-    
     public AnimalGravity animalGravity;
     public AnimalGroundVelocityOrienter groundOrienter;
-
     public GameObject sensorySphere;
-
     public SpineNew SpineScript;
-
     public float animalHeight=2;
     public float animalLength=2;
-    
-    
-    
 
     public bool initialiseOnStart = false;
     // Start is called before the first frame update
@@ -167,11 +158,10 @@ public class AnimalInitializer : MonoBehaviour
             behaviourTreeManager = GetComponent<BehaviourTree>();
         behaviourTreeManager.scripts = btTexts;
         //behaviourTreeManager.Compile();
-        behaviourTreeManager.Reset();//trying to start properly
         behaviourTreeManager.tickOn = BehaviourTree.UpdateOrder.FixedUpdate;
-        behaviourTreeManager.enabled = false;
-        behaviourTreeManager.enabled = true;
-
+        behaviourTreeManager.Compile();
+        StartCoroutine(RestartAI());
+        
     }
 
     void SetLimbs()
@@ -284,4 +274,18 @@ public class AnimalInitializer : MonoBehaviour
         SenseRb.useGravity = false;
         SenseRb.isKinematic = true;
     }
+    
+    IEnumerator RestartAI()
+    {
+        behaviourTreeManager.enabled = false;
+        print(behaviourTreeManager);
+        yield return new WaitForSeconds(1);
+        behaviourTreeManager.enabled = true;
+        behaviourTreeManager.autoReset = true;
+        behaviourTreeManager.Reset();//trying to start properly
+
+        
+    }
+    
+    
 }

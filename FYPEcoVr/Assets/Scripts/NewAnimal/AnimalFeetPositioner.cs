@@ -144,7 +144,7 @@ public class AnimalFeetPositioner : MonoBehaviour
                     //float footMoveSpeed = Mathf.Max(lerpSpeed,(distToNext/3)*lerpSpeed);
                     footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos+(forwardFacingObj.transform.up*footLift), footMoveSpeed * Time.deltaTime);//+(forwardFacingObj.transform.up*footLift)
                 }
-                else if(distToNext>forwardStepDist*3)
+                else if(distToNext>forwardStepDist*4)
                 {
  //                   print("far foot");
                     footAtPosition = false;//has started moving to next position so set to false and only becomes true if gets close enough to next position

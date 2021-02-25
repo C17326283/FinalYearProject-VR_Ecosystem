@@ -74,7 +74,7 @@ public class AnimalGravity : MonoBehaviour
             if (Physics.Raycast(point.transform.position+(-gravityDir*100), gravityDir, out hit, 2000, layerMask))
             {
                 //get height based on magnitude or default height
-                float desiredHeight = Mathf.Min(animalHeight*.9f,animalHeight-(rb.velocity.magnitude/100));//strides get bigger at faster speeds so animate lower body too
+                float desiredHeight = Mathf.Min(animalHeight*.9f,animalHeight-(rb.velocity.magnitude/30));//strides get bigger at faster speeds so animate lower body too
                 desiredHeight = Mathf.Clamp(desiredHeight, animalHeight *.6f, animalHeight);
                     
                 //get a distance away from target than can be used to reduce force// *8 to decrease range it affects
