@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Panda;
 using UnityEngine;
 
 public class UnloadObjs : MonoBehaviour
@@ -15,6 +16,7 @@ public class UnloadObjs : MonoBehaviour
             if (Vector3.Distance(this.transform.position, obj.transform.position) < LoadDist)
             {
                 obj.SetActive(true);
+                
 
             }
             else

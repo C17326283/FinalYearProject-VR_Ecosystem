@@ -259,6 +259,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17496253}
   m_CullTransparentMesh: 1
+--- !u!1 &31186831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 31186832}
+  - component: {fileID: 31186834}
+  - component: {fileID: 31186833}
+  m_Layer: 0
+  m_Name: Food (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &31186832
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31186831}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 881058077}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &31186833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31186831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2e44c6d9f1e2c34193a9a285e93447f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolPrefabList:
+  - {fileID: 8382926230217131611, guid: 26a94f4fee55b5447a15901b233da4a5, type: 3}
+  - {fileID: 5118286621860649681, guid: abdb9f5c655569140bd5cf7581dcb773, type: 3}
+  initialNum: 10
+  maxAmountActive: 500
+--- !u!114 &31186834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31186831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 128ae682f88d39743a95ce29564fe940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitUntillTriggered: 1
+  normalObjectPoolObj: {fileID: 31186833}
+  coldObjectPoolObj: {fileID: 31186833}
+  warmObjectPoolObj: {fileID: 31186833}
+  parentObject: {fileID: 0}
+  planetObject: {fileID: 0}
+  amountToSpawn: 1000
+  spawnerDistanceFromCore: 5000
+  heightFromHitPoint: 0
+  tagToSpawnOn: Ground
+  isRotatingObject: 0
+  RandomiseScaleAndRotation: 1
+  minScale: 0.1
+  maxScale: 0.2
+  randomXZTilt: 2
+  biomeObjs: []
+  biomeDist: 500
+  usesLOD: 1
+  screenPercentLODCull: 2
 --- !u!1 &57377513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,7 +1156,8 @@ MonoBehaviour:
   randomXZTilt: 2
   biomeObjs: []
   biomeDist: 500
-  group: {fileID: 0}
+  usesLOD: 1
+  screenPercentLODCull: 5
 --- !u!114 &223584067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4413,6 +4494,7 @@ Transform:
   - {fileID: 1384593976}
   - {fileID: 2125029173}
   - {fileID: 1330926527}
+  - {fileID: 31186832}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6498,7 +6580,8 @@ MonoBehaviour:
   randomXZTilt: 2
   biomeObjs: []
   biomeDist: 500
-  group: {fileID: 0}
+  usesLOD: 1
+  screenPercentLODCull: 2
 --- !u!114 &1219441157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6513,7 +6596,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolPrefabList:
   - {fileID: 8382926230217131611, guid: 26a94f4fee55b5447a15901b233da4a5, type: 3}
-  - {fileID: 5118286621860649681, guid: abdb9f5c655569140bd5cf7581dcb773, type: 3}
   initialNum: 10
   maxAmountActive: 500
 --- !u!1 &1275793655
@@ -7218,7 +7300,8 @@ MonoBehaviour:
   randomXZTilt: 3
   biomeObjs: []
   biomeDist: 500
-  group: {fileID: 0}
+  usesLOD: 1
+  screenPercentLODCull: 1
 --- !u!114 &1384593978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9789,7 +9872,8 @@ MonoBehaviour:
   randomXZTilt: 3
   biomeObjs: []
   biomeDist: 500
-  group: {fileID: 0}
+  usesLOD: 1
+  screenPercentLODCull: 2
 --- !u!1 &1796096449
 GameObject:
   m_ObjectHideFlags: 0
@@ -11730,7 +11814,8 @@ MonoBehaviour:
   randomXZTilt: 5
   biomeObjs: []
   biomeDist: 500
-  group: {fileID: 0}
+  usesLOD: 1
+  screenPercentLODCull: 5
 --- !u!114 &2125029175
 MonoBehaviour:
   m_ObjectHideFlags: 0

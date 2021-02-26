@@ -37,9 +37,10 @@ public class RandomGenSpawner : MonoBehaviour
     public float biomeDist=1000;//set dynamicallu
 
     // Start is called before the first frame update
-    
-    
-    public LODGroup group;
+
+
+    public bool usesLOD = true;
+    public float screenPercentLODCull = 4;
 
     
     void Awake()
@@ -142,7 +143,8 @@ public class RandomGenSpawner : MonoBehaviour
                         newObj.transform.parent = parentObject.transform; //set parent to correct obj
                         //temp
                         //newObj.transform.parent = hit.transform; //make its own parent so that scaling works after reactivating
-                        AddLOD(newObj);
+                        if(usesLOD)
+                            AddLOD(newObj);
                     }
                 }
             }
@@ -181,21 +183,13 @@ public class RandomGenSpawner : MonoBehaviour
 
     public void AddLOD(GameObject obj)
     {
-        GameObject lodHolder = new GameObject(obj.transform.name+"LOD");
-        lodHolder.transform.parent = obj.transform.parent;
-        lodHolder.transform.position = obj.transform.position;
-        lodHolder.transform.rotation = obj.transform.rotation;
-        obj.transform.parent = lodHolder.transform;
-
-        
-        LODGroup group = lodHolder.AddComponent<LODGroup>();
+        LODGroup group = obj.AddComponent<LODGroup>();//component
         
         // Add 4 LOD levels
-        LOD[] lods = new LOD[1];
-        
-        Renderer[] renderers = new Renderer[1];
-        renderers[0] = obj.GetComponent<MeshRenderer>();
-        lods[0] = new LOD(.04f, renderers);
+        LOD[] lods = new LOD[1];//amount of LODs excluding Cull
+        Renderer[] renderers = new Renderer[1];//needs a list of renderer but we only have one
+        renderers[0] = obj.GetComponent<MeshRenderer>();//set renderer to current one set, other will be cull
+        lods[0] = new LOD(screenPercentLODCull/100, renderers);//set renderers and trigger %
         
         group.SetLODs(lods);
         //group.RecalculateBounds();
