@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/OLD/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/Scenes/MainPlanetScene.unity
+    guid: afc2001e437f21f4386fc3eb2bebc040
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 534be8d051329e5488c67847bf202b0f, type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: c468bd7bed7f9b04a87bd41b547e195a, type: 2}

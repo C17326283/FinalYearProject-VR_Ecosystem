@@ -38,6 +38,10 @@ public class RandomGenSpawner : MonoBehaviour
 
     // Start is called before the first frame update
     
+    
+    public LODGroup group;
+
+    
     void Awake()
     {
         //start spawning objects
@@ -124,10 +128,11 @@ public class RandomGenSpawner : MonoBehaviour
 
                         if (RandomiseScaleAndRotation)
                         {
-                            newObj.transform.parent =
-                                gameObject.transform
-                                    .parent; //make its own parent so that scaling works after reactivating
+                            //temp
+                            newObj.transform.parent = gameObject.transform.parent; //make its own parent so that scaling works after reactivating
+                            //newObj.transform.parent = hit.transform; //make its own parent so that scaling works after reactivating
 
+                            
                             float scale = Random.Range(minScale, maxScale);
                             newObj.transform.localScale = Vector3.one * scale; //.one for all round scale
                             newObj.transform.Rotate(Random.Range(-randomXZTilt, randomXZTilt), Random.Range(0, 360),
@@ -135,6 +140,9 @@ public class RandomGenSpawner : MonoBehaviour
                         }
 
                         newObj.transform.parent = parentObject.transform; //set parent to correct obj
+                        //temp
+                        //newObj.transform.parent = hit.transform; //make its own parent so that scaling works after reactivating
+                        AddLOD(newObj);
                     }
                 }
             }
@@ -169,5 +177,27 @@ public class RandomGenSpawner : MonoBehaviour
         gameObject.transform.position = core;
         gameObject.transform.rotation  = Random.rotation;
         gameObject.transform.position = transform.forward * spawnerDistanceFromCore;
+    }
+
+    public void AddLOD(GameObject obj)
+    {
+        GameObject lodHolder = new GameObject(obj.transform.name+"LOD");
+        lodHolder.transform.parent = obj.transform.parent;
+        lodHolder.transform.position = obj.transform.position;
+        lodHolder.transform.rotation = obj.transform.rotation;
+        obj.transform.parent = lodHolder.transform;
+
+        
+        LODGroup group = lodHolder.AddComponent<LODGroup>();
+        
+        // Add 4 LOD levels
+        LOD[] lods = new LOD[1];
+        
+        Renderer[] renderers = new Renderer[1];
+        renderers[0] = obj.GetComponent<MeshRenderer>();
+        lods[0] = new LOD(.04f, renderers);
+        
+        group.SetLODs(lods);
+        //group.RecalculateBounds();
     }
 }

@@ -1040,8 +1040,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223584064}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 881058077}
@@ -1065,7 +1065,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 223584068}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 2000
+  amountToSpawn: 3000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0
   tagToSpawnOn: Ground
@@ -1076,6 +1076,7 @@ MonoBehaviour:
   randomXZTilt: 2
   biomeObjs: []
   biomeDist: 500
+  group: {fileID: 0}
 --- !u!114 &223584067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3249,7 +3250,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 0.8
@@ -3811,7 +3812,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -5328,6 +5329,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1066810535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1066810536}
+  m_Layer: 0
+  m_Name: Other
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1066810536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066810535}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -282.73413, y: 329.93488, z: -372.30133}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1087180074
 GameObject:
   m_ObjectHideFlags: 0
@@ -6431,8 +6462,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219441154}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 881058077}
@@ -6456,7 +6487,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 1219441157}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 2000
+  amountToSpawn: 1000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0
   tagToSpawnOn: Ground
@@ -6467,6 +6498,7 @@ MonoBehaviour:
   randomXZTilt: 2
   biomeObjs: []
   biomeDist: 500
+  group: {fileID: 0}
 --- !u!114 &1219441157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6929,8 +6961,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330926526}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 881058077}
@@ -6953,7 +6985,7 @@ MonoBehaviour:
   planetObject: {fileID: 0}
   amountToSpawn: 3000
   spawnerDistanceFromCore: 5000
-  heightFromHitPoint: 42.02
+  heightFromHitPoint: 1
   tagToSpawnOn: Ground
   isRotatingObject: 0
   poolIndexNumber: 3
@@ -7150,8 +7182,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384593975}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 881058077}
@@ -7175,7 +7207,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 1384593979}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 2000
+  amountToSpawn: 10000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0.01
   tagToSpawnOn: Ground
@@ -7186,6 +7218,7 @@ MonoBehaviour:
   randomXZTilt: 3
   biomeObjs: []
   biomeDist: 500
+  group: {fileID: 0}
 --- !u!114 &1384593978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8847,7 +8880,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 0.5
@@ -9637,8 +9670,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793077439}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 881058077}
@@ -9745,7 +9778,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 1793077441}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 2000
+  amountToSpawn: 1000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0.01
   tagToSpawnOn: Ground
@@ -9756,6 +9789,7 @@ MonoBehaviour:
   randomXZTilt: 3
   biomeObjs: []
   biomeDist: 500
+  group: {fileID: 0}
 --- !u!1 &1796096449
 GameObject:
   m_ObjectHideFlags: 0
@@ -11660,8 +11694,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125029172}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 881058077}
@@ -11685,7 +11719,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 2125029175}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 2000
+  amountToSpawn: 1000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 200
   tagToSpawnOn: Ground
@@ -11696,6 +11730,7 @@ MonoBehaviour:
   randomXZTilt: 5
   biomeObjs: []
   biomeDist: 500
+  group: {fileID: 0}
 --- !u!114 &2125029175
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -72,9 +72,9 @@ public class AnimalInitializer : MonoBehaviour
         SetSenses();
         SetLimbs();
 
+        StartCoroutine(RestartAI());
         StartCoroutine(SetDisabler());
         //temp
-        
     }
 
     public void GetLimbs()
@@ -163,8 +163,8 @@ public class AnimalInitializer : MonoBehaviour
         behaviourTreeManager.scripts = btTexts;
         //behaviourTreeManager.Compile();
         behaviourTreeManager.tickOn = BehaviourTree.UpdateOrder.FixedUpdate;
-        behaviourTreeManager.Compile();
-        StartCoroutine(RestartAI());
+        //behaviourTreeManager.Compile();
+        
         
     }
 
@@ -282,10 +282,10 @@ public class AnimalInitializer : MonoBehaviour
     IEnumerator RestartAI()
     {
         behaviourTreeManager.enabled = false;
-        print(behaviourTreeManager);
+        //print(behaviourTreeManager);
         yield return new WaitForSeconds(1);
         behaviourTreeManager.enabled = true;
-        behaviourTreeManager.autoReset = true;
+        //behaviourTreeManager.autoReset = true;
         behaviourTreeManager.Reset();//trying to start properly
 
         
