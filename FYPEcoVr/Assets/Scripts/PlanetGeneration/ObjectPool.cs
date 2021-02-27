@@ -19,6 +19,7 @@ public class ObjectPool : MonoBehaviour
     //init pool
     void Awake()
     {
+        //maxAmountActive = 100000;//todo temp
         // if the pool has already been init, don't init again
         if(pooledObjects == null)
         {

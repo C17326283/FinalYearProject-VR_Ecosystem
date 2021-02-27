@@ -18,21 +18,10 @@ public class AnimalsSpawner : MonoBehaviour
     public int spawnerDistanceFromCore = 5000;
     public float heightFromHitPoint = 0;
     public String tagToSpawnOn = "Ground";
-    public bool isRotatingObject;//for clouds
-    public int poolIndexNumber = 0;
 
     public AnimalProfile[] animalProfiles;
     public TextAsset[] btTexts;
-
-    //For adding variation
-    [Header("Only randomises if condition is true")]
-    public bool RandomiseScaleAndRotation = false;
-    public float minScale = 1f;
-    public float maxScale = 2f;
-    public float randomXZTilt = 2f;
-
-    public AllAnimalManager allAnimalManager;
-
+    
     private GameObject newObj;//declare here so can edit in reposition
     public 
 
@@ -43,7 +32,6 @@ public class AnimalsSpawner : MonoBehaviour
         //start spawning objects
         if (waitUntillTriggered == false)
         {
-            allAnimalManager = new AllAnimalManager();
             StartCoroutine(Spawn());
         }
     }
@@ -85,9 +73,7 @@ public class AnimalsSpawner : MonoBehaviour
                 {
                     newObj = new GameObject("Animalholder");
                     newObj.transform.parent = parentObject.transform;
-                    
-                    
-                    
+
                     //newObj.transform.position = hit.point; //place object at hit
                     newObj.transform.up = newObj.transform.position - core; //set rotation so orients properly
                     newObj.transform.position = hit.point + newObj.transform.up * heightFromHitPoint; //repoisition to correct height from hit
@@ -99,8 +85,6 @@ public class AnimalsSpawner : MonoBehaviour
 
 //                    print(newObj.transform.position);
                     manager.InitialiseAnimal();
-                    
-                    
                 }
             }
             else

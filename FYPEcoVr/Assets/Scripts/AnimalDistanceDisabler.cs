@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Panda;
 using UnityEngine;
 
 public class AnimalDistanceDisabler : MonoBehaviour
@@ -8,8 +9,9 @@ public class AnimalDistanceDisabler : MonoBehaviour
 
     public Transform animal;
     public GameObject animalHolder;
+    public BehaviourTree bt;//for applying since it didnt work without
 
-    public float activeDistance = 100;
+    public float activeDistance = 200;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,7 @@ public class AnimalDistanceDisabler : MonoBehaviour
             if (animalHolder.gameObject.activeInHierarchy == false)
             {
                 animalHolder.gameObject.SetActive(true);
+                bt.Apply();//start ai again
                 //print("enable");
 
             }

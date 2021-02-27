@@ -157,6 +157,12 @@ public class AnimalBehaviours : MonoBehaviour
     }
     
     [Task]
+    void CheckWorking()
+    {
+        print("working on"+gameObject.transform.name);
+    }
+    
+    [Task]
     void AttackTarget()
     {
         if (toTarget.GetComponent<AnimalBrain>() && Vector3.Distance(toTarget.position,rb.transform.position)<attackRange)//if has health

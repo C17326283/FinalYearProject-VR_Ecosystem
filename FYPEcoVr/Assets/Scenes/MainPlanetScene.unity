@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 31186834}
   - component: {fileID: 31186833}
   m_Layer: 0
-  m_Name: Food (1)
+  m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -285,11 +285,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31186831}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
+  m_LocalPosition: {x: 311.94412, y: -339.0628, z: 299.29315}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 881058077}
-  m_RootOrder: 6
+  m_Father: {fileID: 1066810536}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &31186833
 MonoBehaviour:
@@ -304,10 +304,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolPrefabList:
-  - {fileID: 8382926230217131611, guid: 26a94f4fee55b5447a15901b233da4a5, type: 3}
   - {fileID: 5118286621860649681, guid: abdb9f5c655569140bd5cf7581dcb773, type: 3}
   initialNum: 10
-  maxAmountActive: 500
+  maxAmountActive: 20000
 --- !u!114 &31186834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,10 +325,10 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 31186833}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 1000
+  amountToSpawn: 300
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0
-  tagToSpawnOn: Ground
+  tagToSpawnOn: Water
   isRotatingObject: 0
   RandomiseScaleAndRotation: 1
   minScale: 0.1
@@ -1121,10 +1120,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223584064}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
+  m_LocalPosition: {x: 311.94412, y: -339.0628, z: 299.29315}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 881058077}
+  m_Father: {fileID: 1066810536}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &223584066
@@ -1145,7 +1144,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 223584068}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 3000
+  amountToSpawn: 2000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0
   tagToSpawnOn: Ground
@@ -1197,7 +1196,7 @@ MonoBehaviour:
   - {fileID: 176282, guid: ac00d368a6864c04791bc85c5567bd51, type: 3}
   - {fileID: 118422, guid: 107cc8771223daf48be99527559937ff, type: 3}
   initialNum: 10
-  maxAmountActive: 500
+  maxAmountActive: 20000
 --- !u!114 &223584069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4488,13 +4487,7 @@ Transform:
   m_LocalPosition: {x: 29.209997, y: -9.127945, z: -73.00817}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1219441155}
-  - {fileID: 223584065}
-  - {fileID: 1793077440}
-  - {fileID: 1384593976}
-  - {fileID: 2125029173}
   - {fileID: 1330926527}
-  - {fileID: 31186832}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5437,7 +5430,13 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -282.73413, y: 329.93488, z: -372.30133}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1219441155}
+  - {fileID: 223584065}
+  - {fileID: 1793077440}
+  - {fileID: 1384593976}
+  - {fileID: 2125029173}
+  - {fileID: 31186832}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6545,10 +6544,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219441154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
+  m_LocalPosition: {x: 311.94412, y: -339.0628, z: 299.29315}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 881058077}
+  m_Father: {fileID: 1066810536}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1219441156
@@ -6569,7 +6568,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 1219441157}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 1000
+  amountToSpawn: 1
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0
   tagToSpawnOn: Ground
@@ -6597,7 +6596,7 @@ MonoBehaviour:
   poolPrefabList:
   - {fileID: 8382926230217131611, guid: 26a94f4fee55b5447a15901b233da4a5, type: 3}
   initialNum: 10
-  maxAmountActive: 500
+  maxAmountActive: 20000
 --- !u!1 &1275793655
 GameObject:
   m_ObjectHideFlags: 0
@@ -7048,7 +7047,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 881058077}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1330926529
 MonoBehaviour:
@@ -7069,8 +7068,6 @@ MonoBehaviour:
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 1
   tagToSpawnOn: Ground
-  isRotatingObject: 0
-  poolIndexNumber: 3
   animalProfiles:
   - {fileID: 11400000, guid: ab106465f1c545e4c90f0fd82910b929, type: 2}
   - {fileID: 11400000, guid: fb46446b8d30e0b4d9e8ddf6a0ce7c9d, type: 2}
@@ -7079,11 +7076,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7104b5ccd3c514d46a3e2f2acaaa4faa, type: 2}
   btTexts:
   - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
-  RandomiseScaleAndRotation: 0
-  minScale: 1
-  maxScale: 1
-  randomXZTilt: 0
-  allAnimalManager: {fileID: 0}
 --- !u!1 &1332432136
 GameObject:
   m_ObjectHideFlags: 0
@@ -7265,10 +7257,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384593975}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
+  m_LocalPosition: {x: 311.94412, y: -339.0628, z: 299.29315}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 881058077}
+  m_Father: {fileID: 1066810536}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1384593977
@@ -7361,7 +7353,7 @@ MonoBehaviour:
   - {fileID: 192418, guid: 3454ca7c2ea22bc41807e6367370e689, type: 3}
   - {fileID: 114210, guid: 4a8321cb52137ec4d8b8fdf8d015b498, type: 3}
   initialNum: 10
-  maxAmountActive: 10000
+  maxAmountActive: 200000
 --- !u!114 &1384593980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9754,10 +9746,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793077439}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
+  m_LocalPosition: {x: 311.94412, y: -339.0628, z: 299.29315}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 881058077}
+  m_Father: {fileID: 1066810536}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1793077441
@@ -9782,7 +9774,7 @@ MonoBehaviour:
   - {fileID: 130304, guid: ba270b21456e803498fa0db8675b5022, type: 3}
   - {fileID: 182324, guid: 79fedf49257332f4d9e5521260ef2759, type: 3}
   initialNum: 10
-  maxAmountActive: 10000
+  maxAmountActive: 20000
 --- !u!114 &1793077442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9861,7 +9853,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 1793077441}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 1000
+  amountToSpawn: 500
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0.01
   tagToSpawnOn: Ground
@@ -11779,10 +11771,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125029172}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
+  m_LocalPosition: {x: 311.94412, y: -339.0628, z: 299.29315}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 881058077}
+  m_Father: {fileID: 1066810536}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2125029174
@@ -11803,7 +11795,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 2125029175}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 1000
+  amountToSpawn: 500
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 200
   tagToSpawnOn: Ground
@@ -11839,7 +11831,7 @@ MonoBehaviour:
   - {fileID: 111274, guid: c5215a36e2bcac542800e09167d43775, type: 3}
   - {fileID: 122028, guid: ab8e9d1e9e21d404193ef95b2747dba7, type: 3}
   initialNum: 10
-  maxAmountActive: 300
+  maxAmountActive: 20000
 --- !u!1 &2145469607
 GameObject:
   m_ObjectHideFlags: 0

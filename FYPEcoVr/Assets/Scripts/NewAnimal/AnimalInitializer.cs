@@ -72,7 +72,6 @@ public class AnimalInitializer : MonoBehaviour
         SetSenses();
         SetLimbs();
 
-        StartCoroutine(RestartAI());
         StartCoroutine(SetDisabler());
         //temp
     }
@@ -148,24 +147,32 @@ public class AnimalInitializer : MonoBehaviour
         brain.animalBaseDNA = animalDNA;
         
         if (GetComponent<AnimalBehaviours>() == null) //incase i have it attached for testing
-            behaviours =
-                movementOriginObj.gameObject.AddComponent<AnimalBehaviours>(); //todo get a way to add this at runtime
+            behaviours = movementOriginObj.gameObject.AddComponent<AnimalBehaviours>(); //todo get a way to add this at runtime
         else
             behaviours = GetComponent<AnimalBehaviours>();
         behaviours.brain = brain;
         behaviours.rb = rb;
 
         if (GetComponent<BehaviourTree>() == null) //incase i have it attached for testing
-            behaviourTreeManager =
-                movementOriginObj.gameObject.AddComponent<BehaviourTree>(); //todo get a way to add this at runtime
+            behaviourTreeManager = movementOriginObj.gameObject.AddComponent<BehaviourTree>(); //todo get a way to add this at runtime
         else
             behaviourTreeManager = GetComponent<BehaviourTree>();
+        
+        print("btTexts"+btTexts);
+        
+
+
         behaviourTreeManager.scripts = btTexts;
         //behaviourTreeManager.Compile();
         behaviourTreeManager.tickOn = BehaviourTree.UpdateOrder.FixedUpdate;
+        //behaviourTreeManager.autoReset = true;
+        
+        //        behaviourTreeManager.Apply();//This is the thing to fix it not starting untill the objetc was clicked
+
+
         //behaviourTreeManager.Compile();
-        
-        
+
+
     }
 
     void SetLimbs()
@@ -279,27 +286,30 @@ public class AnimalInitializer : MonoBehaviour
         SenseRb.isKinematic = true;
     }
     
-    IEnumerator RestartAI()
-    {
-        behaviourTreeManager.enabled = false;
-        //print(behaviourTreeManager);
-        yield return new WaitForSeconds(1);
-        behaviourTreeManager.enabled = true;
-        //behaviourTreeManager.autoReset = true;
-        behaviourTreeManager.Reset();//trying to start properly
-
-        
-    }
 
     IEnumerator SetDisabler()
     {
-        AnimalDistanceDisabler distDisabler = transform.parent.gameObject.AddComponent<AnimalDistanceDisabler>();
-        distDisabler.enabled = false;
-        distDisabler.animal = movementOriginObj.transform;
-        distDisabler.animalHolder = transform.gameObject;
-        yield return new WaitForSeconds(2);
-        distDisabler.player = GameObject.Find("Player").transform;
-        distDisabler.enabled = true;
+        bool found = false;
+        while (found == false)
+        {
+            yield return new WaitForSeconds(1);
+
+            if (GameObject.Find("Player") != null)
+            {
+                AnimalDistanceDisabler distDisabler = transform.parent.gameObject.AddComponent<AnimalDistanceDisabler>();
+                distDisabler.player = GameObject.Find("Player").transform;
+                distDisabler.enabled = false;
+                distDisabler.animal = movementOriginObj.transform;
+                distDisabler.animalHolder = transform.gameObject;
+                distDisabler.bt = behaviourTreeManager;
+                distDisabler.enabled = true;
+                found = true;
+                transform.gameObject.SetActive(false);//disable to begin with for loading
+            }
+        }
+        
     }
+    
+    //IEnumerator testCustTick
     
 }
