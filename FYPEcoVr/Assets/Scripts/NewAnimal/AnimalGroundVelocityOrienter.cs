@@ -61,11 +61,11 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
 
     public void AimToVelOrientedToGround()
     {
-        turnSpeed = brain.moveSpeed / 20;
+        turnSpeed = brain.moveSpeed / 40;
         //this took about a week to find a solution to but it allows gravity without messing up the targetting
         //convert velocity to local then remove the y so can have gravity without it focing animal to look up and down
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, gravityDir, out hit, 100,layerMask))
+        if (Physics.Raycast(rb.transform.position, gravityDir, out hit, 100,layerMask))
         {
             Debug.DrawLine(transform.position, hit.point, Color.black);
             orienter.transform.up = hit.normal;

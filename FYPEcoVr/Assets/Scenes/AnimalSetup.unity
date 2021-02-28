@@ -399,6 +399,8 @@ MonoBehaviour:
   collider: {fileID: 0}
   rb: {fileID: 0}
   head: {fileID: 0}
+  spineCore: {fileID: 0}
+  legs: []
   feet: []
   otherLimbs: []
   feetPositioners: []
@@ -410,9 +412,10 @@ MonoBehaviour:
   animalGravity: {fileID: 0}
   groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
-  SpineScript: {fileID: 0}
+  spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
+  damping: 40
   initialiseOnStart: 1
 --- !u!4 &179839256
 Transform:
@@ -502,6 +505,8 @@ MonoBehaviour:
   collider: {fileID: 0}
   rb: {fileID: 0}
   head: {fileID: 0}
+  spineCore: {fileID: 0}
+  legs: []
   feet: []
   otherLimbs: []
   feetPositioners: []
@@ -513,9 +518,10 @@ MonoBehaviour:
   animalGravity: {fileID: 0}
   groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
-  SpineScript: {fileID: 0}
+  spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
+  damping: 40
   initialiseOnStart: 1
 --- !u!4 &253572251
 Transform:
@@ -755,6 +761,8 @@ MonoBehaviour:
   collider: {fileID: 0}
   rb: {fileID: 0}
   head: {fileID: 0}
+  spineCore: {fileID: 0}
+  legs: []
   feet: []
   otherLimbs: []
   feetPositioners: []
@@ -766,9 +774,10 @@ MonoBehaviour:
   animalGravity: {fileID: 0}
   groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
-  SpineScript: {fileID: 0}
+  spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
+  damping: 40
   initialiseOnStart: 1
 --- !u!4 &304593454
 Transform:
@@ -778,7 +787,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304593452}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3002.7783, y: 1721.555, z: -1146.108}
+  m_LocalPosition: {x: 3002.7783, y: 1714.86, z: -1146.108}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 146682657}
@@ -1116,6 +1125,8 @@ MonoBehaviour:
   collider: {fileID: 0}
   rb: {fileID: 0}
   head: {fileID: 0}
+  spineCore: {fileID: 0}
+  legs: []
   feet: []
   otherLimbs: []
   feetPositioners: []
@@ -1127,9 +1138,10 @@ MonoBehaviour:
   animalGravity: {fileID: 0}
   groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
-  SpineScript: {fileID: 0}
+  spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
+  damping: 40
   initialiseOnStart: 1
 --- !u!4 &362311844
 Transform:
@@ -1306,6 +1318,8 @@ MonoBehaviour:
   collider: {fileID: 0}
   rb: {fileID: 0}
   head: {fileID: 0}
+  spineCore: {fileID: 0}
+  legs: []
   feet: []
   otherLimbs: []
   feetPositioners: []
@@ -1317,9 +1331,10 @@ MonoBehaviour:
   animalGravity: {fileID: 0}
   groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
-  SpineScript: {fileID: 0}
+  spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
+  damping: 40
   initialiseOnStart: 1
 --- !u!4 &471986423
 Transform:
@@ -1771,6 +1786,8 @@ MonoBehaviour:
   collider: {fileID: 0}
   rb: {fileID: 0}
   head: {fileID: 0}
+  spineCore: {fileID: 0}
+  legs: []
   feet: []
   otherLimbs: []
   feetPositioners: []
@@ -1782,9 +1799,10 @@ MonoBehaviour:
   animalGravity: {fileID: 0}
   groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
-  SpineScript: {fileID: 0}
+  spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
+  damping: 40
   initialiseOnStart: 1
 --- !u!4 &683034034
 Transform:
@@ -2008,6 +2026,8 @@ MonoBehaviour:
   collider: {fileID: 0}
   rb: {fileID: 0}
   head: {fileID: 0}
+  spineCore: {fileID: 0}
+  legs: []
   feet: []
   otherLimbs: []
   feetPositioners: []
@@ -2019,9 +2039,10 @@ MonoBehaviour:
   animalGravity: {fileID: 0}
   groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
-  SpineScript: {fileID: 0}
+  spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
+  damping: 40
   initialiseOnStart: 1
 --- !u!4 &855422920
 Transform:
@@ -2124,6 +2145,8 @@ MonoBehaviour:
   collider: {fileID: 0}
   rb: {fileID: 0}
   head: {fileID: 0}
+  spineCore: {fileID: 0}
+  legs: []
   feet: []
   otherLimbs: []
   feetPositioners: []
@@ -2135,9 +2158,10 @@ MonoBehaviour:
   animalGravity: {fileID: 0}
   groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
-  SpineScript: {fileID: 0}
+  spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
+  damping: 40
   initialiseOnStart: 1
 --- !u!1 &916162411 stripped
 GameObject:
@@ -2242,8 +2266,6 @@ MonoBehaviour:
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 1
   tagToSpawnOn: Ground
-  isRotatingObject: 0
-  poolIndexNumber: 3
   animalProfiles:
   - {fileID: 11400000, guid: ab106465f1c545e4c90f0fd82910b929, type: 2}
   - {fileID: 11400000, guid: fb46446b8d30e0b4d9e8ddf6a0ce7c9d, type: 2}
@@ -2252,11 +2274,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7104b5ccd3c514d46a3e2f2acaaa4faa, type: 2}
   btTexts:
   - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
-  RandomiseScaleAndRotation: 0
-  minScale: 1
-  maxScale: 1
-  randomXZTilt: 0
-  allAnimalManager: {fileID: 0}
 --- !u!1 &1179624595
 GameObject:
   m_ObjectHideFlags: 0
@@ -2293,6 +2310,8 @@ MonoBehaviour:
   collider: {fileID: 0}
   rb: {fileID: 0}
   head: {fileID: 0}
+  spineCore: {fileID: 0}
+  legs: []
   feet: []
   otherLimbs: []
   feetPositioners: []
@@ -2304,9 +2323,10 @@ MonoBehaviour:
   animalGravity: {fileID: 0}
   groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
-  SpineScript: {fileID: 0}
+  spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
+  damping: 40
   initialiseOnStart: 1
 --- !u!4 &1179624599
 Transform:
@@ -2602,6 +2622,8 @@ MonoBehaviour:
   collider: {fileID: 0}
   rb: {fileID: 0}
   head: {fileID: 0}
+  spineCore: {fileID: 0}
+  legs: []
   feet: []
   otherLimbs: []
   feetPositioners: []
@@ -2613,9 +2635,10 @@ MonoBehaviour:
   animalGravity: {fileID: 0}
   groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
-  SpineScript: {fileID: 0}
+  spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
+  damping: 40
   initialiseOnStart: 1
 --- !u!4 &1418974610
 Transform:
@@ -2667,6 +2690,8 @@ MonoBehaviour:
   collider: {fileID: 0}
   rb: {fileID: 0}
   head: {fileID: 0}
+  spineCore: {fileID: 0}
+  legs: []
   feet: []
   otherLimbs: []
   feetPositioners: []
@@ -2678,9 +2703,10 @@ MonoBehaviour:
   animalGravity: {fileID: 0}
   groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
-  SpineScript: {fileID: 0}
+  spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
+  damping: 40
   initialiseOnStart: 1
 --- !u!4 &1520006732
 Transform:
@@ -2732,6 +2758,8 @@ MonoBehaviour:
   collider: {fileID: 0}
   rb: {fileID: 0}
   head: {fileID: 0}
+  spineCore: {fileID: 0}
+  legs: []
   feet: []
   otherLimbs: []
   feetPositioners: []
@@ -2743,9 +2771,10 @@ MonoBehaviour:
   animalGravity: {fileID: 0}
   groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
-  SpineScript: {fileID: 0}
+  spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
+  damping: 40
   initialiseOnStart: 1
 --- !u!4 &1601700665
 Transform:
@@ -3194,6 +3223,8 @@ MonoBehaviour:
   collider: {fileID: 0}
   rb: {fileID: 0}
   head: {fileID: 0}
+  spineCore: {fileID: 0}
+  legs: []
   feet: []
   otherLimbs: []
   feetPositioners: []
@@ -3205,9 +3236,10 @@ MonoBehaviour:
   animalGravity: {fileID: 0}
   groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
-  SpineScript: {fileID: 0}
+  spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
+  damping: 40
   initialiseOnStart: 1
 --- !u!4 &1831480648
 Transform:
@@ -3259,6 +3291,8 @@ MonoBehaviour:
   collider: {fileID: 0}
   rb: {fileID: 0}
   head: {fileID: 0}
+  spineCore: {fileID: 0}
+  legs: []
   feet: []
   otherLimbs: []
   feetPositioners: []
@@ -3270,9 +3304,10 @@ MonoBehaviour:
   animalGravity: {fileID: 0}
   groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
-  SpineScript: {fileID: 0}
+  spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
+  damping: 40
   initialiseOnStart: 1
 --- !u!4 &1932826633
 Transform:
@@ -3324,6 +3359,8 @@ MonoBehaviour:
   collider: {fileID: 0}
   rb: {fileID: 0}
   head: {fileID: 0}
+  spineCore: {fileID: 0}
+  legs: []
   feet: []
   otherLimbs: []
   feetPositioners: []
@@ -3335,9 +3372,10 @@ MonoBehaviour:
   animalGravity: {fileID: 0}
   groundOrienter: {fileID: 0}
   sensorySphere: {fileID: 0}
-  SpineScript: {fileID: 0}
+  spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
+  damping: 40
   initialiseOnStart: 1
 --- !u!4 &2089832043
 Transform:

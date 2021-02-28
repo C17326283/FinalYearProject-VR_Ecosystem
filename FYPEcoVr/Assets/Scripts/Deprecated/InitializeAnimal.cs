@@ -63,7 +63,7 @@ public class InitializeAnimal : MonoBehaviour
                 
                 //Done here because the head is needed to make spine and position legs
                 SpineNew SpineScript = animalObj.AddComponent<SpineNew>();
-                SpineScript.head = head;
+                //SpineScript.head = head;
                 SpineScript.InitializeSpine();
                 movementOrigin = head.transform.parent.gameObject;//set in spinescript to control head so need this to have the rigidbody to allow spine animation;
             }

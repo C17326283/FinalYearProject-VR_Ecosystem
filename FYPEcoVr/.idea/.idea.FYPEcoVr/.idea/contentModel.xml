@@ -441,6 +441,7 @@
             <e p="AnimalGroundVelocityOrienter.cs" t="Include" />
             <e p="AnimalInitializer.cs" t="Include" />
             <e p="AnimalSenses.cs" t="Include" />
+            <e p="LookAtVel.cs" t="Include" />
             <e p="SpineNew.cs" t="Include" />
           </e>
           <e p="PlanetGeneration" t="Include">

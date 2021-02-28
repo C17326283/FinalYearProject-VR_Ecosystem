@@ -41,6 +41,8 @@ public class RandomGenSpawner : MonoBehaviour
 
     public bool usesLOD = true;
     public float screenPercentLODCull = 4;
+    
+    
 
     
     void Awake()

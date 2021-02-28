@@ -285,10 +285,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31186831}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 311.94412, y: -339.0628, z: 299.29315}
+  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1066810536}
+  m_Father: {fileID: 881058077}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &31186833
@@ -305,8 +305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolPrefabList:
   - {fileID: 5118286621860649681, guid: abdb9f5c655569140bd5cf7581dcb773, type: 3}
-  initialNum: 10
-  maxAmountActive: 20000
+  initialNum: 0
+  maxAmountActive: 100000
 --- !u!114 &31186834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,7 +325,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 31186833}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 300
+  amountToSpawn: 500
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0
   tagToSpawnOn: Water
@@ -337,7 +337,7 @@ MonoBehaviour:
   biomeObjs: []
   biomeDist: 500
   usesLOD: 1
-  screenPercentLODCull: 2
+  screenPercentLODCull: 1
 --- !u!1 &57377513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,10 +1120,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223584064}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 311.94412, y: -339.0628, z: 299.29315}
+  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1066810536}
+  m_Father: {fileID: 881058077}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &223584066
@@ -1156,7 +1156,7 @@ MonoBehaviour:
   biomeObjs: []
   biomeDist: 500
   usesLOD: 1
-  screenPercentLODCull: 5
+  screenPercentLODCull: 3
 --- !u!114 &223584067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1175,8 +1175,8 @@ MonoBehaviour:
   - {fileID: 188972, guid: 7641c7e8354e2c44cab6432d9d2c6d1b, type: 3}
   - {fileID: 182406, guid: a1d34f7914a1d8148a0ce7262f7ba394, type: 3}
   - {fileID: 116970, guid: 38ade0ba7c293f14a9b1b610879e9390, type: 3}
-  initialNum: 10
-  maxAmountActive: 500
+  initialNum: 0
+  maxAmountActive: 100000
 --- !u!114 &223584068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1216,7 +1216,7 @@ MonoBehaviour:
   - {fileID: 166856, guid: 99a48108c5a1932488c06e519f6097f4, type: 3}
   - {fileID: 184622, guid: c7bcf19bbfa57ed4ea9147dff66d5542, type: 3}
   initialNum: 10
-  maxAmountActive: 500
+  maxAmountActive: 100000
 --- !u!1 &225112168
 GameObject:
   m_ObjectHideFlags: 0
@@ -3703,6 +3703,106 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768379369}
   m_CullTransparentMesh: 1
+--- !u!1 &769613468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 769613469}
+  - component: {fileID: 769613473}
+  - component: {fileID: 769613472}
+  m_Layer: 0
+  m_Name: other
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &769613469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769613468}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 881058077}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &769613472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769613468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2e44c6d9f1e2c34193a9a285e93447f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolPrefabList:
+  - {fileID: 7405846476849542632, guid: c6308cb7062fac34e8e50600086b12a1, type: 3}
+  - {fileID: 5202732821079448320, guid: cebfacc247a640945a2c30b442202fca, type: 3}
+  - {fileID: 108507113624723981, guid: eebb56c82efbd8d4bb0eb6bd925a0e9d, type: 3}
+  - {fileID: 168754, guid: b90c895894b0ce44793ab7a090031132, type: 3}
+  - {fileID: 191700, guid: 5733d55f562b0c34a93452f8c74ea73e, type: 3}
+  - {fileID: 184852, guid: 3f4d75c07b6084e4daa3a3eb2c5a4822, type: 3}
+  - {fileID: 178966, guid: a3c536eefa9ffde4b87c91bafd0100b8, type: 3}
+  - {fileID: 193192, guid: a6773c318fb7e964bb91d057166d92da, type: 3}
+  - {fileID: 104190, guid: 907f202650534fc44ac7a76becbbff46, type: 3}
+  - {fileID: 124614, guid: 933b91e84c5689642a29ae0788c2d903, type: 3}
+  - {fileID: 196752, guid: 8fc03ae527e012c4da225b4bb75f1d57, type: 3}
+  - {fileID: 120690, guid: f0428c87e86fb7f46932df735a446299, type: 3}
+  - {fileID: 126568, guid: 64c2d6e9dc0630442ba90fb18ea21698, type: 3}
+  - {fileID: 176442, guid: 90ccceff45d6ac64aa2e6a091e645f01, type: 3}
+  - {fileID: 193238, guid: c9ac75cfa079a4a46a6f7829697ec22f, type: 3}
+  - {fileID: 127992, guid: e200726b38b33484abac5e1d40821893, type: 3}
+  - {fileID: 148602, guid: fd9408ff56037f746ab22906c990b618, type: 3}
+  - {fileID: 123744, guid: 903b1623b71de9644a36f646ace1e4cd, type: 3}
+  - {fileID: 114296, guid: c675df383604926459d8235e40e32273, type: 3}
+  - {fileID: 7405846476849542632, guid: c6308cb7062fac34e8e50600086b12a1, type: 3}
+  - {fileID: 7405846476849542632, guid: c6308cb7062fac34e8e50600086b12a1, type: 3}
+  - {fileID: 5202732821079448320, guid: cebfacc247a640945a2c30b442202fca, type: 3}
+  initialNum: 0
+  maxAmountActive: 100000
+--- !u!114 &769613473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769613468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 128ae682f88d39743a95ce29564fe940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitUntillTriggered: 1
+  normalObjectPoolObj: {fileID: 769613472}
+  coldObjectPoolObj: {fileID: 769613472}
+  warmObjectPoolObj: {fileID: 769613472}
+  parentObject: {fileID: 0}
+  planetObject: {fileID: 0}
+  amountToSpawn: 800
+  spawnerDistanceFromCore: 5000
+  heightFromHitPoint: 0.01
+  tagToSpawnOn: Ground
+  isRotatingObject: 0
+  RandomiseScaleAndRotation: 1
+  minScale: 2
+  maxScale: 3
+  randomXZTilt: 3
+  biomeObjs: []
+  biomeDist: 500
+  usesLOD: 1
+  screenPercentLODCull: 1
 --- !u!1 &782749330
 GameObject:
   m_ObjectHideFlags: 0
@@ -4487,7 +4587,14 @@ Transform:
   m_LocalPosition: {x: 29.209997, y: -9.127945, z: -73.00817}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1219441155}
+  - {fileID: 223584065}
+  - {fileID: 1793077440}
+  - {fileID: 1384593976}
+  - {fileID: 2125029173}
+  - {fileID: 31186832}
   - {fileID: 1330926527}
+  - {fileID: 769613469}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5430,13 +5537,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -282.73413, y: 329.93488, z: -372.30133}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1219441155}
-  - {fileID: 223584065}
-  - {fileID: 1793077440}
-  - {fileID: 1384593976}
-  - {fileID: 2125029173}
-  - {fileID: 31186832}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6544,10 +6645,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219441154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 311.94412, y: -339.0628, z: 299.29315}
+  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1066810536}
+  m_Father: {fileID: 881058077}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1219441156
@@ -6568,7 +6669,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 1219441157}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 1
+  amountToSpawn: 500
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0
   tagToSpawnOn: Ground
@@ -6580,7 +6681,7 @@ MonoBehaviour:
   biomeObjs: []
   biomeDist: 500
   usesLOD: 1
-  screenPercentLODCull: 2
+  screenPercentLODCull: 1
 --- !u!114 &1219441157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6595,8 +6696,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolPrefabList:
   - {fileID: 8382926230217131611, guid: 26a94f4fee55b5447a15901b233da4a5, type: 3}
-  initialNum: 10
-  maxAmountActive: 20000
+  initialNum: 0
+  maxAmountActive: 100000
 --- !u!1 &1275793655
 GameObject:
   m_ObjectHideFlags: 0
@@ -7047,7 +7148,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 881058077}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1330926529
 MonoBehaviour:
@@ -7064,7 +7165,7 @@ MonoBehaviour:
   waitUntillTriggered: 1
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 3000
+  amountToSpawn: 2000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 1
   tagToSpawnOn: Ground
@@ -7257,10 +7358,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384593975}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 311.94412, y: -339.0628, z: 299.29315}
+  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1066810536}
+  m_Father: {fileID: 881058077}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1384593977
@@ -7281,7 +7382,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 1384593979}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 10000
+  amountToSpawn: 20000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0.01
   tagToSpawnOn: Ground
@@ -7293,7 +7394,7 @@ MonoBehaviour:
   biomeObjs: []
   biomeDist: 500
   usesLOD: 1
-  screenPercentLODCull: 1
+  screenPercentLODCull: 0.5
 --- !u!114 &1384593978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7330,8 +7431,8 @@ MonoBehaviour:
   - {fileID: 130384, guid: 812fc6e62e95e504cb579221eb63983e, type: 3}
   - {fileID: 144598, guid: e379801007fdd1d4a8e9edb951e2d88a, type: 3}
   - {fileID: 116604, guid: 05685e8871fc5e44ba6bbac45319cf44, type: 3}
-  initialNum: 10
-  maxAmountActive: 10000
+  initialNum: 0
+  maxAmountActive: 100000
 --- !u!114 &1384593979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9746,10 +9847,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793077439}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 311.94412, y: -339.0628, z: 299.29315}
+  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1066810536}
+  m_Father: {fileID: 881058077}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1793077441
@@ -9833,8 +9934,8 @@ MonoBehaviour:
   - {fileID: 193692, guid: b7037f878aac47c4888814f919504cc3, type: 3}
   - {fileID: 194778, guid: 07644ae0b0b0c2346897d1bfb7268a37, type: 3}
   - {fileID: 162670, guid: 772021e90960729458e922d3e058b98f, type: 3}
-  initialNum: 10
-  maxAmountActive: 10000
+  initialNum: 0
+  maxAmountActive: 100000
 --- !u!114 &1793077444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9853,7 +9954,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 1793077441}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 500
+  amountToSpawn: 800
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0.01
   tagToSpawnOn: Ground
@@ -9865,7 +9966,7 @@ MonoBehaviour:
   biomeObjs: []
   biomeDist: 500
   usesLOD: 1
-  screenPercentLODCull: 2
+  screenPercentLODCull: 1
 --- !u!1 &1796096449
 GameObject:
   m_ObjectHideFlags: 0
@@ -11771,10 +11872,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125029172}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 311.94412, y: -339.0628, z: 299.29315}
+  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1066810536}
+  m_Father: {fileID: 881058077}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2125029174
@@ -11795,7 +11896,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 2125029175}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 500
+  amountToSpawn: 600
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 200
   tagToSpawnOn: Ground
@@ -11807,7 +11908,7 @@ MonoBehaviour:
   biomeObjs: []
   biomeDist: 500
   usesLOD: 1
-  screenPercentLODCull: 5
+  screenPercentLODCull: 3
 --- !u!114 &2125029175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11830,8 +11931,8 @@ MonoBehaviour:
   - {fileID: 101718, guid: cf694d687536286479fa7fd0b5458300, type: 3}
   - {fileID: 111274, guid: c5215a36e2bcac542800e09167d43775, type: 3}
   - {fileID: 122028, guid: ab8e9d1e9e21d404193ef95b2747dba7, type: 3}
-  initialNum: 10
-  maxAmountActive: 20000
+  initialNum: 0
+  maxAmountActive: 100000
 --- !u!1 &2145469607
 GameObject:
   m_ObjectHideFlags: 0
@@ -12205,6 +12306,7 @@ MonoBehaviour:
   headHeightPosObj: {fileID: 0}
   forcePoints: []
   InitializeOnStart: 1
+  footPositioners: []
 --- !u!33 &4416744093512669630
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -19,6 +19,8 @@ public class AnimalGravity : MonoBehaviour
     public List<GameObject> forcePoints;
     public bool InitializeOnStart = false;
 
+    public List<AnimalFeetPositioner> footPositioners;
+
 
 
     // Update is called once per frame
@@ -48,7 +50,9 @@ public class AnimalGravity : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         layerMask = 1 << 8; //bit shift to get mask for raycasting so only on environment and not other animals
 
+        footPositioners = new List<AnimalFeetPositioner>();
 
+        
         //Default values for proper weights
         rb.mass = 100;
         rb.drag = 2;
@@ -76,22 +80,24 @@ public class AnimalGravity : MonoBehaviour
             //Only add if theres environment below
             if (Physics.Raycast(point.transform.position + (-gravityDir * 100), gravityDir, out hit, 5000, layerMask))
             {
+                
+                float furthestFootDist = GetFurthestFootDist();
+
                 //get height based on magnitude or default height
-                float desiredHeight =
-                    Mathf.Min(animalHeight * .9f,
-                        animalHeight -
-                        (rb.velocity.magnitude / 30)); //strides get bigger at faster speeds so animate lower body too
-                desiredHeight = Mathf.Clamp(desiredHeight, animalHeight * .6f, animalHeight);
+                //float desiredHeight = Mathf.Min(animalHeight * .9f, animalHeight - (rb.velocity.magnitude / 30)); //strides get bigger at faster speeds so animate lower body too
+
+                float desiredHeight = animalHeight-((furthestFootDist/animalHeight)); //height based on stride
+                print("desiredHeight"+transform.name+desiredHeight);
+                desiredHeight = Mathf.Clamp(desiredHeight, animalHeight * .6f, animalHeight * .9f);
+
+
 
                 //get a distance away from target than can be used to reduce force// *8 to decrease range it affects
-                float distForce =
-                    Vector3.Distance(hit.point + (transform.up * desiredHeight), point.transform.position) *
-                    5; //find dist between current and desired point
+                float distForce = Vector3.Distance(hit.point + (transform.up * desiredHeight), point.transform.position) * 5; //find dist between current and desired point
 
 //                    print("distFroce"+distForce);
 
-                float gravForce =
-                    Mathf.Min(gravityStrength * distForce, gravityStrength); //if close to point then add less force
+                float gravForce = Mathf.Min(gravityStrength * distForce, gravityStrength); //if close to point then add less force
 
                 Vector3 dir = (hit.point + (-gravityDir * (desiredHeight)) - point.transform.position).normalized;
 
@@ -108,6 +114,23 @@ public class AnimalGravity : MonoBehaviour
                 }
             }
         }
+    }
+
+    public float GetFurthestFootDist()
+    {
+        //print(footPositioners);
+        float fDist =Mathf.Infinity;
+
+        for (int i = 0; i < footPositioners.Count; i++)
+        {
+            //print("foot" + footPositioners[i]);
+            if (footPositioners[i].distToNext < fDist)
+            {
+                fDist = Mathf.Abs(footPositioners[i].axisDifferences.z+footPositioners[i].axisDifferences.x); //add distances
+            }
+        }
+
+        return fDist;
     }
 }
 /*

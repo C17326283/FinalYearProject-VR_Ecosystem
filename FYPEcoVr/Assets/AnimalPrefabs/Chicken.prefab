@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2513775118956615422}
   m_Layer: 0
-  m_Name: ChickenReady
+  m_Name: Chicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,11 +27,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1035567687856269355}
+  - {fileID: 633173228789415649}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &708659631751614400
+--- !u!1001 &1099936928758421770
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -41,18 +41,6 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
       propertyPath: m_LocalPosition.x
@@ -68,7 +56,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.00000065565104
+      value: -0.00000037252897
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
       propertyPath: m_LocalRotation.x
@@ -96,33 +84,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8259316971650390783, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
       propertyPath: m_TagString
-      value: Leg
+      value: Foot
       objectReference: {fileID: 0}
     - target: {fileID: -4747917413154575537, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 943262a2f9a5305499c50022572e55da, type: 2}
-    - target: {fileID: -4128383740851021839, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
+    - target: {fileID: -3780833614625758266, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
+      propertyPath: m_TagString
+      value: SpineCore
       objectReference: {fileID: 0}
-    - target: {fileID: -3899090569547950054, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
+    - target: {fileID: -2981737106293502254, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
       propertyPath: m_TagString
       value: Leg
       objectReference: {fileID: 0}
-    - target: {fileID: -3272106112100924687, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -3272106112100924687, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -3272106112100924687, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -2902335289109103213, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
+    - target: {fileID: -14746803121745502, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
       propertyPath: m_TagString
       value: Leg
       objectReference: {fileID: 0}
@@ -130,21 +106,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: chicken
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1407760586007453462, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
       propertyPath: m_TagString
-      value: Leg
+      value: Foot
       objectReference: {fileID: 0}
-    - target: {fileID: 2480909740878747892, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
+    - target: {fileID: 2603904170287362035, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: OtherLimb
       objectReference: {fileID: 0}
-    - target: {fileID: 6905609870639353253, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
+    - target: {fileID: 4382046293091072441, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
       propertyPath: m_TagString
-      value: Head
+      value: OtherLimb
       objectReference: {fileID: 0}
     - target: {fileID: 7179158139332175658, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
       propertyPath: m_TagString
@@ -152,8 +124,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
---- !u!4 &1035567687856269355 stripped
+--- !u!4 &633173228789415649 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 57355867891e37b448c9fbba3fbab940, type: 3}
-  m_PrefabInstance: {fileID: 708659631751614400}
+  m_PrefabInstance: {fileID: 1099936928758421770}
   m_PrefabAsset: {fileID: 0}

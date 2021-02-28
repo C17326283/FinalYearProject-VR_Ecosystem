@@ -7,10 +7,10 @@ public class SpineNew : MonoBehaviour {
     public List<Vector3> offsets = new List<Vector3>();
     public List<Transform> spineContainers = new List<Transform>();
     
-    public GameObject head;
+    public GameObject start;
     private GameObject armatureBase;//one above head
 
-    public float damping = 50.0f;
+    public float damping = 20.0f;
 
     private GameObject spinesHolder;
     public bool isLimbSetup = false;
@@ -19,12 +19,12 @@ public class SpineNew : MonoBehaviour {
     //make all the holders and position spines
     public void InitializeSpine()
     {
-        armatureBase = head.transform.parent.gameObject;//The object above head has the full armature
+        armatureBase = start.transform.parent.gameObject;//The object above head has the full armature
         spinesHolder = this.gameObject;
         //spinesHolder.transform.name = "SpinesHolder";
 
         //get spinal sections which stem from the head
-        GetSpineObjRecursively(head);
+        GetSpineObjRecursively(start);
         SaveSpineOffsets();
 
         //MatchLimbsToSpine();
@@ -69,26 +69,52 @@ public class SpineNew : MonoBehaviour {
     }
 
     //The legs need to stick to the closest spine in the armature model or else theyll stretch 
-    public void MatchLimbsToSpine()
+
+    public void MatchLimbToSpine(Transform objToCompare)
     {
-        //get all the limb bases, so top of legs not feet
-        List<Transform> allLimbs = new List<Transform>();
-
-        //make a list to loop through, cant do in same loop because taking objs out midloop will skip others
-        foreach (Transform child in armatureBase.transform)
+        float closestDist = Mathf.Infinity;
+        Transform closestContainer = spineContainers[0];//set default
+        foreach (var spineContainer in spineContainers)
         {
-            allLimbs.Add(child);
+            float currentContDist = Vector3.Distance(objToCompare.transform.position, spineContainer.transform.position);
+            if (currentContDist<closestDist)
+            {
+                closestDist = currentContDist;//set it as new closest
+                closestContainer = spineContainer.transform;//set it to that container for now unless overwritten
+            }
         }
-
-        //set the limbs parent to the closest spine object
-        foreach (Transform limb in allLimbs)
-        {
-            Transform closestCont = GetClosestSpineContainer(limb);
-            limb.transform.parent = closestCont;//set it to that container for now unless overwritten
-        }
+        
+        objToCompare.transform.parent = closestContainer;
     }
+    
+    //overload function to check if head is closer//for ears
+    public void MatchLimbToSpine(Transform objToCompare,Transform head)
+    {
+        float closestDist = Mathf.Infinity;
+        Transform closestContainer = spineContainers[0];//set default
+        foreach (var spineContainer in spineContainers)
+        {
+            float currentContDist = Vector3.Distance(objToCompare.transform.position, spineContainer.transform.position);
+            if (currentContDist<closestDist)
+            {
+                closestDist = currentContDist;//set it as new closest
+                closestContainer = spineContainer.transform;//set it to that container for now unless overwritten
+            }
+        }
+        
+        //Also check head which isnt part of main spine
+        float headDist = Vector3.Distance(objToCompare.transform.position, head.position);
+        if (headDist<closestDist)
+        {
+            closestContainer = head;//set it to that container for now unless overwritten
+        }
+        
+        objToCompare.transform.parent = closestContainer;
+    }
+    
+    
 
-    public Transform GetClosestSpineContainer(Transform objToCompare)
+    public Transform GetClosestSpineContainer(Transform objToCompare,Transform head)
     {
         float closestDist = 999999f;
         Transform closestContainer = spineContainers[0];//set default
@@ -101,6 +127,14 @@ public class SpineNew : MonoBehaviour {
                 closestContainer = spineContainer.transform;//set it to that container for now unless overwritten
             }
         }
+        //Also check head which isnt part of main spine
+        float headDist = Vector3.Distance(objToCompare.transform.position, head.position);
+        if (headDist<closestDist)
+        {
+            closestDist = headDist;//set it as new closest
+            closestContainer = head;//set it to that container for now unless overwritten
+        }
+        
         return closestContainer;
     }
 
@@ -145,7 +179,7 @@ public class SpineNew : MonoBehaviour {
             current.position = prev.position + clampedOffset;
 
             //uses containers to preserve the natural bone rotations so containers match the head
-            current.rotation = Quaternion.Slerp(current.rotation, prev.rotation, Time.deltaTime * damping);
+            current.rotation = Quaternion.Slerp(current.rotation, prev.rotation, Time.deltaTime * (damping/i));
         }
         
         

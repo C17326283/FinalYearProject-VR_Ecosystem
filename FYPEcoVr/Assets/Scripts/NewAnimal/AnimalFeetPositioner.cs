@@ -16,11 +16,11 @@ public class AnimalFeetPositioner : MonoBehaviour
     public float forwardStepDist = 1.4f;//todo set dynamically
     public float sideStepDist = .6f;
     public Vector3 nextFootPos;
-    public float lerpSpeed = 15;//todo set based on speed or size
+    public float lerpSpeed = 5;//todo set based on speed or size
     public bool hasOffset = false;
     //public float timeOffset = 0.0f;
     public GameObject forwardFacingObj;//for using for forward direction of whole animal
-    public float footHeightMult = 0.5f;
+    public float footHeightMult = 0.6f;
     public bool footAtPosition = true;
     public AnimalFeetPositioner otherFootRaycastPositioner;
     public float extraSpace = 0.2f;
@@ -33,9 +33,14 @@ public class AnimalFeetPositioner : MonoBehaviour
     public bool debug = true;
     public float animalHeight = 1;
     public float animalLength = 1;
+    public float footSpeed = 2;
 
     public GameObject nextPosRaycaster;
     public bool needToMove = false;
+
+    public float distToNext;
+
+    public Vector3 axisDifferences;
     
     
     
@@ -72,12 +77,12 @@ public class AnimalFeetPositioner : MonoBehaviour
     {
         //todo make the lerpspeed and stepdistance increase along with movespped, if animal is running they stides get bigger and feet are faster
  
-        Vector3 axisDifferences = this.transform.InverseTransformPoint(footIKTargetObj.transform.position);
+        axisDifferences = this.transform.InverseTransformPoint(footIKTargetObj.transform.position);
         //todo use end foot object without moveable ankle and point directly at hit point?
         footIKTargetObj.transform.forward = forwardFacingObj.transform.forward;//this prevents the feet from beign twisted
 
-        float velForwardStep = Mathf.Max(forwardStepDist,(forwardStepDist * rb.velocity.magnitude)/4f);
-        velForwardStep = Mathf.Clamp(velForwardStep, forwardStepDist, forwardStepDist * 2);
+        float velForwardStep = Mathf.Max(forwardStepDist,(forwardStepDist * rb.velocity.magnitude)/3f);
+        velForwardStep = Mathf.Clamp(velForwardStep, forwardStepDist, animalLength*0.8f);
         
 //        print("forwardStepDist"+forwardStepDist+"  velForwardStep"+velForwardStep);
         
@@ -123,15 +128,16 @@ public class AnimalFeetPositioner : MonoBehaviour
         {
             GetDesiredFootPosition(nextPosRaycaster.transform.position);
             
-            //IF not at next position
-            float distToNext = Vector3.Distance(footIKTargetObj.transform.position, nextFootPos);
+            //IF not at next positione
+            distToNext = Vector3.Distance(footIKTargetObj.transform.position, nextFootPos);
 //            print(distToNext);
             //foot isnt at target position yet
             if (distToNext>footMoveStopDist)
             {
 //                print("move ik to next pos");
                 //float footLift = footHeightMult * (Vector3.Distance(footIKTargetObj.transform.position, nextFootPos) /5);         
-                float footMoveSpeed = Mathf.Max(lerpSpeed,(lerpSpeed * rb.velocity.magnitude)/3);
+                //float footMoveSpeed = Mathf.Max(lerpSpeed,(animalLength * rb.velocity.magnitude)/footSpeedDiv);
+                float footMoveSpeed = Mathf.Max(rb.velocity.magnitude,(distToNext*animalLength)/2)*footSpeed;
 
                 float footLift= (Vector3.Distance(footIKTargetObj.transform.position, nextFootPos)*footHeightMult)-footMoveStopDist;
                 footLift= Mathf.Clamp(footLift,0f,(animalHeight/rb.velocity.magnitude)*3);
@@ -144,11 +150,11 @@ public class AnimalFeetPositioner : MonoBehaviour
                     //float footMoveSpeed = Mathf.Max(lerpSpeed,(distToNext/3)*lerpSpeed);
                     footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos+(forwardFacingObj.transform.up*footLift), footMoveSpeed * Time.deltaTime);//+(forwardFacingObj.transform.up*footLift)
                 }
-                else if(distToNext>forwardStepDist*4)
+                else if(distToNext>animalLength*2)
                 {
  //                   print("far foot");
                     footAtPosition = false;//has started moving to next position so set to false and only becomes true if gets close enough to next position
-                    footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos, footMoveSpeed*100 * Time.deltaTime);
+                    footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos, 1000 * Time.deltaTime);
                 }
             }
             else
