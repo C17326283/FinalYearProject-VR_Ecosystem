@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.001
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 1}
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 3c232677ed2f264448bba4fff165e506, type: 2}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: e79e1fb3303be3045a4d727e75a6f1cb, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -355,7 +355,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 31186833}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 500
+  amountToSpawn: 1000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0
   tagToSpawnOn: Water
@@ -367,7 +367,7 @@ MonoBehaviour:
   biomeObjs: []
   biomeDist: 500
   usesLOD: 1
-  screenPercentLODCull: 1
+  screenPercentLODCull: 2
 --- !u!1 &57377513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,7 +1471,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 223584068}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 2000
+  amountToSpawn: 3000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0
   tagToSpawnOn: Ground
@@ -1483,7 +1483,7 @@ MonoBehaviour:
   biomeObjs: []
   biomeDist: 500
   usesLOD: 1
-  screenPercentLODCull: 2
+  screenPercentLODCull: 4
 --- !u!114 &223584067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3578,6 +3578,7 @@ RectTransform:
   - {fileID: 109091314}
   - {fileID: 1796096450}
   - {fileID: 799430267}
+  - {fileID: 1886471407}
   m_Father: {fileID: 782749334}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4361,7 +4362,7 @@ Light:
     m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.8
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -4860,7 +4861,7 @@ MonoBehaviour:
   biomeObjs: []
   biomeDist: 500
   usesLOD: 1
-  screenPercentLODCull: 0.5
+  screenPercentLODCull: 2
 --- !u!1 &776085549
 GameObject:
   m_ObjectHideFlags: 0
@@ -5083,7 +5084,7 @@ Light:
     m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.8
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -5142,7 +5143,7 @@ MonoBehaviour:
   sun: {fileID: 1711375494}
   toPlayer: {x: 0, y: 0, z: 0}
   toSun: {x: 0, y: 0, z: 0}
-  dayLightIntensity: 0.3
+  dayLightIntensity: 0.1
   reverseDir: 0
 --- !u!1 &796332336
 GameObject:
@@ -5210,7 +5211,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 166}
+  m_AnchoredPosition: {x: 0, y: 51.00003}
   m_SizeDelta: {x: 820, y: 135.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &799430268
@@ -5233,7 +5234,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Planet Generator
+  m_text: Procedural animals, planet and ecosystem by Ryan Byrne
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -5260,8 +5261,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 95.3
-  m_fontSizeBase: 95.3
+  m_fontSize: 57.25
+  m_fontSizeBase: 57.25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6529,7 +6530,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Generate
+  m_text: Start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -7658,7 +7659,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -7700,7 +7701,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 100000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -8867,7 +8868,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 1219441157}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 500
+  amountToSpawn: 1000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0
   tagToSpawnOn: Ground
@@ -8879,7 +8880,7 @@ MonoBehaviour:
   biomeObjs: []
   biomeDist: 500
   usesLOD: 1
-  screenPercentLODCull: 1
+  screenPercentLODCull: 2
 --- !u!114 &1219441157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9648,7 +9649,7 @@ MonoBehaviour:
   waitUntillTriggered: 1
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 2000
+  amountToSpawn: 3000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 2
   tagToSpawnOn: Ground
@@ -10052,7 +10053,7 @@ MonoBehaviour:
   biomeObjs: []
   biomeDist: 500
   usesLOD: 1
-  screenPercentLODCull: 0.3
+  screenPercentLODCull: 2
 --- !u!114 &1384593978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12150,7 +12151,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.9961137, g: 1, b: 0.9575472, a: 0.6313726}
-  m_Intensity: 3
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -12184,7 +12185,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 512
@@ -12218,7 +12219,7 @@ MonoBehaviour:
   sun: {fileID: 1443668991}
   toPlayer: {x: 0, y: 0, z: 0}
   toSun: {x: 0, y: 0, z: 0}
-  dayLightIntensity: 8
+  dayLightIntensity: 2
   reverseDir: 0
 --- !u!1 &1737986216
 GameObject:
@@ -13084,7 +13085,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 1793077441}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 800
+  amountToSpawn: 1200
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0.01
   tagToSpawnOn: Ground
@@ -13096,7 +13097,7 @@ MonoBehaviour:
   biomeObjs: []
   biomeDist: 500
   usesLOD: 1
-  screenPercentLODCull: 0.5
+  screenPercentLODCull: 2
 --- !u!1 &1796096449
 GameObject:
   m_ObjectHideFlags: 0
@@ -13129,10 +13130,10 @@ RectTransform:
   m_Father: {fileID: 551993048}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 302}
-  m_SizeDelta: {x: 820, y: 135.3}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -153.581, y: 224}
+  m_SizeDelta: {x: 512.837, y: 235.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1796096451
 MonoBehaviour:
@@ -13154,7 +13155,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ryan Byrne's
+  m_text: EcoVR
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -13181,8 +13182,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 131.1
-  m_fontSizeBase: 131.1
+  m_fontSize: 195.04
+  m_fontSizeBase: 195.04
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -13801,6 +13802,78 @@ Transform:
   m_Father: {fileID: 1214218007}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1886471406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1886471407}
+  - component: {fileID: 1886471409}
+  - component: {fileID: 1886471408}
+  m_Layer: 5
+  m_Name: RawImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1886471407
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886471406}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3.3733056, y: 3.3733056, z: 3.3733056}
+  m_Children: []
+  m_Father: {fileID: 551993048}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 269, y: 265}
+  m_SizeDelta: {x: 77.035, y: 77.035}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1886471408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886471406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 18279036155cf4e41b52bda57b6ce625, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1886471409
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886471406}
+  m_CullTransparentMesh: 1
 --- !u!1 &1892656362
 GameObject:
   m_ObjectHideFlags: 0
@@ -15362,7 +15435,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 2125029175}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 600
+  amountToSpawn: 800
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 200
   tagToSpawnOn: Ground
@@ -15374,7 +15447,7 @@ MonoBehaviour:
   biomeObjs: []
   biomeDist: 500
   usesLOD: 1
-  screenPercentLODCull: 2
+  screenPercentLODCull: 4
 --- !u!114 &2125029175
 MonoBehaviour:
   m_ObjectHideFlags: 0
