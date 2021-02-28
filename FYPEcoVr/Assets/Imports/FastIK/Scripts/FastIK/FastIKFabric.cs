@@ -50,12 +50,12 @@ namespace DitzelGames.FastIK
 
 
         // Start is called before the first frame update
-        void Awake()
+        void Start()
         {
             Init();
         }
 
-        void Init()
+        public void Init()
         {
             //initial array
             Bones = new Transform[ChainLength + 1];
@@ -73,10 +73,13 @@ namespace DitzelGames.FastIK
                 Root = Root.parent;
             }
 
+            
             //init target
             if (Target == null)
             {
-                Target = new GameObject(gameObject.name + " Target").transform;
+                print(Target);
+                Target = new GameObject(gameObject.name + " Target12").transform;
+                Target.transform.parent = gameObject.GetComponentInParent<AnimalInitializer>().transform;
                 SetPositionRootSpace(Target, GetPositionRootSpace(transform));
             }
             StartRotationTarget = GetRotationRootSpace(Target);

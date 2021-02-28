@@ -20,40 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c86a74b-a54b-44cd-a93d-b82d2bbe20ff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimalPrefabs/Bear.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AnimalPrefabs/Bear.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimalPrefabs/CheetahReady.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimalPrefabs/CheetahReady.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimalPrefabs/ChickenReady.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimalPrefabs/ChickenReady.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimalPrefabs/Deer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AnimalPrefabs/Deer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimalPrefabs/Elephant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AnimalPrefabs/Elephant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimalPrefabs/Fox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AnimalPrefabs/Fox.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CreatedModels/Bear.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CreatedModels/Bear.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CreatedModels/Cheetah.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CreatedModels/Cheetah.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CreatedModels/Deer.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CreatedModels/Deer.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CreatedModels/Elephant.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CreatedModels/Elephant.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CreatedModels/Fox.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CreatedModels/Fox.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CreatedModels/chicken.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CreatedModels/chicken.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Imports/LowPoly_Foliage/Models/Leafs/Materials/Leaf_Brown_01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Imports/LowPoly_Foliage/Models/Leafs/Materials/Leaf_Brown_01.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Imports/LowPoly_Foliage/Models/Leafs/Materials/Leaf_Brown_02.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Imports/LowPoly_Foliage/Models/Leafs/Materials/Leaf_Brown_02.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LOD.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LOD/Tree1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LOD/Tree1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Low Poly Vegetation Pack/Bonus Assets/Materials/Water_01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Low Poly Vegetation Pack/Bonus Assets/Materials/Water_01.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Imports/FastIK/Scripts/FastIK/FastIKFabric.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Imports/FastIK/Scripts/FastIK/FastIKFabric.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Water.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Water.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/AnimalSetup.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AnimalSetup.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainPlanetScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainPlanetScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Deprecated/InitializeAnimal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Deprecated/InitializeAnimal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AnimalDistanceDisabler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AnimalDistanceDisabler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/SpineNew.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/SpineNew.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/RandomGenSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/RandomGenSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/ObjectPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/ObjectPool.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,26 +98,26 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/LightAtAngle.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/FinGenSequence.cs" />
         <option value="$PROJECT_DIR$/Assets/Samples/OpenXR Plugin/1.0.2/Controller/Scripts/ActionAssetEnabler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Imports/FastIK/Scripts/FastIK/FastIKFabric.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UnloadObjs.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/AnimalsSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/PandaBehaviour/Core/Editor/CreatePandaScriptMenu.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetTerrainGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT.txt" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/AnimalDistanceDisabler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/ObjectPool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/RandomGenSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Deprecated/InitializeAnimal.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/LookAtVel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/SpineNew.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/ObjectPool.cs" />
+        <option value="$PROJECT_DIR$/Assets/Imports/FastIK/Scripts/FastIK/FastIKFabric.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AnimalDistanceDisabler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" />
       </list>
     </option>
   </component>
@@ -225,7 +207,8 @@
       <workItem from="1614211158640" duration="12632000" />
       <workItem from="1614256022679" duration="27528000" />
       <workItem from="1614339957701" duration="20472000" />
-      <workItem from="1614429440434" duration="28646000" />
+      <workItem from="1614429440434" duration="29296000" />
+      <workItem from="1614514937606" duration="5634000" />
     </task>
     <servers />
   </component>
@@ -347,10 +330,10 @@
     </state>
     <state x="1920" y="47" width="1802" height="1028" key="dock-window-3/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1612029046947" />
     <state x="1971" y="32" width="1802" height="1028" key="dock-window-3/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1612136677779" />
-    <state x="2480" y="139" width="727" height="801" key="find.popup" timestamp="1614451644914">
+    <state x="2480" y="139" width="727" height="801" key="find.popup" timestamp="1614515350901">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
-    <state x="2480" y="139" width="727" height="801" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1614451644914" />
+    <state x="2480" y="139" width="727" height="801" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1614515350901" />
     <state x="2480" y="139" width="727" height="801" key="find.popup/1920.47.1786.986/-1920.86.1920.1040/0.0.1920.1040@1920.47.1786.986" timestamp="1614372541615" />
     <state x="2476" y="258" width="672" height="678" key="search.everywhere.popup" timestamp="1614462660637">
       <screen x="1920" y="47" width="1786" height="986" />

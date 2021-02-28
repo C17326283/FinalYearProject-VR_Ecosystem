@@ -87,11 +87,6 @@ public class AnimalInitializer : MonoBehaviour
         animalObj.transform.parent = movementOriginObj.transform;//Parent mesh to movement to hoepfully fix that stretched mesh
         animalObj.transform.name = "MeshParent";
         
-        /*
-        SpineNew headSp = this.gameObject.AddComponent<SpineNew>();
-        headSp.start = head;
-        headSp.InitializeSpine();
-        */
         GameObject headHolder = new GameObject("HeadHolder");
         headHolder.transform.position = head.transform.position;
         headHolder.transform.forward = movementOriginObj.transform.forward;
@@ -230,9 +225,6 @@ public class AnimalInitializer : MonoBehaviour
 
     void SetUpFootPositioner(Transform foot)//todo connect to bone not base obj
     {
-        //Make the foot positioner stuff for inverse kinematics
-        FastIKFabric ikScript = foot.gameObject.AddComponent<FastIKFabric>();
-        
         GameObject footPositioner = new GameObject("FootPositioner_"+foot.name);
         footPositioner.transform.parent = GetRecursiveParentTag(foot);
         footPositioner.transform.position = foot.transform.position;//-(footPositioner.transform.forward)
@@ -245,6 +237,12 @@ public class AnimalInitializer : MonoBehaviour
         footScript.forwardFacingObj = movementOriginObj.gameObject;
         footScript.animalHeight = animalHeight;
         footScript.rb = rb;
+        
+        //Make the foot positioner stuff for inverse kinematics
+        FastIKFabric ikScript = foot.gameObject.AddComponent<FastIKFabric>();
+        ikScript.Target = footScript.footIKTargetObj.transform;
+        ikScript.Init();//Changed it to called init instead of it happening
+                        //on awake to prevent it creating target again
 
         GameObject ikPole = new GameObject("ikPole_"+foot.name);
         ikPole.transform.parent = footPositioner.transform;
@@ -331,20 +329,21 @@ public class AnimalInitializer : MonoBehaviour
     IEnumerator SetDisabler()
     {
         bool found = false;
-        while (found == false)
+        int checks = 0;
+        while (checks < 30)
         {
             yield return new WaitForSeconds(1);
 
-            if (GameObject.Find("Player") != null)
+            if (GameObject.FindWithTag("Player") != null)
             {
                 AnimalDistanceDisabler distDisabler = transform.parent.gameObject.AddComponent<AnimalDistanceDisabler>();
-                distDisabler.player = GameObject.Find("Player").transform;
+                distDisabler.player = GameObject.FindWithTag("Player").transform;
                 distDisabler.enabled = false;
                 distDisabler.animal = movementOriginObj.transform;
                 distDisabler.animalHolder = transform.gameObject;
                 distDisabler.bt = behaviourTreeManager;
                 distDisabler.enabled = true;
-                found = true;
+                checks = 100;//exit
                 transform.gameObject.SetActive(false);//disable to begin with for loading
             }
         }

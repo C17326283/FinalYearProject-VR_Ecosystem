@@ -26,6 +26,7 @@ public class GravityMovement : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         core = GameObject.Find("Core");
+        moveSpeed = defaultSpeed;
         
         RaycastHit hit;
         if (Physics.Raycast(transform.position, gravityDir, out hit, 2000, 1 << 8))
@@ -86,7 +87,7 @@ public class GravityMovement : MonoBehaviour
     public void Sprint(InputAction.CallbackContext context)
     {
         if (context.started)
-            moveSpeed = defaultSpeed * 2;
+            moveSpeed = defaultSpeed * 3;
         if(context.canceled)
             moveSpeed = defaultSpeed;
     }

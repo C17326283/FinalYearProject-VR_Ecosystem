@@ -34,7 +34,8 @@ public class AnimalBehaviours : MonoBehaviour
 
     private void Awake()
     {
-        wanderObj=new GameObject();
+        wanderObj=new GameObject("WanderObj");
+        wanderObj.transform.parent = this.transform.parent;
         layerMask = 1 << 8;//bit shift to get mask for raycasting so only on environment and not other animals
     }
     
