@@ -250,7 +250,9 @@ public class AnimalBehaviours : MonoBehaviour
             //toTarget.transform.position = rb.transform.position + (rb.transform.forward * 10);
             Task.current.Fail();
         }
+        
     }
+    
 
     [Task]
     void CheckGettingCloser()

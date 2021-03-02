@@ -90,6 +90,7 @@ public class AnimalInitializer : MonoBehaviour
         GameObject headHolder = new GameObject("HeadHolder");
         headHolder.transform.position = head.transform.position;
         headHolder.transform.forward = movementOriginObj.transform.forward;
+        head.transform.parent = headHolder.transform;
         head = headHolder;
         spineMain.MatchLimbToSpine(head.transform);
 
@@ -108,7 +109,6 @@ public class AnimalInitializer : MonoBehaviour
         {
             spineMain.MatchLimbToSpine(leg.transform);
         }
-        
     }
 
     public void GetLimbs()
@@ -186,22 +186,10 @@ public class AnimalInitializer : MonoBehaviour
             behaviourTreeManager = movementOriginObj.gameObject.AddComponent<BehaviourTree>(); //todo get a way to add this at runtime
         else
             behaviourTreeManager = GetComponent<BehaviourTree>();
-        
-//        print("btTexts"+btTexts);
-        
-
 
         behaviourTreeManager.scripts = btTexts;
-        //behaviourTreeManager.Compile();
         behaviourTreeManager.tickOn = BehaviourTree.UpdateOrder.FixedUpdate;
-        //behaviourTreeManager.autoReset = true;
-        
-        //        behaviourTreeManager.Apply();//This is the thing to fix it not starting untill the objetc was clicked
-
-
-        //behaviourTreeManager.Compile();
-
-
+        //        behaviourTreeManager.Apply();//This is the thing to fix
     }
 
     
@@ -277,16 +265,6 @@ public class AnimalInitializer : MonoBehaviour
             //Needs to have found a head first to be successfull
             SetUpFootPositioner(foot.transform);
         }
-        /*
-        foreach (var limb in otherLimbs)
-        {
-            SpineNew LimbScript = gameObject.AddComponent<SpineNew>();//Needs to be in global position no childed locally
-            LimbScript.isLimbSetup = true;
-            LimbScript.start = limb;
-            LimbScript.InitializeSpine();//initiallise once all the feet have been added
-            LimbScript.damping = spineMain.damping / 3;
-        }
-        */
         //This needs to be done after setup because the feet are used to get the height
         foreach (var footPositioner in feetPositioners)
         {
@@ -347,9 +325,5 @@ public class AnimalInitializer : MonoBehaviour
                 transform.gameObject.SetActive(false);//disable to begin with for loading
             }
         }
-        
     }
-    
-    //IEnumerator testCustTick
-    
 }

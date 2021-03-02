@@ -78,7 +78,11 @@ public class GravityMovement : MonoBehaviour
     {
         if(context.started)
             print("debugging1");
-        if(context.performed)
+        if (context.performed)
+        {
+            rb.AddRelativeForce(-gravityDir * (moveSpeed*Time.deltaTime*200),ForceMode.Impulse);
+        }
+            
             print("debugging2");
         if(context.canceled)
             print("debugging3");

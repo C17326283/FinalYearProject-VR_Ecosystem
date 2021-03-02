@@ -4387,7 +4387,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 311
@@ -4435,7 +4435,7 @@ MonoBehaviour:
   sun: {fileID: 1443668991}
   toPlayer: {x: 0.002610393, y: -0.9996085, z: 0.027855298}
   toSun: {x: 0.36383155, y: 0.9074682, z: -0.2100668}
-  dayLightIntensity: 2.5
+  dayLightIntensity: 2
   reverseDir: 0
 --- !u!1 &709984148
 GameObject:
@@ -5143,7 +5143,7 @@ MonoBehaviour:
   sun: {fileID: 1711375494}
   toPlayer: {x: 0, y: 0, z: 0}
   toSun: {x: 0, y: 0, z: 0}
-  dayLightIntensity: 0.1
+  dayLightIntensity: 0.3
   reverseDir: 0
 --- !u!1 &796332336
 GameObject:
@@ -5174,6 +5174,7 @@ Transform:
   m_Children:
   - {fileID: 1195108970}
   - {fileID: 1818955344}
+  - {fileID: 869715325}
   m_Father: {fileID: 950734366}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5937,13 +5938,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 869715324}
-  m_LocalRotation: {x: 0.32034823, y: -0.00000011292695, z: -0.00000003818848, w: 0.9472999}
-  m_LocalPosition: {x: 1.1442996e-18, y: 0.008144847, z: 0.0051534674}
-  m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_LocalRotation: {x: -0.0000013564712, y: -0.89636254, z: -0.44332185, w: 0.0000025928018}
+  m_LocalPosition: {x: 0, y: -0.000075088814, z: -0.000011797063}
+  m_LocalScale: {x: 100, y: 99.99998, z: 99.99997}
   m_Children:
   - {fileID: 1732645330}
-  m_Father: {fileID: 2104881524}
-  m_RootOrder: 0
+  m_Father: {fileID: 796332337}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &880685053
 GameObject:
@@ -6206,6 +6207,7 @@ GameObject:
   - component: {fileID: 950734370}
   - component: {fileID: 950734369}
   - component: {fileID: 950734368}
+  - component: {fileID: 950734374}
   m_Layer: 0
   m_Name: Fox
   m_TagString: Player
@@ -6473,6 +6475,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.38547897, y: 0.46162882, z: 1.6726564}
   m_Center: {x: 0, y: -0.038024902, z: -0.61206055}
+--- !u!114 &950734374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950734365}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8dc93c8b6955445968cb4914028c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDist: 50
+  radius: 20
+  core: {fileID: 0}
+  preFab: {fileID: 128460, guid: 852cb8c41e01737438082cc349cdd49d, type: 3}
+  maxToSpawn: 2000
+  spawned: []
+  timeBeforeCheck: 0.01
 --- !u!1 &966176471
 GameObject:
   m_ObjectHideFlags: 0
@@ -12150,7 +12171,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.9961137, g: 1, b: 0.9575472, a: 0.6313726}
+  m_Color: {r: 0.377225, g: 0.43195897, b: 0.46226418, a: 0.6313726}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -12160,7 +12181,7 @@ Light:
     m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.5
+    m_Strength: 0.8
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -12219,7 +12240,7 @@ MonoBehaviour:
   sun: {fileID: 1443668991}
   toPlayer: {x: 0, y: 0, z: 0}
   toSun: {x: 0, y: 0, z: 0}
-  dayLightIntensity: 2
+  dayLightIntensity: 9
   reverseDir: 0
 --- !u!1 &1737986216
 GameObject:
@@ -15248,8 +15269,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
-  m_Children:
-  - {fileID: 869715325}
+  m_Children: []
   m_Father: {fileID: 2102119416}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

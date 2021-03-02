@@ -179,7 +179,7 @@ public class SpineNew : MonoBehaviour {
             current.position = prev.position + clampedOffset;
 
             //uses containers to preserve the natural bone rotations so containers match the head
-            current.rotation = Quaternion.Slerp(current.rotation, prev.rotation, Time.deltaTime * (damping/i));
+            current.rotation = Quaternion.Slerp(current.rotation, prev.rotation, Time.deltaTime * (damping));
         }
         
         

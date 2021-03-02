@@ -306,7 +306,6 @@
             </e>
           </e>
         </e>
-        <e p="LightAtAngle.cs" t="Include" />
         <e p="Low Poly Vegetation Pack" t="Include">
           <e p="Bonus Assets" t="Include">
             <e p="Scripts" t="Include">
@@ -432,6 +431,7 @@
           </e>
           <e p="GameManager.cs" t="Include" />
           <e p="GravityMovement.cs" t="Include" />
+          <e p="LightAtAngle.cs" t="Include" />
           <e p="NewAnimal" t="Include">
             <e p="AnimalBehaviours.cs" t="Include" />
             <e p="AnimalBrain.cs" t="Include" />
@@ -461,6 +461,7 @@
             <e p="TerrainMinMaxHeights.cs" t="Include" />
           </e>
           <e p="SceneLoader.cs" t="Include" />
+          <e p="SpawnEnvironmentInRange.cs" t="Include" />
           <e p="SpineAnimator.cs" t="Include" />
           <e p="SpineAnimatorManager.cs" t="Include" />
           <e p="UnloadObjs.cs" t="Include" />
