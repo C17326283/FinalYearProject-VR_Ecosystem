@@ -315,6 +315,7 @@
             </e>
           </e>
         </e>
+        <e p="ManualButtonTrigger.cs" t="Include" />
         <e p="PandaBehaviour" t="Include">
           <e p="ChangeLog.txt" t="Include" />
           <e p="Core" t="Include">
@@ -465,6 +466,7 @@
           <e p="SpineAnimator.cs" t="Include" />
           <e p="SpineAnimatorManager.cs" t="Include" />
           <e p="UnloadObjs.cs" t="Include" />
+          <e p="VrTestClick.cs" t="Include" />
         </e>
       </e>
       <e p="Boxophobic.PolyverseSkies.Editor.csproj" t="IncludeRecursive" />

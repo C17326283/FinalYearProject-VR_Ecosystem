@@ -58,21 +58,40 @@ public class TerrainFace : MonoBehaviour
                 int i = x + y * res;//get the point on the grid
                 Vector2 percent = new Vector2(x,y) / (res-1);//percentage of width for even spacing
                 Vector3 pointOnUnitCube;
-                pointOnUnitCube = localUp + (percent.x - .5f)*2*axisA + (percent.y - .5f)*2*axisB;//get position of individual point
+                
+                //If not edge of side then shift point on cube to make them non uniform
+                if (x > 0 && x < res - 1 && y > 0 && y < res - 1)
+                {
+                    float movement = .3f/res;//shift up to 25% in each direction
+                    if (i % 100 == 1)
+                        print(movement);
+                    pointOnUnitCube = localUp + (URandom.Range(percent.x-movement,percent.x+movement) - .5f)*2*axisA + (URandom.Range(percent.y-movement,percent.y+movement) - .5f)*2*axisB;//get position of individual point
 
+                }
+                else
+                {
+                    pointOnUnitCube = localUp + (percent.x - .5f)*2*axisA + (percent.y - .5f)*2*axisB;//get position of individual point
+
+                }
+                
+                
                 Vector3 pointOnUnitSphere = pointOnUnitCube.normalized;//normalise it to get where it should be on sphere
                 //use the spherized point with noise to find where it should be
                 if (isLand)
                 {
+                    
                     vertices[i] = AddHeightToVertex(pointOnUnitSphere);
-                    /*//todo add movement to points for better uneven low poly
+                    //todo add movement to points for better uneven low poly
+                    /*
                     if (x > 0 && x < res - 1 && y > 0 && y < res - 1)
                     {
-                        float movement = 2;
+                        float movement = 5;
                         //movement = Mathf.Clamp(movement,0, (percent.x));
                         vertices[i] = localUp + vertices[i]+new Vector3(URandom.Range(-movement,movement),URandom.Range(-movement,movement),URandom.Range(-movement,movement));
                     }
                     */
+                    
+                    
                 }
                 else
                 {

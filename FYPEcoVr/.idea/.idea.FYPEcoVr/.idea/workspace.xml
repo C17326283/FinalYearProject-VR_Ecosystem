@@ -22,29 +22,14 @@
     <list default="true" id="1c86a74b-a54b-44cd-a93d-b82d2bbe20ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Default/Settings/UniversalRP-HighQuality.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Default/Settings/UniversalRP-HighQuality.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Default/Settings/UniversalRP-MediumQuality.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Default/Settings/UniversalRP-MediumQuality.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Default/Settings/w.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Default/Settings/w.lighting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Imports/FastIK/Scripts/FastIK/FastIKFabric.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Imports/FastIK/Scripts/FastIK/FastIKFabric.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LightAtAngle.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LightAtAngle.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/AtmoshphereShader.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/AtmoshphereShader.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/AtmosphereMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/AtmosphereMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/MoonLight.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/MoonLight.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Sun.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Sun.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/01_Move/Move.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/01_Move/Move.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Planet/Global Volume Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Planet/Global Volume Profile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlanetProfiles/UserSettingsForPlanet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlanetProfiles/UserSettingsForPlanet.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/OpenXR Plugin/1.0.2/Controller/ControllerSample.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/OpenXR Plugin/1.0.2/Controller/ControllerSample.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/AnimalSetup.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AnimalSetup.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainPlanetScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainPlanetScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/VrNew.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/VrNew.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/LookAtVel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/LookAtVel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/SpineNew.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/SpineNew.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/TerrainFace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/TerrainFace.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/PresetManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PresetManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
@@ -64,6 +49,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewAnimal/LookAtVel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/FinGenSequence.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/VrTestClick.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AutoGen.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AnimalDistanceDisabler.cs" root0="FORCE_HIGHLIGHTING" />
@@ -78,7 +64,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/BoidTaskManager.cs" />
         <option value="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/01_Move/Assets/Move.BT.txt" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Behaviour/AnimalTest.txt" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Behaviour/BtTest1.cs" />
@@ -103,7 +88,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Cam.cs" />
         <option value="$PROJECT_DIR$/Assets/PandaBehaviour/Examples/03_Shooter/Assets/FollowCamera.cs" />
         <option value="$PROJECT_DIR$/Assets/AutoGen.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/TerrainFace.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/LightAtAngle.cs" />
@@ -129,6 +113,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/SpawnEnvironmentInRange.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LightAtAngle.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/VrTestClick.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/TerrainFace.cs" />
       </list>
     </option>
   </component>
@@ -222,6 +208,7 @@
       <workItem from="1614514937606" duration="16872000" />
       <workItem from="1614619897466" duration="6655000" />
       <workItem from="1614711817332" duration="5594000" />
+      <workItem from="1614726968421" duration="5915000" />
     </task>
     <servers />
   </component>
