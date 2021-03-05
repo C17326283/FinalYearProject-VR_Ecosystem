@@ -6,9 +6,11 @@ using UnityEngine;
 
 public class AnimalInitializer : MonoBehaviour
 {
+    [Header("Requires Input")]
     public AnimalProfile animalDNA;
     public TextAsset[] btTexts;
     
+    [Header("Debug display")]
     public GameObject animalObj;
     public BoxCollider collider;
     public Rigidbody rb;
@@ -37,6 +39,9 @@ public class AnimalInitializer : MonoBehaviour
     public float animalHeight=2;
     public float animalLength=2;
     public float damping = 20;
+    
+    public AudioClip clip;
+    public AudioSource audioSource;
 
     public bool initialiseOnStart = false;
     // Start is called before the first frame update
@@ -66,6 +71,7 @@ public class AnimalInitializer : MonoBehaviour
         SetCollider();
         SetRb();
         SetAI();
+        SetAudio();
         SetPositioners();
         brain.animalHeight = animalHeight;
         SetSenses();
@@ -225,6 +231,7 @@ public class AnimalInitializer : MonoBehaviour
         footScript.forwardFacingObj = movementOriginObj.gameObject;
         footScript.animalHeight = animalHeight;
         footScript.rb = rb;
+        footScript.audioPlayer = audioSource;
         
         //Make the foot positioner stuff for inverse kinematics
         FastIKFabric ikScript = foot.gameObject.AddComponent<FastIKFabric>();
@@ -325,5 +332,17 @@ public class AnimalInitializer : MonoBehaviour
                 transform.gameObject.SetActive(false);//disable to begin with for loading
             }
         }
+    }
+
+    public void SetAudio()
+    {
+        audioSource = movementOriginObj.AddComponent<AudioSource>();
+        audioSource.clip = clip;
+        audioSource.spatialBlend = 1f;
+        audioSource.playOnAwake = false;
+        //audioSource.rolloffMode = AudioRolloffMode.Linear;
+        audioSource.maxDistance = 30;
+        audioSource.volume = .7f;
+        //audioSource.volume = 0.2f;
     }
 }

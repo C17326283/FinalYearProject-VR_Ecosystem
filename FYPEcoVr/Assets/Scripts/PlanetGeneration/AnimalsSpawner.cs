@@ -23,7 +23,7 @@ public class AnimalsSpawner : MonoBehaviour
     public TextAsset[] btTexts;
     
     private GameObject newObj;//declare here so can edit in reposition
-    public 
+    public AudioClip audioClip;
 
     // Start is called before the first frame update
     
@@ -79,6 +79,7 @@ public class AnimalsSpawner : MonoBehaviour
                     newObj.transform.position = hit.point + newObj.transform.up * heightFromHitPoint; //repoisition to correct height from hit
                     
                     AnimalInitializer manager = newObj.AddComponent<AnimalInitializer>();
+                    manager.clip = audioClip;
                     manager.animalDNA = animalProfiles[Random.Range(0, animalProfiles.Length)];
                     manager.btTexts = btTexts;
 

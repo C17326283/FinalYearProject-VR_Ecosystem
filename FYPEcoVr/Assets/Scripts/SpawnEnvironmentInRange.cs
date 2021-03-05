@@ -86,14 +86,14 @@ public class SpawnEnvironmentInRange : MonoBehaviour
             yield return new WaitForSeconds(timeBeforeCheck);
             if (spawned.Count>=1&&Vector3.Distance(spawned[i].transform.position, transform.position) > radius+minDist)
             {
-                print("destroy");
+           //     print("destroy");
                 Destroy(spawned[i]);
                 spawned.Remove(spawned[i]);
                 i--;
             }
             else
             {
-                print("no despawn");
+//                print("no despawn");
             }
             
             i++;

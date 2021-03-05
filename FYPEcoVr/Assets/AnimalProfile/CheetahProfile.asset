@@ -35,4 +35,6 @@ MonoBehaviour:
   foodTag: Food
   maxMutatePercent: 2
   numOfLegs: 4
-  gen: 1
+  predatorRating: 4
+  planetEater: 1
+  gen: 4

@@ -86,9 +86,9 @@ public class AnimalGravity : MonoBehaviour
                 //get height based on magnitude or default height
                 //float desiredHeight = Mathf.Min(animalHeight * .9f, animalHeight - (rb.velocity.magnitude / 30)); //strides get bigger at faster speeds so animate lower body too
 
-                float desiredHeight = animalHeight-((furthestFootDist/animalHeight)); //height based on stride
+                float desiredHeight = animalHeight-((furthestFootDist)/1.5f); //height based on stride
  //               print("desiredHeight"+transform.name+desiredHeight);
-                desiredHeight = Mathf.Clamp(desiredHeight, animalHeight * .6f, animalHeight * .9f);
+                desiredHeight = Mathf.Clamp(desiredHeight, animalHeight * .7f, animalHeight * .9f);
 
 
 

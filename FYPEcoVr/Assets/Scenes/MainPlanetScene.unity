@@ -813,6 +813,7 @@ MonoBehaviour:
   needToMove: 0
   distToNext: 0.14761616
   axisDifferences: {x: -0.00084139407, y: 0.16917473, z: -0.035721302}
+  audioPlayer: {fileID: 0}
 --- !u!1 &129961990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1565,7 +1566,7 @@ MonoBehaviour:
   biomeObjs: []
   biomeDist: 500
   usesLOD: 1
-  screenPercentLODCull: 4
+  screenPercentLODCull: 3
 --- !u!114 &223584067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3856,6 +3857,7 @@ GameObject:
   m_Component:
   - component: {fileID: 584669666}
   - component: {fileID: 584669667}
+  - component: {fileID: 584669668}
   m_Layer: 0
   m_Name: Management
   m_TagString: Untagged
@@ -3892,6 +3894,102 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeSpeed: 1
+--- !u!82 &584669668
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584669665}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 473ecd50470a5764ab70be5ac6ca9ca6, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.4
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &589968267
 GameObject:
   m_ObjectHideFlags: 0
@@ -4511,13 +4609,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3de900e6301c04f941f729ed45cd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4416744093512669620}
+  player: {fileID: 950734365}
   Light: {fileID: 697091047}
   core: {fileID: 0}
   sun: {fileID: 1443668991}
   toPlayer: {x: 0.002610393, y: -0.9996085, z: 0.027855298}
   toSun: {x: 0.36383155, y: 0.9074682, z: -0.2100668}
-  dayLightIntensity: 2
+  dayLightIntensity: 1.8
   reverseDir: 0
 --- !u!1 &709984148
 GameObject:
@@ -5113,7 +5211,7 @@ MonoBehaviour:
   loadingGUI: {fileID: 1603732783}
   spaceCam: {fileID: 596869499}
   player: {fileID: 1312277463}
-  playerCam: {fileID: 4416744093236048936}
+  playerCam: {fileID: 1095545743}
   lights:
   - {fileID: 697091049}
   - {fileID: 1735571477}
@@ -5224,7 +5322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3de900e6301c04f941f729ed45cd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4416744093512669620}
+  player: {fileID: 950734365}
   Light: {fileID: 792104341}
   core: {fileID: 0}
   sun: {fileID: 1711375494}
@@ -5322,7 +5420,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Procedural animals, planet and ecosystem by Ryan Byrne
+  m_text: Procedural Animals, Planet and Ecosystem by Ryan Byrne
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -5796,6 +5894,7 @@ MonoBehaviour:
   needToMove: 0
   distToNext: 0.18054302
   axisDifferences: {x: -0.00026071817, y: 0.17047918, z: -0.24392062}
+  audioPlayer: {fileID: 0}
 --- !u!1 &856953206
 GameObject:
   m_ObjectHideFlags: 0
@@ -6467,7 +6566,7 @@ MonoBehaviour:
   core: {fileID: 0}
   gravityStrength: 300
   gravityDir: {x: 0.007232592, y: -0.99969965, z: 0.023417264}
-  animalHeight: 2
+  animalHeight: 1.2
   animalLength: 1.0958252
   rb: {fileID: 950734367}
   headHeightPosObj: {fileID: 694996042}
@@ -7369,6 +7468,7 @@ MonoBehaviour:
   needToMove: 0
   distToNext: 0.16985741
   axisDifferences: {x: 0.0075247735, y: 0.16120058, z: 0.07706592}
+  audioPlayer: {fileID: 0}
 --- !u!1 &1060533781
 GameObject:
   m_ObjectHideFlags: 0
@@ -7773,7 +7873,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1095545744
 Transform:
   m_ObjectHideFlags: 0
@@ -9242,6 +9342,7 @@ MonoBehaviour:
   needToMove: 0
   distToNext: 0.18805246
   axisDifferences: {x: -0.0015184432, y: 0.16832024, z: -0.055620622}
+  audioPlayer: {fileID: 0}
 --- !u!1 &1267038000
 GameObject:
   m_ObjectHideFlags: 0
@@ -9910,6 +10011,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 37b47e6228fae784d8b77270fc285e42, type: 2}
   btTexts:
   - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
+  audioClip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
 --- !u!1 &1332432136
 GameObject:
   m_ObjectHideFlags: 0
@@ -10301,7 +10403,7 @@ MonoBehaviour:
   biomeObjs: []
   biomeDist: 500
   usesLOD: 1
-  screenPercentLODCull: 2
+  screenPercentLODCull: 1
 --- !u!114 &1384593978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12461,13 +12563,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3de900e6301c04f941f729ed45cd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4416744093512669620}
+  player: {fileID: 950734365}
   Light: {fileID: 1735571476}
   core: {fileID: 0}
   sun: {fileID: 1443668991}
   toPlayer: {x: 0, y: 0, z: 0}
   toSun: {x: 0, y: 0, z: 0}
-  dayLightIntensity: 9
+  dayLightIntensity: 50
   reverseDir: 0
 --- !u!1 &1737986216
 GameObject:
@@ -13345,7 +13447,7 @@ MonoBehaviour:
   biomeObjs: []
   biomeDist: 500
   usesLOD: 1
-  screenPercentLODCull: 2
+  screenPercentLODCull: 1.5
 --- !u!1 &1796096449
 GameObject:
   m_ObjectHideFlags: 0
@@ -15694,7 +15796,7 @@ MonoBehaviour:
   biomeObjs: []
   biomeDist: 500
   usesLOD: 1
-  screenPercentLODCull: 4
+  screenPercentLODCull: 3
 --- !u!114 &2125029175
 MonoBehaviour:
   m_ObjectHideFlags: 0

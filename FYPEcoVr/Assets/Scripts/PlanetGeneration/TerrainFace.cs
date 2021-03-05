@@ -62,9 +62,14 @@ public class TerrainFace : MonoBehaviour
                 //If not edge of side then shift point on cube to make them non uniform
                 if (x > 0 && x < res - 1 && y > 0 && y < res - 1)
                 {
-                    float movement = .3f/res;//shift up to 25% in each direction
-                    if (i % 100 == 1)
-                        print(movement);
+                    //float movement = 0;//shift up to 25% in each direction
+
+                    float movement = .28f/res;//shift up to 25% in each direction
+                    //Debug, too expensive to do every verticie
+                    if (i % 500 == 1)
+                    {
+                        //print(movement);
+                    }
                     pointOnUnitCube = localUp + (URandom.Range(percent.x-movement,percent.x+movement) - .5f)*2*axisA + (URandom.Range(percent.y-movement,percent.y+movement) - .5f)*2*axisB;//get position of individual point
 
                 }

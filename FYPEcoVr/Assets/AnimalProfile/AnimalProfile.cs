@@ -33,5 +33,8 @@ public class AnimalProfile : ScriptableObject
     public float maxMutatePercent = 2;
     public int numOfLegs = 4;
     
+    public float predatorRating = 1;
+    public bool planetEater = true;
+    
     public int gen = 1;
 }

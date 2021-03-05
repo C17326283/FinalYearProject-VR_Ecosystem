@@ -43,25 +43,21 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void CheckIfEnemyClose()
     {
+        float closestPredator = Mathf.Infinity;
+
         bool found = false;
         foreach (var obj in brain.objSensedMemory)
         {
-            if (found == false)
+            float distanceToCurrent = Vector3.Distance(rb.transform.position, obj.transform.position);
+    //                    print(tag);
+            //todo run from multiple
+            if (distanceToCurrent<tooCloseDist&&obj.GetComponent<AnimalBrain>()!=null&&obj.GetComponent<AnimalBrain>().predatorRating>brain.predatorRating && distanceToCurrent<tooCloseDist)
             {
-//                print("obj");
-                foreach (var tag in brain.huntedBy)
-                {
-//                    print(tag);
-                    //todo run from multiple
-                    if ( found==false && brain.name !=tag && obj.transform.name==tag && Vector3.Distance(obj.transform.position,rb.transform.position)<tooCloseDist)
-                    {
-//                        print("found");
-                        found = true;
-                        fromTarget = obj.transform;
-                        Task.current.Succeed();
-                        break;
-                    }
-                }
+    //                        print("found");
+                found = true;
+                fromTarget = obj.transform;
+                Task.current.Succeed();
+                break;
             }
         }
 
@@ -70,11 +66,31 @@ public class AnimalBehaviours : MonoBehaviour
             fromTarget = null;
             Task.current.Fail();
         }
-        
     }
     
     [Task]
-    void FleeFromEnemy()
+    void ChasePrey()
+    {
+        Vector3 seekDir;
+        seekDir = (toTarget.position - rb.transform.position);//dont normalize because need the force amounts
+        Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
+        locDir.y = 0;
+
+        if (locDir.magnitude > 1 && Vector3.Distance(toTarget.transform.position,rb.transform.position)>attackRange+brain.animalHeight)
+        {
+            Vector3 force = locDir.normalized * brain.moveSpeed;
+            rb.AddRelativeForce(force*3*Time.deltaTime*100);
+            Task.current.Succeed();//if found no enemies
+        }
+        else
+        {
+//            print("locDir.magnitude"+locDir.magnitude+"  "+attackRange);
+            Task.current.Fail();
+        }
+    }
+    
+    [Task]
+    void FleeFromPredator()
     {
         if (fromTarget != null)
         {
@@ -83,9 +99,31 @@ public class AnimalBehaviours : MonoBehaviour
             Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
             locDir.y = 0;
             Vector3 force = locDir * brain.moveSpeed;
-            rb.AddRelativeForce(force*2*Time.deltaTime*100);
+            rb.AddRelativeForce(force*3*Time.deltaTime*100);
             Task.current.Succeed(); //if found no enemies
         }
+    }
+
+    [Task]
+    void GetAnimalTarget()
+    {
+        float closestWeakAnimal = Mathf.Infinity;
+        bool found = false;
+        foreach (var obj in brain.objSensedMemory)
+        {
+            float distanceToCurrent =
+                Vector3.Distance(rb.transform.position, obj.transform.position);
+            if (obj.GetComponent<AnimalBrain>()!=null&&obj.GetComponent<AnimalBrain>().predatorRating<brain.predatorRating && distanceToCurrent<closestWeakAnimal)//get easiest and closest target
+            {
+                closestWeakAnimal = distanceToCurrent;
+                toTarget = obj.transform;
+                Task.current.Succeed();
+                found = true;
+                break;
+            }
+        }
+        if(found==false)
+            Task.current.Fail();
     }
     
     [Task]
@@ -130,9 +168,6 @@ public class AnimalBehaviours : MonoBehaviour
 //            print("locDir.magnitude"+locDir.magnitude+"  "+attackRange);
             Task.current.Fail();
         }
-            
-                
-        
     }
 
     [Task]
@@ -166,13 +201,19 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void AttackTarget()
     {
-        if (toTarget.GetComponent<AnimalBrain>() && Vector3.Distance(toTarget.position,rb.transform.position)<attackRange)//if has health
+        if (toTarget.GetComponent<AnimalBrain>()!=null && Vector3.Distance(toTarget.position,rb.transform.position)<attackRange)//if has health
         {
-            Rigidbody otherRb = toTarget.GetComponent<Rigidbody>();
-            Vector3 attackDir;
-            attackDir = (toTarget.position - rb.transform.position).normalized;
+            //Rigidbody otherRb = toTarget.GetComponent<Rigidbody>();
+            //Vector3 attackDir;
+            //attackDir = (toTarget.position - rb.transform.position).normalized;
                 
-            rb.AddForce(attackDir * 2*Time.deltaTime*100);
+            //rb.AddForce(attackDir * 2*Time.deltaTime*100);//move
+            //todo add cooldown
+            AnimalBrain otherAnimalBrain = toTarget.GetComponent<AnimalBrain>();
+            otherAnimalBrain.health -= 5;//todo brain attack strength 
+
+            
+            
             Task.current.Succeed();
             print("attack");
         }
@@ -186,7 +227,7 @@ public class AnimalBehaviours : MonoBehaviour
     void ConsumeTarget()//if health lower than x
     {
         Task.current.Succeed();
-        if (toTarget.name == "Food")
+        if (toTarget.name == "Food" || toTarget.GetComponent<AnimalBrain>()!=null)//if natural food or animal
         {
             brain.hunger = 100;
             Task.current.Succeed();
@@ -271,7 +312,7 @@ public class AnimalBehaviours : MonoBehaviour
 
         if (Time.time > lastWanderSuccess+1)//if its been over a second since been stuck
         {
-            print("stuck too long. Time"+Time.time+" last success"+lastWanderSuccess+" ob"+this.transform.name);
+//            print("stuck too long. Time"+Time.time+" last success"+lastWanderSuccess+" ob"+this.transform.name);
             lastWanderSuccess = Time.time;
             Task.current.Fail();
         }

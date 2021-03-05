@@ -316,6 +316,9 @@
           </e>
         </e>
         <e p="ManualButtonTrigger.cs" t="Include" />
+        <e p="Nature Sound FX" t="Include">
+          <e p="Des.txt" t="Include" />
+        </e>
         <e p="PandaBehaviour" t="Include">
           <e p="ChangeLog.txt" t="Include" />
           <e p="Core" t="Include">

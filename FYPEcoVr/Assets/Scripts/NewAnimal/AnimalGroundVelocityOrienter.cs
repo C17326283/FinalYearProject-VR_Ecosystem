@@ -11,7 +11,7 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
     public GameObject core;
     public Vector3 gravityDir;
     public Rigidbody rb;
-    public float turnSpeed = 6;
+    public float turnSpeed = 3;
     
     private int layerMask;
 

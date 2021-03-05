@@ -7,6 +7,7 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
+//Control the individual stats of this animal that come from their dna
 public class AnimalBrain : MonoBehaviour
 {
     public AnimalProfile animalBaseDNA;
@@ -17,7 +18,7 @@ public class AnimalBrain : MonoBehaviour
     public List<String> toHunt = new List<String>();
     public List<String> huntedBy = new List<String>();
     
-    public Transform currentTarget;//set from behaviour tree so positioner can use
+    //public Transform currentTarget;//set from behaviour tree so positioner can use
 
     public String name = "name";
     public float health = 100;
@@ -25,6 +26,8 @@ public class AnimalBrain : MonoBehaviour
     public float thirst = 100;
     public float reproductiveUrge = 0;
     public float age = 0;
+    public float predatorRating = 1;
+    public bool carnivore = true;
     
     public float maxHealth = 100f;
     public float maxStat = 100;
@@ -81,7 +84,8 @@ public class AnimalBrain : MonoBehaviour
     public void Die()
     {
         Debug.Log("Died");
-        Destroy(gameObject);//destroy after 20secs
+        
+        //Destroy(gameObject);//destroy after 20secs
     }
 
     public void Born()
@@ -143,6 +147,10 @@ public class AnimalBrain : MonoBehaviour
         wanderRadius = animalBaseDNA.wanderRadius;
         forwardWanderBias = animalBaseDNA.forwardWanderBias;
         maxMutatePercent = animalBaseDNA.maxMutatePercent;
+        predatorRating = animalBaseDNA.predatorRating;
+        
+
+
 //        print("SetStatsFromDNA"+animalBaseDNA.moveSpeed);
 //        print("moveSpeed"+moveSpeed);
     }

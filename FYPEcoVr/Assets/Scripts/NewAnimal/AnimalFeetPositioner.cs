@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DitzelGames.FastIK;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AnimalFeetPositioner : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class AnimalFeetPositioner : MonoBehaviour
     public float distToNext;
 
     public Vector3 axisDifferences;
+    public AudioSource audioPlayer;
     
     
     
@@ -137,7 +139,7 @@ public class AnimalFeetPositioner : MonoBehaviour
 //                print("move ik to next pos");
                 //float footLift = footHeightMult * (Vector3.Distance(footIKTargetObj.transform.position, nextFootPos) /5);         
                 //float footMoveSpeed = Mathf.Max(lerpSpeed,(animalLength * rb.velocity.magnitude)/footSpeedDiv);
-                float footMoveSpeed = Mathf.Max(rb.velocity.magnitude,(distToNext*animalLength)/2)*footSpeed;
+                float footMoveSpeed = Mathf.Max(rb.velocity.magnitude,(distToNext*animalLength+axisDifferences.x)/2)*footSpeed;
 
                 float footLift= (Vector3.Distance(footIKTargetObj.transform.position, nextFootPos)*footHeightMult)-footMoveStopDist;
                 footLift= Mathf.Clamp(footLift,0f,(animalHeight/rb.velocity.magnitude)*3);
@@ -159,9 +161,16 @@ public class AnimalFeetPositioner : MonoBehaviour
             }
             else
             {
+                if (audioPlayer != null)
+                {
+                    if(audioPlayer.isPlaying)
+                        audioPlayer.Stop();
+                    audioPlayer.pitch = Random.Range(0.7f, 1f);
+                    audioPlayer.PlayOneShot(audioPlayer.clip);
+
+                }
                 needToMove = false;
 //                print("needToMove false");
-
             }
             
         }
