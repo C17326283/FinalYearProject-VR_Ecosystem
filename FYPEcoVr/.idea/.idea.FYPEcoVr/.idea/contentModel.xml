@@ -203,6 +203,7 @@
             </e>
           </e>
         </e>
+        <e p="CustomHandController.cs" t="Include" />
         <e p="DeactivateAfterTime.cs" t="Include" />
         <e p="Default" t="Include">
           <e p="TutorialInfo" t="Include">
@@ -486,9 +487,13 @@
           <e p="SpineAnimator.cs" t="Include" />
           <e p="SpineAnimatorManager.cs" t="Include" />
           <e p="UnloadObjs.cs" t="Include" />
+          <e p="Vr" t="Include">
+            <e p="HandController.cs" t="Include" />
+          </e>
           <e p="VrTestClick.cs" t="Include" />
         </e>
         <e p="TestActionControllerInput.cs" t="Include" />
+        <e p="TestAnim.cs" t="Include" />
       </e>
       <e p="Boxophobic.PolyverseSkies.Editor.csproj" t="IncludeRecursive" />
       <e p="Boxophobic.PolyverseSkies.Runtime.csproj" t="IncludeRecursive" />

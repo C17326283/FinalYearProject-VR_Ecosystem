@@ -69,17 +69,17 @@
                 },
                 {
                     "name": "Select",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "33754c03-48ec-46ef-9bc6-22ed6bfdd8e8",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
                 },
                 {
                     "name": "Activate",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "0c0991c5-d329-4afc-8892-1076b440477c",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
                 },
@@ -248,7 +248,7 @@
                 {
                     "name": "",
                     "id": "71a4d23f-3e9a-4513-923b-ba388c5e84bf",
-                    "path": "<XRController>{LeftHand}/gripPressed",
+                    "path": "<XRController>{LeftHand}/grip",
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
@@ -259,7 +259,7 @@
                 {
                     "name": "",
                     "id": "487f4f2e-9e9b-49aa-b0f2-4037a24624f5",
-                    "path": "<XRController>{LeftHand}/triggerPressed",
+                    "path": "<XRController>{LeftHand}/trigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
@@ -357,17 +357,17 @@
                 },
                 {
                     "name": "Select",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "ac96c10b-c955-4a46-8e67-bf16bc069b53",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
                 },
                 {
                     "name": "Activate",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "41976d89-60de-4deb-bff9-16b4af96b290",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
                 },
@@ -448,7 +448,7 @@
                 {
                     "name": "",
                     "id": "fa59aed1-ae0b-4074-a58c-294b85f46228",
-                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "path": "<XRController>{RightHand}/trigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
@@ -536,7 +536,7 @@
                 {
                     "name": "",
                     "id": "1ce80054-410d-4112-a332-50faa7fb4f23",
-                    "path": "<XRController>{RightHand}/gripPressed",
+                    "path": "<XRController>{RightHand}/grip",
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
