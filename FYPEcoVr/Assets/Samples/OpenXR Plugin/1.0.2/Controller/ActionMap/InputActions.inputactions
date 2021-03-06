@@ -185,10 +185,10 @@
                 {
                     "name": "",
                     "id": "54ac7ab0-8ca9-4cbc-a6d1-da5ee0b055cb",
-                    "path": "<XRController>{LeftHand}/thumbstick",
+                    "path": "<XRController>{LeftHand}/{primary2DAxis}",
                     "interactions": "",
                     "processors": "",
-                    "groups": "XR Usage",
+                    "groups": "",
                     "action": "Primary2DAxis",
                     "isComposite": false,
                     "isPartOfComposite": false

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2343,6 +2343,10 @@ PrefabInstance:
       propertyPath: m_RotationAction.m_SingletonActionBindings.Array.data[0].m_Id
       value: 331d05d0-5cbf-427d-ba56-a8b277720324
       objectReference: {fileID: 0}
+    - target: {fileID: 9138651066096961057, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_ActionAssets.Array.data[0]
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
     - target: {fileID: 9138651066096961058, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_Name
       value: XR Rig

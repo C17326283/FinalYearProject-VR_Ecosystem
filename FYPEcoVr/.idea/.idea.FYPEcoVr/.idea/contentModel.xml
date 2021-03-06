@@ -396,6 +396,23 @@
               </e>
             </e>
           </e>
+          <e p="XR Plugin Management" t="Include">
+            <e p="4.0.1" t="Include">
+              <e p="Example XR Management implementation" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="SampleBuildProcessor.cs" t="Include" />
+                  <e p="SampleMetadata.cs" t="Include" />
+                  <e p="SampleSettingsEditor.cs" t="Include" />
+                  <e p="SampleStandaloneLoaderUI.cs" t="Include" />
+                  <e p="Unity.XR.Management.Samples.Editor.asmdef" t="Include" />
+                </e>
+                <e p="SampleConstants.cs" t="Include" />
+                <e p="SampleLoader.cs" t="Include" />
+                <e p="SampleSettings.cs" t="Include" />
+                <e p="Unity.XR.Management.Samples.asmdef" t="Include" />
+              </e>
+            </e>
+          </e>
         </e>
         <e p="Scripts" t="Include">
           <e p="AllAnimalManager.cs" t="Include" />
@@ -471,6 +488,7 @@
           <e p="UnloadObjs.cs" t="Include" />
           <e p="VrTestClick.cs" t="Include" />
         </e>
+        <e p="TestActionControllerInput.cs" t="Include" />
       </e>
       <e p="Boxophobic.PolyverseSkies.Editor.csproj" t="IncludeRecursive" />
       <e p="Boxophobic.PolyverseSkies.Runtime.csproj" t="IncludeRecursive" />
@@ -482,6 +500,8 @@
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
       <e p="Temp\Bin" t="ExcludeRecursive" />
+      <e p="Unity.XR.Management.Samples.csproj" t="IncludeRecursive" />
+      <e p="Unity.XR.Management.Samples.Editor.csproj" t="IncludeRecursive" />
     </e>
   </component>
 </project>
