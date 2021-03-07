@@ -32,9 +32,11 @@ public class AnimalProfile : ScriptableObject
     public String foodTag = "Food";
     public float maxMutatePercent = 2;
     public int numOfLegs = 4;
+    public float attackRate = 1;
+    public float attackDamage = 5;
     
     public float predatorRating = 1;
-    public float terrorRating = 1;
+    public float preyRating = 1;
     public bool eatsPlants = true;
     
     public int gen = 1;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Panda;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
@@ -27,7 +28,7 @@ public class AnimalBrain : MonoBehaviour
     public float reproductiveUrge = 0;
     public float age = 0;
     public float predatorRating = 1;
-    public float terrorRating = 1;
+    public float preyRating = 1;
     public bool eatsPlants = false;
     
     public float maxHealth = 100f;
@@ -45,6 +46,8 @@ public class AnimalBrain : MonoBehaviour
     public float wanderRadius = 5;
     public float forwardWanderBias = 2;
     public float maxMutatePercent = 2;
+    public float attackRate = 1;
+    public float attackDamage = 5;
 
     public float animalHeight;
 
@@ -75,6 +78,8 @@ public class AnimalBrain : MonoBehaviour
         thirst = thirst - thirstDecrement * Time.deltaTime;
         reproductiveUrge = reproductiveUrge + reproductiveIncrement * Time.deltaTime;
         age = age + ageIncrement * Time.deltaTime;
+        if (hunger < 0 || thirst < 0)
+            health -= 0.01f;
         
         if (health <= 0)
         {
@@ -82,12 +87,34 @@ public class AnimalBrain : MonoBehaviour
         }
     }
 
+    public void GiveBirth()
+    {
+        GameObject baby = new GameObject("Gen2Holder");
+        baby.transform.parent = transform.parent.parent;//the overall holder not the initialiser
+        baby.transform.position = transform.position+(transform.forward*2);
+        AnimalInitializer initializer = baby.AddComponent<AnimalInitializer>();
+        initializer.animalDNA = animalBaseDNA;
+        initializer.btTexts = transform.parent.GetComponent<AnimalInitializer>().btTexts;//copy current ones
+        initializer.clip = transform.parent.GetComponent<AnimalInitializer>().clip;
+        initializer.InitialiseAnimal();
+
+    }
+
     public void Die()
     {
         Debug.Log("Died");
-        gameObject.SetActive(false);
-        
+        this.GetComponent<BehaviourTree>().enabled = false;//disable ai
+
+        StartCoroutine(SetInactive(5));
         //Destroy(gameObject);//destroy after 20secs
+    }
+
+    IEnumerator SetInactive(float time)
+    {
+        yield return new WaitForSeconds(time);//wait specific time
+        Debug.Log("Died");
+
+        gameObject.SetActive(false);
     }
 
     public void Born()
@@ -150,7 +177,7 @@ public class AnimalBrain : MonoBehaviour
         forwardWanderBias = animalBaseDNA.forwardWanderBias;
         maxMutatePercent = animalBaseDNA.maxMutatePercent;
         predatorRating = animalBaseDNA.predatorRating;
-        terrorRating = animalBaseDNA.terrorRating;
+        preyRating = animalBaseDNA.preyRating;
         eatsPlants = animalBaseDNA.eatsPlants;
         
 

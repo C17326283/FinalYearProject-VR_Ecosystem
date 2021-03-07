@@ -1,12 +1,23 @@
 tree("Root")
     sequence
-        fallback 
-            tree("Flee")
+        fallback
+            tree("Combat") 
             tree("SeekFood")
             tree("SeekWater")
             tree("SeekMate")
             tree("Wander")
         AvoidPredators()
+        
+tree("Combat")
+    sequence
+        IsInCombatCondition()
+        TargetCombatAnimal()
+        random(8,2)
+            sequence
+                SeekTarget() 
+                AttackTarget()
+            FleeFromTarget()
+        
         
 tree("Flee")
     sequence
@@ -22,12 +33,13 @@ tree("SeekFood")
                 ChasePrey()
             sequence
                 ArrivedAtTargetCondition()
-                fallback
-                    AttackTarget()
-                    ConsumeTarget()
+                AttackTarget()
+                ConsumeTarget()
             sequence
                 TargetPlants()
                 SeekTarget()
+                ArrivedAtTargetCondition()
+                ConsumeTarget()
            
 tree("SeekWater")
     sequence
@@ -41,7 +53,10 @@ tree("SeekWater")
 tree("SeekMate")
      sequence
          WantsToMateCondition()
-         DebugFail()
+         TargetMate()
+         SeekTarget()
+         ArrivedAtTargetCondition()
+         Mate()
         
 tree("Wander")
 

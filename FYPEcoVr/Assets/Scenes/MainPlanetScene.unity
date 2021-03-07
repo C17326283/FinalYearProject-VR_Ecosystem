@@ -6388,7 +6388,6 @@ GameObject:
   - component: {fileID: 950734366}
   - component: {fileID: 950734373}
   - component: {fileID: 950734367}
-  - component: {fileID: 950734372}
   - component: {fileID: 950734371}
   - component: {fileID: 950734370}
   - component: {fileID: 950734369}
@@ -6590,66 +6589,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialiseOnStart: 1
-  brain: {fileID: 950734372}
+  brain: {fileID: 0}
   core: {fileID: 0}
   gravityDir: {x: 0.007232592, y: -0.99969965, z: 0.023417264}
   rb: {fileID: 950734367}
   turnSpeed: 9.809183
   moveVel: {x: 0.0000006378641, y: -0.0000102527065, z: -0.000021327445}
   orienter: {fileID: 273904438}
---- !u!114 &950734372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950734365}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80f9c3dd3c165ec46b910d78445569ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animalBaseDNA: {fileID: 11400000, guid: 90cc2ec8d2ab72541b5dff655ba83a30, type: 2}
-  objSensedMemory:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 950734365}
-  - {fileID: 0}
-  - {fileID: 0}
-  forgettingObjs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  toHunt:
-  - Food
-  - Chicken
-  huntedBy:
-  - Cheetah
-  name: Fox
-  health: 100
-  hunger: 92.62562
-  thirst: 97.54961
-  reproductiveUrge: 14.739897
-  age: 2.4276738
-  predatorRating: 1
-  terrorRating: 1
-  eatsPlants: 0
-  maxHealth: 100
-  maxStat: 100
-  healthStarveDecrement: 100.011375
-  hungerDecrement: 3.0376165
-  thirstDecrement: 1.0093547
-  reproductiveIncrement: 6.071615
-  ageIncrement: 1
-  memoryLossRate: 602.5392
-  sensoryRange: 99.309586
-  moveSpeed: 392.36734
-  rotSpeed: 488.63397
-  wanderRadius: 49.51313
-  forwardWanderBias: 1.9995229
-  maxMutatePercent: 2
-  animalHeight: 1.1069336
 --- !u!65 &950734373
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7987,7 +7933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 950734366}
   core: {fileID: 0}
-  turnSpeed: 10
+  turnSpeed: 5
   posUp: 2
 --- !u!1 &1100213580
 GameObject:
@@ -10000,7 +9946,7 @@ MonoBehaviour:
   waitUntillTriggered: 1
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 3000
+  amountToSpawn: 1000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 2
   tagToSpawnOn: Ground
@@ -10014,6 +9960,7 @@ MonoBehaviour:
   btTexts:
   - {fileID: 4900000, guid: c10ebbd1b339bb14185c233b95adb9fc, type: 3}
   audioClip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
+  groupAmount: 3
 --- !u!1 &1332432136
 GameObject:
   m_ObjectHideFlags: 0

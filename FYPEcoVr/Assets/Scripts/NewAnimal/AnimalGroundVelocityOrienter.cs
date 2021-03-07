@@ -68,7 +68,7 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
         if (Physics.Raycast(rb.transform.position, gravityDir, out hit, 100,layerMask))
         {
             Debug.DrawLine(transform.position, hit.point, Color.black);
-            orienter.transform.up = hit.normal;
+            orienter.transform.up = hit.normal;//todo have a max angle
 
             Vector3 locVel = orienter.transform.InverseTransformDirection(rb.velocity);//Find velocity in relation to an object oriented to ground
             locVel.y = locVel.y*0.01f;//cancel out vertical force but animates better with a small bit

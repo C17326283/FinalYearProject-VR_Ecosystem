@@ -24,6 +24,9 @@ public class AnimalBehaviours : MonoBehaviour
     private int layerMask;
     public float lastWanderSuccess;
     public bool isPanicked = false;
+    public GameObject combatAnimal;
+
+    public float lastAttackTime = 0;
 
 
     public void OnDrawGizmos()
@@ -51,7 +54,7 @@ public class AnimalBehaviours : MonoBehaviour
         {
             float distanceToCurrent = Vector3.Distance(rb.transform.position, obj.transform.position);
             //todo run from multiple
-            if (distanceToCurrent<tooCloseDist&&obj.transform.name!=this.transform.name&&obj.GetComponent<AnimalBrain>()!=null&&obj.GetComponent<AnimalBrain>().predatorRating>brain.terrorRating && distanceToCurrent<tooCloseDist)
+            if (distanceToCurrent<tooCloseDist&&obj.transform.name!=this.transform.name&&obj.GetComponent<AnimalBrain>()!=null&&obj.GetComponent<AnimalBrain>().predatorRating>brain.preyRating && distanceToCurrent<tooCloseDist)
             {
                 found = true;
                 fromTarget = obj.transform;
@@ -81,7 +84,7 @@ public class AnimalBehaviours : MonoBehaviour
         {
             float distanceToCurrent = Vector3.Distance(rb.transform.position, obj.transform.position);
             //todo run from multiple
-            if (distanceToCurrent<tooCloseDist*10&&obj.GetComponent<AnimalBrain>()!=null&&obj.GetComponent<AnimalBrain>().predatorRating>brain.terrorRating)
+            if (distanceToCurrent<tooCloseDist*10&&obj.GetComponent<AnimalBrain>()!=null&&obj.GetComponent<AnimalBrain>().predatorRating>brain.preyRating)
             {
                 Vector3 fleeDir;
                 fleeDir = (rb.transform.position - obj.transform.position).normalized;
@@ -123,7 +126,28 @@ public class AnimalBehaviours : MonoBehaviour
             Task.current.Fail();
         }
     }
+
+    [Task]
+    void FleeFromTarget()
+    {
+        if (combatAnimal != null)
+        {
+            Vector3 fleeDir;
+            fleeDir = (rb.transform.position - combatAnimal.transform.position).normalized;
+            Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
+            locDir.y = 0;
+            Vector3 force = locDir * brain.moveSpeed;
+            rb.AddRelativeForce(force * 2 * Time.deltaTime * 100);
+            Task.current.Succeed(); //if found no enemies
+        }
+        else
+        {
+            Task.current.Fail();
+        }
+    }
     
+
+
     [Task]
     void FleeFromPredator()
     {
@@ -144,6 +168,16 @@ public class AnimalBehaviours : MonoBehaviour
     }
 
     [Task]
+    void Mate()
+    {
+        brain.reproductiveUrge = 0;
+        toTarget.GetComponent<AnimalBrain>().reproductiveUrge = 0;
+        brain.GiveBirth();
+        Task.current.Succeed();
+
+    }
+
+    [Task]
     void GetAnimalTarget()
     {
         float closestWeakAnimal = Mathf.Infinity;
@@ -152,7 +186,7 @@ public class AnimalBehaviours : MonoBehaviour
         {
             float distanceToCurrent =
                 Vector3.Distance(rb.transform.position, obj.transform.position);
-            if (obj.transform.name!=this.transform.name&&obj.GetComponent<AnimalBrain>()!=null&&obj.GetComponent<AnimalBrain>().terrorRating<brain.predatorRating && distanceToCurrent<closestWeakAnimal)//get easiest and closest target
+            if (obj.transform.name!=this.transform.name&&obj.activeInHierarchy&&obj.GetComponent<AnimalBrain>()!=null&&obj.GetComponent<AnimalBrain>().preyRating<brain.predatorRating && distanceToCurrent<closestWeakAnimal)//get easiest and closest target
             {
                 closestWeakAnimal = distanceToCurrent;
                 toTarget = obj.transform;
@@ -183,6 +217,28 @@ public class AnimalBehaviours : MonoBehaviour
                     break;
                 }
             } 
+        }
+
+        if (found == false)
+        {
+            Task.current.Fail();
+        }
+    }
+    
+    [Task]
+    void TargetMate()
+    {
+        //todo only if not panicked
+        bool found = false;
+        foreach (var obj in brain.objSensedMemory)
+        {
+            if (obj.transform.name == transform.name&&obj.transform!=transform &&obj.activeInHierarchy&&obj.GetComponent<AnimalBrain>()!=null&& obj.GetComponent<AnimalBrain>().reproductiveUrge>90)
+            {
+                toTarget = obj.transform;
+                Task.current.Succeed();
+                found = true;
+                break;
+            }
         }
 
         if (found == false)
@@ -237,6 +293,31 @@ public class AnimalBehaviours : MonoBehaviour
     }
 
     [Task]
+    void TargetCombatAnimal()
+    {
+        toTarget = combatAnimal.transform;
+        Task.current.Succeed();
+
+        
+    }
+
+    [Task]
+    void IsInCombatCondition()
+    {
+        if (combatAnimal != null && combatAnimal.activeInHierarchy == true)
+        {
+            Task.current.Succeed();
+
+        }
+        else
+        {
+            combatAnimal = null;
+            Task.current.Fail();
+
+        }
+    }
+
+    [Task]
     void ArrivedAtTargetCondition()
     {
         if (toTarget != null)
@@ -269,19 +350,19 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void AttackTarget()
     {
-        if (toTarget.GetComponent<AnimalBrain>()!=null && Vector3.Distance(toTarget.position,rb.transform.position)<attackRange)//if has health
+        if (toTarget.GetComponent<AnimalBrain>()!=null&&Time.time>lastAttackTime+brain.attackRate && toTarget.gameObject.activeInHierarchy&&Vector3.Distance(toTarget.position,rb.transform.position)<attackRange+brain.animalHeight)//if has health
         {
-            //Rigidbody otherRb = toTarget.GetComponent<Rigidbody>();
-            //Vector3 attackDir;
-            //attackDir = (toTarget.position - rb.transform.position).normalized;
-                
-            //rb.AddForce(attackDir * 2*Time.deltaTime*100);//move
             //todo add cooldown
             AnimalBrain otherAnimalBrain = toTarget.GetComponent<AnimalBrain>();
+            combatAnimal = toTarget.gameObject;
+            toTarget.GetComponent<AnimalBehaviours>().combatAnimal = this.gameObject;
+            toTarget.GetComponent<AnimalBehaviours>().isPanicked = true;
+            isPanicked = true;
+            StartCoroutine(panicCoolown());
             otherAnimalBrain.health -= 5;//todo brain attack strength 
 
-            
-            
+
+            lastAttackTime = Time.time;
             Task.current.Succeed();
             print("attack");
         }
@@ -294,7 +375,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void ConsumeTarget()//if health lower than x
     {
-        if (toTarget.name == "Food" || toTarget.GetComponent<AnimalBrain>()!=null)//if natural food or animal
+        if (toTarget.name == "Food" || toTarget.GetComponent<AnimalBrain>()!=null && toTarget.GetComponent<AnimalBrain>().health<=0 && toTarget.gameObject.activeInHierarchy)//if natural food or animal
         {
             brain.hunger = 100;
             Task.current.Succeed();
@@ -391,7 +472,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void IsHungryCondition()
     {
-        if (brain.hunger < 20)
+        if (brain.hunger < 50)
         {
             Task.current.Succeed();
         }
@@ -404,7 +485,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void IsThirstyCondition()
     {
-        if (brain.thirst < 20)
+        if (brain.thirst < 50)
         {
             Task.current.Succeed();
         }
@@ -417,7 +498,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void WantsToMateCondition()//Todo add behaviour
     {
-        if (brain.reproductiveUrge < 20)
+        if (brain.reproductiveUrge > 90)
         {
             Task.current.Succeed();
         }
@@ -437,6 +518,14 @@ public class AnimalBehaviours : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         isPanicked = false;
+        combatAnimal = null;
+    }
+    
+    IEnumerator attackCoolown()
+    {
+        yield return new WaitForSeconds(5);
+        isPanicked = false;
+        combatAnimal = null;
     }
 
 

@@ -24,6 +24,7 @@ public class AnimalsSpawner : MonoBehaviour
     
     private GameObject newObj;//declare here so can edit in reposition
     public AudioClip audioClip;
+    public int groupAmount = 3;
 
     // Start is called before the first frame update
     
@@ -62,35 +63,39 @@ public class AnimalsSpawner : MonoBehaviour
         yield return new WaitForSeconds(1f);//to make sure the mesh was spawned correctly
         for (int i = 0; i < amountToSpawn; i++)
         {
-            newObj = null;
-
-            
-            RaycastHit hit; //shoot ray and if its ground then spawn at that location
-            if (Physics.Raycast(transform.position, core - gameObject.transform.position, out hit, 10000))
+            AnimalProfile animalToSpawn = animalProfiles[Random.Range(0, animalProfiles.Length)];
+            for (int j = 0; j < groupAmount; j++)
             {
-//                Debug.Log("hit"+hit.transform.name + hit.transform.position);
-                if (hit.transform.CompareTag(tagToSpawnOn)) //Checks its allowed spawn there
+                newObj = null;
+                RaycastHit hit; //shoot ray and if its ground then spawn at that location
+                if (Physics.Raycast(transform.position+(transform.forward * (j)), core - gameObject.transform.position, out hit, 10000))
                 {
-                    newObj = new GameObject("Animalholder");
-                    newObj.transform.parent = parentObject.transform;
+                    //                Debug.Log("hit"+hit.transform.name + hit.transform.position);
+                    if (hit.transform.CompareTag(tagToSpawnOn)) //Checks its allowed spawn there
+                    {
+                        newObj = new GameObject("Animalholder");
+                        newObj.transform.parent = parentObject.transform;
 
-                    //newObj.transform.position = hit.point; //place object at hit
-                    newObj.transform.up = newObj.transform.position - core; //set rotation so orients properly
-                    newObj.transform.position = hit.point + newObj.transform.up * heightFromHitPoint; //repoisition to correct height from hit
-                    
-                    AnimalInitializer manager = newObj.AddComponent<AnimalInitializer>();
-                    manager.clip = audioClip;
-                    manager.animalDNA = animalProfiles[Random.Range(0, animalProfiles.Length)];
-                    manager.btTexts = btTexts;
+                        //newObj.transform.position = hit.point; //place object at hit
+                        newObj.transform.up = newObj.transform.position - core; //set rotation so orients properly
+                        newObj.transform.position =
+                            hit.point + newObj.transform.up *
+                            heightFromHitPoint; //repoisition to correct height from hit
+
+                        AnimalInitializer manager = newObj.AddComponent<AnimalInitializer>();
+                        manager.clip = audioClip;
+                        manager.animalDNA = animalToSpawn;
+                        manager.btTexts = btTexts;
 
 
-//                    print(newObj.transform.position);
-                    manager.InitialiseAnimal();
+                        //                    print(newObj.transform.position);
+                        manager.InitialiseAnimal();
+                    }
                 }
-            }
-            else
-            {
-                Debug.Log("no hit");
+                else
+                {
+                    //Debug.Log("no hit");
+                }
             }
             Resposition();
         }
