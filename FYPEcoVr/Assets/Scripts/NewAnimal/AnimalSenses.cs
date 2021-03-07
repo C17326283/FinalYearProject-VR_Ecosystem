@@ -17,7 +17,7 @@ public class AnimalSenses : MonoBehaviour
         {
             brain.forgettingObjs.Remove(other.gameObject);
         }
-        else if (other != this.transform.parent && !other.transform.CompareTag("Untagged") && !other.transform.CompareTag("Ground") && !brain.objSensedMemory.Contains(other.gameObject)) //Certain tags the animal shouldnt care about and it shouldnt add objs twice
+        else if (other.transform != this.transform.parent && !other.transform.CompareTag("Untagged") && !other.transform.CompareTag("Ground") && !brain.objSensedMemory.Contains(other.gameObject)) //Certain tags the animal shouldnt care about and it shouldnt add objs twice
         {
             brain.objSensedMemory.Add(other.gameObject);
         }

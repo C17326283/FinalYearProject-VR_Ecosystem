@@ -12,8 +12,8 @@ public class AnimalBehaviours : MonoBehaviour
     
     //use these by reference instead
     public Rigidbody rb;
-    public float tooCloseDist = 20;
-    public float attackRange = 1;
+    public float tooCloseDist = 5;
+    public float attackRange = 3;
     public Transform toTarget;
     public Transform fromTarget;
     public GameObject wanderObj;
@@ -23,6 +23,7 @@ public class AnimalBehaviours : MonoBehaviour
     
     private int layerMask;
     public float lastWanderSuccess;
+    public bool isPanicked = false;
 
 
     public void OnDrawGizmos()
@@ -41,7 +42,7 @@ public class AnimalBehaviours : MonoBehaviour
     
 
     [Task]
-    void CheckIfEnemyClose()
+    void EnemyIsTooCloseCondition()
     {
         float closestPredator = Mathf.Infinity;
 
@@ -49,15 +50,46 @@ public class AnimalBehaviours : MonoBehaviour
         foreach (var obj in brain.objSensedMemory)
         {
             float distanceToCurrent = Vector3.Distance(rb.transform.position, obj.transform.position);
-    //                    print(tag);
             //todo run from multiple
-            if (distanceToCurrent<tooCloseDist&&obj.GetComponent<AnimalBrain>()!=null&&obj.GetComponent<AnimalBrain>().predatorRating>brain.predatorRating && distanceToCurrent<tooCloseDist)
+            if (distanceToCurrent<tooCloseDist&&obj.transform.name!=this.transform.name&&obj.GetComponent<AnimalBrain>()!=null&&obj.GetComponent<AnimalBrain>().predatorRating>brain.terrorRating && distanceToCurrent<tooCloseDist)
             {
-    //                        print("found");
                 found = true;
                 fromTarget = obj.transform;
+                isPanicked = true;
+                StartCoroutine(panicCoolown());//Become panicked until timer stops
                 Task.current.Succeed();
                 break;
+            }
+        }
+
+        if (isPanicked)
+        {
+            Task.current.Succeed();
+        }
+        else if (found == false)
+        {
+            fromTarget = null;
+            Task.current.Fail();
+        }
+    }
+
+    [Task]
+    void AvoidPredators()
+    {
+        bool found = false;
+        foreach (var obj in brain.objSensedMemory)
+        {
+            float distanceToCurrent = Vector3.Distance(rb.transform.position, obj.transform.position);
+            //todo run from multiple
+            if (distanceToCurrent<tooCloseDist*10&&obj.GetComponent<AnimalBrain>()!=null&&obj.GetComponent<AnimalBrain>().predatorRating>brain.terrorRating)
+            {
+                Vector3 fleeDir;
+                fleeDir = (rb.transform.position - obj.transform.position).normalized;
+                Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
+                locDir.y = 0;
+                Vector3 force = locDir * (tooCloseDist/distanceToCurrent);//Add avoid forc ebased on dist
+                rb.AddRelativeForce(force*Time.deltaTime*100);
+                found = true;
             }
         }
 
@@ -66,8 +98,12 @@ public class AnimalBehaviours : MonoBehaviour
             fromTarget = null;
             Task.current.Fail();
         }
+        else
+        {
+            Task.current.Succeed(); //if found no enemies
+        }
     }
-    
+
     [Task]
     void ChasePrey()
     {
@@ -79,12 +115,11 @@ public class AnimalBehaviours : MonoBehaviour
         if (locDir.magnitude > 1 && Vector3.Distance(toTarget.transform.position,rb.transform.position)>attackRange+brain.animalHeight)
         {
             Vector3 force = locDir.normalized * brain.moveSpeed;
-            rb.AddRelativeForce(force*3*Time.deltaTime*100);
+            rb.AddRelativeForce(force*2*Time.deltaTime*100);
             Task.current.Succeed();//if found no enemies
         }
         else
         {
-//            print("locDir.magnitude"+locDir.magnitude+"  "+attackRange);
             Task.current.Fail();
         }
     }
@@ -99,8 +134,12 @@ public class AnimalBehaviours : MonoBehaviour
             Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
             locDir.y = 0;
             Vector3 force = locDir * brain.moveSpeed;
-            rb.AddRelativeForce(force*3*Time.deltaTime*100);
+            rb.AddRelativeForce(force*2*Time.deltaTime*100);
             Task.current.Succeed(); //if found no enemies
+        }
+        else
+        {
+            Task.current.Fail();
         }
     }
 
@@ -113,7 +152,7 @@ public class AnimalBehaviours : MonoBehaviour
         {
             float distanceToCurrent =
                 Vector3.Distance(rb.transform.position, obj.transform.position);
-            if (obj.GetComponent<AnimalBrain>()!=null&&obj.GetComponent<AnimalBrain>().predatorRating<brain.predatorRating && distanceToCurrent<closestWeakAnimal)//get easiest and closest target
+            if (obj.transform.name!=this.transform.name&&obj.GetComponent<AnimalBrain>()!=null&&obj.GetComponent<AnimalBrain>().terrorRating<brain.predatorRating && distanceToCurrent<closestWeakAnimal)//get easiest and closest target
             {
                 closestWeakAnimal = distanceToCurrent;
                 toTarget = obj.transform;
@@ -127,7 +166,33 @@ public class AnimalBehaviours : MonoBehaviour
     }
     
     [Task]
-    void CheckIfRemembersResource(String resource)
+    void TargetPlants()
+    {
+        
+        //todo only if not panicked
+        bool found = false;
+        if (brain.eatsPlants)
+        {
+            foreach (var obj in brain.objSensedMemory)
+            {
+                if (obj.transform.name == "Food" && found==false)
+                {
+                    toTarget = obj.transform;
+                    Task.current.Succeed();
+                    found = true;
+                    break;
+                }
+            } 
+        }
+
+        if (found == false)
+        {
+            Task.current.Fail();
+        }
+    }
+    
+    [Task]
+    void TargetResource(String resource)
     {
         //todo only if not panicked
         bool found = false;
@@ -152,42 +217,45 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void SeekTarget()
     {
-        Vector3 seekDir;
-        seekDir = (toTarget.position - rb.transform.position);//dont normalize because need the force amounts
-        Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
-        locDir.y = 0;
-
-        if (locDir.magnitude > 1 && Vector3.Distance(toTarget.transform.position,rb.transform.position)>attackRange+brain.animalHeight)
+        if (toTarget != null)
         {
-          Vector3 force = locDir.normalized * brain.moveSpeed;
+            Vector3 seekDir;
+            seekDir = (toTarget.position - rb.transform.position);//dont normalize because need the force amounts
+            Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
+            locDir.y = 0;
+
+            Vector3 force = locDir.normalized * brain.moveSpeed;
             rb.AddRelativeForce(force*Time.deltaTime*100);
             Task.current.Succeed();//if found no enemies
         }
         else
         {
-//            print("locDir.magnitude"+locDir.magnitude+"  "+attackRange);
             Task.current.Fail();
+
         }
+        
     }
 
     [Task]
-    void ArriveTarget()
+    void ArrivedAtTargetCondition()
     {
-        float distance = Vector3.Distance(toTarget.transform.position, rb.transform.position);
-        if (distance < attackRange/4)
+        if (toTarget != null)
         {
-            Task.current.Succeed();
-        }
-        else if (distance < attackRange+brain.animalHeight)
-        {
-            Vector3 seekDir;
-            seekDir = (toTarget.position - rb.transform.position).normalized;
-            rb.AddForce(seekDir * (brain.moveSpeed/4*Time.deltaTime)*Time.deltaTime*100);//slow down approach
-            Task.current.Succeed();
+            float distance = Vector3.Distance(toTarget.transform.position, rb.transform.position);
+            if (distance < attackRange+brain.animalHeight)
+            {
+//                print(transform.name+distance+" and "+(attackRange+brain.animalHeight));
+                Task.current.Succeed();
+            }
+            else
+            {
+                Task.current.Fail();
+            }
         }
         else
         {
             Task.current.Fail();
+
         }
 
     }
@@ -226,7 +294,6 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void ConsumeTarget()//if health lower than x
     {
-        Task.current.Succeed();
         if (toTarget.name == "Food" || toTarget.GetComponent<AnimalBrain>()!=null)//if natural food or animal
         {
             brain.hunger = 100;
@@ -245,10 +312,10 @@ public class AnimalBehaviours : MonoBehaviour
     }
 
     [Task]
-    void CheckWanderTarget()
+    void HasWanderTargetCondition()
     {
-        toTarget = wanderObj.transform;
-        if (Vector3.Distance(wanderObj.transform.position, rb.transform.position) < brain.wanderRadius)
+//        print("Has:"+toTarget+":"+Vector3.Distance(wanderObj.transform.position, rb.transform.position));
+        if (toTarget != null&&toTarget==wanderObj.transform&&Vector3.Distance(wanderObj.transform.position, rb.transform.position) < brain.wanderRadius*2)
         {
             Task.current.Succeed();
         }
@@ -276,7 +343,7 @@ public class AnimalBehaviours : MonoBehaviour
             if (hit.transform.CompareTag("Ground"))
             {
                 Debug.DrawLine(tarPos,hit.point,Color.white);
-                wanderObj.transform.position = hit.point+transform.up*brain.animalHeight;
+                wanderObj.transform.position = hit.point;
                 toTarget = wanderObj.transform;
                 
                 Task.current.Succeed();
@@ -296,7 +363,7 @@ public class AnimalBehaviours : MonoBehaviour
     
 
     [Task]
-    void CheckGettingCloser()
+    void GettingCloserCondition()
     {
         float distThisFrame = Vector3.Distance(rb.transform.position, toTarget.transform.position);
 //        print("distThisFrame"+distThisFrame+"  distLastFrame"+distLastFrame+  "  failCloserChecks"+failCloserChecks);
@@ -322,7 +389,7 @@ public class AnimalBehaviours : MonoBehaviour
 
 
     [Task]
-    void IsHungry()
+    void IsHungryCondition()
     {
         if (brain.hunger < 20)
         {
@@ -335,7 +402,7 @@ public class AnimalBehaviours : MonoBehaviour
     }
     
     [Task]
-    void IsThirsty()
+    void IsThirstyCondition()
     {
         if (brain.thirst < 20)
         {
@@ -346,7 +413,31 @@ public class AnimalBehaviours : MonoBehaviour
             Task.current.Fail();
         }
     }
-    
-    
+
+    [Task]
+    void WantsToMateCondition()//Todo add behaviour
+    {
+        if (brain.reproductiveUrge < 20)
+        {
+            Task.current.Succeed();
+        }
+        else
+        {
+            Task.current.Fail();
+        }
+    }
+
+    [Task]
+    void DebugFail()
+    {
+        Task.current.Fail();
+    }
+
+    IEnumerator panicCoolown()
+    {
+        yield return new WaitForSeconds(5);
+        isPanicked = false;
+    }
+
 
 }

@@ -6626,13 +6626,15 @@ MonoBehaviour:
   - Chicken
   huntedBy:
   - Cheetah
-  currentTarget: {fileID: 0}
   name: Fox
   health: 100
   hunger: 92.62562
   thirst: 97.54961
   reproductiveUrge: 14.739897
   age: 2.4276738
+  predatorRating: 1
+  terrorRating: 1
+  eatsPlants: 0
   maxHealth: 100
   maxStat: 100
   healthStarveDecrement: 100.011375
@@ -10010,7 +10012,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7104b5ccd3c514d46a3e2f2acaaa4faa, type: 2}
   - {fileID: 11400000, guid: 37b47e6228fae784d8b77270fc285e42, type: 2}
   btTexts:
-  - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
+  - {fileID: 4900000, guid: c10ebbd1b339bb14185c233b95adb9fc, type: 3}
   audioClip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
 --- !u!1 &1332432136
 GameObject:

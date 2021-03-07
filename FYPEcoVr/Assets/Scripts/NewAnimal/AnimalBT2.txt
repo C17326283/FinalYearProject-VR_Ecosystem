@@ -1,0 +1,60 @@
+tree("Root")
+    sequence
+        fallback 
+            tree("Flee")
+            tree("SeekFood")
+            tree("SeekWater")
+            tree("SeekMate")
+            tree("Wander")
+        AvoidPredators()
+        
+tree("Flee")
+    sequence
+        EnemyIsTooCloseCondition()
+        FleeFromPredator()
+	         
+tree("SeekFood")
+    sequence
+        IsHungryCondition()
+        fallback
+            sequence
+                GetAnimalTarget()
+                ChasePrey()
+            sequence
+                ArrivedAtTargetCondition()
+                fallback
+                    AttackTarget()
+                    ConsumeTarget()
+            sequence
+                TargetPlants()
+                SeekTarget()
+           
+tree("SeekWater")
+    sequence
+        IsThirstyCondition()
+        TargetResource("Water")
+        SeekTarget()
+        sequence
+            ArrivedAtTargetCondition()
+            ConsumeTarget()
+        
+tree("SeekMate")
+     sequence
+         WantsToMateCondition()
+         DebugFail()
+        
+tree("Wander")
+
+    sequence
+        fallback
+            HasWanderTargetCondition()
+            GetWanderTarget()
+        fallback
+            sequence
+                ArrivedAtTargetCondition()
+                GetWanderTarget()
+            SeekTarget()
+ 
+
+    
+        

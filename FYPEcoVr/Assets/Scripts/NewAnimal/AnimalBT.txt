@@ -1,15 +1,21 @@
 tree("Root")
-    fallback 
-        tree("CheckForEnemies")
-        tree("Hunt")
-        tree("Wander")
-	    
-tree("CheckForEnemies")
     sequence
-        CheckIfEnemyClose()
-        FleeFromPredator()
+        fallback 
+            tree("GetHuntingTarget")
+            tree("GetWanderTarget")
+        tree("Move")
+	    
+tree("Move")
+    sequence
+        AvoidPredators()
+        MoveInDirection()
+        sequence
+            CheckGettingCloser()
+            GetWanderTarget()
             
-tree("Hunt")
+        
+            
+tree("GetHuntingTarget")
     sequence
         fallback
             sequence
@@ -25,25 +31,16 @@ tree("Hunt")
                 IsThirsty()
                 CheckIfRemembersResource("Water")
                 SeekTarget()
-        fallback
-            sequence
-                CheckGettingCloser()
-            sequence
-                ArriveTarget()
-                fallback
-                    sequence
-                        AttackTarget()
-                    ConsumeTarget()
+        sequence
+            CheckArrivedAtTarget()
+            fallback
+                AttackTarget()
+                ConsumeTarget()
            
 tree("Wander")
     sequence
         fallback
             CheckWanderTarget()
-            GetWanderTarget()
-        fallback
-            sequence
-                SeekTarget()
-                CheckGettingCloser()
             GetWanderTarget()
         
  

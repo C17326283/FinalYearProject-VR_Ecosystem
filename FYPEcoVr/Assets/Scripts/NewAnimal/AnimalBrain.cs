@@ -27,7 +27,8 @@ public class AnimalBrain : MonoBehaviour
     public float reproductiveUrge = 0;
     public float age = 0;
     public float predatorRating = 1;
-    public bool carnivore = true;
+    public float terrorRating = 1;
+    public bool eatsPlants = false;
     
     public float maxHealth = 100f;
     public float maxStat = 100;
@@ -84,6 +85,7 @@ public class AnimalBrain : MonoBehaviour
     public void Die()
     {
         Debug.Log("Died");
+        gameObject.SetActive(false);
         
         //Destroy(gameObject);//destroy after 20secs
     }
@@ -148,6 +150,8 @@ public class AnimalBrain : MonoBehaviour
         forwardWanderBias = animalBaseDNA.forwardWanderBias;
         maxMutatePercent = animalBaseDNA.maxMutatePercent;
         predatorRating = animalBaseDNA.predatorRating;
+        terrorRating = animalBaseDNA.terrorRating;
+        eatsPlants = animalBaseDNA.eatsPlants;
         
 
 
