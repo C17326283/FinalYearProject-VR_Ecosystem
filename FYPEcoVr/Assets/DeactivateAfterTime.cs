@@ -5,6 +5,7 @@ using UnityEngine;
 public class DeactivateAfterTime : MonoBehaviour
 {
     public float timeToWait = 1;
+    public bool DestoryInsteadOfDisable = false;
     void Start()
     {
         //Start the coroutine we define below named ExampleCoroutine.
@@ -15,6 +16,14 @@ public class DeactivateAfterTime : MonoBehaviour
     {
         print("start");
         yield return new WaitForSeconds(timeToWait);
-        this.gameObject.SetActive(false);
+        if (DestoryInsteadOfDisable)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            this.gameObject.SetActive(false);
+
+        }
     }
 }

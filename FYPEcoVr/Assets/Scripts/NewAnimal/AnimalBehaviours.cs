@@ -28,6 +28,10 @@ public class AnimalBehaviours : MonoBehaviour
 
     public float lastAttackTime = 0;
 
+    public GameObject hitCanvas;
+    public GameObject heartCanvas;
+    public GameObject deathCanvas;
+
 
     public void OnDrawGizmos()
     {
@@ -171,6 +175,7 @@ public class AnimalBehaviours : MonoBehaviour
     void Mate()
     {
         brain.reproductiveUrge = 0;
+        Instantiate(heartCanvas, (toTarget.transform.position+this.transform.position)/2, transform.rotation);
         toTarget.GetComponent<AnimalBrain>().reproductiveUrge = 0;
         brain.GiveBirth();
         Task.current.Succeed();
@@ -361,6 +366,7 @@ public class AnimalBehaviours : MonoBehaviour
             StartCoroutine(panicCoolown());
             otherAnimalBrain.health -= 5;//todo brain attack strength 
 
+            Instantiate(hitCanvas, (toTarget.transform.position+this.transform.position)/2, transform.rotation);
 
             lastAttackTime = Time.time;
             Task.current.Succeed();
@@ -528,5 +534,9 @@ public class AnimalBehaviours : MonoBehaviour
         combatAnimal = null;
     }
 
+    void hit()
+    {
+        Instantiate(hitCanvas, (toTarget.transform.position+this.transform.position)/2, transform.rotation);
+    }
 
 }

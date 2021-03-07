@@ -44,6 +44,10 @@ public class AnimalInitializer : MonoBehaviour
     public AudioSource audioSource;
 
     public bool initialiseOnStart = false;
+
+    public GameObject attackCanvas;
+    public GameObject heartCanvas;
+    public GameObject deathCanvas;
     // Start is called before the first frame update
     void Awake()
     {
@@ -187,6 +191,9 @@ public class AnimalInitializer : MonoBehaviour
             behaviours = GetComponent<AnimalBehaviours>();
         behaviours.brain = brain;
         behaviours.rb = rb;
+        behaviours.hitCanvas = attackCanvas;
+        behaviours.heartCanvas = heartCanvas;
+        brain.deathCanvas = deathCanvas;
 
         if (GetComponent<BehaviourTree>() == null) //incase i have it attached for testing
             behaviourTreeManager = movementOriginObj.gameObject.AddComponent<BehaviourTree>(); //todo get a way to add this at runtime

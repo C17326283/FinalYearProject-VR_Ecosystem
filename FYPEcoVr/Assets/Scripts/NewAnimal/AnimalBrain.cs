@@ -50,6 +50,7 @@ public class AnimalBrain : MonoBehaviour
     public float attackDamage = 5;
 
     public float animalHeight;
+    public GameObject deathCanvas;
 
 
     void Awake()
@@ -81,7 +82,7 @@ public class AnimalBrain : MonoBehaviour
         if (hunger < 0 || thirst < 0)
             health -= 0.01f;
         
-        if (health <= 0)
+        if (health <= 0 && this.GetComponent<BehaviourTree>().enabled)//if died and hasnt triggered already
         {
             Die();
         }
@@ -104,6 +105,8 @@ public class AnimalBrain : MonoBehaviour
     {
         Debug.Log("Died");
         this.GetComponent<BehaviourTree>().enabled = false;//disable ai
+        Instantiate(deathCanvas, (this.transform.position)/2, transform.rotation);
+
 
         StartCoroutine(SetInactive(5));
         //Destroy(gameObject);//destroy after 20secs
