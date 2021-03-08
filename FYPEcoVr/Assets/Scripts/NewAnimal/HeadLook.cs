@@ -8,7 +8,7 @@ public class HeadLook : MonoBehaviour
 
     public float speed=3;
 
-    public float maxTurnAngle = 50;
+    public float maxTurnAngle = 65;
 
     private Vector3 bodyDir;
     private Vector3 toDir;
@@ -31,69 +31,31 @@ public class HeadLook : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {/*
-        if (rb.velocity.magnitude>.1f)
-        {
-            Quaternion rotation = Quaternion.LookRotation(rb.velocity, rb.transform.up);//look to velocity, align with ground
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed*Time.deltaTime);
-            lockRotation(maxTurnAngle);
-        }
-        */
-        //lockRotation(maxTurnAngle);
-        //print(rb.transform.forward);
-        
-        
+    {
         if (behaviourTargeting.toTarget != null)
         {
             objToLookAt = behaviourTargeting.toTarget;
-            restrictLookForward();
+            RestrictedLookAt();
 
         }
     }
 
-    public void lockRotation(float maxAngle)
-    {
-        Vector3 curRot = transform.localEulerAngles;
-        Vector3 newRot;
-        
-        newRot.x = Mathf.Clamp(curRot.x, -maxAngle, maxAngle);
-        newRot.y = Mathf.Clamp(curRot.y, -maxAngle, maxAngle);
-        newRot.z = Mathf.Clamp(curRot.z, -maxAngle, maxAngle);
-        transform.localRotation = Quaternion.Euler (newRot.x, newRot.y, newRot.z);
-    }
-
-    public void restrictLookForward()
+    public void RestrictedLookAt()
     {
         toDir = objToLookAt.transform.position-transform.position;
-        bodyDir = rb.transform.forward;
-        //print("bodyDir"+bodyDir);
-        //print("toDir"+toDir);
-        float angleToTarget = Vector3.Angle(bodyDir, toDir);
-//        print(angleToTarget);
-
-        Vector3 direction;
-        transform.up = rb.transform.up;
         
+        bodyDir = rb.transform.forward;
+        float angleToTarget = Vector3.Angle(bodyDir, toDir);
         
         if (angleToTarget < maxTurnAngle)
         {
-            //transform.LookAt(objToLookAt.transform);
-            //direction = toDir;
-            //Vector3 dir = objToLookAt.transform.position - transform.position;
-            Quaternion toRotation = Quaternion.LookRotation(toDir);
+            Quaternion toRotation = Quaternion.LookRotation(toDir,rb.transform.up);//Look at direction relative to body up
             transform.rotation = Quaternion.Lerp( transform.rotation, toRotation, 1 * Time.deltaTime );
         }
         else
         {
-            //transform.forward = rb.transform.forward;
-            //direction = rb.transform.forward;
-            Quaternion toRotation = Quaternion.LookRotation(rb.transform.forward);
+            Quaternion toRotation = Quaternion.LookRotation(rb.transform.forward,rb.transform.up);
             transform.rotation = Quaternion.Lerp( transform.rotation, toRotation, 1 * Time.deltaTime );
         }
-        
-        //Quaternion toRotation = Quaternion.FromToRotation(transform.forward, direction);
-        //transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, speed * Time.time);
-        
-        //float angleToTarget = Vector3.Angle(toSun, toPlayer);
     }
 }
