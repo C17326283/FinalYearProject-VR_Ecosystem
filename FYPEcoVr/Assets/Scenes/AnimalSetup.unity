@@ -348,6 +348,25 @@ Transform:
   m_Father: {fileID: 481321731}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &132215732 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 136328, guid: 613b4cc8c589ad8458e792ae21891bef, type: 3}
+  m_PrefabInstance: {fileID: 1862501785}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &132215733
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132215732}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 361dbd13abe581240910f764f838d930, type: 3}
 --- !u!1 &138316748
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,7 +452,7 @@ Transform:
   - {fileID: 579684184}
   - {fileID: 307747400}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &158825519
 GameObject:
@@ -518,7 +537,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -634,7 +653,7 @@ Transform:
   - {fileID: 493727263}
   - {fileID: 27285447}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &253572247
 GameObject:
@@ -688,7 +707,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -1038,7 +1057,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -1122,7 +1141,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -1535,7 +1554,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -1598,7 +1617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 491538, guid: 43c99e4bd49cdb5449beeccfab647bf6, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 491538, guid: 43c99e4bd49cdb5449beeccfab647bf6, type: 3}
       propertyPath: m_LocalScale.x
@@ -1857,7 +1876,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &471986419
 GameObject:
@@ -1911,7 +1930,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -2436,7 +2455,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -2536,7 +2555,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -2577,7 +2596,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9138651066096961063, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 9138651066096961063, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_LocalScale.x
@@ -2879,7 +2898,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -3003,7 +3022,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -3087,7 +3106,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -3394,7 +3413,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -3568,7 +3587,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &855422916
 GameObject:
@@ -3622,7 +3641,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -3705,7 +3724,7 @@ Transform:
   - {fileID: 1760836182}
   - {fileID: 933558996}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &874513103
 GameObject:
@@ -3773,7 +3792,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -4019,6 +4038,7 @@ MonoBehaviour:
   btTexts:
   - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
   audioClip: {fileID: 0}
+  groupAmount: 3
 --- !u!1 &935407805
 GameObject:
   m_ObjectHideFlags: 0
@@ -4752,7 +4772,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -4810,7 +4830,7 @@ MonoBehaviour:
   - {fileID: 981278953}
   - {fileID: 956205079}
   start: {fileID: 401496229}
-  damping: 2000
+  damping: 100
   isLimbSetup: 0
 --- !u!114 &1192904686
 MonoBehaviour:
@@ -4840,7 +4860,7 @@ MonoBehaviour:
   - {fileID: 138316749}
   - {fileID: 1697624569}
   start: {fileID: 1628319169}
-  damping: 20
+  damping: 40
   isLimbSetup: 0
 --- !u!114 &1192904687
 MonoBehaviour:
@@ -4862,7 +4882,7 @@ MonoBehaviour:
   - {fileID: 1312727621}
   - {fileID: 1684147182}
   start: {fileID: 1251673629}
-  damping: 30
+  damping: 100
   isLimbSetup: 0
 --- !u!114 &1192904688
 MonoBehaviour:
@@ -4890,7 +4910,7 @@ MonoBehaviour:
   - {fileID: 936229454}
   - {fileID: 1812082317}
   start: {fileID: 481321730}
-  damping: 60
+  damping: 100
   isLimbSetup: 0
 --- !u!4 &1192904689
 Transform:
@@ -4925,7 +4945,7 @@ Transform:
   - {fileID: 964006773}
   - {fileID: 327776682}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1193156971
 GameObject:
@@ -4993,7 +5013,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -5196,7 +5216,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277228675}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.00000009362675, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.006958008, z: 0.0074462593}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5213,7 +5233,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277228675}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4945185d44caa240a8a8b6d505d31e9, type: 3}
   m_Name: 
@@ -5222,6 +5242,7 @@ MonoBehaviour:
   speed: 5
   maxTurnAngle: 70
   objToLookAt: {fileID: 1676833512}
+  behaviourTargeting: {fileID: 0}
 --- !u!1 &1278108678
 GameObject:
   m_ObjectHideFlags: 0
@@ -5379,7 +5400,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -5690,7 +5711,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -5982,7 +6003,7 @@ PrefabInstance:
       objectReference: {fileID: 927105571}
     - target: {fileID: 2836808244158229739, guid: 009c6c4acd3a81b45833ee020939195b, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2836808244158229739, guid: 009c6c4acd3a81b45833ee020939195b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6360,7 +6381,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -6453,7 +6474,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -6471,6 +6492,25 @@ Transform:
   m_Father: {fileID: 146682657}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: -1.927, y: -41.7, z: 0.002}
+--- !u!1 &1527865263 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 129768, guid: 4895edb163acc354795e6cf0bd9b4ac0, type: 3}
+  m_PrefabInstance: {fileID: 1685144552}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1527865268
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527865263}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 01ad58d8724c7704a8661907c7eafbd7, type: 3}
 --- !u!1 &1552558033
 GameObject:
   m_ObjectHideFlags: 0
@@ -6576,7 +6616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 467666, guid: 613b4cc8c589ad8458e792ae21891bef, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 467666, guid: 613b4cc8c589ad8458e792ae21891bef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6733,7 +6773,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -7063,7 +7103,7 @@ Transform:
   m_LocalScale: {x: 0.10000004, y: 0.10000002, z: 0.100000046}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1676833514
 SphereCollider:
@@ -7158,6 +7198,79 @@ Transform:
   m_Father: {fileID: 1192904689}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1685144552
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 129768, guid: 4895edb163acc354795e6cf0bd9b4ac0, type: 3}
+      propertyPath: m_Name
+      value: Bush_b_l_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 470844, guid: 4895edb163acc354795e6cf0bd9b4ac0, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 470844, guid: 4895edb163acc354795e6cf0bd9b4ac0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 470844, guid: 4895edb163acc354795e6cf0bd9b4ac0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 470844, guid: 4895edb163acc354795e6cf0bd9b4ac0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 470844, guid: 4895edb163acc354795e6cf0bd9b4ac0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -88.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 470844, guid: 4895edb163acc354795e6cf0bd9b4ac0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1264.4785
+      objectReference: {fileID: 0}
+    - target: {fileID: 470844, guid: 4895edb163acc354795e6cf0bd9b4ac0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 470844, guid: 4895edb163acc354795e6cf0bd9b4ac0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 470844, guid: 4895edb163acc354795e6cf0bd9b4ac0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470844, guid: 4895edb163acc354795e6cf0bd9b4ac0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470844, guid: 4895edb163acc354795e6cf0bd9b4ac0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470844, guid: 4895edb163acc354795e6cf0bd9b4ac0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470844, guid: 4895edb163acc354795e6cf0bd9b4ac0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470844, guid: 4895edb163acc354795e6cf0bd9b4ac0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13560410, guid: 4895edb163acc354795e6cf0bd9b4ac0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4895edb163acc354795e6cf0bd9b4ac0, type: 3}
 --- !u!1 &1691064873
 GameObject:
   m_ObjectHideFlags: 0
@@ -7283,7 +7396,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1691335103
 GameObject:
@@ -7376,7 +7489,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 50, y: -210, z: 0}
 --- !u!1 &1694562378
 GameObject:
@@ -7767,7 +7880,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1793278598
 GameObject:
@@ -7887,7 +8000,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -8179,6 +8292,63 @@ Transform:
   m_Father: {fileID: 1192904689}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1862501785
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 136328, guid: 613b4cc8c589ad8458e792ae21891bef, type: 3}
+      propertyPath: m_Name
+      value: Tree Type4 04 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 467666, guid: 613b4cc8c589ad8458e792ae21891bef, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 467666, guid: 613b4cc8c589ad8458e792ae21891bef, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 467666, guid: 613b4cc8c589ad8458e792ae21891bef, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1264.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 467666, guid: 613b4cc8c589ad8458e792ae21891bef, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 40.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 467666, guid: 613b4cc8c589ad8458e792ae21891bef, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 467666, guid: 613b4cc8c589ad8458e792ae21891bef, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.0000000218557
+      objectReference: {fileID: 0}
+    - target: {fileID: 467666, guid: 613b4cc8c589ad8458e792ae21891bef, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467666, guid: 613b4cc8c589ad8458e792ae21891bef, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467666, guid: 613b4cc8c589ad8458e792ae21891bef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467666, guid: 613b4cc8c589ad8458e792ae21891bef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467666, guid: 613b4cc8c589ad8458e792ae21891bef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 613b4cc8c589ad8458e792ae21891bef, type: 3}
 --- !u!1 &1928935107
 GameObject:
   m_ObjectHideFlags: 0
@@ -8245,7 +8415,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -8301,7 +8471,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -8520,7 +8690,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -8644,7 +8814,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 40
+  damping: 20
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -8709,7 +8879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4416744094125069477, guid: f206e8208f7a0b8488fb91bd0c062b30, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4416744094125069477, guid: f206e8208f7a0b8488fb91bd0c062b30, type: 3}
       propertyPath: m_LocalScale.x

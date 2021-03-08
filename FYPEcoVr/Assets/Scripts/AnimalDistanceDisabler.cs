@@ -11,7 +11,7 @@ public class AnimalDistanceDisabler : MonoBehaviour
     public GameObject animalHolder;
     public BehaviourTree bt;//for applying since it didnt work without
 
-    public float activeDistance = 100;
+    public float activeDistance = 200;
     // Start is called before the first frame update
     void Start()
     {

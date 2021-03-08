@@ -6,24 +6,19 @@ tree("Root")
             tree("SeekWater")
             tree("SeekMate")
             tree("Wander")
-        tree("Avoidance") 
+        AvoidPredators()
         
 tree("Combat")
     sequence
         IsInCombatCondition()
         TargetCombatAnimal()
-        fallback
+        random(8,2)
             sequence
-                WantsToAttackCondition()
                 SeekTarget() 
                 AttackTarget()
             FleeFromTarget()
         
-tree("Avoidance") 
-    sequence
-        AvoidOthers()
-        ObstacleAvoid()
-    
+        
 tree("Flee")
     sequence
         EnemyIsTooCloseCondition()

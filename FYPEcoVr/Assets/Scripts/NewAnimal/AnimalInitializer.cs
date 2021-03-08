@@ -12,7 +12,7 @@ public class AnimalInitializer : MonoBehaviour
     
     [Header("Debug display")]
     public GameObject animalObj;
-    public BoxCollider collider;
+    public CapsuleCollider collider;
     public Rigidbody rb;
 
     public GameObject head;
@@ -38,16 +38,13 @@ public class AnimalInitializer : MonoBehaviour
     public SpineNew spineMain;
     public float animalHeight=2;
     public float animalLength=2;
-    public float damping = 20;
+    public float damping = 30;
     
     public AudioClip clip;
     public AudioSource audioSource;
 
     public bool initialiseOnStart = false;
 
-    public GameObject attackCanvas;
-    public GameObject heartCanvas;
-    public GameObject deathCanvas;
     // Start is called before the first frame update
     void Awake()
     {
@@ -154,7 +151,8 @@ public class AnimalInitializer : MonoBehaviour
     public void SetCollider()
     {
         //add components to animal and position it to center of mass
-        collider = movementOriginObj.AddComponent<BoxCollider>();
+        collider = movementOriginObj.AddComponent<CapsuleCollider>();
+        collider.direction = 2;//x is 0, y is 1, z is 2
         Vector3 meshBounds = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().bounds.size;
         //move the collider back to the body even though we need it attached to the head
         //todo tails to allow for this to correctly position
@@ -167,7 +165,10 @@ public class AnimalInitializer : MonoBehaviour
         //edit the bounds to be smaller and reasign
         Vector3 newMeshBounds = meshBounds / 2;
         newMeshBounds.y = newMeshBounds.y / 3;//Half the height so it can have a body floating above ground and legs work liek springs
-        collider.size = newMeshBounds;
+        //collider.size = newMeshBounds;
+        collider.height = newMeshBounds.z;
+        collider.radius = newMeshBounds.y;
+
     }
 
     void SetRb()
@@ -191,9 +192,11 @@ public class AnimalInitializer : MonoBehaviour
             behaviours = GetComponent<AnimalBehaviours>();
         behaviours.brain = brain;
         behaviours.rb = rb;
-        behaviours.hitCanvas = attackCanvas;
-        behaviours.heartCanvas = heartCanvas;
-        brain.deathCanvas = deathCanvas;
+        behaviours.hitCanvas = animalDNA.attackCanvas;
+        behaviours.heartCanvas = animalDNA.heartCanvas;
+        brain.deathCanvas = animalDNA.deathCanvas;
+        HeadLook headTargeter = head.AddComponent<HeadLook>();
+        headTargeter.behaviourTargeting = behaviours;
 
         if (GetComponent<BehaviourTree>() == null) //incase i have it attached for testing
             behaviourTreeManager = movementOriginObj.gameObject.AddComponent<BehaviourTree>(); //todo get a way to add this at runtime
@@ -219,7 +222,7 @@ public class AnimalInitializer : MonoBehaviour
         animalGravity = movementOriginObj.AddComponent<AnimalGravity>();
         animalGravity.animalHeight = animalHeight;//this would be the height of the animal
         animalGravity.animalLength = animalLength;
-        animalGravity.headHeightPosObj = spineCore;
+        animalGravity.headHeightPosObj = spineCore;//todo change head height var name
         animalGravity.Initialize();
     }
 
@@ -251,7 +254,7 @@ public class AnimalInitializer : MonoBehaviour
         if (feetPositioners.Count > 2) //If not the front 2 legs
         {
             ikPole.transform.position = footPositioner.transform.position+(footPositioner.transform.forward * 10)+(footPositioner.transform.up *
-                (animalHeight/2));
+                (animalHeight/3));
         }
         else
         {

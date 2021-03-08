@@ -12,7 +12,7 @@ public class AnimalBehaviours : MonoBehaviour
     
     //use these by reference instead
     public Rigidbody rb;
-    public float tooCloseDist = 5;
+    public float tooCloseDist = 3;
     public float attackRange = 3;
     public Transform toTarget;
     public Transform fromTarget;
@@ -81,33 +81,46 @@ public class AnimalBehaviours : MonoBehaviour
     }
 
     [Task]
-    void AvoidPredators()
+    void ObstacleAvoid()
     {
+        RaycastHit hit; //shoot ray and if its ground then spawn at that location
+        if (Physics.Raycast(transform.position, rb.transform.forward, out hit, brain.animalHeight*4))
+        {
+            //todo improve this, this is temp
+            rb.AddRelativeForce(transform.right*(brain.moveSpeed/2)*Time.deltaTime*100);
+            Task.current.Succeed(); //if found no enemies
+
+        }
+        else
+        {
+            Task.current.Fail(); //if found no enemies
+
+        }
+        
+    }
+
+    [Task]
+    void AvoidOthers()
+    {
+        Task.current.Succeed();
         bool found = false;
         foreach (var obj in brain.objSensedMemory)
         {
             float distanceToCurrent = Vector3.Distance(rb.transform.position, obj.transform.position);
             //todo run from multiple
-            if (distanceToCurrent<tooCloseDist*10&&obj.GetComponent<AnimalBrain>()!=null&&obj.GetComponent<AnimalBrain>().predatorRating>brain.preyRating)
+            if (distanceToCurrent<tooCloseDist&&obj.GetComponent<AnimalBrain>()!=null&&obj.transform!=toTarget&&obj.transform!=combatAnimal)//if animal is tooclose and not a target
             {
                 Vector3 fleeDir;
                 fleeDir = (rb.transform.position - obj.transform.position).normalized;
                 Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
                 locDir.y = 0;
-                Vector3 force = locDir * (tooCloseDist/distanceToCurrent);//Add avoid forc ebased on dist
+                Vector3 force = locDir * (tooCloseDist/distanceToCurrent)*(brain.moveSpeed/2);//Add avoid forc ebased on dist
+//                print(force);
+                if (obj.GetComponent<AnimalBrain>().predatorRating > brain.preyRating)
+                    force *= 3;
                 rb.AddRelativeForce(force*Time.deltaTime*100);
                 found = true;
             }
-        }
-
-        if (found == false)
-        {
-            fromTarget = null;
-            Task.current.Fail();
-        }
-        else
-        {
-            Task.current.Succeed(); //if found no enemies
         }
     }
 
@@ -298,6 +311,21 @@ public class AnimalBehaviours : MonoBehaviour
     }
 
     [Task]
+    void WantsToAttackCondition()
+    {
+        if (toTarget.GetComponent<AnimalBrain>().preyRating < brain.predatorRating)
+        {
+            Task.current.Succeed();
+
+        }
+        else
+        {
+            Task.current.Fail();
+
+        }
+    }
+
+    [Task]
     void TargetCombatAnimal()
     {
         toTarget = combatAnimal.transform;
@@ -355,6 +383,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void AttackTarget()
     {
+        Task.current.Succeed();//not having cooled down shouldnt cause flee
         if (toTarget.GetComponent<AnimalBrain>()!=null&&Time.time>lastAttackTime+brain.attackRate && toTarget.gameObject.activeInHierarchy&&Vector3.Distance(toTarget.position,rb.transform.position)<attackRange+brain.animalHeight)//if has health
         {
             //todo add cooldown
@@ -369,12 +398,7 @@ public class AnimalBehaviours : MonoBehaviour
             Instantiate(hitCanvas, (toTarget.transform.position+this.transform.position)/2, transform.rotation);
 
             lastAttackTime = Time.time;
-            Task.current.Succeed();
             print("attack");
-        }
-        else
-        {
-            Task.current.Fail();
         }
     }
     
@@ -522,17 +546,11 @@ public class AnimalBehaviours : MonoBehaviour
 
     IEnumerator panicCoolown()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         isPanicked = false;
         combatAnimal = null;
     }
     
-    IEnumerator attackCoolown()
-    {
-        yield return new WaitForSeconds(5);
-        isPanicked = false;
-        combatAnimal = null;
-    }
 
     void hit()
     {
