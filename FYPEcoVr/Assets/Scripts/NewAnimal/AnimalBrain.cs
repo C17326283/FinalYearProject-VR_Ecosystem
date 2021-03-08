@@ -105,7 +105,8 @@ public class AnimalBrain : MonoBehaviour
     {
         Debug.Log("Died");
         this.GetComponent<BehaviourTree>().enabled = false;//disable ai
-        Instantiate(deathCanvas, (this.transform.position)/2, transform.rotation);
+        Instantiate(deathCanvas, this.transform.position, transform.rotation);
+        gameObject.GetComponent<AnimalGravity>().animalHeight = 0;
 
 
         StartCoroutine(SetInactive(5));

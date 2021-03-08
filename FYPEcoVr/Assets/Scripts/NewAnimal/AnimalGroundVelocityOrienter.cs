@@ -61,7 +61,7 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
 
     public void AimToVelOrientedToGround()
     {
-        turnSpeed = brain.moveSpeed / 100;
+        turnSpeed = Mathf.Max(5-brain.animalHeight,1);//the bigger animals turn slower but keep in range
         //this took about a week to find a solution to but it allows gravity without messing up the targetting
         //convert velocity to local then remove the y so can have gravity without it focing animal to look up and down
         RaycastHit hit;
@@ -78,7 +78,7 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
             if (locVel.magnitude>.1f)
             {
                 rotation = Quaternion.LookRotation(moveVel, orienter.transform.up);//look to velocity, align with ground
-                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, (turnSpeed/brain.animalHeight)*Time.deltaTime);//do it over time
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, (turnSpeed)*Time.deltaTime);//do it over time
             }
             else
             {

@@ -405,7 +405,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void ConsumeTarget()//if health lower than x
     {
-        if (toTarget.name == "Food" || toTarget.GetComponent<AnimalBrain>()!=null && toTarget.GetComponent<AnimalBrain>().health<=0 && toTarget.gameObject.activeInHierarchy)//if natural food or animal
+        if (toTarget.name == "Food" || (toTarget.GetComponent<AnimalBrain>()!=null && toTarget.GetComponent<AnimalBrain>().health<=0) && toTarget.gameObject.activeInHierarchy)//if natural food or animal
         {
             brain.hunger = 100;
             Task.current.Succeed();
