@@ -916,8 +916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f2ae32b8f230864095867cb5a744414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerActionGrip: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  controllerActionTrigger: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  controllerActionGrip: {fileID: 1578427203831673433, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  controllerActionTrigger: {fileID: 6924748246606081878, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _handAnimator: {fileID: 996983473598884404}
 --- !u!1 &5686134208185362932
 GameObject:
