@@ -21,13 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1c86a74b-a54b-44cd-a93d-b82d2bbe20ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Elephant.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Elephant.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AnimalDistanceDisabler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AnimalDistanceDisabler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBrain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,11 +102,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/LookAtVel.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/HeadLook.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/AnimalDistanceDisabler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBrain.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AnimalDistanceDisabler.cs" />
       </list>
     </option>
   </component>
@@ -210,7 +205,8 @@
       <workItem from="1614974296470" duration="10133000" />
       <workItem from="1615046419166" duration="24280000" />
       <workItem from="1615116784705" duration="17023000" />
-      <workItem from="1615207630745" duration="19978000" />
+      <workItem from="1615207630745" duration="20627000" />
+      <workItem from="1615323141793" duration="634000" />
     </task>
     <servers />
   </component>
