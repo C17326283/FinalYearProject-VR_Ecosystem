@@ -23,7 +23,7 @@ public class HandController : MonoBehaviour
     private void TriggerPress(InputAction.CallbackContext obj)
     {
         _handAnimator.SetFloat("Trigger",obj.ReadValue<float>());
-        print(obj.ReadValue<float>());
+        //print(obj.ReadValue<float>());
         
     }
 

@@ -20,8 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c86a74b-a54b-44cd-a93d-b82d2bbe20ff" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/FinGenSequence.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FinGenSequence.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AnimalSetup.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AnimalSetup.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BehaviourBricksTest.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BehaviourBricksTest.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/VrNew.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/VrNew.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vr/HandController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vr/HandController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,6 +58,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AnimalDistanceDisabler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewAnimal/SpineNew.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@1.0.0-pre.2/Runtime/UI/TrackedDeviceGraphicRaycaster.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Cam.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AnimalProfile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/UnityVersions/2020.2.3f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/InputModules/BaseInput.cs" root0="SKIP_HIGHLIGHTING" />
@@ -56,8 +68,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/TestBetterGravity.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Behaviour/BoidBase.txt" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AnimalSenses.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GravityPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBodyPositioner.cs" />
@@ -70,7 +80,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/LightAtAngle.cs" />
-        <option value="$PROJECT_DIR$/Assets/FinGenSequence.cs" />
         <option value="$PROJECT_DIR$/Assets/Samples/OpenXR Plugin/1.0.2/Controller/Scripts/ActionAssetEnabler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UnloadObjs.cs" />
         <option value="$PROJECT_DIR$/Assets/PandaBehaviour/Core/Editor/CreatePandaScriptMenu.cs" />
@@ -84,12 +93,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/LightAtAngle.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/VrTestClick.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SpawnEnvironmentInRange.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/TerrainFace.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableTest.cs" />
         <option value="$PROJECT_DIR$/Assets/AnimalProfile/AnimalProfile.cs" />
         <option value="$PROJECT_DIR$/Assets/TestActionControllerInput.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Vr/HandController.cs" />
         <option value="$PROJECT_DIR$/Assets/TestAnim.cs" />
         <option value="$PROJECT_DIR$/Assets/CustomHandController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalSenses.cs" />
@@ -107,6 +114,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AnimalDistanceDisabler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" />
+        <option value="$PROJECT_DIR$/Assets/TeleportPlanetOrienter.cs" />
+        <option value="$PROJECT_DIR$/Assets/SpawnOnPlanet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Vr/HandController.cs" />
+        <option value="$PROJECT_DIR$/Assets/FinGenSequence.cs" />
       </list>
     </option>
   </component>
@@ -207,6 +219,7 @@
       <workItem from="1615116784705" duration="17023000" />
       <workItem from="1615207630745" duration="20627000" />
       <workItem from="1615323141793" duration="634000" />
+      <workItem from="1615333098938" duration="3699000" />
     </task>
     <servers />
   </component>
