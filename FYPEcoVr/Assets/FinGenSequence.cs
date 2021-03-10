@@ -7,10 +7,11 @@ public class FinGenSequence : MonoBehaviour
     public PlanetSpawner PlanetSpawner;
 
     public GameObject loadingGUI;
+    
     public GameObject spaceCam;
-
-    public GameObject player;
-    public GameObject playerCam;
+    public GameObject nonVrPlayer;
+    public GameObject nonVrPlayerCam;
+    public GameObject VrPlayer;
 
     public LightAtAngle[] lights;
 
@@ -47,11 +48,45 @@ public class FinGenSequence : MonoBehaviour
         {
             light.enabled = true;
         }
-        player.SetActive(true);
+
+        StartCoroutine(SpawnPlayer());
+    }
+
+    IEnumerator  SpawnPlayer()
+    {
+        if (spaceCam.activeInHierarchy)
+        {
+            nonVrPlayer.SetActive(true);
         
-        yield return new WaitForSeconds(2f);
-        spaceCam.SetActive(false);
-        loadingGUI.SetActive(false);
-        playerCam.SetActive(true);
+            yield return new WaitForSeconds(1f);
+            loadingGUI.SetActive(false);
+            spaceCam.SetActive(false);
+            nonVrPlayerCam.SetActive(true);
+            print("spawning non vr player");
+        }
+        else//is vr player
+        {
+            print("spawning vr player");
+            int layerMask = 1 << 8;
+            
+            
+            yield return new WaitForSeconds(2f);
+
+            //Get point on top of planet
+            RaycastHit hit;//todo fix incase water
+            //Only add if theres environment below
+            if (Physics.Raycast(new Vector3(0,0,5000), -transform.up, out hit, 6000,
+                layerMask))
+            {
+                print("Found spawn point");
+                loadingGUI.SetActive(false);
+                VrPlayer.transform.position = hit.point;
+                VrPlayer.transform.parent = GameObject.Find("Core").transform;
+            }
+            else
+            {
+                print("couldnt find spawn point");
+            }
+        }
     }
 }

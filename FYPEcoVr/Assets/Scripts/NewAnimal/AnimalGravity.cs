@@ -104,14 +104,6 @@ public class AnimalGravity : MonoBehaviour
                 rb.AddForceAtPosition(dir * (gravForce * Time.deltaTime), point.transform.position,
                     ForceMode.Acceleration);
 
-                if (hit.transform.CompareTag("Ground"))
-                {
-
-                }
-                else
-                {
-//                    print("no ground");
-                }
             }
         }
     }
