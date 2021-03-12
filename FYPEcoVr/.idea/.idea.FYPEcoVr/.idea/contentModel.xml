@@ -258,6 +258,7 @@
             <e p="AnimalGroundVelocityOrienter.cs" t="Include" />
             <e p="AnimalInitializer.cs" t="Include" />
             <e p="AnimalSenses.cs" t="Include" />
+            <e p="BasicBehaviours.cs" t="Include" />
             <e p="HeadLook.cs" t="Include" />
             <e p="SpineNew.cs" t="Include" />
           </e>

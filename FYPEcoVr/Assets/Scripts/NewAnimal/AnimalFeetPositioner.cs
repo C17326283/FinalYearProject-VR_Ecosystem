@@ -136,7 +136,7 @@ public class AnimalFeetPositioner : MonoBehaviour
 //                print("move ik to next pos");
                 //float footLift = footHeightMult * (Vector3.Distance(footIKTargetObj.transform.position, nextFootPos) /5);         
                 //float footMoveSpeed = Mathf.Max(lerpSpeed,(animalLength * rb.velocity.magnitude)/footSpeedDiv);
-                float footMoveSpeed = Mathf.Max(rb.velocity.magnitude,(distToNext*animalLength+axisDifferences.x)/2)*footSpeed;
+                float footMoveSpeed = Mathf.Max(rb.velocity.magnitude,(distToNext*animalLength+(axisDifferences.x*5))/2)*footSpeed;//Sidestepping needs to be faster
 
                 float footLift= (Vector3.Distance(footIKTargetObj.transform.position, nextFootPos)*footHeightMult)-footMoveStopDist;
                 footLift= Mathf.Clamp(footLift,0f,(animalHeight/rb.velocity.magnitude)*3);
@@ -149,7 +149,7 @@ public class AnimalFeetPositioner : MonoBehaviour
                     //float footMoveSpeed = Mathf.Max(lerpSpeed,(distToNext/3)*lerpSpeed);
                     footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos+(forwardFacingObj.transform.up*footLift), footMoveSpeed * Time.deltaTime);//+(forwardFacingObj.transform.up*footLift)
                 }
-                else if(Mathf.Abs(axisDifferences.z)>forwardStepDist*3||Mathf.Abs(axisDifferences.x)>sideStepDist*3)
+                else if(Mathf.Abs(axisDifferences.z)>forwardStepDist*6||Mathf.Abs(axisDifferences.x)>sideStepDist*6)
                 {
  //                   print("far foot");
                     footAtPosition = false;//has started moving to next position so set to false and only becomes true if gets close enough to next position

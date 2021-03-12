@@ -75,7 +75,7 @@ public class FinGenSequence : MonoBehaviour
             //Get point on top of planet
             RaycastHit hit;//todo fix incase water
             //Only add if theres environment below
-            if (Physics.Raycast(new Vector3(0,0,5000), -transform.up, out hit, 6000,
+            if (Physics.Raycast(new Vector3(0,5000,0), -transform.up, out hit, 6000,
                 layerMask))
             {
                 print("Found spawn point");

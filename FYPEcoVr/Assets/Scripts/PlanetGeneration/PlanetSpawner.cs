@@ -92,7 +92,7 @@ public class PlanetSpawner : MonoBehaviour
             planetScript.planetSettings.planetRadius *= 10;//make 10 times bigger
         }
         updateSettingsFromGUI();
-        planetScript.GeneratePlanet();
+        planetScript.GenerateFace();
     }
 
     public void AssignGUI()
@@ -238,12 +238,16 @@ public class PlanetSpawner : MonoBehaviour
             {
                 spawnerObj.GetComponent<AnimalsSpawner>().TriggerSpawn();
             }
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(.1f);
         }
+        
+        
         print("planet fin "+Time.time);
         finishedAddingExtras = true;
 
     }
+
+    
 
     //Make a different center point for the noise, this makes different terrain with all the same settings
     public void MoveLand()
@@ -257,6 +261,8 @@ public class PlanetSpawner : MonoBehaviour
     {
         Generate();
         planetObj.GetComponent<PlanetTerrainGenerator>().GenerateColliders();
+        planetObj.GetComponent<PlanetTerrainGenerator>().AddTeleporting();
+        
         this.GetComponent<RotateEnvironment>().enabled = false;
         //Tried to get bettr player controller but it didnt work
         //player.transform.position = (planet.transform.up * planetSettings.planetRadius)+ (Vector3.up * 110);
@@ -265,6 +271,7 @@ public class PlanetSpawner : MonoBehaviour
         //fg.gravityObject = planet;
 
     }
+    
 
     //Move the biome points
     public void RandomiseBiomes()

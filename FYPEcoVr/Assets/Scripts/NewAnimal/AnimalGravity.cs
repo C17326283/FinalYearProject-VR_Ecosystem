@@ -6,7 +6,7 @@ public class AnimalGravity : MonoBehaviour
 {
     public GameObject core;
 
-    public float gravityStrength = 300; //todo check correct
+    public float gravityStrength = 600; //todo check correct
 
     //public float upMultiplier = 600f;
     public Vector3 gravityDir;

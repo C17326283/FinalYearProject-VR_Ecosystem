@@ -8,7 +8,7 @@ public class HeadLook : MonoBehaviour
 
     public float speed=3;
 
-    public float maxTurnAngle = 65;
+    public float maxTurnAngle = 70;
 
     private Vector3 bodyDir;
     private Vector3 toDir;

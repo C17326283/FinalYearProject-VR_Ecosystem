@@ -6,48 +6,8 @@ using UnityEngine;
 using Panda;
 using Random = UnityEngine.Random;
 
-public class AnimalBehaviours : MonoBehaviour
+public class BasicBehaviours : AnimalBehaviours
 {
-    public AnimalBrain brain;
-    
-    //use these by reference instead
-    public Rigidbody rb;
-    public float tooCloseDist = 3;
-    public float attackRange = 3;
-    public Transform toTarget;
-    public Transform fromTarget;
-    public GameObject wanderObj;
-    public Transform headObject;
-
-    public float distLastFrame;
-    public float failCloserChecks;
-    
-    public int layerMask;
-    public float lastWanderSuccess;
-    public bool isPanicked = false;
-    public GameObject combatAnimal;
-
-    public float lastAttackTime = 0;
-
-    public GameObject hitCanvas;
-    public GameObject heartCanvas;
-    public GameObject deathCanvas;
-
-
-    public void OnDrawGizmos()
-    {
-        Gizmos.color = Color.magenta;
-        if(toTarget!=null)
-            Gizmos.DrawSphere(toTarget.transform.position, 1);
-    }
-
-    private void Awake()
-    {
-        wanderObj=new GameObject("WanderObj");
-        wanderObj.transform.parent = this.transform.parent;
-        layerMask = 1 << 8;//bit shift to get mask for raycasting so only on environment and not other animals
-        
-    }
     
 
     [Task]
@@ -86,7 +46,7 @@ public class AnimalBehaviours : MonoBehaviour
     void ObstacleAvoid()
     {
         RaycastHit hit; //shoot ray and if its ground then spawn at that location
-        if (Physics.Raycast(headObject.position, rb.transform.forward, out hit, brain.animalHeight*4))
+        if (Physics.Raycast(transform.position, rb.transform.forward, out hit, brain.animalHeight*4))
         {
             //todo improve this, this is temp
             rb.AddRelativeForce(transform.right*(brain.moveSpeed/2)*Time.deltaTime*100);
@@ -357,8 +317,8 @@ public class AnimalBehaviours : MonoBehaviour
     {
         if (toTarget != null)
         {
-            float distance = Vector3.Distance(toTarget.transform.position, headObject.position);
-            if (distance < brain.animalHeight*2)
+            float distance = Vector3.Distance(toTarget.transform.position, rb.transform.position);
+            if (distance < attackRange+brain.animalHeight)
             {
 //                print(transform.name+distance+" and "+(attackRange+brain.animalHeight));
                 Task.current.Succeed();
@@ -386,7 +346,7 @@ public class AnimalBehaviours : MonoBehaviour
     void AttackTarget()
     {
         Task.current.Succeed();//not having cooled down shouldnt cause flee
-        if (toTarget.GetComponent<AnimalBrain>()!=null&&Time.time>lastAttackTime+brain.attackRate && toTarget.gameObject.activeInHierarchy&&Vector3.Distance(toTarget.position,headObject.position)<attackRange+brain.animalHeight)//if has health
+        if (toTarget.GetComponent<AnimalBrain>()!=null&&Time.time>lastAttackTime+brain.attackRate && toTarget.gameObject.activeInHierarchy&&Vector3.Distance(toTarget.position,rb.transform.position)<attackRange+brain.animalHeight)//if has health
         {
             //todo add cooldown
             AnimalBrain otherAnimalBrain = toTarget.GetComponent<AnimalBrain>();
@@ -441,7 +401,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void GetWanderTarget()
     {
-        Vector3 randomPoint = headObject.position +(Random.insideUnitSphere * brain.wanderRadius);
+        Vector3 randomPoint = rb.transform.position +(Random.insideUnitSphere * brain.wanderRadius);
         Vector3 tarPos = randomPoint +(rb.transform.up*brain.wanderRadius*2)+(rb.transform.forward*brain.forwardWanderBias);//+(rb.transform.forward*brain.forwardWanderBias)
         
         //Vector3 locTarPos = rb.transform.InverseTransformDirection(tarPos);//cancel out y

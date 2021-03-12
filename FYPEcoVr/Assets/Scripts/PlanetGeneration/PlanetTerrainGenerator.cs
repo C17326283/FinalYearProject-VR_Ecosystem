@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 using Random = UnityEngine.Random;
 
 //The alctual core object
@@ -27,7 +28,7 @@ public class PlanetTerrainGenerator : MonoBehaviour
     public GameObject[] biomeObjs;//4 object fro being placed around globe
 
     //Call the functions needed for planet
-    public void GeneratePlanet()
+    public void GenerateFace()
     {
         Create();
         GenerateMesh();
@@ -139,6 +140,15 @@ public class PlanetTerrainGenerator : MonoBehaviour
             meshFilters[i].gameObject.GetComponent<MeshCollider>().convex = false;
             waterMeshFilters[i].gameObject.GetComponent<MeshCollider>().convex = true;
             waterMeshFilters[i].gameObject.GetComponent<MeshCollider>().convex = false;
+        }
+    }
+    
+    public void AddTeleporting()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            TeleportationArea teleportArea = meshFilters[i].gameObject.AddComponent<TeleportationArea>();
+            teleportArea.matchOrientation = MatchOrientation.TargetUp;
         }
     }
 

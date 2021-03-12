@@ -38,7 +38,7 @@ public class AnimalInitializer : MonoBehaviour
     public SpineNew spineMain;
     public float animalHeight=2;
     public float animalLength=2;
-    public float damping = 30;
+    public float damping = 15;
     
     public AudioClip clip;
     public AudioSource audioSource;
@@ -67,9 +67,13 @@ public class AnimalInitializer : MonoBehaviour
         //animalObj.tag = animalDNA.name;
         
         //Todo find more efficient way
+        SetMovementOrigin();
         GetLimbs();
         SetSkeleton();
         SetCollider();
+        
+        //OffsetSkeleton();
+        
         SetRb();
         SetAI();
         SetAudio();
@@ -82,23 +86,34 @@ public class AnimalInitializer : MonoBehaviour
         //temp
     }
     
+    public void SetMovementOrigin()
+    {
+        movementOriginObj = new GameObject(animalDNA.name);
+        movementOriginObj.transform.position = this.transform.position;
+        movementOriginObj.transform.parent = this.transform;
+    }
+    
     
     public void SetSkeleton()
     {
+        //Add spine controller for main spine object
         spineMain = this.gameObject.AddComponent<SpineNew>();
         spineMain.start = spineCore;
         spineMain.InitializeSpine();
         spineMain.damping = damping;
-        movementOriginObj = spineCore.transform.parent.gameObject;//set in spinescript to control head so need this to have the rigidbody to allow spine animation;
-        movementOriginObj.transform.name = animalDNA.name;
-        animalObj.transform.parent = movementOriginObj.transform;//Parent mesh to movement to hoepfully fix that stretched mesh
+        
+        //parent the spines holder to the movementOrigin
+        spineCore.transform.parent.parent = movementOriginObj.transform;//set the base spine container to child of move obj
+        
+        //The animalObj will only hold the mesh after reassigning bones so parent that to movement origin
+        animalObj.transform.parent = movementOriginObj.transform;
         animalObj.transform.name = "MeshParent";
         
         GameObject headHolder = new GameObject("HeadHolder");
         headHolder.transform.position = head.transform.position;
         headHolder.transform.forward = movementOriginObj.transform.forward;
         head.transform.parent = headHolder.transform;
-        head = headHolder;
+        head = headHolder;//Reassing to headholder so we can move the holder
         spineMain.MatchLimbToSpine(head.transform);
 
         
@@ -153,21 +168,30 @@ public class AnimalInitializer : MonoBehaviour
         //add components to animal and position it to center of mass
         collider = movementOriginObj.AddComponent<CapsuleCollider>();
         collider.direction = 2;//x is 0, y is 1, z is 2
+        collider.center = transform.InverseTransformPoint(transform.position);
         Vector3 meshBounds = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().bounds.size;
         //move the collider back to the body even though we need it attached to the head
         //todo tails to allow for this to correctly position
+        /*
         Vector3 centerpos =
             (spineMain.spineContainers[spineMain.spineContainers.Count - 1].transform.position -
              spineMain.spineContainers[0].transform.position) / 2;
         
         collider.center = centerpos;
+        */
 
         //edit the bounds to be smaller and reasign
         Vector3 newMeshBounds = meshBounds / 2;
         newMeshBounds.y = newMeshBounds.y / 3;//Half the height so it can have a body floating above ground and legs work liek springs
         //collider.size = newMeshBounds;
-        collider.height = newMeshBounds.z;
-        collider.radius = newMeshBounds.y;
+
+        float anH = (transform.InverseTransformPoint(head.transform.position).y - transform.InverseTransformPoint(feet[0].transform.position).y)*4;
+        float anW = (transform.InverseTransformPoint(legs[1].transform.position).x -transform.InverseTransformPoint(legs[0].transform.position).x)*4;
+        //float anL = (transform.InverseTransformPoint(head.transform.position).z - transform.InverseTransformPoint(spineMain.spineContainers[spineMain.spineContainers.Count - 1].transform.position).z)*4;
+        float anL = (transform.InverseTransformPoint(legs[0].transform.position).z - transform.InverseTransformPoint(legs[legs.Count-1].transform.position).z)*6;
+
+        collider.height = anL;//collider.height = newMeshBounds.z;
+        collider.radius = anW;
 
     }
 
@@ -191,6 +215,7 @@ public class AnimalInitializer : MonoBehaviour
         else
             behaviours = GetComponent<AnimalBehaviours>();
         behaviours.brain = brain;
+        behaviours.headObject = head.transform;
         behaviours.rb = rb;
         behaviours.hitCanvas = animalDNA.attackCanvas;
         behaviours.heartCanvas = animalDNA.heartCanvas;

@@ -559,7 +559,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -729,7 +729,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -1079,7 +1079,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -1163,7 +1163,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -1576,7 +1576,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -1743,6 +1743,10 @@ PrefabInstance:
     - target: {fileID: 342881479001926701, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_Name
       value: XR Rig
+      objectReference: {fileID: 0}
+    - target: {fileID: 342881479001926701, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 342881479001926701, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_TagString
@@ -2033,7 +2037,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -2558,7 +2562,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -2658,7 +2662,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -2908,7 +2912,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -3032,7 +3036,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -3116,7 +3120,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -3423,7 +3427,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -3651,7 +3655,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -3802,7 +3806,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -4450,8 +4454,10 @@ MonoBehaviour:
   gravityDir: {x: 0.007232592, y: -0.99969965, z: 0.023417264}
   rb: {fileID: 984227929}
   turnSpeed: 9.809183
+  offset: {x: 0, y: 0, z: 0}
   moveVel: {x: 0.0000006378641, y: -0.0000102527065, z: -0.000021327445}
   orienter: {fileID: 1995969785}
+  col: {fileID: 0}
 --- !u!65 &984227934
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4782,7 +4788,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -4819,7 +4825,7 @@ GameObject:
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1192904685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5023,7 +5029,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -5386,7 +5392,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -5782,7 +5788,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -6452,7 +6458,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -6508,7 +6514,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -6807,7 +6813,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -8118,7 +8124,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -8533,7 +8539,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -8589,7 +8595,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -8808,7 +8814,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1
@@ -8932,7 +8938,7 @@ MonoBehaviour:
   spineMain: {fileID: 0}
   animalHeight: 2
   animalLength: 2
-  damping: 20
+  damping: 15
   clip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
   audioSource: {fileID: 0}
   initialiseOnStart: 1

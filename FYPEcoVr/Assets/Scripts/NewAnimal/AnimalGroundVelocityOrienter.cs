@@ -15,9 +15,12 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
     
     private int layerMask;
 
+    public Vector3 offset;
+
     
     public Vector3 moveVel;//for velocity without the up and down force
     public  GameObject orienter;
+    public Collider col;
 
 
     public void OnDrawGizmos()
@@ -48,6 +51,7 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
         layerMask = 1 << 8;//bit shift to get mask for raycasting so only on environment and not other animals
         
 //        print("brain"+brain.moveSpeed);
+        
 
         transform.up = -gravityDir;
         
@@ -57,11 +61,14 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
         orienter.transform.parent = this.transform;
         orienter.transform.position = this.transform.position;
         orienter.transform.rotation = this.transform.rotation;
+        col = GetComponent<CapsuleCollider>();
+
+        offset = transform.position - col.bounds.center; 
     }
 
     public void AimToVelOrientedToGround()
     {
-        turnSpeed = Mathf.Max(5-brain.animalHeight,1);//the bigger animals turn slower but keep in range
+        turnSpeed = Mathf.Max(5-brain.animalHeight,.5f);//the bigger animals turn slower but keep in range
         //this took about a week to find a solution to but it allows gravity without messing up the targetting
         //convert velocity to local then remove the y so can have gravity without it focing animal to look up and down
         RaycastHit hit;
@@ -75,15 +82,21 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
             moveVel = orienter.transform.TransformDirection(locVel);//set the new cancelled related velocity
             
             Quaternion rotation;
-            if (locVel.magnitude>.1f)
+            if (locVel.magnitude>1f)//Normal speed
             {
+                //transform.position = col.bounds.center+offset;
                 rotation = Quaternion.LookRotation(moveVel, orienter.transform.up);//look to velocity, align with ground
-                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, (turnSpeed)*Time.deltaTime);//do it over time
+                rb.transform.rotation = Quaternion.Slerp(col.transform.rotation, rotation, (turnSpeed)*Time.deltaTime);//do it over time
             }
-            else
+            else if (locVel.magnitude>.1f)//moving very slowly
             {
                 rotation = Quaternion.LookRotation(transform.forward, hit.normal);//look to velocity, align with ground
-                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, .0001f*Time.deltaTime);
+                rb.transform.rotation = Quaternion.Slerp(col.transform.rotation, rotation, (turnSpeed/5)*Time.deltaTime);
+            }
+            else//Barely moving at all so stop from spinning from small magnitude
+            {
+                rotation = Quaternion.LookRotation(transform.forward, hit.normal);//look to velocity, align with ground
+                rb.transform.rotation = Quaternion.Slerp(col.transform.rotation, rotation, .0001f*Time.deltaTime);
             }
         }
     }
