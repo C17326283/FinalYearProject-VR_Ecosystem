@@ -168,8 +168,8 @@ public class AnimalInitializer : MonoBehaviour
         //add components to animal and position it to center of mass
         collider = movementOriginObj.AddComponent<CapsuleCollider>();
         collider.direction = 2;//x is 0, y is 1, z is 2
-        collider.center = transform.InverseTransformPoint(transform.position);
-        Vector3 meshBounds = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().bounds.size;
+        //collider.center = transform.InverseTransformPoint(transform.position);
+        //Vector3 meshBounds = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().bounds.size;
         //move the collider back to the body even though we need it attached to the head
         //todo tails to allow for this to correctly position
         /*
@@ -181,15 +181,16 @@ public class AnimalInitializer : MonoBehaviour
         */
 
         //edit the bounds to be smaller and reasign
-        Vector3 newMeshBounds = meshBounds / 2;
-        newMeshBounds.y = newMeshBounds.y / 3;//Half the height so it can have a body floating above ground and legs work liek springs
+        //Vector3 newMeshBounds = meshBounds / 2;
+        //newMeshBounds.y = newMeshBounds.y / 3;//Half the height so it can have a body floating above ground and legs work liek springs
         //collider.size = newMeshBounds;
 
-        float anH = (transform.InverseTransformPoint(head.transform.position).y - transform.InverseTransformPoint(feet[0].transform.position).y)*4;
-        float anW = (transform.InverseTransformPoint(legs[1].transform.position).x -transform.InverseTransformPoint(legs[0].transform.position).x)*4;
+        float anH = Mathf.Abs(movementOriginObj.transform.InverseTransformPoint(head.transform.position).y - movementOriginObj.transform.InverseTransformPoint(feet[0].transform.position).y)*1.1f;
+        float anW = Mathf.Abs(movementOriginObj.transform.InverseTransformPoint(legs[1].transform.position).x -movementOriginObj.transform.InverseTransformPoint(legs[0].transform.position).x)*1.1f;
         //float anL = (transform.InverseTransformPoint(head.transform.position).z - transform.InverseTransformPoint(spineMain.spineContainers[spineMain.spineContainers.Count - 1].transform.position).z)*4;
-        float anL = (transform.InverseTransformPoint(legs[0].transform.position).z - transform.InverseTransformPoint(legs[legs.Count-1].transform.position).z)*6;
+        float anL = Mathf.Abs(movementOriginObj.transform.InverseTransformPoint(head.transform.position).z - movementOriginObj.transform.InverseTransformPoint(spineMain.spineContainers[spineMain.spineContainers.Count - 1].transform.position).z)*1.5f;
 
+        Debug.Log(movementOriginObj.transform.name+",anL:"+anL+",anW"+anW);
         collider.height = anL;//collider.height = newMeshBounds.z;
         collider.radius = anW;
 

@@ -82,7 +82,7 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
             moveVel = orienter.transform.TransformDirection(locVel);//set the new cancelled related velocity
             
             Quaternion rotation;
-            if (locVel.magnitude>1f)//Normal speed
+            if (locVel.magnitude>.8f)//Normal speed
             {
                 //transform.position = col.bounds.center+offset;
                 rotation = Quaternion.LookRotation(moveVel, orienter.transform.up);//look to velocity, align with ground
@@ -91,7 +91,7 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
             else if (locVel.magnitude>.1f)//moving very slowly
             {
                 rotation = Quaternion.LookRotation(transform.forward, hit.normal);//look to velocity, align with ground
-                rb.transform.rotation = Quaternion.Slerp(col.transform.rotation, rotation, (turnSpeed/5)*Time.deltaTime);
+                rb.transform.rotation = Quaternion.Slerp(col.transform.rotation, rotation, (turnSpeed/4)*Time.deltaTime);
             }
             else//Barely moving at all so stop from spinning from small magnitude
             {

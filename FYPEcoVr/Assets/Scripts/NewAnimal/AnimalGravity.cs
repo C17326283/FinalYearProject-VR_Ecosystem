@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class AnimalGravity : MonoBehaviour
@@ -86,7 +87,8 @@ public class AnimalGravity : MonoBehaviour
                 //get height based on magnitude or default height
                 //float desiredHeight = Mathf.Min(animalHeight * .9f, animalHeight - (rb.velocity.magnitude / 30)); //strides get bigger at faster speeds so animate lower body too
 
-                float desiredHeight = animalHeight-((furthestFootDist)/1.5f); //height based on stride
+                float clampedMag = Mathf.Clamp(rb.velocity.magnitude, 1, Mathf.Max(2,animalHeight));
+                float desiredHeight = animalHeight-((furthestFootDist/clampedMag)/4); //height based on stride
  //               print("desiredHeight"+transform.name+desiredHeight);
                 desiredHeight = Mathf.Clamp(desiredHeight, animalHeight * .7f, animalHeight * .9f);
 
@@ -111,15 +113,19 @@ public class AnimalGravity : MonoBehaviour
     public float GetFurthestFootDist()
     {
         //print(footPositioners);
-        float fDist =Mathf.Infinity;
+        float fDist =0;
 
         for (int i = 0; i < footPositioners.Count; i++)
         {
+            fDist = fDist+Mathf.Abs(footPositioners[i].axisDifferences.z+(footPositioners[i].axisDifferences.x/2)); //add distances
+
             //print("foot" + footPositioners[i]);
-            if (footPositioners[i].distToNext < fDist)
+            /*
+            if (footPositioners[i].distToNext > fDist)
             {
-                fDist = Mathf.Abs(footPositioners[i].axisDifferences.z+footPositioners[i].axisDifferences.x); //add distances
+                fDist = Mathf.Abs(footPositioners[i].axisDifferences.z+(footPositioners[i].axisDifferences.x/2)); //add distances
             }
+            */
         }
 
         return fDist;
