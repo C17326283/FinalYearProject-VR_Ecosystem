@@ -244,6 +244,7 @@
             <e p="SimpleCameraController.cs" t="Include" />
             <e p="TestBetterGravity.cs" t="Include" />
           </e>
+          <e p="Food.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="GravityMovement.cs" t="Include" />
           <e p="LightAtAngle.cs" t="Include" />
@@ -259,7 +260,6 @@
             <e p="AnimalInitializer.cs" t="Include" />
             <e p="AnimalLife.cs" t="Include" />
             <e p="AnimalSenses.cs" t="Include" />
-            <e p="BasicBehaviours.cs" t="Include" />
             <e p="HeadLook.cs" t="Include" />
             <e p="SpineNew.cs" t="Include" />
           </e>

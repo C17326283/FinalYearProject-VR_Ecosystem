@@ -9336,7 +9336,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 1219441157}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 1000
+  amountToSpawn: 2000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0
   tagToSpawnOn: Ground

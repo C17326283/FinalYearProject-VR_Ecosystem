@@ -91,7 +91,7 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
             else if (locVel.magnitude>.05f)//moving very slowly
             {
                 rotation = Quaternion.LookRotation(transform.forward, hit.normal);//look to velocity, align with ground
-                rb.transform.rotation = Quaternion.Slerp(col.transform.rotation, rotation, (Mathf.Max(.5f,turnSpeed/4))*Time.deltaTime);
+                rb.transform.rotation = Quaternion.Slerp(col.transform.rotation, rotation, (Mathf.Max(1,turnSpeed/3))*Time.deltaTime);
             }
             else//Barely moving at all so stop from spinning from small magnitude
             {

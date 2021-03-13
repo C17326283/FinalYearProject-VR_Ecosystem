@@ -15,7 +15,7 @@ tree("Combat")
         fallback
             sequence
                 WantsToAttackCondition()
-                SeekTarget() 
+                ChasePrey() 
             FleeFromTarget()
         
 tree("Avoidance") 

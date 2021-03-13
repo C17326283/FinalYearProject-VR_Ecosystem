@@ -22,15 +22,24 @@
     <list default="true" id="1c86a74b-a54b-44cd-a93d-b82d2bbe20ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AnimalDistanceDisabler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AnimalDistanceDisabler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Cheetah.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Cheetah.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AnimalPrefabs/Elephant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AnimalPrefabs/Elephant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Corn1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Corn1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/BearProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Profiles/BearProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/CheetahProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Profiles/CheetahProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/ChickenProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Profiles/ChickenProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/DeerProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Profiles/DeerProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/ElephantProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Profiles/ElephantProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/FoxProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Profiles/FoxProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AnimalSetup.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AnimalSetup.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBrain.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/BasicBehaviours.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/BasicBehaviours.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +63,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Vr/HandController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AnimalDistanceDisabler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Food.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewAnimal/SpineNew.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@1.0.0-pre.2/Runtime/UI/TrackedDeviceGraphicRaycaster.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Cam.cs" root0="FORCE_HIGHLIGHTING" />
@@ -65,7 +75,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/GravityPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBodyPositioner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundOrienter.cs" />
         <option value="$PROJECT_DIR$/Assets/InputPlayer.cs" />
@@ -111,9 +120,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalSenses.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AnimalDistanceDisabler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2.txt" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2.txt" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Food.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBrain.cs" />
       </list>
@@ -219,7 +229,8 @@
       <workItem from="1615333098938" duration="4475000" />
       <workItem from="1615371232889" duration="3717000" />
       <workItem from="1615385507072" duration="1325000" />
-      <workItem from="1615542938107" duration="32194000" />
+      <workItem from="1615542938107" duration="35900000" />
+      <workItem from="1615633514213" duration="8962000" />
     </task>
     <servers />
   </component>
@@ -345,11 +356,11 @@
     </state>
     <state x="1920" y="47" width="1802" height="1028" key="dock-window-3/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1612029046947" />
     <state x="1971" y="32" width="1802" height="1028" key="dock-window-3/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1612136677779" />
-    <state x="2480" y="139" width="736" height="801" key="find.popup" timestamp="1615598932692">
+    <state x="2480" y="139" width="736" height="801" key="find.popup" timestamp="1615601503360">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
     <state x="602" y="97" width="792" height="845" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1615589236053" />
-    <state x="2480" y="139" width="736" height="801" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1615598932692" />
+    <state x="2480" y="139" width="736" height="801" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1615601503360" />
     <state x="2480" y="139" width="727" height="801" key="find.popup/1920.47.1786.986/-1920.86.1920.1040/0.0.1920.1040@1920.47.1786.986" timestamp="1614372541615" />
     <state x="2476" y="258" width="672" height="678" key="search.everywhere.popup" timestamp="1615588384520">
       <screen x="1920" y="47" width="1786" height="986" />

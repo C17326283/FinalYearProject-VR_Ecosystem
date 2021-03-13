@@ -24,7 +24,7 @@ MonoBehaviour:
   healthStarveDecrement: 3
   hungerDecrement: 0.5
   thirstDecrement: 1
-  reproductiveIncrement: 3
+  reproductiveIncrement: 5
   ageIncrement: 1
   memoryLossRate: 600
   sensoryRange: 150
@@ -44,5 +44,3 @@ MonoBehaviour:
   attackCanvas: {fileID: 8659279713810492492, guid: d236e3eb041b17b4eac632b9c35ddf39, type: 3}
   heartCanvas: {fileID: 8659279713810492492, guid: 3e64c767f0c3da044bb9a0702bd82883, type: 3}
   deathCanvas: {fileID: 8659279713810492492, guid: 58c1cddaa99cc2d408b22ea0d748b13a, type: 3}
-  behaviours:
-  - {fileID: 0}

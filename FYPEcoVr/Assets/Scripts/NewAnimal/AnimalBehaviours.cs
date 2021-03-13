@@ -116,7 +116,7 @@ public class AnimalBehaviours : MonoBehaviour
         {
             float distanceToCurrent = Vector3.Distance(rb.transform.position, obj.transform.position);
             //todo run from multiple
-            if (distanceToCurrent<tooCloseDist&&obj.GetComponent<AnimalBrain>()!=null&&obj.transform!=toTarget&&obj.transform!=combatAnimal)//if animal is tooclose and not a target
+            if (distanceToCurrent<brain.animalHeight*10&&obj.GetComponent<AnimalBrain>()!=null&&obj.transform!=toTarget&&obj.transform!=combatAnimal)//if animal is tooclose and not a target
             {
                 Vector3 fleeDir;
                 fleeDir = (rb.transform.position - obj.transform.position).normalized;
@@ -124,9 +124,17 @@ public class AnimalBehaviours : MonoBehaviour
                 locDir.y = 0;
                 Vector3 force = locDir * (tooCloseDist/distanceToCurrent)*(brain.moveSpeed/2);//Add avoid forc ebased on dist
 //                print(force);
-                if (obj.GetComponent<AnimalBrain>().predatorRating > brain.preyRating)
-                    force *= 3;
-                rb.AddRelativeForce(force*Time.deltaTime*100);
+
+                float pushAmount = Mathf.Clamp((brain.animalHeight*2)/distanceToCurrent,0,brain.moveSpeed/2);
+                
+                if (obj.GetComponent<AnimalBrain>().preyRating > brain.preyRating)
+                    pushAmount *= 4;
+                    
+                    
+                    
+
+
+                rb.AddRelativeForce(force*pushAmount*Time.deltaTime*100);
                 found = true;
             }
         }
@@ -135,13 +143,13 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void ChasePrey()
     {
-        Vector3 seekDir;
-        seekDir = (toTarget.position - rb.transform.position);//dont normalize because need the force amounts
-        Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
-        locDir.y = 0;
-
-        if (locDir.magnitude > 1 && Vector3.Distance(toTarget.transform.position,rb.transform.position)>attackRange+brain.animalHeight)
+        if (toTarget != null)
         {
+            Vector3 seekDir;
+            seekDir = (toTarget.position - rb.transform.position);//dont normalize because need the force amounts
+            Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
+            locDir.y = 0;
+
             Vector3 force = locDir.normalized * brain.moveSpeed;
             rb.AddRelativeForce(force*2*Time.deltaTime*100);
             Task.current.Succeed();//if found no enemies
@@ -149,6 +157,7 @@ public class AnimalBehaviours : MonoBehaviour
         else
         {
             Task.current.Fail();
+
         }
     }
 
@@ -162,7 +171,7 @@ public class AnimalBehaviours : MonoBehaviour
             Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
             locDir.y = 0;
             Vector3 force = locDir * brain.moveSpeed;
-            rb.AddRelativeForce(force * 2 * Time.deltaTime * 100);
+            rb.AddRelativeForce(force * 3 * Time.deltaTime * 100);
             Task.current.Succeed(); //if found no enemies
         }
         else
@@ -226,7 +235,7 @@ public class AnimalBehaviours : MonoBehaviour
         {
             foreach (var obj in brain.objSensedMemory)
             {
-                if (obj.transform.CompareTag("Food"))
+                if (obj.transform.CompareTag("Food") && obj.gameObject.activeInHierarchy)
                 {
                     toTarget = obj.transform;
                     Task.current.Succeed();
@@ -414,6 +423,8 @@ public class AnimalBehaviours : MonoBehaviour
             Task.current.Succeed();
             print("eat");
             combatAnimal = null;//If was targeting to eat then complete that
+            if(toTarget.parent.GetComponent<Food>()!=null)
+                toTarget.parent.GetComponent<Food>().isEaten();
 
         }
         else if(toTarget.CompareTag("Water"))
@@ -428,7 +439,7 @@ public class AnimalBehaviours : MonoBehaviour
             brain.reproductiveUrge = 0;
             Instantiate(heartCanvas, (toTarget.transform.position+this.transform.position)/2, transform.rotation);
             toTarget.GetComponent<AnimalBrain>().reproductiveUrge = 0;
-            brain.GiveBirth();
+            brain.GiveBirth(brain,toTarget.GetComponent<AnimalBrain>());
             Task.current.Succeed();
         }
         else
@@ -543,7 +554,8 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void WantsToMateCondition()//Todo add behaviour
     {
-        if (brain.reproductiveUrge > 90)
+        //Only mate if not starving and wants to mate
+        if (brain.reproductiveUrge > 90 && !(brain.hunger<0)&&!(brain.thirst<0))
         {
             Task.current.Succeed();
         }

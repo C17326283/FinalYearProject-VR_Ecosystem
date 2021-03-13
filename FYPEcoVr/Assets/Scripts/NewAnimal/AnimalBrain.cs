@@ -55,6 +55,9 @@ public class AnimalBrain : MonoBehaviour
     public float timeTillAdult= 60;
     public Vector3 defaultScale;
 
+    public AnimalBrain mother;
+    public AnimalBrain father;
+
 
     void Awake()
     {
@@ -91,7 +94,7 @@ public class AnimalBrain : MonoBehaviour
         }
     }
 
-    public void GiveBirth()
+    public void GiveBirth(AnimalBrain motherBrain, AnimalBrain fatherBrain)
     {
         GameObject baby = new GameObject("Gen2Holder");
         baby.transform.parent = transform.parent.parent;//the overall holder not the initialiser
@@ -101,6 +104,9 @@ public class AnimalBrain : MonoBehaviour
         initializer.btTexts = transform.parent.GetComponent<AnimalInitializer>().btTexts;//copy current ones
         initializer.clip = transform.parent.GetComponent<AnimalInitializer>().clip;
         initializer.InitialiseAnimal();
+        //todo optimise
+        initializer.brain.mother = motherBrain;
+        initializer.brain.father = fatherBrain;
 
     }
 
@@ -110,7 +116,7 @@ public class AnimalBrain : MonoBehaviour
         this.GetComponent<BehaviourTree>().enabled = false;//disable ai
         //this.GetComponent<Rigidbody>().freezeRotation = false;
         Instantiate(deathCanvas, this.transform.position, transform.rotation);
-        gameObject.GetComponent<AnimalGravity>().animalHeight = 0;
+        gameObject.GetComponent<AnimalGravity>().animalHeight = -5;//Collapse to ground
 
 
         StartCoroutine(SetInactive(5));
@@ -120,7 +126,8 @@ public class AnimalBrain : MonoBehaviour
     IEnumerator SetInactive(float time)
     {
         yield return new WaitForSeconds(time);//wait specific time
-        Debug.Log("Died");
+        gameObject.GetComponent<Collider>().enabled = false;//fall through floor
+        yield return new WaitForSeconds(1);
 
         gameObject.SetActive(false);
     }
@@ -133,7 +140,15 @@ public class AnimalBrain : MonoBehaviour
           thirst = maxStat;
           reproductiveUrge = 0;
           age = 0;
-          MutateStats();
+          //If has parents then mutate instead of doing default 
+          if (mother != null)
+          {
+              MutateStats();
+          }
+          else
+          {
+              Debug.Log("does not have parents on mate");
+          }
     }
     
 
@@ -142,14 +157,17 @@ public class AnimalBrain : MonoBehaviour
         float change = maxMutatePercent / 100;//get float as percent
         float percentDif = 1;
 
-        percentDif = healthStarveDecrement * change;
-        healthStarveDecrement = Mathf.Clamp(Random.Range(healthStarveDecrement-percentDif, healthStarveDecrement+percentDif), 0, 30000);
+        
+        percentDif = mother.healthStarveDecrement * change;
+        print("change"+change+" ,percentDif:"+percentDif+" ,mother.healthStarveDecrement:"+mother.healthStarveDecrement+" ,par/2:"+(mother.healthStarveDecrement+father.healthStarveDecrement)/2+",ran:"+Mathf.Clamp(Random.Range(-percentDif, percentDif), -30000, 30000));
+        //Get average from parents and add a mutation
+        healthStarveDecrement = Mathf.Clamp(((mother.healthStarveDecrement+father.healthStarveDecrement)/2)+Random.Range(-percentDif, percentDif), -30000, 30000);
         percentDif = hungerDecrement * change;
-        hungerDecrement = Mathf.Clamp(Random.Range(hungerDecrement-percentDif, hungerDecrement+percentDif), 0, 30000);
+        hungerDecrement = Mathf.Clamp(((mother.hungerDecrement+father.hungerDecrement)/2)+Random.Range(-percentDif, percentDif), -30000, 30000);
         percentDif = thirstDecrement * change;
-        thirstDecrement = Mathf.Clamp(Random.Range(thirstDecrement-percentDif, thirstDecrement+percentDif), 0, 30000);
+        thirstDecrement = Mathf.Clamp(((mother.thirstDecrement+father.thirstDecrement)/2)+Random.Range(-percentDif, percentDif), -30000, 30000);
         percentDif = reproductiveIncrement * change;
-        reproductiveIncrement = Mathf.Clamp(Random.Range(reproductiveIncrement-percentDif, reproductiveIncrement+percentDif), 0, 300000);
+        reproductiveIncrement = Mathf.Clamp(((mother.reproductiveIncrement+father.reproductiveIncrement)/2)+Random.Range(-percentDif, percentDif), -30000, hungerDecrement);//Dont let reproduce before they get hungry
         percentDif = memoryLossRate * change;
         memoryLossRate = Mathf.Clamp(Random.Range(memoryLossRate-percentDif, memoryLossRate+percentDif), 0, 100000);
         percentDif = sensoryRange * change;
