@@ -1,0 +1,59 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CoastPointSpawner : MonoBehaviour
+{
+    //public GameObject water;
+    public Vector3 gravityDir;
+    public GameObject core;
+    private int layerMask;
+
+
+    public float rayDist = 4f;
+    public int incrementAmount =2;
+    // Start is called before the first frame update
+    void Start()
+    {
+        layerMask = 1 << 8;
+        core = GameObject.Find("Core");
+        FindEdges();
+        //StartCoroutine(Ray());
+    }
+    public void FindEdges()
+    {
+        Mesh mesh = GetComponent<MeshFilter>().mesh;
+        Vector3[] vertices = mesh.vertices;
+
+        int vertCount = vertices.Length;
+        Debug.Log("vertCount "+vertCount);
+        for (int i = 0; i < vertCount; i+=incrementAmount)
+        {
+            Vector3 worldPos = transform.TransformPoint(vertices[i]);
+            gravityDir = (core.transform.position - worldPos).normalized;
+            RaycastHit hit;
+            // Does the ray intersect any objects excluding the player layer
+            if (Physics.Raycast(worldPos+(-gravityDir*rayDist), gravityDir, out hit, rayDist))
+            {
+                if (hit.transform.name != transform.name)//if not a water mesh
+                {
+                    //Debug.DrawRay(vertices[i], gravityDir,Color.red,rayDist);
+                    GameObject obj = new GameObject("water");
+                    obj.transform.tag = "Water";
+                    SphereCollider col =obj.AddComponent<SphereCollider>();//so it can be sensed
+                    col.radius = 0.1f;
+                    obj.transform.position = worldPos;
+                    print("hit");
+                }
+            }
+            else
+            {
+                //Debug.DrawRay(vertices[i], gravityDir,Color.red,rayDist);
+                print("no hit: " + vertices[i]);
+            }
+        }
+    }
+
+    
+}

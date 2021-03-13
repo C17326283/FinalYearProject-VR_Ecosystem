@@ -22,12 +22,12 @@ MonoBehaviour:
   maxHealth: 100
   maxStat: 100
   healthStarveDecrement: 3
-  hungerDecrement: 2
+  hungerDecrement: 1
   thirstDecrement: 1
-  reproductiveIncrement: 2
+  reproductiveIncrement: 4
   ageIncrement: 1
-  memoryLossRate: 600
-  sensoryRange: 300
+  memoryLossRate: 1000
+  sensoryRange: 500
   moveSpeed: 300
   rotSpeed: 58.38
   wanderRadius: 50

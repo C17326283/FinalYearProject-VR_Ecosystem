@@ -241,9 +241,10 @@ public class PlanetSpawner : MonoBehaviour
             yield return new WaitForSeconds(.1f);
         }
         
-        
+        planetObj.GetComponent<PlanetTerrainGenerator>().GenerateCoastline();
         print("planet fin "+Time.time);
         finishedAddingExtras = true;
+        
 
     }
 
@@ -262,6 +263,7 @@ public class PlanetSpawner : MonoBehaviour
         Generate();
         planetObj.GetComponent<PlanetTerrainGenerator>().GenerateColliders();
         planetObj.GetComponent<PlanetTerrainGenerator>().AddTeleporting();
+        
         
         this.GetComponent<RotateEnvironment>().enabled = false;
         //Tried to get bettr player controller but it didnt work

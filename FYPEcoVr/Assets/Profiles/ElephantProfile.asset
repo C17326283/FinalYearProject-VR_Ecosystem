@@ -24,11 +24,11 @@ MonoBehaviour:
   healthStarveDecrement: 3
   hungerDecrement: 2
   thirstDecrement: 1
-  reproductiveIncrement: 3
+  reproductiveIncrement: 4
   ageIncrement: 1
-  memoryLossRate: 600
-  sensoryRange: 350
-  moveSpeed: 150
+  memoryLossRate: 1000
+  sensoryRange: 600
+  moveSpeed: 250
   rotSpeed: 50
   wanderRadius: 50
   forwardWanderBias: 2

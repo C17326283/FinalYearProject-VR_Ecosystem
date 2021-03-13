@@ -289,85 +289,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17496253}
   m_CullTransparentMesh: 1
---- !u!1 &31186831
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 31186832}
-  - component: {fileID: 31186834}
-  - component: {fileID: 31186833}
-  m_Layer: 0
-  m_Name: Water
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &31186832
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31186831}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 881058077}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &31186833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31186831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2e44c6d9f1e2c34193a9a285e93447f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poolPrefabList:
-  - {fileID: 5118286621860649681, guid: abdb9f5c655569140bd5cf7581dcb773, type: 3}
-  initialNum: 0
-  maxAmountActive: 100000
---- !u!114 &31186834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31186831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 128ae682f88d39743a95ce29564fe940, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waitUntillTriggered: 1
-  normalObjectPoolObj: {fileID: 31186833}
-  coldObjectPoolObj: {fileID: 31186833}
-  warmObjectPoolObj: {fileID: 31186833}
-  parentObject: {fileID: 0}
-  planetObject: {fileID: 0}
-  amountToSpawn: 1000
-  spawnerDistanceFromCore: 5000
-  heightFromHitPoint: 0
-  tagToSpawnOn: Water
-  isRotatingObject: 0
-  RandomiseScaleAndRotation: 1
-  minScale: 0.1
-  maxScale: 0.2
-  randomXZTilt: 2
-  biomeObjs: []
-  biomeDist: 500
-  usesLOD: 1
-  screenPercentLODCull: 2
 --- !u!1 &57377513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1576,7 +1497,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 223584068}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 3000
+  amountToSpawn: 2500
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0
   tagToSpawnOn: Ground
@@ -4071,7 +3992,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 596869499}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.82812, y: 73.63698, z: -173.49414}
+  m_LocalPosition: {x: 0, y: 73.55, z: -173.104}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 647017232}
@@ -4451,7 +4372,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647017231}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.17812, y: 100, z: -6393.4165}
+  m_LocalPosition: {x: 0, y: 0, z: -3200}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1328546746}
@@ -5036,7 +4957,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 881058077}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &769613472
 MonoBehaviour:
@@ -5238,7 +5159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 22.808119, y: 73.53998}
+  m_AnchoredPosition: {x: 0, y: 73.53998}
   m_SizeDelta: {x: 2062, y: 1400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &782749335
@@ -6279,9 +6200,8 @@ Transform:
   - {fileID: 1793077440}
   - {fileID: 1384593976}
   - {fileID: 2125029173}
-  - {fileID: 31186832}
-  - {fileID: 1330926527}
   - {fileID: 769613469}
+  - {fileID: 1330926527}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7587,7 +7507,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037889463}
   m_LocalRotation: {x: 0.09198283, y: -0.13696592, z: 0.012776494, w: 0.9862131}
-  m_LocalPosition: {x: 25.98812, y: 72.36698, z: -172.41016}
+  m_LocalPosition: {x: 0, y: 72.36698, z: -172.41016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 647017232}
@@ -9184,7 +9104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 342881479001926702, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.87
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 342881479001926702, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9312,7 +9232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219441154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
+  m_LocalPosition: {x: 0, y: 0.000015258789, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 881058077}
@@ -9336,7 +9256,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 1219441157}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 2000
+  amountToSpawn: 3000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0
   tagToSpawnOn: Ground
@@ -10097,7 +10017,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1328546745}
   m_LocalRotation: {x: -0.00000047637525, y: -0.5727672, z: 0.8197181, w: -0.0000003328609}
-  m_LocalPosition: {x: 22.82812, y: 74.827995, z: -173.56348}
+  m_LocalPosition: {x: 0, y: 74.827995, z: -173.56348}
   m_LocalScale: {x: 290.47992, y: 280.17517, z: 213.64082}
   m_Children: []
   m_Father: {fileID: 647017232}
@@ -10605,7 +10525,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 1384593979}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 20000
+  amountToSpawn: 15000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0.01
   tagToSpawnOn: Ground
@@ -10831,7 +10751,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 59bed221b67c8824a9e7c8a67ff3f08d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.82812
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 59bed221b67c8824a9e7c8a67ff3f08d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13838,14 +13758,14 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 1793077441}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 1200
+  amountToSpawn: 1000
   spawnerDistanceFromCore: 5000
   heightFromHitPoint: 0.01
   tagToSpawnOn: Ground
   isRotatingObject: 0
   RandomiseScaleAndRotation: 1
   minScale: 2
-  maxScale: 3
+  maxScale: 4
   randomXZTilt: 3
   biomeObjs: []
   biomeDist: 500

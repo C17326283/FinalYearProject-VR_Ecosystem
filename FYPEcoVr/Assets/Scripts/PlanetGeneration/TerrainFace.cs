@@ -163,7 +163,7 @@ public class TerrainFace : MonoBehaviour
         if (elevation < settings.planetRadius+waterHeight)
         {
             //dont evaluated point so the colours dont rely on water level
-            elevation = (settings.planetRadius * 1)-1f;
+            elevation = (elevation)-10f;
             return pointOnUnitSphere * elevation;
         }
         else

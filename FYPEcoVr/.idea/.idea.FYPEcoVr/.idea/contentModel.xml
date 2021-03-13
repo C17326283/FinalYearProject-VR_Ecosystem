@@ -265,6 +265,7 @@
           </e>
           <e p="PlanetGeneration" t="Include">
             <e p="AnimalsSpawner.cs" t="Include" />
+            <e p="CoastPointSpawner.cs" t="Include" />
             <e p="ColourGenerator.cs" t="Include" />
             <e p="FakeGravity.cs" t="Include" />
             <e p="Noise.cs" t="Include" />

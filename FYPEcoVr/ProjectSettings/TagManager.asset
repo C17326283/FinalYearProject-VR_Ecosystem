@@ -20,6 +20,7 @@ TagManager:
   - SpineCore
   - Foot
   - AnimalContainer
+  - WaterMesh
   layers:
   - Default
   - TransparentFX

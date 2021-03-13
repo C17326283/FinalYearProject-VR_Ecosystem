@@ -69,7 +69,7 @@ public class PlanetTerrainGenerator : MonoBehaviour
                 meshObj.transform.position = transform.position;
                 waterObj.transform.position = transform.position;
                 meshObj.transform.tag = "Ground";//for letting the spawners hit it
-                waterObj.transform.tag = "Water";
+                waterObj.transform.tag = "WaterMesh";
                 meshObj.layer = 8;
                 waterObj.layer = 8;//set environment for feetpositioner raycast to 
             
@@ -140,6 +140,14 @@ public class PlanetTerrainGenerator : MonoBehaviour
             meshFilters[i].gameObject.GetComponent<MeshCollider>().convex = false;
             waterMeshFilters[i].gameObject.GetComponent<MeshCollider>().convex = true;
             waterMeshFilters[i].gameObject.GetComponent<MeshCollider>().convex = false;
+        }
+    }
+    public void GenerateCoastline()
+    {
+        //Add the coastLine spawner
+        for (int i = 0; i < 6; i++)
+        {
+            waterMeshFilters[i].gameObject.AddComponent<CoastPointSpawner>();
         }
     }
     
