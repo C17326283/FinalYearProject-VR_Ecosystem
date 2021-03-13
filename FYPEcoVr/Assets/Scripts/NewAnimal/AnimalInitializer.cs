@@ -91,6 +91,7 @@ public class AnimalInitializer : MonoBehaviour
         movementOriginObj = new GameObject(animalDNA.name);
         movementOriginObj.transform.position = this.transform.position;
         movementOriginObj.transform.parent = this.transform;
+        movementOriginObj.transform.tag = "AnimalContainer";//So animal can be sensed by others
     }
     
     
@@ -190,7 +191,7 @@ public class AnimalInitializer : MonoBehaviour
         //float anL = (transform.InverseTransformPoint(head.transform.position).z - transform.InverseTransformPoint(spineMain.spineContainers[spineMain.spineContainers.Count - 1].transform.position).z)*4;
         float anL = Mathf.Abs(movementOriginObj.transform.InverseTransformPoint(head.transform.position).z - movementOriginObj.transform.InverseTransformPoint(spineMain.spineContainers[spineMain.spineContainers.Count - 1].transform.position).z)*1.5f;
 
-        Debug.Log(movementOriginObj.transform.name+",anL:"+anL+",anW"+anW);
+//        Debug.Log(movementOriginObj.transform.name+",anL:"+anL+",anW"+anW);
         collider.height = anL;//collider.height = newMeshBounds.z;
         collider.radius = anW;
 

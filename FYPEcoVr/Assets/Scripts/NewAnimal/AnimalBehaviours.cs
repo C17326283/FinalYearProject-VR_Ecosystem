@@ -36,9 +36,20 @@ public class AnimalBehaviours : MonoBehaviour
 
     public void OnDrawGizmos()
     {
-        Gizmos.color = Color.magenta;
-        if(toTarget!=null)
-            Gizmos.DrawSphere(toTarget.transform.position, 1);
+        Gizmos.color = Color.cyan;
+        if (toTarget != null)
+        {
+            Gizmos.DrawSphere(toTarget.transform.position, .2f);
+            Gizmos.DrawLine(transform.position, toTarget.transform.position);
+
+        }
+        Gizmos.color = Color.blue;
+        if (combatAnimal != null)
+        {
+            Gizmos.DrawSphere(toTarget.transform.position, .2f);
+            Gizmos.DrawLine(transform.position, combatAnimal.transform.position);
+
+        }
     }
 
     private void Awake()
@@ -85,18 +96,13 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void ObstacleAvoid()
     {
+        Task.current.Succeed();
         RaycastHit hit; //shoot ray and if its ground then spawn at that location
         if (Physics.Raycast(headObject.position, rb.transform.forward, out hit, brain.animalHeight*4))
         {
             //todo improve this, this is temp
             rb.AddRelativeForce(transform.right*(brain.moveSpeed/2)*Time.deltaTime*100);
             Task.current.Succeed(); //if found no enemies
-
-        }
-        else
-        {
-            Task.current.Fail(); //if found no enemies
-
         }
         
     }
@@ -186,16 +192,6 @@ public class AnimalBehaviours : MonoBehaviour
         }
     }
 
-    [Task]
-    void Mate()
-    {
-        brain.reproductiveUrge = 0;
-        Instantiate(heartCanvas, (toTarget.transform.position+this.transform.position)/2, transform.rotation);
-        toTarget.GetComponent<AnimalBrain>().reproductiveUrge = 0;
-        brain.GiveBirth();
-        Task.current.Succeed();
-
-    }
 
     [Task]
     void GetAnimalTarget()
@@ -210,6 +206,7 @@ public class AnimalBehaviours : MonoBehaviour
             {
                 closestWeakAnimal = distanceToCurrent;
                 toTarget = obj.transform;
+                combatAnimal = toTarget.gameObject;//starting combat with animal, condition allows attacking
                 Task.current.Succeed();
                 found = true;
                 break;
@@ -229,7 +226,7 @@ public class AnimalBehaviours : MonoBehaviour
         {
             foreach (var obj in brain.objSensedMemory)
             {
-                if (obj.transform.name == "Food" && found==false)
+                if (obj.transform.CompareTag("Food"))
                 {
                     toTarget = obj.transform;
                     Task.current.Succeed();
@@ -285,7 +282,6 @@ public class AnimalBehaviours : MonoBehaviour
 
         if (found == false)
         {
-            toTarget = null;
             Task.current.Fail();
         }
     }
@@ -315,7 +311,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void WantsToAttackCondition()
     {
-        if (toTarget.GetComponent<AnimalBrain>().preyRating < brain.predatorRating)
+        if (toTarget.GetComponent<AnimalBrain>().preyRating < brain.predatorRating || toTarget.GetComponent<AnimalBrain>().preyRating < brain.preyRating)
         {
             Task.current.Succeed();
 
@@ -327,21 +323,14 @@ public class AnimalBehaviours : MonoBehaviour
         }
     }
 
-    [Task]
-    void TargetCombatAnimal()
-    {
-        toTarget = combatAnimal.transform;
-        Task.current.Succeed();
-
-        
-    }
 
     [Task]
-    void IsInCombatCondition()
+    void HasCombatTarget()
     {
         if (combatAnimal != null && combatAnimal.activeInHierarchy == true)
         {
             Task.current.Succeed();
+            toTarget = combatAnimal.transform;
 
         }
         else
@@ -385,37 +374,61 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void AttackTarget()
     {
-        Task.current.Succeed();//not having cooled down shouldnt cause flee
-        if (toTarget.GetComponent<AnimalBrain>()!=null&&Time.time>lastAttackTime+brain.attackRate && toTarget.gameObject.activeInHierarchy&&Vector3.Distance(toTarget.position,headObject.position)<attackRange+brain.animalHeight)//if has health
+        if (toTarget.GetComponent<AnimalBrain>()!=null&&combatAnimal== toTarget.gameObject && toTarget.gameObject.activeInHierarchy&&Vector3.Distance(toTarget.position,headObject.position)<attackRange+brain.animalHeight)//if has health
         {
-            //todo add cooldown
             AnimalBrain otherAnimalBrain = toTarget.GetComponent<AnimalBrain>();
-            combatAnimal = toTarget.gameObject;
-            toTarget.GetComponent<AnimalBehaviours>().combatAnimal = this.gameObject;
-            toTarget.GetComponent<AnimalBehaviours>().isPanicked = true;
-            isPanicked = true;
-            StartCoroutine(panicCoolown());
-            otherAnimalBrain.health -= 5;//todo brain attack strength 
+            if (otherAnimalBrain.health > 0)
+            {
+                Task.current.Succeed();//dont fail during cooldown
+                if (Time.time > lastAttackTime + brain.attackRate)
+                {
+                    toTarget.GetComponent<AnimalBehaviours>().combatAnimal = this.gameObject;
+                    toTarget.GetComponent<AnimalBehaviours>().isPanicked = true;
+                    isPanicked = true;
+                    StartCoroutine(panicCoolown());
+                    otherAnimalBrain.health -= 5; //todo brain attack strength 
 
-            Instantiate(hitCanvas, (toTarget.transform.position+this.transform.position)/2, transform.rotation);
+                    Instantiate(hitCanvas, (toTarget.transform.position), transform.rotation);
 
-            lastAttackTime = Time.time;
-            print("attack");
+                    lastAttackTime = Time.time;
+                    print("attack");
+                }
+            }
+            else
+            {
+                Task.current.Fail();
+            }
+        }
+        else
+        {
+            Task.current.Fail();
         }
     }
     
     [Task]
-    void ConsumeTarget()//if health lower than x
+    void CompleteTarget()//if health lower than x
     {
-        if (toTarget.name == "Food" || (toTarget.GetComponent<AnimalBrain>()!=null && toTarget.GetComponent<AnimalBrain>().health<=0) && toTarget.gameObject.activeInHierarchy)//if natural food or animal
+        if (toTarget.CompareTag("Food") || (toTarget.GetComponent<AnimalBrain>()!=null && toTarget.GetComponent<AnimalBrain>().health<=0) && toTarget.gameObject.activeInHierarchy)//if natural food or animal
         {
             brain.hunger = 100;
             Task.current.Succeed();
-            
+            print("eat");
+            combatAnimal = null;//If was targeting to eat then complete that
+
         }
-        else if(toTarget.name == "Water")
+        else if(toTarget.CompareTag("Water"))
         {
             brain.thirst = 100;
+            Task.current.Succeed();
+            print("drink");
+        }
+        else if(toTarget.transform.name==(transform.name))
+        {
+            print("mate");
+            brain.reproductiveUrge = 0;
+            Instantiate(heartCanvas, (toTarget.transform.position+this.transform.position)/2, transform.rotation);
+            toTarget.GetComponent<AnimalBrain>().reproductiveUrge = 0;
+            brain.GiveBirth();
             Task.current.Succeed();
         }
         else
@@ -482,12 +495,7 @@ public class AnimalBehaviours : MonoBehaviour
 //        print("distThisFrame"+distThisFrame+"  distLastFrame"+distLastFrame+  "  failCloserChecks"+failCloserChecks);
         if (distThisFrame+0.01f < distLastFrame)//todo switch to time not frame
         {
-            Task.current.Succeed();
             lastWanderSuccess = Time.time;//reset time counter
-        }
-        else
-        {
-            Task.current.Succeed();
         }
 
         if (Time.time > lastWanderSuccess+1)//if its been over a second since been stuck
@@ -495,6 +503,11 @@ public class AnimalBehaviours : MonoBehaviour
 //            print("stuck too long. Time"+Time.time+" last success"+lastWanderSuccess+" ob"+this.transform.name);
             lastWanderSuccess = Time.time;
             Task.current.Fail();
+            print(" stuck, got new wander");
+        }
+        else
+        {
+            Task.current.Succeed();
         }
 
         distLastFrame = distThisFrame;

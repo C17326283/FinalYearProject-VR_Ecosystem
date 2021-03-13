@@ -257,6 +257,7 @@
             <e p="AnimalGravity.cs" t="Include" />
             <e p="AnimalGroundVelocityOrienter.cs" t="Include" />
             <e p="AnimalInitializer.cs" t="Include" />
+            <e p="AnimalLife.cs" t="Include" />
             <e p="AnimalSenses.cs" t="Include" />
             <e p="BasicBehaviours.cs" t="Include" />
             <e p="HeadLook.cs" t="Include" />

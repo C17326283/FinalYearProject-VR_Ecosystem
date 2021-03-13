@@ -1,22 +1,21 @@
 tree("Root")
     sequence
+        tree("Avoidance") 
         fallback
             tree("Combat") 
             tree("SeekFood")
             tree("SeekWater")
             tree("SeekMate")
             tree("Wander")
-        tree("Avoidance") 
+        tree("Arrive")
         
 tree("Combat")
     sequence
-        IsInCombatCondition()
-        TargetCombatAnimal()
+        HasCombatTarget()
         fallback
             sequence
                 WantsToAttackCondition()
                 SeekTarget() 
-                AttackTarget()
             FleeFromTarget()
         
 tree("Avoidance") 
@@ -28,6 +27,14 @@ tree("Flee")
     sequence
         EnemyIsTooCloseCondition()
         FleeFromPredator()
+        
+tree("Arrive")
+    sequence
+        ArrivedAtTargetCondition()
+        fallback
+            AttackTarget()
+            CompleteTarget()
+            GetWanderTarget()
 	         
 tree("SeekFood")
     sequence
@@ -37,43 +44,32 @@ tree("SeekFood")
                 GetAnimalTarget()
                 ChasePrey()
             sequence
-                ArrivedAtTargetCondition()
-                AttackTarget()
-                ConsumeTarget()
-            sequence
                 TargetPlants()
                 SeekTarget()
-                ArrivedAtTargetCondition()
-                ConsumeTarget()
            
 tree("SeekWater")
     sequence
         IsThirstyCondition()
         TargetResource("Water")
         SeekTarget()
-        sequence
-            ArrivedAtTargetCondition()
-            ConsumeTarget()
         
 tree("SeekMate")
      sequence
          WantsToMateCondition()
          TargetMate()
          SeekTarget()
-         ArrivedAtTargetCondition()
-         Mate()
         
 tree("Wander")
-
     sequence
         fallback
             HasWanderTargetCondition()
             GetWanderTarget()
+        SeekTarget()
         fallback
-            sequence
-                ArrivedAtTargetCondition()
-                GetWanderTarget()
-            SeekTarget()
+            GettingCloserCondition()
+            GetWanderTarget()
+            
+            
  
 
     

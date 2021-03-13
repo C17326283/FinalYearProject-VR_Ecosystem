@@ -52,6 +52,9 @@ public class AnimalBrain : MonoBehaviour
     public float animalHeight;
     public GameObject deathCanvas;
 
+    public float timeTillAdult= 60;
+    public Vector3 defaultScale;
+
 
     void Awake()
     {
@@ -105,6 +108,7 @@ public class AnimalBrain : MonoBehaviour
     {
         Debug.Log("Died");
         this.GetComponent<BehaviourTree>().enabled = false;//disable ai
+        //this.GetComponent<Rigidbody>().freezeRotation = false;
         Instantiate(deathCanvas, this.transform.position, transform.rotation);
         gameObject.GetComponent<AnimalGravity>().animalHeight = 0;
 
