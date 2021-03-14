@@ -25,9 +25,10 @@ public class LightAtAngle : MonoBehaviour
         Gizmos.DrawLine(transform.position, toSun);
     }
 
-    private void Start()
+    private void OnEnable()
     {
         core = GameObject.Find("Core");
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame

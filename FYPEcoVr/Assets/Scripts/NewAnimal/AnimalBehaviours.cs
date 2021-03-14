@@ -394,15 +394,16 @@ public class AnimalBehaviours : MonoBehaviour
                 if (Time.time > lastAttackTime + brain.attackRate)
                 {
                     combatAnimal = toTarget.gameObject;
-                    toTarget.GetComponent<AnimalBehaviours>().combatAnimal = this.gameObject;
-                    toTarget.GetComponent<AnimalBehaviours>().isPanicked = true;
+                    AnimalBehaviours otherBehaviours = toTarget.GetComponent<AnimalBehaviours>();
+                    otherBehaviours.combatAnimal = this.gameObject;
+                    otherBehaviours.isPanicked = true;
                     toTarget.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);//Hit slows other down
                     isPanicked = true;
                     StartCoroutine(panicCoolown());//Is engaged in combat 
                     otherAnimalBrain.health -= 5; //todo brain attack strength 
                     rb.AddRelativeForce(rb.transform.forward*(brain.moveSpeed/2)*Time.deltaTime*100,ForceMode.Impulse);
 
-                    Instantiate(hitCanvas, (toTarget.transform.position), transform.rotation);
+                    Instantiate(hitCanvas, (otherBehaviours.headObject.transform.position), transform.rotation);
 
                     lastAttackTime = Time.time;
                     print("attack");
