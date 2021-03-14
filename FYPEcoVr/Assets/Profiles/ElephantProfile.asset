@@ -24,11 +24,11 @@ MonoBehaviour:
   healthStarveDecrement: 3
   hungerDecrement: 2
   thirstDecrement: 1
-  reproductiveIncrement: 4
+  reproductiveIncrement: 2
   ageIncrement: 1
   memoryLossRate: 1000
   sensoryRange: 600
-  moveSpeed: 250
+  moveSpeed: 200
   rotSpeed: 50
   wanderRadius: 50
   forwardWanderBias: 2
@@ -44,3 +44,5 @@ MonoBehaviour:
   attackCanvas: {fileID: 8659279713810492492, guid: d236e3eb041b17b4eac632b9c35ddf39, type: 3}
   heartCanvas: {fileID: 8659279713810492492, guid: 3e64c767f0c3da044bb9a0702bd82883, type: 3}
   deathCanvas: {fileID: 8659279713810492492, guid: 58c1cddaa99cc2d408b22ea0d748b13a, type: 3}
+  foodCanvas: {fileID: 8659279713810492492, guid: ac590355eaf7fb141a5dcfdcbeb475b3, type: 3}
+  drinkCanvas: {fileID: 8659279713810492492, guid: 1a0cdddfb580da440886613f7d58311c, type: 3}

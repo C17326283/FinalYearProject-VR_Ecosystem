@@ -221,6 +221,8 @@ public class AnimalInitializer : MonoBehaviour
         behaviours.rb = rb;
         behaviours.hitCanvas = animalDNA.attackCanvas;
         behaviours.heartCanvas = animalDNA.heartCanvas;
+        behaviours.foodCanvas = animalDNA.foodCanvas;
+        behaviours.drinkCanvas = animalDNA.drinkCanvas;
         brain.deathCanvas = animalDNA.deathCanvas;
         HeadLook headTargeter = head.AddComponent<HeadLook>();
         headTargeter.behaviourTargeting = behaviours;

@@ -6,6 +6,7 @@ using UnityEngine;
 public class CoastPointSpawner : MonoBehaviour
 {
     //public GameObject water;
+    public bool runOnStart = false;
     public Vector3 gravityDir;
     public GameObject core;
     private int layerMask;
@@ -13,12 +14,23 @@ public class CoastPointSpawner : MonoBehaviour
 
     public float rayDist = 4f;
     public int incrementAmount =2;
+
+    public int res=100;
     // Start is called before the first frame update
     void Start()
+    {
+        if(runOnStart)
+            Run();
+         
+    }
+
+    public void Run()
     {
         layerMask = 1 << 8;
         core = GameObject.Find("Core");
         FindEdges();
+        //Too many gameobjects would be an issue so do this to check a reasonable amount
+        incrementAmount = Mathf.Max(Mathf.FloorToInt (res / 50),1);//Extra increment for every 50, min 1
         //StartCoroutine(Ray());
     }
     public void FindEdges()

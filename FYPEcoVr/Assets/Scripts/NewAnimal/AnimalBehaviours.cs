@@ -32,6 +32,9 @@ public class AnimalBehaviours : MonoBehaviour
     public GameObject hitCanvas;
     public GameObject heartCanvas;
     public GameObject deathCanvas;
+    public GameObject foodCanvas;
+    public GameObject drinkCanvas;
+    
 
 
     public void OnDrawGizmos()
@@ -215,7 +218,6 @@ public class AnimalBehaviours : MonoBehaviour
             {
                 closestWeakAnimal = distanceToCurrent;
                 toTarget = obj.transform;
-                combatAnimal = toTarget.gameObject;//starting combat with animal, condition allows attacking
                 Task.current.Succeed();
                 found = true;
                 break;
@@ -280,7 +282,7 @@ public class AnimalBehaviours : MonoBehaviour
         bool found = false;
         foreach (var obj in brain.objSensedMemory)
         {
-            if (obj.transform.name == resource && found==false)
+            if (obj.transform.CompareTag(resource) && found==false && obj.activeInHierarchy)
             {
                 toTarget = obj.transform;
                 Task.current.Succeed();
@@ -383,7 +385,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void AttackTarget()
     {
-        if (toTarget.GetComponent<AnimalBrain>()!=null&&combatAnimal== toTarget.gameObject && toTarget.gameObject.activeInHierarchy&&Vector3.Distance(toTarget.position,headObject.position)<attackRange+brain.animalHeight)//if has health
+        if (toTarget.GetComponent<AnimalBrain>()!=null &&toTarget.transform.name!=transform.name&& toTarget.gameObject.activeInHierarchy&&Vector3.Distance(toTarget.position,headObject.position)<attackRange+brain.animalHeight)//if has health
         {
             AnimalBrain otherAnimalBrain = toTarget.GetComponent<AnimalBrain>();
             if (otherAnimalBrain.health > 0)
@@ -391,11 +393,14 @@ public class AnimalBehaviours : MonoBehaviour
                 Task.current.Succeed();//dont fail during cooldown
                 if (Time.time > lastAttackTime + brain.attackRate)
                 {
+                    combatAnimal = toTarget.gameObject;
                     toTarget.GetComponent<AnimalBehaviours>().combatAnimal = this.gameObject;
                     toTarget.GetComponent<AnimalBehaviours>().isPanicked = true;
+                    toTarget.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);//Hit slows other down
                     isPanicked = true;
-                    StartCoroutine(panicCoolown());
+                    StartCoroutine(panicCoolown());//Is engaged in combat 
                     otherAnimalBrain.health -= 5; //todo brain attack strength 
+                    rb.AddRelativeForce(rb.transform.forward*(brain.moveSpeed/2)*Time.deltaTime*100,ForceMode.Impulse);
 
                     Instantiate(hitCanvas, (toTarget.transform.position), transform.rotation);
 
@@ -422,6 +427,8 @@ public class AnimalBehaviours : MonoBehaviour
             brain.hunger = 100;
             Task.current.Succeed();
             print("eat");
+            rb.AddRelativeForce(-rb.transform.up*(brain.moveSpeed/2)*Time.deltaTime*100,ForceMode.Impulse);
+            Instantiate(foodCanvas, (toTarget.transform.position), transform.rotation);
             combatAnimal = null;//If was targeting to eat then complete that
             if(toTarget.parent.GetComponent<Food>()!=null)
                 toTarget.parent.GetComponent<Food>().isEaten();
@@ -431,6 +438,8 @@ public class AnimalBehaviours : MonoBehaviour
         {
             brain.thirst = 100;
             Task.current.Succeed();
+            Instantiate(drinkCanvas, (toTarget.transform.position), transform.rotation);
+            rb.AddRelativeForce(-rb.transform.up*(brain.moveSpeed/2)*Time.deltaTime*100,ForceMode.Impulse);
             print("drink");
         }
         else if(toTarget.transform.name==(transform.name))

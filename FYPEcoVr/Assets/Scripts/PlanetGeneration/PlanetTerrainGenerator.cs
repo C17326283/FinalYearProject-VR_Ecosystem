@@ -147,7 +147,9 @@ public class PlanetTerrainGenerator : MonoBehaviour
         //Add the coastLine spawner
         for (int i = 0; i < 6; i++)
         {
-            waterMeshFilters[i].gameObject.AddComponent<CoastPointSpawner>();
+            CoastPointSpawner cSpawn = waterMeshFilters[i].gameObject.AddComponent<CoastPointSpawner>();
+            cSpawn.res = planetSettings.res;
+            cSpawn.Run();
         }
     }
     

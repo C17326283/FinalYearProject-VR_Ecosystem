@@ -44,4 +44,6 @@ public class AnimalProfile : ScriptableObject
     public GameObject attackCanvas;
     public GameObject heartCanvas;
     public GameObject deathCanvas;
+    public GameObject foodCanvas;
+    public GameObject drinkCanvas;
 }
