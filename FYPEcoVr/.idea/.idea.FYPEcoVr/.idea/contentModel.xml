@@ -211,9 +211,11 @@
           <e p="AllAnimalManager.cs" t="Include" />
           <e p="AnimalDistanceDisabler.cs" t="Include" />
           <e p="AnimalProfile.cs" t="Include" />
+          <e p="AnimalStatDisplay.cs" t="Include" />
           <e p="BoidBrain.cs" t="Include" />
           <e p="Cam.cs" t="Include" />
           <e p="Deprecated" t="Include">
+            <e p="AddStatDetector.cs" t="Include" />
             <e p="AnBoidMove.cs" t="Include" />
             <e p="BodyRaycastPositioner.cs" t="Include" />
             <e p="BoidSensoryScript.cs" t="Include" />
@@ -284,9 +286,11 @@
           <e p="SpawnEnvironmentInRange.cs" t="Include" />
           <e p="SpineAnimator.cs" t="Include" />
           <e p="SpineAnimatorManager.cs" t="Include" />
+          <e p="TakeScreenshot.cs" t="Include" />
           <e p="UnloadObjs.cs" t="Include" />
           <e p="Vr" t="Include">
             <e p="HandController.cs" t="Include" />
+            <e p="TeleporterController.cs" t="Include" />
           </e>
           <e p="VrTestClick.cs" t="Include" />
         </e>

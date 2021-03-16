@@ -19,7 +19,7 @@ MonoBehaviour:
   thirst: 0
   reproductiveUrge: 0
   age: 0
-  maxHealth: 100
+  maxHealth: 50
   maxStat: 100
   healthStarveDecrement: 3
   hungerDecrement: 0.5
@@ -35,8 +35,8 @@ MonoBehaviour:
   foodTag: Food
   maxMutatePercent: 2
   numOfLegs: 4
-  attackRate: 1
-  attackDamage: 1
+  attackRate: 0.5
+  attackDamage: 0.1
   predatorRating: 0.1
   preyRating: 0.1
   eatsPlants: 1

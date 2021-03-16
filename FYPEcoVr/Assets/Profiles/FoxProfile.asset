@@ -36,7 +36,7 @@ MonoBehaviour:
   maxMutatePercent: 50
   numOfLegs: 4
   attackRate: 0.4
-  attackDamage: 0.5
+  attackDamage: 1
   predatorRating: 3
   preyRating: 3
   eatsPlants: 0

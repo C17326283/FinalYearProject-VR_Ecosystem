@@ -19,7 +19,7 @@ MonoBehaviour:
   thirst: 0
   reproductiveUrge: 0
   age: 0
-  maxHealth: 100
+  maxHealth: 200
   maxStat: 100
   healthStarveDecrement: 3
   hungerDecrement: 1

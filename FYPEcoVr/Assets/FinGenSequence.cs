@@ -12,6 +12,7 @@ public class FinGenSequence : MonoBehaviour
     public GameObject nonVrPlayer;
     public GameObject nonVrPlayerCam;
     public GameObject VrPlayer;
+    public TeleportPlanetOrienter VrOrienter;
 
     public LightAtAngle[] lights;
 
@@ -82,6 +83,8 @@ public class FinGenSequence : MonoBehaviour
                 loadingGUI.SetActive(false);
                 VrPlayer.transform.position = hit.point;
                 VrPlayer.transform.parent = GameObject.Find("Core").transform;
+                VrOrienter.core = GameObject.Find("Core");
+                VrOrienter.enabled = true;
             }
             else
             {
