@@ -11,6 +11,7 @@ public class AnimalGravity : MonoBehaviour
 
     //public float upMultiplier = 600f;
     public Vector3 gravityDir;
+    public AnimalBrain brain;
     public float animalHeight = 2;
     public float animalLength = 2;
     public Rigidbody rb;
@@ -50,6 +51,12 @@ public class AnimalGravity : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         layerMask = 1 << 8; //bit shift to get mask for raycasting so only on environment and not other animals
+        
+        if (brain != null)
+        {
+            animalHeight = brain.animalHeight;
+            animalLength = brain.animalLength;
+        }
 
         footPositioners = new List<AnimalFeetPositioner>();
 
@@ -87,10 +94,10 @@ public class AnimalGravity : MonoBehaviour
                 //get height based on magnitude or default height
                 //float desiredHeight = Mathf.Min(animalHeight * .9f, animalHeight - (rb.velocity.magnitude / 30)); //strides get bigger at faster speeds so animate lower body too
 
-                float clampedMag = Mathf.Clamp(rb.velocity.magnitude/2, 1, Mathf.Min(2,animalHeight));
-                float desiredHeight = animalHeight-((furthestFootDist/clampedMag)/4); //height based on stride
+                float clampedMag = Mathf.Clamp(rb.velocity.magnitude/2, 1, Mathf.Min(2,animalHeight* .8f));
+                float desiredHeight = (animalHeight * .8f)-((furthestFootDist/clampedMag)/5); //height based on stride
  //               print("desiredHeight"+transform.name+desiredHeight);
-                desiredHeight = Mathf.Clamp(desiredHeight, animalHeight * .7f, animalHeight * .9f);
+                desiredHeight = Mathf.Clamp(desiredHeight, animalHeight * .5f, animalHeight * .8f);
 
 
 

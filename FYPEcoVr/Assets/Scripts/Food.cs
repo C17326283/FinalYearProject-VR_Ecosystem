@@ -5,6 +5,9 @@ using UnityEngine;
 public class Food : MonoBehaviour
 {
     public float timeToReGrow = 10;
+    public bool regrows = true;
+    public int worth =2 ;
+    
     
     public void isEaten()
     {

@@ -35,6 +35,9 @@ public class AnimalProfile : ScriptableObject
     public float attackRate = 1;
     public float attackDamage = 5;
     
+    public float litterSize = 1;
+    public float foodWorth = 2;
+    
     public float predatorRating = 1;
     public float preyRating = 1;
     public bool eatsPlants = true;

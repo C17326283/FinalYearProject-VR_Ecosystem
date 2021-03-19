@@ -5902,7 +5902,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3669478442470927718, guid: 613b4cc8c589ad8458e792ae21891bef, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 613b4cc8c589ad8458e792ae21891bef, type: 3}
 --- !u!1 &1928935107
 GameObject:
@@ -6291,6 +6292,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Rig2
       objectReference: {fileID: 0}
+    - target: {fileID: 342881479001926701, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 342881479001926702, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -6386,7 +6391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6695415480466730691, guid: ebf640827d0dd5a45a5621aabcdde7c7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6695415480466730718, guid: ebf640827d0dd5a45a5621aabcdde7c7, type: 3}
       propertyPath: m_RootOrder

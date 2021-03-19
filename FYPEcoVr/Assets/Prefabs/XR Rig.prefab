@@ -58,7 +58,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 1000
+  far clip plane: 100000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -193,7 +193,7 @@ Transform:
   m_GameObject: {fileID: 342881478418387408}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 7782594264339918837}
   m_RootOrder: 0
@@ -631,7 +631,7 @@ Transform:
   m_GameObject: {fileID: 342881478712933549}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 7782594263893839463}
   m_RootOrder: 0
@@ -820,7 +820,7 @@ MonoBehaviour:
   m_HapticHoverCancelIntensity: 0
   m_HapticHoverCancelDuration: 0
   m_LineType: 0
-  m_MaxRaycastDistance: 30
+  m_MaxRaycastDistance: 1000
   m_ReferenceFrame: {fileID: 0}
   m_Velocity: 16
   m_Acceleration: 9.8
@@ -963,7 +963,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LineWidth: 0.02
   m_OverrideInteractorLineLength: 1
-  m_LineLength: 10
+  m_LineLength: 1000
   m_WidthCurve:
     serializedVersion: 2
     m_Curve:
@@ -1020,7 +1020,7 @@ MonoBehaviour:
   m_InvalidColorGradient:
     serializedVersion: 2
     key0: {r: 0.5518868, g: 0.713304, b: 1, a: 1}
-    key1: {r: 0.875445, g: 0.93524015, b: 0.9716981, a: 1}
+    key1: {r: 0.875445, g: 0.93524015, b: 0.9716981, a: 0}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1207,7 +1207,7 @@ GameObject:
   - component: {fileID: 342881479001926702}
   - component: {fileID: 342881479001926703}
   - component: {fileID: 342881479001926700}
-  - component: {fileID: 5837876874674594280}
+  - component: {fileID: 1533872240}
   m_Layer: 0
   m_Name: XR Rig
   m_TagString: Player
@@ -1224,7 +1224,7 @@ Transform:
   m_GameObject: {fileID: 342881479001926701}
   m_LocalRotation: {x: 0.010368552, y: 0.43917283, z: -0.008157295, w: 0.8983058}
   m_LocalPosition: {x: -16.407728, y: 1265.4685, z: 21.445368}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 342881478962887355}
   - {fileID: 342881478879431306}
@@ -1263,21 +1263,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ActionAssets:
   - {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
---- !u!114 &5837876874674594280
+--- !u!114 &1533872240
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342881479001926701}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3dd5405ce4c744d459667312048ff59d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   core: {fileID: 0}
-  xrRigObject: {fileID: 0}
-  xrHeadset: {fileID: 0}
+  xrRigObject: {fileID: 342881479001926701}
+  xrHeadset: {fileID: 342881477377479479}
   gravityDir: {x: 0, y: 0, z: 0}
   xrRig: {fileID: 0}
   rayHeight: 100
@@ -1414,7 +1414,7 @@ Transform:
   m_GameObject: {fileID: 7782594264112111776}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 9098048463037697537}
   m_Father: {fileID: 7782594264339918837}
@@ -1980,7 +1980,7 @@ Transform:
   m_GameObject: {fileID: 7782594264824140377}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 9098048463836725575}
   m_Father: {fileID: 7782594263893839463}

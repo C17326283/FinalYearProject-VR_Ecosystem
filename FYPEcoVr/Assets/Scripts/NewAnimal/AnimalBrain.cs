@@ -48,8 +48,12 @@ public class AnimalBrain : MonoBehaviour
     public float maxMutatePercent = 2;
     public float attackRate = 1;
     public float attackDamage = 5;
+    
+    public float litterSize = 1;
+    public float foodWorth = 2;
 
     public float animalHeight;
+    public float animalLength;
     public GameObject deathCanvas;
 
     public float timeTillAdult= 60;
@@ -63,12 +67,6 @@ public class AnimalBrain : MonoBehaviour
     {
         objSensedMemory = new List<GameObject>();
         forgettingObjs = new List<GameObject>();
-        huntedBy = new List<String>();
-        toHunt = new List<String>();
-        //temp
-        huntedBy.Add("Cheetah");
-        toHunt.Add("Food");
-        toHunt.Add("Chicken");
     }
 
     // Start is called before the first frame update
@@ -85,7 +83,7 @@ public class AnimalBrain : MonoBehaviour
         thirst = thirst - thirstDecrement * Time.deltaTime;
         reproductiveUrge = reproductiveUrge + reproductiveIncrement * Time.deltaTime;
         age = age + ageIncrement * Time.deltaTime;
-        if (hunger < 0 || thirst < 0)
+        if (hunger < 0 || thirst < 0 || age>100)
             health -= 0.01f;
         
         if (health <= 0 && this.GetComponent<BehaviourTree>().enabled)//if died and hasnt triggered already
@@ -116,11 +114,18 @@ public class AnimalBrain : MonoBehaviour
         this.GetComponent<BehaviourTree>().enabled = false;//disable ai
         //this.GetComponent<Rigidbody>().freezeRotation = false;
         Instantiate(deathCanvas, this.transform.position, transform.rotation);
-        gameObject.GetComponent<AnimalGravity>().animalHeight = -5;//Collapse to ground
+        animalHeight = -5;
+        //gameObject.GetComponent<AnimalGravity>().animalHeight = -5;//Collapse to ground
 
 
         StartCoroutine(SetInactive(5));
         //Destroy(gameObject);//destroy after 20secs
+    }
+
+    IEnumerator GotHit(float time)
+    {
+        yield return new WaitForSeconds(time);//wait specific time
+
     }
 
     IEnumerator SetInactive(float time)
@@ -167,7 +172,7 @@ public class AnimalBrain : MonoBehaviour
         percentDif = thirstDecrement * change;
         thirstDecrement = Mathf.Clamp(((mother.thirstDecrement+father.thirstDecrement)/2)+Random.Range(-percentDif, percentDif), -30000, 30000);
         percentDif = reproductiveIncrement * change;
-        reproductiveIncrement = Mathf.Clamp(((mother.reproductiveIncrement+father.reproductiveIncrement)/2)+Random.Range(-percentDif, percentDif), -30000, hungerDecrement);//Dont let reproduce before they get hungry
+        reproductiveIncrement = Mathf.Clamp(((mother.reproductiveIncrement+father.reproductiveIncrement)/2)+Random.Range(-percentDif, percentDif), -30000, 30000);//Dont let reproduce before they get hungry
         percentDif = memoryLossRate * change;
         memoryLossRate = Mathf.Clamp(Random.Range(memoryLossRate-percentDif, memoryLossRate+percentDif), 0, 100000);
         percentDif = sensoryRange * change;
@@ -205,11 +210,16 @@ public class AnimalBrain : MonoBehaviour
         predatorRating = animalBaseDNA.predatorRating;
         preyRating = animalBaseDNA.preyRating;
         eatsPlants = animalBaseDNA.eatsPlants;
-        
+
+        attackDamage = animalBaseDNA.attackDamage;
+        attackRate = animalBaseDNA.attackRate;
+        litterSize = animalBaseDNA.litterSize;
+        foodWorth = animalBaseDNA.foodWorth;
+
+
 
 
 //        print("SetStatsFromDNA"+animalBaseDNA.moveSpeed);
 //        print("moveSpeed"+moveSpeed);
     }
-    
 }

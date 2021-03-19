@@ -25,6 +25,7 @@ public class AnimalBehaviours : MonoBehaviour
     public int layerMask;
     public float lastWanderSuccess;
     public bool isPanicked = false;
+    public bool isStunned = false;
     public GameObject combatAnimal;
 
     public float lastAttackTime = 0;
@@ -60,6 +61,7 @@ public class AnimalBehaviours : MonoBehaviour
         wanderObj=new GameObject("WanderObj");
         wanderObj.transform.parent = this.transform.parent;
         layerMask = 1 << 8;//bit shift to get mask for raycasting so only on environment and not other animals
+        
         
     }
     
@@ -115,30 +117,36 @@ public class AnimalBehaviours : MonoBehaviour
     {
         Task.current.Succeed();
         bool found = false;
-        foreach (var obj in brain.objSensedMemory)
+        if (!isPanicked)
         {
-            float distanceToCurrent = Vector3.Distance(rb.transform.position, obj.transform.position);
-            //todo run from multiple
-            if (distanceToCurrent<brain.animalHeight*10&&obj.GetComponent<AnimalBrain>()!=null&&obj.transform!=toTarget&&obj.transform!=combatAnimal)//if animal is tooclose and not a target
+            foreach (var obj in brain.objSensedMemory)
             {
-                Vector3 fleeDir;
-                fleeDir = (rb.transform.position - obj.transform.position).normalized;
-                Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
-                locDir.y = 0;
-                Vector3 force = locDir * (tooCloseDist/distanceToCurrent)*(brain.moveSpeed/2);//Add avoid forc ebased on dist
+                float distanceToCurrent = Vector3.Distance(rb.transform.position, obj.transform.position);
+                //todo run from multiple
+                if (distanceToCurrent<brain.animalLength*15&&(obj.GetComponent<AnimalBrain>()!=null || obj.transform.CompareTag("Player"))&&obj.transform!=toTarget&&obj.transform!=combatAnimal)//if animal is tooclose and not a target
+                {
+                    Vector3 fleeDir;
+                    fleeDir = (rb.transform.position - obj.transform.position).normalized;
+                    Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
+                    locDir.y = 0;
+                    Vector3 force = locDir * (tooCloseDist/distanceToCurrent)*(brain.moveSpeed/2);//Add avoid forc ebased on dist
 //                print(force);
 
-                float pushAmount = Mathf.Clamp((brain.animalHeight*2)/distanceToCurrent,0,brain.moveSpeed/2);
+                    float pushAmount = (brain.animalHeight*4)/distanceToCurrent;
                 
-                if (obj.GetComponent<AnimalBrain>().preyRating > brain.preyRating)
-                    pushAmount *= 4;
+                
+                    if (obj.GetComponent<AnimalBrain>()!=null && (obj.GetComponent<AnimalBrain>().preyRating > brain.preyRating))
+                        pushAmount *= 1.5f;//more push from predators
+                
+                    pushAmount = Mathf.Clamp(pushAmount,0,brain.moveSpeed/2);
                     
                     
                     
 
 
-                rb.AddRelativeForce(force*pushAmount*Time.deltaTime*100);
-                found = true;
+                    rb.AddRelativeForce(force*pushAmount*Time.deltaTime*100);
+                    found = true;
+                }
             }
         }
     }
@@ -148,14 +156,17 @@ public class AnimalBehaviours : MonoBehaviour
     {
         if (toTarget != null)
         {
-            Vector3 seekDir;
-            seekDir = (toTarget.position - rb.transform.position);//dont normalize because need the force amounts
-            Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
-            locDir.y = 0;
-
-            Vector3 force = locDir.normalized * brain.moveSpeed;
-            rb.AddRelativeForce(force*2*Time.deltaTime*100);
             Task.current.Succeed();//if found no enemies
+            if (Vector3.Distance(toTarget.transform.position, headObject.position) > brain.animalLength)
+            {
+                Vector3 seekDir;
+                seekDir = (toTarget.position - rb.transform.position);//dont normalize because need the force amounts
+                Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
+                locDir.y = 0;
+
+                Vector3 force = locDir.normalized * brain.moveSpeed;
+                rb.AddRelativeForce(force*2*Time.deltaTime*100);
+            }
         }
         else
         {
@@ -167,7 +178,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void FleeFromTarget()
     {
-        if (combatAnimal != null)
+        if (combatAnimal != null && !isStunned)
         {
             Vector3 fleeDir;
             fleeDir = (rb.transform.position - combatAnimal.transform.position).normalized;
@@ -188,7 +199,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void FleeFromPredator()
     {
-        if (fromTarget != null)
+        if (fromTarget != null && !isStunned)
         {
             Vector3 fleeDir;
             fleeDir = (rb.transform.position - fromTarget.position).normalized;
@@ -300,7 +311,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void SeekTarget()
     {
-        if (toTarget != null)
+        if (toTarget != null && !isStunned)
         {
             Vector3 seekDir;
             seekDir = (toTarget.position - rb.transform.position);//dont normalize because need the force amounts
@@ -358,7 +369,7 @@ public class AnimalBehaviours : MonoBehaviour
         if (toTarget != null)
         {
             float distance = Vector3.Distance(toTarget.transform.position, headObject.position);
-            if (distance < brain.animalHeight*2)
+            if (distance < brain.animalLength*1.5f)
             {
 //                print(transform.name+distance+" and "+(attackRange+brain.animalHeight));
                 Task.current.Succeed();
@@ -396,9 +407,9 @@ public class AnimalBehaviours : MonoBehaviour
                     combatAnimal = toTarget.gameObject;
                     AnimalBehaviours otherBehaviours = toTarget.GetComponent<AnimalBehaviours>();
                     otherBehaviours.combatAnimal = this.gameObject;
-                    otherBehaviours.isPanicked = true;
+                    StartCoroutine(otherBehaviours.panicCoolown());
+                    StartCoroutine(otherBehaviours.stunCoolown());
                     toTarget.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);//Hit slows other down
-                    isPanicked = true;
                     StartCoroutine(panicCoolown());//Is engaged in combat 
                     otherAnimalBrain.health -= 5; //todo brain attack strength 
                     rb.AddRelativeForce(rb.transform.forward*(brain.moveSpeed/2)*Time.deltaTime*100,ForceMode.Impulse);
@@ -420,10 +431,11 @@ public class AnimalBehaviours : MonoBehaviour
         }
     }
     
+    
     [Task]
     void CompleteTarget()//if health lower than x
     {
-        if (toTarget.CompareTag("Food") || (toTarget.GetComponent<AnimalBrain>()!=null && toTarget.GetComponent<AnimalBrain>().health<=0) && toTarget.gameObject.activeInHierarchy)//if natural food or animal
+        if (toTarget.CompareTag("Food") || (toTarget.GetComponent<AnimalBrain>()!=null && toTarget.GetComponent<AnimalBrain>().foodWorth>0&& toTarget.GetComponent<AnimalBrain>().health<=0) && toTarget.gameObject.activeInHierarchy)//if natural food or animal
         {
             brain.hunger = 100;
             Task.current.Succeed();
@@ -433,6 +445,9 @@ public class AnimalBehaviours : MonoBehaviour
             combatAnimal = null;//If was targeting to eat then complete that
             if(toTarget.parent.GetComponent<Food>()!=null)
                 toTarget.parent.GetComponent<Food>().isEaten();
+            if(toTarget.parent.GetComponent<AnimalBrain>()!=null)
+                toTarget.parent.GetComponent<AnimalBrain>().foodWorth -= 1;
+            
 
         }
         else if(toTarget.CompareTag("Water"))
@@ -446,10 +461,15 @@ public class AnimalBehaviours : MonoBehaviour
         else if(toTarget.transform.name==(transform.name))
         {
             print("mate");
+            int amountToSpawn = Random.Range(1,Mathf.RoundToInt(brain.litterSize));
+            
             brain.reproductiveUrge = 0;
             Instantiate(heartCanvas, (toTarget.transform.position+this.transform.position)/2, transform.rotation);
             toTarget.GetComponent<AnimalBrain>().reproductiveUrge = 0;
-            brain.GiveBirth(brain,toTarget.GetComponent<AnimalBrain>());
+            for (int i = 0; i < amountToSpawn; i++)
+            {
+                brain.GiveBirth(brain,toTarget.GetComponent<AnimalBrain>());
+            }
             Task.current.Succeed();
         }
         else
@@ -583,9 +603,17 @@ public class AnimalBehaviours : MonoBehaviour
 
     IEnumerator panicCoolown()
     {
+        isPanicked = true;
         yield return new WaitForSeconds(3);
         isPanicked = false;
         combatAnimal = null;
+    }
+    
+    IEnumerator stunCoolown()
+    {
+        isStunned = true;
+        yield return new WaitForSeconds(1f);
+        isStunned = false;
     }
     
 

@@ -32,6 +32,7 @@ public class AnimalFeetPositioner : MonoBehaviour
     
     public Rigidbody rb;
     public bool debug = true;
+    public AnimalBrain brain;
     public float animalHeight = 1;
     public float animalLength = 1;
     public float footSpeed = 2;
@@ -57,7 +58,12 @@ public class AnimalFeetPositioner : MonoBehaviour
         layerMask = 1 << 8;//THis is bit shifting layer 8 so that only hit colliders on layer 8
         //animalObj = this.GetComponentInParent<CreatureStats>().gameObject;//get the first obj going up in hierarchy with animal stats script
         transform.rotation = forwardFacingObj.transform.rotation;
-        forwardStepDist = animalLength / 5f;
+        if (brain != null)
+        {
+            animalHeight = brain.animalHeight;
+            animalLength = brain.animalLength;
+        }
+        forwardStepDist = animalLength / 7f;
         sideStepDist = forwardStepDist / 3f;
         
 
@@ -78,13 +84,13 @@ public class AnimalFeetPositioner : MonoBehaviour
     void FixedUpdate()
     {
         //todo make the lerpspeed and stepdistance increase along with movespped, if animal is running they stides get bigger and feet are faster
-        footMoveStopDist = extraSpace+(rb.velocity.magnitude/50);
+        footMoveStopDist = extraSpace+((rb.velocity.magnitude/100)*animalLength);
 
         axisDifferences = this.transform.InverseTransformPoint(footIKTargetObj.transform.position);
         //todo use end foot object without moveable ankle and point directly at hit point?
         footIKTargetObj.transform.forward = forwardFacingObj.transform.forward;//this prevents the feet from beign twisted
 
-        float velForwardStep = Mathf.Max(forwardStepDist,(forwardStepDist * rb.velocity.magnitude)/3f);
+        float velForwardStep = Mathf.Max(forwardStepDist,(forwardStepDist * rb.velocity.magnitude*0.8f)/3f);
         velForwardStep = Mathf.Clamp(velForwardStep, forwardStepDist, animalLength*0.8f);
         
 //        print("forwardStepDist"+forwardStepDist+"  velForwardStep"+velForwardStep);

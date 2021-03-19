@@ -55,7 +55,7 @@ public class CoastPointSpawner : MonoBehaviour
                     obj.transform.tag = "Water";
                     SphereCollider col =obj.AddComponent<SphereCollider>();//so it can be sensed
                     col.radius = 0.1f;
-                    obj.transform.position = worldPos;
+                    obj.transform.position = hit.point;
                     print("hit");
                 }
             }

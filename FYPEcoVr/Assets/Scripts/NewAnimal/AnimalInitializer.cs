@@ -36,8 +36,6 @@ public class AnimalInitializer : MonoBehaviour
     public AnimalGroundVelocityOrienter groundOrienter;
     public GameObject sensorySphere;
     public SpineNew spineMain;
-    public float animalHeight=2;
-    public float animalLength=2;
     public float damping = 15;
     
     public AudioClip clip;
@@ -60,6 +58,7 @@ public class AnimalInitializer : MonoBehaviour
         otherLimbs = new List<GameObject> ();
         core = GameObject.Find("Core");
         
+        
         //make the animal object
         animalObj = Instantiate(animalDNA.model);
         animalObj.transform.parent = this.transform;
@@ -68,6 +67,7 @@ public class AnimalInitializer : MonoBehaviour
         
         //Todo find more efficient way
         SetMovementOrigin();
+        brain = movementOriginObj.gameObject.AddComponent<AnimalBrain>();
         GetLimbs();
         SetSkeleton();
         SetCollider();
@@ -78,7 +78,8 @@ public class AnimalInitializer : MonoBehaviour
         SetAI();
         SetAudio();
         SetPositioners();
-        brain.animalHeight = animalHeight;
+        //brain.animalHeight = animalHeight;
+        //brain.animalLength = animalLength;
         SetSenses();
         SetLimbs();
 
@@ -191,6 +192,9 @@ public class AnimalInitializer : MonoBehaviour
         //float anL = (transform.InverseTransformPoint(head.transform.position).z - transform.InverseTransformPoint(spineMain.spineContainers[spineMain.spineContainers.Count - 1].transform.position).z)*4;
         float anL = Mathf.Abs(movementOriginObj.transform.InverseTransformPoint(head.transform.position).z - movementOriginObj.transform.InverseTransformPoint(spineMain.spineContainers[spineMain.spineContainers.Count - 1].transform.position).z)*1.5f;
 
+        brain.animalHeight = anH;
+        brain.animalLength = anL;
+        
 //        Debug.Log(movementOriginObj.transform.name+",anL:"+anL+",anW"+anW);
         collider.height = anL;//collider.height = newMeshBounds.z;
         collider.radius = anW;
@@ -209,7 +213,6 @@ public class AnimalInitializer : MonoBehaviour
 
     void SetAI()
     {
-        brain = movementOriginObj.gameObject.AddComponent<AnimalBrain>();
         brain.animalBaseDNA = animalDNA;
         
         if (GetComponent<AnimalBehaviours>() == null) //incase i have it attached for testing
@@ -241,16 +244,17 @@ public class AnimalInitializer : MonoBehaviour
 
     void SetPositioners()
     {
-        animalHeight = spineCore.transform.position.y-feet[0].transform.position.y;
-        animalLength = spineCore.transform.position.z-feet[feet.Count-1].transform.position.z;
+        //animalHeight = spineCore.transform.position.y-feet[0].transform.position.y;
+        //animalLength = spineCore.transform.position.z-feet[feet.Count-1].transform.position.z;
         
         groundOrienter = movementOriginObj.AddComponent<AnimalGroundVelocityOrienter>();
         groundOrienter.brain = brain;
         groundOrienter.Initialize();
 
         animalGravity = movementOriginObj.AddComponent<AnimalGravity>();
-        animalGravity.animalHeight = animalHeight;//this would be the height of the animal
-        animalGravity.animalLength = animalLength;
+        animalGravity.brain = brain;
+        //animalGravity.animalHeight = animalHeight;//this would be the height of the animal
+        //animalGravity.animalLength = animalLength;
         animalGravity.headHeightPosObj = spineCore;//todo change head height var name
         animalGravity.Initialize();
     }
@@ -268,7 +272,7 @@ public class AnimalInitializer : MonoBehaviour
         footScript.footIKTargetObj.transform.position = foot.transform.position;
         footScript.endBoneObj = foot.gameObject;
         footScript.forwardFacingObj = movementOriginObj.gameObject;
-        footScript.animalHeight = animalHeight;
+        footScript.brain = brain;
         footScript.rb = rb;
         footScript.audioPlayer = audioSource;
         
@@ -283,11 +287,11 @@ public class AnimalInitializer : MonoBehaviour
         if (feetPositioners.Count > 2) //If not the front 2 legs
         {
             ikPole.transform.position = footPositioner.transform.position+(footPositioner.transform.forward * 10)+(footPositioner.transform.up *
-                (animalHeight/3));
+                (brain.animalHeight/3));
         }
         else
         {
-            ikPole.transform.position = footPositioner.transform.position+(-footPositioner.transform.forward * 10)+(footPositioner.transform.up *  (animalHeight/2));
+            ikPole.transform.position = footPositioner.transform.position+(-footPositioner.transform.forward * 10)+(footPositioner.transform.up *  (brain.animalHeight/2));
             
             //Set gravity foot positioners so can have foot dist based height
             animalGravity.footPositioners.Add(footScript);
@@ -314,8 +318,7 @@ public class AnimalInitializer : MonoBehaviour
         //This needs to be done after setup because the feet are used to get the height
         foreach (var footPositioner in feetPositioners)
         {
-            footPositioner.animalHeight = animalHeight;
-            footPositioner.animalLength = animalLength;
+            footPositioner.brain = brain;
             footPositioner.rb = rb;
         }
     }
