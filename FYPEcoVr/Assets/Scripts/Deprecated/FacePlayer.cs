@@ -28,7 +28,7 @@ public class FacePlayer : MonoBehaviour
             relativePos = camPos.transform.position - transform.position;
         }
         
-        Quaternion toRotation = Quaternion.LookRotation(relativePos);//For holding new rotation
+        Quaternion toRotation = Quaternion.LookRotation(relativePos, camPos.transform.up);//For holding new rotation
         transform.rotation = Quaternion.Lerp( transform.rotation, toRotation, lerpSpeed * Time.deltaTime );
 
     }

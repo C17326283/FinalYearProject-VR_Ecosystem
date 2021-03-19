@@ -160,10 +160,10 @@ public class TerrainFace : MonoBehaviour
         elevation = settings.planetRadius * (1 + elevation);
         //Debug.Log(elevation);
         //check if is exact radius, if so then lower it to allow for the water mesh to be fitted properly
-        if (elevation < settings.planetRadius+waterHeight)
+        if (elevation < settings.planetRadius)
         {
             //dont evaluated point so the colours dont rely on water level
-            elevation = (elevation)-10f;
+            elevation = (elevation)-URandom.Range(4,8);
             return pointOnUnitSphere * elevation;
         }
         else

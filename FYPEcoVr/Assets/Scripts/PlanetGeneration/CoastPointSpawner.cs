@@ -12,20 +12,24 @@ public class CoastPointSpawner : MonoBehaviour
     private int layerMask;
 
 
-    public float rayDist = 4f;
+    public float rayStartHeight = 3f;
+    public float rayDist = 6f;
     public int incrementAmount =2;
 
-    public int res=100;
+    public int res=0;
     // Start is called before the first frame update
     void Start()
     {
         if(runOnStart)
             Run();
+        
          
     }
 
     public void Run()
     {
+        if(res == 0)
+            res = GetComponent<MeshFilter>().mesh.vertices.Length;
         layerMask = 1 << 8;
         core = GameObject.Find("Core");
         FindEdges();
@@ -46,17 +50,17 @@ public class CoastPointSpawner : MonoBehaviour
             gravityDir = (core.transform.position - worldPos).normalized;
             RaycastHit hit;
             // Does the ray intersect any objects excluding the player layer
-            if (Physics.Raycast(worldPos+(-gravityDir*rayDist), gravityDir, out hit, rayDist))
+            if (Physics.Raycast(worldPos+(-gravityDir*rayStartHeight), gravityDir, out hit, rayDist))
             {
                 if (hit.transform.name != transform.name)//if not a water mesh
                 {
                     //Debug.DrawRay(vertices[i], gravityDir,Color.red,rayDist);
                     GameObject obj = new GameObject("water");
+                    obj.transform.position = hit.point;
                     obj.transform.tag = "Water";
                     SphereCollider col =obj.AddComponent<SphereCollider>();//so it can be sensed
                     col.radius = 0.1f;
-                    obj.transform.position = hit.point;
-                    print("hit");
+//                    print("hit");
                 }
             }
             else

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting;
 using UnityEngine;
 
 using Panda;
@@ -282,7 +283,7 @@ public class AnimalBehaviours : MonoBehaviour
         bool found = false;
         foreach (var obj in brain.objSensedMemory)
         {
-            if (obj.transform.name == transform.name&&obj.transform!=transform &&obj.activeInHierarchy&&obj.GetComponent<AnimalBrain>()!=null&& obj.GetComponent<AnimalBrain>().reproductiveUrge>90)
+            if (obj.transform.name == transform.name&&obj.transform!=transform &&obj.activeInHierarchy&&obj.GetComponent<AnimalBrain>()!=null&& obj.GetComponent<AnimalBrain>().reproductiveUrge>90 && obj.GetComponent<AnimalBehaviours>().combatAnimal == null)
             {
                 toTarget = obj.transform;
                 Task.current.Succeed();
@@ -559,7 +560,7 @@ public class AnimalBehaviours : MonoBehaviour
 //            print("stuck too long. Time"+Time.time+" last success"+lastWanderSuccess+" ob"+this.transform.name);
             lastWanderSuccess = Time.time;
             Task.current.Fail();
-            print(" stuck, got new wander");
+//            print(" stuck, got new wander");
         }
         else
         {

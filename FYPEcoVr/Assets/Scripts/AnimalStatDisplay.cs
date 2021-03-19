@@ -15,7 +15,7 @@ public class AnimalStatDisplay : MonoBehaviour
     public AnimalBehaviours selectAnimalBehaviours;
 
     public Color32 positiveColour;
-    public Color32 negaticeColour;
+    public Color32 negativeColour;
 
     
     
@@ -30,21 +30,19 @@ public class AnimalStatDisplay : MonoBehaviour
     {
         RaycastHit hit;
         //Only add if theres environment below
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 300))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 2000))
         {
-            //print(hit.transform.name);
-            statCanvas.transform.parent = hit.transform;
-            statCanvas.transform.position = hit.transform.position + (hit.transform.transform.up);
-            statCanvas.transform.rotation = hit.transform.rotation;
-            
             if (hit.transform.GetComponent<AnimalBrain>() != null)
             {
+                print(hit.transform.name);
+                statCanvas.transform.parent = hit.transform;
+                statCanvas.transform.position = hit.transform.position + (hit.transform.transform.up);
+                statCanvas.transform.rotation = hit.transform.rotation;
+                
                 selectAnimalBrain = hit.transform.GetComponent<AnimalBrain>();
                 selectAnimalBehaviours = hit.transform.GetComponent<AnimalBehaviours>();
                 statCanvas.transform.position = selectAnimalBrain.transform.position + (selectAnimalBrain.transform.transform.up*selectAnimalBrain.animalHeight);
             }
-            
-
         }
     }
 
@@ -54,49 +52,48 @@ public class AnimalStatDisplay : MonoBehaviour
         {
             SetValues();
             SetColours();
-            
         }
     }
 
     public void SetValues()
     {
-        canvasManager.health.text = "Health: " + Math.Round(selectAnimalBrain.health,2);
-        canvasManager.hunger.text = "Hunger: " + Math.Round(selectAnimalBrain.hunger,2);
-        canvasManager.thirst.text = "Thirst: " + Math.Round(selectAnimalBrain.thirst,2);
-        canvasManager.urge.text = "Mating urge: " + Math.Round(selectAnimalBrain.reproductiveUrge,2);
+        canvasManager.health.text = "Health: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.health),0,selectAnimalBrain.maxHealth);
+        canvasManager.hunger.text = "Hunger: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.hunger),0,selectAnimalBrain.maxStat);
+        canvasManager.thirst.text = "Thirst: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.hunger),0,selectAnimalBrain.maxStat);
+        canvasManager.urge.text = "Mating urge: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.hunger),0,selectAnimalBrain.maxStat);
         canvasManager.task.text = "Task: " + selectAnimalBehaviours.currentTask;
     }
 
     public void SetColours()
     {
-        if (selectAnimalBrain.health > 50)
+        if (selectAnimalBrain.health >= 50)
         {
             canvasManager.health.color = positiveColour;
         }
         else
         {
-            canvasManager.health.color = negaticeColour;
+            canvasManager.health.color = negativeColour;
         }
         
-        if (selectAnimalBrain.hunger > selectAnimalBrain.hungerThresh)
+        if (selectAnimalBrain.hunger >= selectAnimalBrain.hungerThresh)
         {
             canvasManager.hunger.color = positiveColour;
         }
         else
         {
-            canvasManager.hunger.color = negaticeColour;
+            canvasManager.hunger.color = negativeColour;
         }
         
-        if (selectAnimalBrain.thirst >  selectAnimalBrain.thirstThresh)
+        if (selectAnimalBrain.thirst >=  selectAnimalBrain.thirstThresh)
         {
             canvasManager.thirst.color = positiveColour;
         }
         else
         {
-            canvasManager.thirst.color = negaticeColour;
+            canvasManager.thirst.color = negativeColour;
         }
         
-        if (selectAnimalBrain.reproductiveUrge >  selectAnimalBrain.mateThresh)
+        if (selectAnimalBrain.reproductiveUrge >=  selectAnimalBrain.mateThresh)
         {
             canvasManager.urge.color = positiveColour;
         }
@@ -106,20 +103,4 @@ public class AnimalStatDisplay : MonoBehaviour
         }
     }
 
-    /*
-    public void SetToPos()
-    {
-        
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 100))
-        {
-            Debug.Log("hit:"+hit.transform.name);
-        }
-        
-        GameObject animal = GetComponent<XRRayInteractor>().raycastTriggerInteraction;
-
-        statCanvas.transform.parent = animal.transform;
-        statCanvas.transform.position = animal.transform.position + (animal.transform.transform.up);
-    }
-*/
 }
