@@ -35,6 +35,8 @@ public class AnimalBehaviours : MonoBehaviour
     public GameObject deathCanvas;
     public GameObject foodCanvas;
     public GameObject drinkCanvas;
+
+    public string currentTask;
     
 
 
@@ -156,6 +158,7 @@ public class AnimalBehaviours : MonoBehaviour
     {
         if (toTarget != null)
         {
+            currentTask = "Hunting prey";
             Task.current.Succeed();//if found no enemies
             if (Vector3.Distance(toTarget.transform.position, headObject.position) > brain.animalLength)
             {
@@ -178,15 +181,20 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void FleeFromTarget()
     {
-        if (combatAnimal != null && !isStunned)
+        if (combatAnimal != null)
         {
-            Vector3 fleeDir;
-            fleeDir = (rb.transform.position - combatAnimal.transform.position).normalized;
-            Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
-            locDir.y = 0;
-            Vector3 force = locDir * brain.moveSpeed;
-            rb.AddRelativeForce(force * 3 * Time.deltaTime * 100);
             Task.current.Succeed(); //if found no enemies
+            currentTask = "Fleeing from predator";
+            if (!isStunned)
+            {
+                Vector3 fleeDir;
+                fleeDir = (rb.transform.position - combatAnimal.transform.position).normalized;
+                Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
+                locDir.y = 0;
+                Vector3 force = locDir * brain.moveSpeed;
+                rb.AddRelativeForce(force * 3 * Time.deltaTime * 100);
+            }
+            
         }
         else
         {
@@ -201,6 +209,7 @@ public class AnimalBehaviours : MonoBehaviour
     {
         if (fromTarget != null && !isStunned)
         {
+            currentTask = "Fleeing from predator";
             Vector3 fleeDir;
             fleeDir = (rb.transform.position - fromTarget.position).normalized;
             Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
@@ -230,6 +239,7 @@ public class AnimalBehaviours : MonoBehaviour
                 closestWeakAnimal = distanceToCurrent;
                 toTarget = obj.transform;
                 Task.current.Succeed();
+                currentTask = "Hunting "+toTarget.name;
                 found = true;
                 break;
             }
@@ -252,6 +262,7 @@ public class AnimalBehaviours : MonoBehaviour
                 {
                     toTarget = obj.transform;
                     Task.current.Succeed();
+                    currentTask = "Eating plants";
                     found = true;
                     break;
                 }
@@ -295,6 +306,7 @@ public class AnimalBehaviours : MonoBehaviour
         {
             if (obj.transform.CompareTag(resource) && found==false && obj.activeInHierarchy)
             {
+                currentTask = "Getting "+resource;
                 toTarget = obj.transform;
                 Task.current.Succeed();
                 found = true;
@@ -313,6 +325,7 @@ public class AnimalBehaviours : MonoBehaviour
     {
         if (toTarget != null && !isStunned)
         {
+            //currentTask = "Getting "+toTarget.transform.name;
             Vector3 seekDir;
             seekDir = (toTarget.position - rb.transform.position);//dont normalize because need the force amounts
             Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
@@ -352,6 +365,7 @@ public class AnimalBehaviours : MonoBehaviour
         if (combatAnimal != null && combatAnimal.activeInHierarchy == true)
         {
             Task.current.Succeed();
+            currentTask = "Fighting";
             toTarget = combatAnimal.transform;
 
         }
@@ -512,6 +526,7 @@ public class AnimalBehaviours : MonoBehaviour
                 Debug.DrawLine(tarPos,hit.point,Color.white);
                 wanderObj.transform.position = hit.point;
                 toTarget = wanderObj.transform;
+                currentTask = "Wandering";
                 
                 Task.current.Succeed();
             }
@@ -558,7 +573,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void IsHungryCondition()
     {
-        if (brain.hunger < 50)
+        if (brain.hunger < brain.hungerThresh)
         {
             Task.current.Succeed();
         }
@@ -571,7 +586,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void IsThirstyCondition()
     {
-        if (brain.thirst < 50)
+        if (brain.thirst < brain.thirstThresh)
         {
             Task.current.Succeed();
         }
@@ -585,7 +600,7 @@ public class AnimalBehaviours : MonoBehaviour
     void WantsToMateCondition()//Todo add behaviour
     {
         //Only mate if not starving and wants to mate
-        if (brain.reproductiveUrge > 90 && !(brain.hunger<0)&&!(brain.thirst<0))
+        if (brain.reproductiveUrge > brain.mateThresh && !(brain.hunger<0)&&!(brain.thirst<0))
         {
             Task.current.Succeed();
         }

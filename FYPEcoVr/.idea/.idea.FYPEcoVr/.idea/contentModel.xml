@@ -286,6 +286,7 @@
           <e p="SpawnEnvironmentInRange.cs" t="Include" />
           <e p="SpineAnimator.cs" t="Include" />
           <e p="SpineAnimatorManager.cs" t="Include" />
+          <e p="StatCanvasManager.cs" t="Include" />
           <e p="TakeScreenshot.cs" t="Include" />
           <e p="UnloadObjs.cs" t="Include" />
           <e p="Vr" t="Include">

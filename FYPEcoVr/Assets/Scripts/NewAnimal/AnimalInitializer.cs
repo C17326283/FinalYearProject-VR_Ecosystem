@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DitzelGames.FastIK;
 using Panda;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class AnimalInitializer : MonoBehaviour
 {
@@ -82,6 +83,7 @@ public class AnimalInitializer : MonoBehaviour
         //brain.animalLength = animalLength;
         SetSenses();
         SetLimbs();
+        movementOriginObj.AddComponent<XRSimpleInteractable>();//for triggering stat display
 
         StartCoroutine(SetDisabler());
         //temp

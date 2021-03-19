@@ -62,6 +62,10 @@ public class AnimalBrain : MonoBehaviour
     public AnimalBrain mother;
     public AnimalBrain father;
 
+    public float hungerThresh = 50;
+    public float thirstThresh = 50;
+    public float mateThresh = 90;
+
 
     void Awake()
     {

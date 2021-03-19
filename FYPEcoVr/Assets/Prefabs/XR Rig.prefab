@@ -615,6 +615,7 @@ GameObject:
   - component: {fileID: 342881478712933545}
   - component: {fileID: 342881478712933550}
   - component: {fileID: 342881478712933546}
+  - component: {fileID: 2040836792}
   m_Layer: 0
   m_Name: RightHand Controller
   m_TagString: Untagged
@@ -771,7 +772,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2040836792}
+        m_TargetAssemblyTypeName: AnimalStatDisplay, Assembly-CSharp
+        m_MethodName: ShowInteraction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -1064,6 +1077,28 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2040836792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342881478712933549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a78b91269c445444b52e1bd80bd4bf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statCanvas: {fileID: 0}
+  canvasManager: {fileID: 0}
+  selectAnimalBrain: {fileID: 0}
+  selectAnimalBehaviours: {fileID: 0}
+  positiveColour:
+    serializedVersion: 2
+    rgba: 0
+  negaticeColour:
+    serializedVersion: 2
+    rgba: 0
 --- !u!1 &342881478879431310
 GameObject:
   m_ObjectHideFlags: 0

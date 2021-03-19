@@ -24,7 +24,7 @@ MonoBehaviour:
   healthStarveDecrement: 3
   hungerDecrement: 1
   thirstDecrement: 1
-  reproductiveIncrement: 5
+  reproductiveIncrement: 3
   ageIncrement: 1
   memoryLossRate: 1000
   sensoryRange: 500
@@ -37,6 +37,8 @@ MonoBehaviour:
   numOfLegs: 4
   attackRate: 0.5
   attackDamage: 4
+  litterSize: 3
+  foodWorth: 3
   predatorRating: 6
   preyRating: 4
   eatsPlants: 0

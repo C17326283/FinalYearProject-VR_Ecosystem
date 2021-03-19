@@ -37,6 +37,8 @@ MonoBehaviour:
   numOfLegs: 4
   attackRate: 4
   attackDamage: 10
+  litterSize: 1
+  foodWorth: 8
   predatorRating: 0
   preyRating: 7
   eatsPlants: 1
