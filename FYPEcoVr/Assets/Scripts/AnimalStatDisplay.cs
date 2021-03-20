@@ -43,6 +43,10 @@ public class AnimalStatDisplay : MonoBehaviour
                 selectAnimalBehaviours = hit.transform.GetComponent<AnimalBehaviours>();
                 statCanvas.transform.position = selectAnimalBrain.transform.position + (selectAnimalBrain.transform.transform.up*selectAnimalBrain.animalHeight);
             }
+            else
+            {
+                print("hit other: "+hit.transform.name);
+            }
         }
     }
 
@@ -58,8 +62,8 @@ public class AnimalStatDisplay : MonoBehaviour
     public void SetValues()
     {
         canvasManager.health.text = "Health: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.health),0,selectAnimalBrain.maxHealth);
-        canvasManager.hunger.text = "Hunger: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.hunger),0,selectAnimalBrain.maxStat);
-        canvasManager.thirst.text = "Thirst: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.thirst),0,selectAnimalBrain.maxStat);
+        canvasManager.hunger.text = "Nutrition: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.hunger),0,selectAnimalBrain.maxStat);
+        canvasManager.thirst.text = "Hydration: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.thirst),0,selectAnimalBrain.maxStat);
         canvasManager.urge.text = "Mating urge: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.reproductiveUrge),0,selectAnimalBrain.maxStat);
         canvasManager.task.text = "Task: " + selectAnimalBehaviours.currentTask;
     }

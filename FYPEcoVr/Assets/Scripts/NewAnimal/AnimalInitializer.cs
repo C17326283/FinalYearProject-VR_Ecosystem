@@ -39,8 +39,7 @@ public class AnimalInitializer : MonoBehaviour
     public SpineNew spineMain;
     public float damping = 15;
     
-    public AudioClip clip;
-    public AudioSource audioSource;
+    public AudioManager audioManager;
 
     public bool initialiseOnStart = false;
 
@@ -76,8 +75,8 @@ public class AnimalInitializer : MonoBehaviour
         //OffsetSkeleton();
         
         SetRb();
-        SetAI();
         SetAudio();
+        SetAI();
         SetPositioners();
         //brain.animalHeight = animalHeight;
         //brain.animalLength = animalLength;
@@ -222,6 +221,7 @@ public class AnimalInitializer : MonoBehaviour
         else
             behaviours = GetComponent<AnimalBehaviours>();
         behaviours.brain = brain;
+        behaviours.audioManager = audioManager;
         behaviours.headObject = head.transform;
         behaviours.rb = rb;
         behaviours.hitCanvas = animalDNA.attackCanvas;
@@ -276,7 +276,7 @@ public class AnimalInitializer : MonoBehaviour
         footScript.forwardFacingObj = movementOriginObj.gameObject;
         footScript.brain = brain;
         footScript.rb = rb;
-        footScript.audioPlayer = audioSource;
+        footScript.audioManager = audioManager;
         
         //Make the foot positioner stuff for inverse kinematics
         FastIKFabric ikScript = foot.gameObject.AddComponent<FastIKFabric>();
@@ -380,13 +380,11 @@ public class AnimalInitializer : MonoBehaviour
 
     public void SetAudio()
     {
-        audioSource = movementOriginObj.AddComponent<AudioSource>();
-        audioSource.clip = clip;
-        audioSource.spatialBlend = 1f;
-        audioSource.playOnAwake = false;
-        //audioSource.rolloffMode = AudioRolloffMode.Linear;
-        audioSource.maxDistance = 30;
-        audioSource.volume = .7f;
-        //audioSource.volume = 0.2f;
+        audioManager = movementOriginObj.AddComponent<AudioManager>();
+        audioManager.footstep = animalDNA.footstep;
+        audioManager.attack = animalDNA.attack;
+        audioManager.ambient = animalDNA.ambient;
+        
+        audioManager.Initialize();
     }
 }

@@ -8,72 +8,68 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="AssetCleaner.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="Asset Cleaner" t="Include">
-          <e p="AssetCleaner.asmdef" t="Include" />
-          <e p="com.leopotam.ecs" t="Include">
-            <e p="src" t="Include">
-              <e p="EcsComponent.cs" t="Include" />
-              <e p="EcsEntity.cs" t="Include" />
-              <e p="EcsFilter.cs" t="Include" />
-              <e p="EcsHelpers.cs" t="Include" />
-              <e p="EcsSystem.cs" t="Include" />
-              <e p="EcsWorld.cs" t="Include" />
-            </e>
-          </e>
-          <e p="Data" t="Include">
-            <e p="AufSerializableData.cs" t="Include" />
-            <e p="CleanerStyleAsset.cs" t="Include" />
-            <e p="FindModeEnum.cs" t="Include" />
-            <e p="Globals" t="Include">
-              <e p="BacklinkStore.cs" t="Include" />
-              <e p="Config.cs" t="Include" />
-              <e p="PersistentUndoRedoState.cs" t="Include" />
-              <e p="UndoRedoState.cs" t="Include" />
-              <e p="WindowData.cs" t="Include" />
-            </e>
-            <e p="InSceneResult.cs" t="Include" />
-            <e p="PrevClick.cs" t="Include" />
-            <e p="Result.cs" t="Include" />
-            <e p="SceneDetails.cs" t="Include" />
-            <e p="SceneResult.cs" t="Include" />
-            <e p="SearchArg.cs" t="Include" />
-            <e p="SearchResultGui.cs" t="Include" />
-            <e p="SelectionChanged.cs" t="Include" />
-            <e p="SelectionEntry.cs" t="Include" />
-          </e>
-          <e p="IgnoreTypes.cs" t="Include" />
-          <e p="README.txt" t="Include" />
-          <e p="Systems" t="Include">
-            <e p="External" t="Include">
-              <e p="AufWindow.cs" t="Include" />
-              <e p="ProcessAllAssets.cs" t="Include" />
-              <e p="ProjectViewGui.cs" t="Include" />
-            </e>
-            <e p="SysProcessSearch.cs" t="Include" />
-            <e p="SysRepaintWindow.cs" t="Include" />
-            <e p="SysSceneCleanup.cs" t="Include" />
-            <e p="SysUndoRedoSelection.cs" t="Include" />
-            <e p="SysWindowGui.cs" t="Include" />
-          </e>
-          <e p="Utils" t="Include">
-            <e p="Asr.cs" t="Include" />
-            <e p="AufCtx.cs" t="Include" />
-            <e p="CommonUtils.cs" t="Include" />
-            <e p="DirtyUtils.cs" t="Include" />
-            <e p="EcsUtils.cs" t="Include" />
-            <e p="Ext.cs" t="Include" />
-            <e p="Globals.cs" t="Include" />
-            <e p="Option.cs" t="Include" />
-            <e p="PersistenceUtils.cs" t="Include" />
-            <e p="Pool.cs" t="Include" />
-            <e p="SearchUtils.cs" t="Include" />
-          </e>
-        </e>
-        <e p="AutoGen.cs" t="Include" />
-        <e p="CustomHandController.cs" t="Include" />
-        <e p="DeactivateAfterTime.cs" t="Include" />
-        <e p="FinGenSequence.cs" t="Include" />
         <e p="Imports" t="Include">
+          <e p="Asset Cleaner" t="Include">
+            <e p="AssetCleaner.asmdef" t="Include" />
+            <e p="com.leopotam.ecs" t="Include">
+              <e p="src" t="Include">
+                <e p="EcsComponent.cs" t="Include" />
+                <e p="EcsEntity.cs" t="Include" />
+                <e p="EcsFilter.cs" t="Include" />
+                <e p="EcsHelpers.cs" t="Include" />
+                <e p="EcsSystem.cs" t="Include" />
+                <e p="EcsWorld.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Data" t="Include">
+              <e p="AufSerializableData.cs" t="Include" />
+              <e p="CleanerStyleAsset.cs" t="Include" />
+              <e p="FindModeEnum.cs" t="Include" />
+              <e p="Globals" t="Include">
+                <e p="BacklinkStore.cs" t="Include" />
+                <e p="Config.cs" t="Include" />
+                <e p="PersistentUndoRedoState.cs" t="Include" />
+                <e p="UndoRedoState.cs" t="Include" />
+                <e p="WindowData.cs" t="Include" />
+              </e>
+              <e p="InSceneResult.cs" t="Include" />
+              <e p="PrevClick.cs" t="Include" />
+              <e p="Result.cs" t="Include" />
+              <e p="SceneDetails.cs" t="Include" />
+              <e p="SceneResult.cs" t="Include" />
+              <e p="SearchArg.cs" t="Include" />
+              <e p="SearchResultGui.cs" t="Include" />
+              <e p="SelectionChanged.cs" t="Include" />
+              <e p="SelectionEntry.cs" t="Include" />
+            </e>
+            <e p="IgnoreTypes.cs" t="Include" />
+            <e p="README.txt" t="Include" />
+            <e p="Systems" t="Include">
+              <e p="External" t="Include">
+                <e p="AufWindow.cs" t="Include" />
+                <e p="ProcessAllAssets.cs" t="Include" />
+                <e p="ProjectViewGui.cs" t="Include" />
+              </e>
+              <e p="SysProcessSearch.cs" t="Include" />
+              <e p="SysRepaintWindow.cs" t="Include" />
+              <e p="SysSceneCleanup.cs" t="Include" />
+              <e p="SysUndoRedoSelection.cs" t="Include" />
+              <e p="SysWindowGui.cs" t="Include" />
+            </e>
+            <e p="Utils" t="Include">
+              <e p="Asr.cs" t="Include" />
+              <e p="AufCtx.cs" t="Include" />
+              <e p="CommonUtils.cs" t="Include" />
+              <e p="DirtyUtils.cs" t="Include" />
+              <e p="EcsUtils.cs" t="Include" />
+              <e p="Ext.cs" t="Include" />
+              <e p="Globals.cs" t="Include" />
+              <e p="Option.cs" t="Include" />
+              <e p="PersistenceUtils.cs" t="Include" />
+              <e p="Pool.cs" t="Include" />
+              <e p="SearchUtils.cs" t="Include" />
+            </e>
+          </e>
           <e p="BlackPeaStudios" t="Include">
             <e p="ScriptDependencyVisualizer" t="Include">
               <e p="Editor" t="Include">
@@ -173,7 +169,6 @@
             </e>
           </e>
         </e>
-        <e p="ManualButtonTrigger.cs" t="Include" />
         <e p="PandaBehaviour" t="Include">
           <e p="ChangeLog.txt" t="Include" />
           <e p="Core" t="Include">
@@ -271,24 +266,23 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="AnimalStatDisplay.cs" t="Include" />
+          <e p="AutoGen.cs" t="Include" />
           <e p="Cam.cs" t="Include" />
-          <e p="Deprecated2" t="Include">
-            <e p="UnloadObjs.cs" t="Include" />
-            <e p="VrTestClick.cs" t="Include" />
-          </e>
+          <e p="CustomHandController.cs" t="Include" />
+          <e p="DeactivateAfterTime.cs" t="Include" />
           <e p="Escape.cs" t="Include" />
           <e p="FacePlayer.cs" t="Include" />
+          <e p="FinGenSequence.cs" t="Include" />
           <e p="Food.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="GravityMovement.cs" t="Include" />
           <e p="LightAtAngle.cs" t="Include" />
           <e p="LookAtLerp.cs" t="Include" />
+          <e p="ManualButtonTrigger.cs" t="Include" />
           <e p="NewAnimal" t="Include">
             <e p="AnimalBehaviours.cs" t="Include" />
             <e p="AnimalBrain.cs" t="Include" />
-            <e p="AnimalBT.txt" t="Include" />
             <e p="AnimalBT2.txt" t="Include" />
-            <e p="AnimalBT2Backup.txt" t="Include" />
             <e p="AnimalDistanceDisabler.cs" t="Include" />
             <e p="AnimalFeetPositioner.cs" t="Include" />
             <e p="AnimalGravity.cs" t="Include" />
@@ -297,6 +291,7 @@
             <e p="AnimalLife.cs" t="Include" />
             <e p="AnimalProfile.cs" t="Include" />
             <e p="AnimalSenses.cs" t="Include" />
+            <e p="AudioManager.cs" t="Include" />
             <e p="HeadLook.cs" t="Include" />
             <e p="SpineAnimator.cs" t="Include" />
             <e p="SpineAnimatorManager.cs" t="Include" />
@@ -307,7 +302,6 @@
             <e p="AnimalsSpawner.cs" t="Include" />
             <e p="CoastPointSpawner.cs" t="Include" />
             <e p="ColourGenerator.cs" t="Include" />
-            <e p="FakeGravity.cs" t="Include" />
             <e p="Noise.cs" t="Include" />
             <e p="NoiseLayer.cs" t="Include" />
             <e p="ObjectPool.cs" t="Include" />
@@ -323,14 +317,12 @@
           <e p="SpawnEnvironmentInRange.cs" t="Include" />
           <e p="StatCanvasManager.cs" t="Include" />
           <e p="TakeScreenshot.cs" t="Include" />
+          <e p="TeleportPlanetOrienter.cs" t="Include" />
           <e p="Vr" t="Include">
             <e p="HandController.cs" t="Include" />
             <e p="TeleporterController.cs" t="Include" />
           </e>
         </e>
-        <e p="TeleportPlanetOrienter.cs" t="Include" />
-        <e p="TestActionControllerInput.cs" t="Include" />
-        <e p="TestAnim.cs" t="Include" />
       </e>
       <e p="ControllerSample.csproj" t="IncludeRecursive" />
       <e p="FYPEcoVr.sln" t="IncludeFlat" />

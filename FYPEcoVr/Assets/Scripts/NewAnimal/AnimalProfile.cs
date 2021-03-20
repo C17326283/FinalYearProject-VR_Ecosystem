@@ -49,4 +49,9 @@ public class AnimalProfile : ScriptableObject
     public GameObject deathCanvas;
     public GameObject foodCanvas;
     public GameObject drinkCanvas;
+
+    public AudioClip footstep;
+    public AudioClip attack;
+    public AudioClip ambient;
+    
 }

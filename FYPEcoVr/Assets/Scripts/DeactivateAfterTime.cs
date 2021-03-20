@@ -14,7 +14,7 @@ public class DeactivateAfterTime : MonoBehaviour
 
     IEnumerator DeactivateAfterX()
     {
-        print("start");
+//        print("start");
         yield return new WaitForSeconds(timeToWait);
         if (DestoryInsteadOfDisable)
         {

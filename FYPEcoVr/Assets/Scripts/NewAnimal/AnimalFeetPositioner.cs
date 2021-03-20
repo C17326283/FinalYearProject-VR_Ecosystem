@@ -43,7 +43,7 @@ public class AnimalFeetPositioner : MonoBehaviour
     public float distToNext;
 
     public Vector3 axisDifferences;
-    public AudioSource audioPlayer;
+    public AudioManager audioManager;
     
     
     
@@ -78,6 +78,11 @@ public class AnimalFeetPositioner : MonoBehaviour
             nextFootPos = hit.point;
         }
 //        print("foot setup");
+    }
+
+    private void OnEnable()
+    {
+        footIKTargetObj.transform.position = transform.position;
     }
 
     // Update is called once per frame
@@ -155,23 +160,24 @@ public class AnimalFeetPositioner : MonoBehaviour
                     //float footMoveSpeed = Mathf.Max(lerpSpeed,(distToNext/3)*lerpSpeed);
                     footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos+(forwardFacingObj.transform.up*footLift), footMoveSpeed * Time.deltaTime);//+(forwardFacingObj.transform.up*footLift)
                 }
-                else if(Mathf.Abs(axisDifferences.z)>forwardStepDist*6||Mathf.Abs(axisDifferences.x)>sideStepDist*6)
+                else if(Mathf.Abs(axisDifferences.z)>forwardStepDist*8||Mathf.Abs(axisDifferences.x)>sideStepDist*8)//is extremely far
+                {
+                    //                   print("far foot");
+                    footAtPosition = false;//has started moving to next position so set to false and only becomes true if gets close enough to next position
+                    footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos, (footMoveSpeed+10)*200 * Time.deltaTime);
+                    
+                }
+                else if(Mathf.Abs(axisDifferences.z)>forwardStepDist*5||Mathf.Abs(axisDifferences.x)>sideStepDist*5)
                 {
  //                   print("far foot");
                     footAtPosition = false;//has started moving to next position so set to false and only becomes true if gets close enough to next position
-                    footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos, footMoveSpeed*5 * Time.deltaTime);
+                    footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos, footMoveSpeed*4 * Time.deltaTime);
+                    
                 }
             }
             else
             {
-                if (audioPlayer != null)
-                {
-                    if(audioPlayer.isPlaying)
-                        audioPlayer.Stop();
-                    audioPlayer.pitch = Random.Range(0.7f, 1f);
-                    audioPlayer.PlayOneShot(audioPlayer.clip);
-
-                }
+                audioManager.playFootStep();
                 needToMove = false;
                 footAtPosition = true;
 //                print("needToMove false");

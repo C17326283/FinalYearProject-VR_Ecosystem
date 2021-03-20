@@ -44,22 +44,22 @@ public class FinGenSequence : MonoBehaviour
         StartCoroutine(PlanetSpawner.AddExtras());
         print("after while"+PlanetSpawner.finishedAddingExtras);
         
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
         foreach (var light in lights)
         {
             light.enabled = true;
         }
-
-        StartCoroutine(SpawnPlayer());
+        yield return new WaitForSeconds(1f);
+        SpawnPlayer();
+        //StartCoroutine(SpawnPlayer());
     }
 
-    IEnumerator  SpawnPlayer()
+    public void SpawnPlayer()
     {
         if (spaceCam.activeInHierarchy)
         {
             nonVrPlayer.SetActive(true);
         
-            yield return new WaitForSeconds(1f);
             loadingGUI.SetActive(false);
             spaceCam.SetActive(false);
             nonVrPlayerCam.SetActive(true);
@@ -71,7 +71,6 @@ public class FinGenSequence : MonoBehaviour
             int layerMask = 1 << 8;
             
             
-            yield return new WaitForSeconds(2f);
 
             //Get point on top of planet
             RaycastHit hit;//todo fix incase water

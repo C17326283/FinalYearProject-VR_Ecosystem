@@ -43,7 +43,7 @@ public class CoastPointSpawner : MonoBehaviour
         Vector3[] vertices = mesh.vertices;
 
         int vertCount = vertices.Length;
-        Debug.Log("vertCount "+vertCount);
+//        Debug.Log("vertCount "+vertCount);
         for (int i = 0; i < vertCount; i+=incrementAmount)
         {
             Vector3 worldPos = transform.TransformPoint(vertices[i]);

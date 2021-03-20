@@ -36,7 +36,7 @@ MonoBehaviour:
   maxMutatePercent: 2
   numOfLegs: 4
   attackRate: 0.5
-  attackDamage: 0.1
+  attackDamage: 3
   litterSize: 1
   foodWorth: 2
   predatorRating: 0.1
@@ -48,3 +48,6 @@ MonoBehaviour:
   deathCanvas: {fileID: 8659279713810492492, guid: 58c1cddaa99cc2d408b22ea0d748b13a, type: 3}
   foodCanvas: {fileID: 8659279713810492492, guid: ac590355eaf7fb141a5dcfdcbeb475b3, type: 3}
   drinkCanvas: {fileID: 8659279713810492492, guid: 1a0cdddfb580da440886613f7d58311c, type: 3}
+  footstep: {fileID: 8300000, guid: 80239785e252f734a942b4bd5c1b91e1, type: 3}
+  attack: {fileID: 8300000, guid: 8cc35f8847e95874bb8a55041ab9290f, type: 3}
+  ambient: {fileID: 8300000, guid: 7aba57f15b0ad374da030dc914a19472, type: 3}

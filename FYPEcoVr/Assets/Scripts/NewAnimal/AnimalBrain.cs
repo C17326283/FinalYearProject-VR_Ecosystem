@@ -65,6 +65,8 @@ public class AnimalBrain : MonoBehaviour
     public float hungerThresh = 50;
     public float thirstThresh = 50;
     public float mateThresh = 90;
+    
+    
 
 
     void Awake()
@@ -104,7 +106,6 @@ public class AnimalBrain : MonoBehaviour
         AnimalInitializer initializer = baby.AddComponent<AnimalInitializer>();
         initializer.animalDNA = animalBaseDNA;
         initializer.btTexts = transform.parent.GetComponent<AnimalInitializer>().btTexts;//copy current ones
-        initializer.clip = transform.parent.GetComponent<AnimalInitializer>().clip;
         initializer.InitialiseAnimal();
         //todo optimise
         initializer.brain.mother = motherBrain;

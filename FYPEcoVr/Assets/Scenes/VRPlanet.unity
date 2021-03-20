@@ -8810,7 +8810,7 @@ MonoBehaviour:
   btTexts:
   - {fileID: 4900000, guid: c10ebbd1b339bb14185c233b95adb9fc, type: 3}
   audioClip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
-  groupAmount: 3
+  groupAmount: 2
 --- !u!1 &1332432136
 GameObject:
   m_ObjectHideFlags: 0

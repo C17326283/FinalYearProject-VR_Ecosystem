@@ -33,11 +33,12 @@ public class AnimalBehaviours : MonoBehaviour
 
     public GameObject hitCanvas;
     public GameObject heartCanvas;
-    public GameObject deathCanvas;
+    //public GameObject deathCanvas;
     public GameObject foodCanvas;
     public GameObject drinkCanvas;
 
     public string currentTask;
+    public AudioManager audioManager;
     
 
 
@@ -430,9 +431,10 @@ public class AnimalBehaviours : MonoBehaviour
                     rb.AddRelativeForce(rb.transform.forward*(brain.moveSpeed/2)*Time.deltaTime*100,ForceMode.Impulse);
 
                     Instantiate(hitCanvas, (otherBehaviours.headObject.transform.position), transform.rotation);
+                    audioManager.playAttack();
 
                     lastAttackTime = Time.time;
-                    print("attack");
+                    //print("attack");
                 }
             }
             else
@@ -454,7 +456,7 @@ public class AnimalBehaviours : MonoBehaviour
         {
             brain.hunger = 100;
             Task.current.Succeed();
-            print("eat");
+//            print("eat");
             rb.AddRelativeForce(-rb.transform.up*(brain.moveSpeed/2)*Time.deltaTime*100,ForceMode.Impulse);
             Instantiate(foodCanvas, (toTarget.transform.position), transform.rotation);
             combatAnimal = null;//If was targeting to eat then complete that
@@ -471,7 +473,7 @@ public class AnimalBehaviours : MonoBehaviour
             Task.current.Succeed();
             Instantiate(drinkCanvas, (toTarget.transform.position), transform.rotation);
             rb.AddRelativeForce(-rb.transform.up*(brain.moveSpeed/2)*Time.deltaTime*100,ForceMode.Impulse);
-            print("drink");
+//            print("drink");
         }
         else if(toTarget.transform.name==(transform.name))
         {

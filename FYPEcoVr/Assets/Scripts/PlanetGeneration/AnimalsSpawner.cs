@@ -60,12 +60,17 @@ public class AnimalsSpawner : MonoBehaviour
     //Spawn objects from pool in loop
     IEnumerator Spawn()
     {
-        yield return new WaitForSeconds(1f);//to make sure the mesh was spawned correctly
-        for (int i = 0; i < amountToSpawn; i++)
+        yield return new WaitForSeconds(.1f);//to make sure the mesh was spawned correctly
+        for (int i = 0; i < amountToSpawn/groupAmount; i++)
         {
             AnimalProfile animalToSpawn = animalProfiles[Random.Range(0, animalProfiles.Length)];
             for (int j = 0; j < groupAmount; j++)
             {
+                if (i % 500 == 0)//Split processing into chunks because too many at once can cause issues
+                {
+                    print("mod 500");
+                    yield return new WaitForSeconds(.1f);
+                }
                 newObj = null;
                 RaycastHit hit; //shoot ray and if its ground then spawn at that location
                 if (Physics.Raycast(transform.position+(transform.forward * (j)), core - gameObject.transform.position, out hit, 10000))
@@ -83,13 +88,13 @@ public class AnimalsSpawner : MonoBehaviour
                             heightFromHitPoint; //repoisition to correct height from hit
 
                         AnimalInitializer manager = newObj.AddComponent<AnimalInitializer>();
-                        manager.clip = audioClip;
                         manager.animalDNA = animalToSpawn;
                         manager.btTexts = btTexts;
 
 
                         //                    print(newObj.transform.position);
                         manager.InitialiseAnimal();
+                        
                     }
                 }
                 else

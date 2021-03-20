@@ -12,16 +12,19 @@ public class AnimalDistanceDisabler : MonoBehaviour
     public BehaviourTree bt;//for applying since it didnt work without
 
     public float activeDistance = 100;
-    public float aiDistance = 300;
+    public float aiDistance = 200;
 
     public SkinnedMeshRenderer renderer;
     public List<AnimalFeetPositioner> FeetPositioners;
-    public 
+
+    public AudioManager audioManager;
     // Start is called before the first frame update
     void Start()
     {
         renderer = animal.gameObject.GetComponentInChildren<SkinnedMeshRenderer>();
         FeetPositioners = animalHolder.GetComponent<AnimalInitializer>().feetPositioners;
+        audioManager = animal.gameObject.GetComponent<AudioManager>();
+        
     }
 
     // Update is called once per frame
@@ -34,6 +37,7 @@ public class AnimalDistanceDisabler : MonoBehaviour
         {
             if (renderer.enabled)
             {
+                audioManager.StopAudio();
                 renderer.enabled = false;
                 foreach (var foot in FeetPositioners)
                 {
@@ -58,6 +62,9 @@ public class AnimalDistanceDisabler : MonoBehaviour
             {
                 animalHolder.gameObject.SetActive(true);
                 bt.Apply();//start ai again
+                audioManager.StartAudio();
+                
+
             }
             if (renderer.enabled == false)
             {

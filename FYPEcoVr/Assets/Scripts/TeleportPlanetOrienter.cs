@@ -42,7 +42,13 @@ public class TeleportPlanetOrienter : MonoBehaviour
         //Vector3 playerForward = xrRig.transform.TransformDirection(Vector3.forward);
         //xrRig.transform.rotation = Quaternion.LookRotation(playerForward, -gravityDir);
         //xrRig.transform.rotation = Quaternion.FromToRotation(xrRig.transform.transform.up, -gravityDir);
-        xrRig.MatchRigUp(-gravityDir);
+        
+        RaycastHit hit; //shoot ray and if its ground then spawn at that location
+        if (Physics.Raycast(transform.position+(-gravityDir*5), gravityDir, out hit, 1000, layerMask))
+        {
+            xrRig.MatchRigUp(hit.normal);
+        }
+        
         //xrRig.MatchRigUpRigForward(-gravityDir);
 
         /*
