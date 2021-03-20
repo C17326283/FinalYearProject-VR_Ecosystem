@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityTemplateProjects;
 using Random = UnityEngine.Random;
 
 // This is for spawning the planet object and managing the generation as a whole

@@ -270,62 +270,36 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="AnimalDistanceDisabler.cs" t="Include" />
-          <e p="AnimalProfile.cs" t="Include" />
           <e p="AnimalStatDisplay.cs" t="Include" />
           <e p="Cam.cs" t="Include" />
-          <e p="Deprecated" t="Include">
-            <e p="AddStatDetector.cs" t="Include" />
-            <e p="AnBoidMove.cs" t="Include" />
-            <e p="BodyRaycastPositioner.cs" t="Include" />
-            <e p="BoidBrain.cs" t="Include" />
-            <e p="BoidSensoryScript.cs" t="Include" />
-            <e p="BoidTaskManager.cs" t="Include" />
-            <e p="CreatureMovement.cs" t="Include" />
-            <e p="CreatureStats.cs" t="Include" />
-            <e p="CreatureTaskManager.cs" t="Include" />
-            <e p="FacePlayer.cs" t="Include" />
-            <e p="FootRaycastPositioner.cs" t="Include" />
-            <e p="GravityAIMovement.cs" t="Include" />
-            <e p="GravityPlayer.cs" t="Include" />
-            <e p="HeightPositioner.cs" t="Include" />
-            <e p="InitializeAnimal.cs" t="Include" />
-            <e p="LookAtLerp.cs" t="Include" />
-            <e p="NavTest.cs" t="Include" />
-            <e p="NewTaskManager.cs" t="Include" />
-            <e p="Other" t="Include">
-              <e p="AnimalTest.txt" t="Include" />
-              <e p="BoidBase.txt" t="Include" />
-              <e p="BoidBase2 - Copy.txt" t="Include" />
-              <e p="BoidBase2.txt" t="Include" />
-              <e p="BoidBehaviour.txt" t="Include" />
-              <e p="Brain.cs" t="Include" />
-              <e p="BtTest1.cs" t="Include" />
-            </e>
-            <e p="RayCastTest.cs" t="Include" />
-            <e p="SensoryScript.cs" t="Include" />
-            <e p="SimpleCameraController.cs" t="Include" />
-            <e p="SpineAnimator.cs" t="Include" />
-            <e p="TestBetterGravity.cs" t="Include" />
+          <e p="Deprecated2" t="Include">
+            <e p="UnloadObjs.cs" t="Include" />
+            <e p="VrTestClick.cs" t="Include" />
           </e>
           <e p="Escape.cs" t="Include" />
+          <e p="FacePlayer.cs" t="Include" />
           <e p="Food.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="GravityMovement.cs" t="Include" />
           <e p="LightAtAngle.cs" t="Include" />
+          <e p="LookAtLerp.cs" t="Include" />
           <e p="NewAnimal" t="Include">
             <e p="AnimalBehaviours.cs" t="Include" />
             <e p="AnimalBrain.cs" t="Include" />
             <e p="AnimalBT.txt" t="Include" />
             <e p="AnimalBT2.txt" t="Include" />
             <e p="AnimalBT2Backup.txt" t="Include" />
+            <e p="AnimalDistanceDisabler.cs" t="Include" />
             <e p="AnimalFeetPositioner.cs" t="Include" />
             <e p="AnimalGravity.cs" t="Include" />
             <e p="AnimalGroundVelocityOrienter.cs" t="Include" />
             <e p="AnimalInitializer.cs" t="Include" />
             <e p="AnimalLife.cs" t="Include" />
+            <e p="AnimalProfile.cs" t="Include" />
             <e p="AnimalSenses.cs" t="Include" />
             <e p="HeadLook.cs" t="Include" />
+            <e p="SpineAnimator.cs" t="Include" />
+            <e p="SpineAnimatorManager.cs" t="Include" />
             <e p="SpineNew.cs" t="Include" />
           </e>
           <e p="ObjectGravity.cs" t="Include" />
@@ -347,15 +321,12 @@
             <e p="TerrainMinMaxHeights.cs" t="Include" />
           </e>
           <e p="SpawnEnvironmentInRange.cs" t="Include" />
-          <e p="SpineAnimatorManager.cs" t="Include" />
           <e p="StatCanvasManager.cs" t="Include" />
           <e p="TakeScreenshot.cs" t="Include" />
-          <e p="UnloadObjs.cs" t="Include" />
           <e p="Vr" t="Include">
             <e p="HandController.cs" t="Include" />
             <e p="TeleporterController.cs" t="Include" />
           </e>
-          <e p="VrTestClick.cs" t="Include" />
         </e>
         <e p="TeleportPlanetOrienter.cs" t="Include" />
         <e p="TestActionControllerInput.cs" t="Include" />
