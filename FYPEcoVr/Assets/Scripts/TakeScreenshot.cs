@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
+using UnityEngine.InputSystem;
 
 public class TakeScreenshot : MonoBehaviour {
 
@@ -48,12 +49,17 @@ public class TakeScreenshot : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-        if (Input.GetKeyDown(KeyCode.JoystickButton7))
+	void Update ()
+    { 
+    }
+
+    public void ScreenShot(InputAction.CallbackContext context)
+    {
+        if (context.started)
         {
             string filename = GenerateFileName();
             Debug.Log("Capturing screenshot to: " + filename);
             ScreenCapture.CaptureScreenshot(filename);
-        }        
+        }
     }
 }
