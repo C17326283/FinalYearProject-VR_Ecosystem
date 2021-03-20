@@ -899,7 +899,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Generate from settings
+  m_text: 'Generate
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -2644,7 +2646,7 @@ RectTransform:
   - {fileID: 223326814}
   - {fileID: 1312446469}
   m_Father: {fileID: 1564528301}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -5610,12 +5612,12 @@ RectTransform:
   m_Children:
   - {fileID: 143047828}
   m_Father: {fileID: 1968456488}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -10.300049, y: 240}
-  m_SizeDelta: {x: -98, y: 68.3}
+  m_AnchoredPosition: {x: -10.300049, y: 385}
+  m_SizeDelta: {x: -98, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &887747204
 MonoBehaviour:
@@ -6408,7 +6410,7 @@ GameObject:
   - component: {fileID: 990263061}
   - component: {fileID: 990263060}
   m_Layer: 5
-  m_Name: Regen (3)
+  m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6427,11 +6429,11 @@ RectTransform:
   m_Children:
   - {fileID: 1560903124}
   m_Father: {fileID: 1968456488}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -10.3000555, y: -420}
+  m_AnchoredPosition: {x: -10.3000555, y: -384}
   m_SizeDelta: {x: -98, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &990263060
@@ -6823,7 +6825,7 @@ RectTransform:
   - {fileID: 1299597078}
   - {fileID: 985403249}
   m_Father: {fileID: 1564528301}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7544,7 +7546,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -10.300049, y: -67.4}
+  m_AnchoredPosition: {x: -10.300049, y: 47}
   m_SizeDelta: {x: -98, y: 68.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1143491763
@@ -8794,7 +8796,7 @@ RectTransform:
   - {fileID: 1855381744}
   - {fileID: 1940501087}
   m_Father: {fileID: 1564528301}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9977,7 +9979,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Populate & Explore
+  m_text: Populate & Explore >
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -10084,6 +10086,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 963211342}
+  - {fileID: 2080430055}
   - {fileID: 445914568}
   - {fileID: 1014029624}
   - {fileID: 1332432137}
@@ -11008,7 +11011,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -10.300049, y: 40.2}
+  m_AnchoredPosition: {x: -10.300049, y: 134}
   m_SizeDelta: {x: -98, y: 68.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1737986218
@@ -11481,7 +11484,7 @@ GameObject:
   - component: {fileID: 1772329274}
   - component: {fileID: 1772329273}
   m_Layer: 5
-  m_Name: Regen (2)
+  m_Name: Reset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11500,11 +11503,11 @@ RectTransform:
   m_Children:
   - {fileID: 17496254}
   m_Father: {fileID: 1968456488}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -10.300049, y: 360}
+  m_AnchoredPosition: {x: -10.300049, y: 271}
   m_SizeDelta: {x: -98, y: 68.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1772329273
@@ -12985,11 +12988,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 887747203}
   - {fileID: 1772329272}
-  - {fileID: 2080430055}
   - {fileID: 1737986217}
   - {fileID: 1143491762}
-  - {fileID: 887747203}
   - {fileID: 990263059}
   m_Father: {fileID: 1756128467}
   m_RootOrder: 3
@@ -13660,13 +13662,13 @@ RectTransform:
   m_Children:
   - {fileID: 1917700119}
   - {fileID: 522499023}
-  m_Father: {fileID: 1968456488}
+  m_Father: {fileID: 1564528301}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -10.300049, y: 156.6}
-  m_SizeDelta: {x: -98, y: 68.3}
+  m_AnchoredPosition: {x: 66.99991, y: 423}
+  m_SizeDelta: {x: -51.99994, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2080430056
 MonoBehaviour:
@@ -13715,7 +13717,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &2090523368
 GameObject:
   m_ObjectHideFlags: 0

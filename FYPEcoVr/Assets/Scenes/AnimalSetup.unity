@@ -1582,6 +1582,14 @@ PrefabInstance:
       propertyPath: canvasManager
       value: 
       objectReference: {fileID: 389676627}
+    - target: {fileID: 342881478418387408, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 342881478712933549, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 342881479001926701, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_Name
       value: XR Rig
@@ -1589,6 +1597,18 @@ PrefabInstance:
     - target: {fileID: 342881479001926702, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_RootOrder
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 342881479001926702, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 342881479001926702, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 342881479001926702, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 342881479001926702, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1998,14 +2018,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 250040463}
     m_Modifications:
-    - target: {fileID: 2271817851145139290, guid: 26a94f4fee55b5447a15901b233da4a5, type: 3}
-      propertyPath: worth
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2271817851145139290, guid: 26a94f4fee55b5447a15901b233da4a5, type: 3}
-      propertyPath: regrows
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8382926230217131611, guid: 26a94f4fee55b5447a15901b233da4a5, type: 3}
       propertyPath: m_Name
       value: Corn1 (3)
@@ -3178,14 +3190,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 250040463}
     m_Modifications:
-    - target: {fileID: 2271817851145139290, guid: 26a94f4fee55b5447a15901b233da4a5, type: 3}
-      propertyPath: worth
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2271817851145139290, guid: 26a94f4fee55b5447a15901b233da4a5, type: 3}
-      propertyPath: regrows
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8382926230217131611, guid: 26a94f4fee55b5447a15901b233da4a5, type: 3}
       propertyPath: m_Name
       value: Corn1 (1)
@@ -3243,14 +3247,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 250040463}
     m_Modifications:
-    - target: {fileID: 2271817851145139290, guid: 26a94f4fee55b5447a15901b233da4a5, type: 3}
-      propertyPath: worth
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2271817851145139290, guid: 26a94f4fee55b5447a15901b233da4a5, type: 3}
-      propertyPath: regrows
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8382926230217131611, guid: 26a94f4fee55b5447a15901b233da4a5, type: 3}
       propertyPath: m_Name
       value: Corn1 (4)
@@ -5518,6 +5514,24 @@ MonoBehaviour:
   biomeDist: 500
   usesLOD: 1
   screenPercentLODCull: 2
+--- !u!1 &1785378516 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 342881479001926701, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+  m_PrefabInstance: {fileID: 419807200}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1785378521
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785378516}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Center: {x: 0, y: 2.16, z: 0}
 --- !u!1 &1789322853
 GameObject:
   m_ObjectHideFlags: 0

@@ -126,7 +126,7 @@ public class AnimalInitializer : MonoBehaviour
             SpineNew limbSp = this.gameObject.AddComponent<SpineNew>();
             limbSp.start = limb;
             limbSp.InitializeSpine();
-            limbSp.damping = damping/1.5f;
+            limbSp.damping = damping;
 
             spineMain.MatchLimbToSpine(limb.transform.parent,headHolder.transform);//use parent to get containter
         }

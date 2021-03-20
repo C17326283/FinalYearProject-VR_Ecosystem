@@ -59,8 +59,8 @@ public class AnimalStatDisplay : MonoBehaviour
     {
         canvasManager.health.text = "Health: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.health),0,selectAnimalBrain.maxHealth);
         canvasManager.hunger.text = "Hunger: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.hunger),0,selectAnimalBrain.maxStat);
-        canvasManager.thirst.text = "Thirst: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.hunger),0,selectAnimalBrain.maxStat);
-        canvasManager.urge.text = "Mating urge: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.hunger),0,selectAnimalBrain.maxStat);
+        canvasManager.thirst.text = "Thirst: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.thirst),0,selectAnimalBrain.maxStat);
+        canvasManager.urge.text = "Mating urge: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.reproductiveUrge),0,selectAnimalBrain.maxStat);
         canvasManager.task.text = "Task: " + selectAnimalBehaviours.currentTask;
     }
 

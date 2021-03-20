@@ -115,15 +115,16 @@ public class AnimalBrain : MonoBehaviour
     public void Die()
     {
         Debug.Log("Died");
-        this.GetComponent<BehaviourTree>().enabled = false;//disable ai
-        //this.GetComponent<Rigidbody>().freezeRotation = false;
-        Instantiate(deathCanvas, this.transform.position, transform.rotation);
-        animalHeight = -5;
-        //gameObject.GetComponent<AnimalGravity>().animalHeight = -5;//Collapse to ground
+        if (this.GetComponent<BehaviourTree>().enabled == true)//Only trigger once
+        {
+            this.GetComponent<BehaviourTree>().enabled = false;//disable ai
+            //this.GetComponent<Rigidbody>().freezeRotation = false;
+            Instantiate(deathCanvas, this.transform.position, transform.rotation);
+            animalHeight = -5;
+            gameObject.GetComponent<AnimalGravity>().animalHeight = -5;//Collapse to ground
 
-
-        StartCoroutine(SetInactive(5));
-        //Destroy(gameObject);//destroy after 20secs
+            StartCoroutine(SetInactive(10));
+        }
     }
 
     IEnumerator SetInactive(float time)
@@ -132,6 +133,7 @@ public class AnimalBrain : MonoBehaviour
         gameObject.GetComponent<Collider>().enabled = false;//fall through floor
         yield return new WaitForSeconds(1);
 
+        gameObject.GetComponentInParent<AnimalInitializer>().gameObject.SetActive(false);
         gameObject.SetActive(false);
     }
 

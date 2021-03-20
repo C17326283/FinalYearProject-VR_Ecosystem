@@ -151,6 +151,7 @@ public class PlanetSpawner : MonoBehaviour
     public void UpdateGUIDetails()
     {
         resTextMeshPro.text = "Resolution: "+System.Math.Round(resSlider.value,2);
+        
         strengthTextMeshPro.text = "Strength: "+System.Math.Round(strengthSlider.value,2);
         roughnessTextMeshPro.text = "Roughness: "+System.Math.Round(roughnessSlider.value,2);
         persistanceTextMeshPro.text = "Amplification: "+System.Math.Round(persistanceSlider.value,2);

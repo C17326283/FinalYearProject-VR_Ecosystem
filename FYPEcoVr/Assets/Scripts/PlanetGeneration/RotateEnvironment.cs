@@ -5,7 +5,7 @@ using UnityEngine;
 //Simply rotate at set speed
 public class RotateEnvironment : MonoBehaviour
 {
-    public int rotateSpeed = 1;
+    public float rotateSpeed = .5f;
     
     // Update is called once per frame
     void Update()
