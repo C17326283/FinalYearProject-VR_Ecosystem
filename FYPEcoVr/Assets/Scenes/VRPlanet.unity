@@ -3506,7 +3506,7 @@ MonoBehaviour:
       - m_Target: {fileID: 584669670}
         m_TargetAssemblyTypeName: Escape, Assembly-CSharp
         m_MethodName: EscapeApplication
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3522,7 +3522,7 @@ MonoBehaviour:
       - m_Target: {fileID: 584669671}
         m_TargetAssemblyTypeName: TakeScreenshot, Assembly-CSharp
         m_MethodName: ScreenShot
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

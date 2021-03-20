@@ -11,29 +11,61 @@ public class AnimalDistanceDisabler : MonoBehaviour
     public GameObject animalHolder;
     public BehaviourTree bt;//for applying since it didnt work without
 
-    public float activeDistance = 200;
+    public float activeDistance = 100;
+    public float aiDistance = 300;
+
+    public SkinnedMeshRenderer renderer;
+    public List<AnimalFeetPositioner> FeetPositioners;
+    public 
     // Start is called before the first frame update
     void Start()
     {
-        
+        renderer = animal.gameObject.GetComponentInChildren<SkinnedMeshRenderer>();
+        FeetPositioners = animalHolder.GetComponent<AnimalInitializer>().feetPositioners;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(player.position, animal.position) > activeDistance)
+        float dist = Vector3.Distance(player.position, animal.position);
+        
+        //too far away turn off non essential scripts
+        if (dist > activeDistance)
         {
-            animalHolder.gameObject.SetActive(false);
-            //print("disable");
+            if (renderer.enabled)
+            {
+                renderer.enabled = false;
+                foreach (var foot in FeetPositioners)
+                {
+                    foot.enabled = false;
+                }
+            }
+            
+            //way too far away, stop running ai
+            if (dist > aiDistance)
+            {
+                animalHolder.gameObject.SetActive(false);
+            }
+            else if (animalHolder.gameObject.activeInHierarchy == false)
+            {
+                animalHolder.gameObject.SetActive(true);
+                bt.Apply();//start ai again
+            }
         }
-        else
+        else//renable
         {
             if (animalHolder.gameObject.activeInHierarchy == false)
             {
                 animalHolder.gameObject.SetActive(true);
                 bt.Apply();//start ai again
-                //print("enable");
-
+            }
+            if (renderer.enabled == false)
+            {
+                renderer.enabled = true;
+                foreach (var foot in FeetPositioners)
+                {
+                    foot.enabled = true;
+                }
             }
         }
     }
