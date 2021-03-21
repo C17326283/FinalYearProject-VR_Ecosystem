@@ -22,6 +22,7 @@ public class AnimalBrain : MonoBehaviour
     //public Transform currentTarget;//set from behaviour tree so positioner can use
 
     public String name = "name";
+    public int generation = 0;
     public float health = 100;
     public float hunger = 100;
     public float thirst = 100;
@@ -146,9 +147,15 @@ public class AnimalBrain : MonoBehaviour
           thirst = maxStat;
           reproductiveUrge = 0;
           age = 0;
+          generation = 1;
+          
           //If has parents then mutate instead of doing default 
           if (mother != null)
           {
+              if (mother.generation >= father.generation)
+                  generation = mother.generation + 1;
+              else
+                  generation = father.generation + 1;
               MutateStats();
           }
           else

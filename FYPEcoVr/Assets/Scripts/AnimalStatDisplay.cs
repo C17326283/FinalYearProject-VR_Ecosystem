@@ -7,7 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class AnimalStatDisplay : MonoBehaviour
 {
-    
+
     //public Transform animalToDisplay;
     public GameObject statCanvas;
     public StatCanvasManager canvasManager;
@@ -17,13 +17,14 @@ public class AnimalStatDisplay : MonoBehaviour
     public Color32 positiveColour;
     public Color32 negativeColour;
 
-    
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
         statCanvas = GameObject.Find("StatCanvas");
-        canvasManager = statCanvas.GetComponentInChildren<StatCanvasManager>();
+        if(canvasManager==null)
+            canvasManager = statCanvas.GetComponentInChildren<StatCanvasManager>();
     }
 
     public void SetToPos()
@@ -38,15 +39,20 @@ public class AnimalStatDisplay : MonoBehaviour
                 statCanvas.transform.parent = hit.transform;
                 statCanvas.transform.position = hit.transform.position + (hit.transform.transform.up);
                 statCanvas.transform.rotation = hit.transform.rotation;
-                
+
                 selectAnimalBrain = hit.transform.GetComponent<AnimalBrain>();
                 selectAnimalBehaviours = hit.transform.GetComponent<AnimalBehaviours>();
-                statCanvas.transform.position = selectAnimalBrain.transform.position + (selectAnimalBrain.transform.transform.up*selectAnimalBrain.animalHeight);
+                statCanvas.transform.position = selectAnimalBrain.transform.position +
+                                                (selectAnimalBrain.transform.transform.up *
+                                                 selectAnimalBrain.animalHeight);
+                SetDNA();
             }
             else
             {
-                print("hit other: "+hit.transform.name);
+                print("hit other: " + hit.transform.name);
             }
+
+            
         }
     }
 
@@ -61,14 +67,43 @@ public class AnimalStatDisplay : MonoBehaviour
 
     public void SetValues()
     {
-        canvasManager.health.text = "Health: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.health),0,selectAnimalBrain.maxHealth);
-        canvasManager.hunger.text = "Nutrition: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.hunger),0,selectAnimalBrain.maxStat);
-        canvasManager.thirst.text = "Hydration: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.thirst),0,selectAnimalBrain.maxStat);
-        canvasManager.urge.text = "Mating urge: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.reproductiveUrge),0,selectAnimalBrain.maxStat);
+        canvasManager.health.text = "Health: " +
+                                    Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.health), 0,
+                                        selectAnimalBrain.maxHealth);
+        canvasManager.hunger.text = "Nutrition: " +
+                                    Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.hunger), 0,
+                                        selectAnimalBrain.maxStat);
+        canvasManager.thirst.text = "Hydration: " +
+                                    Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.thirst), 0,
+                                        selectAnimalBrain.maxStat);
+        canvasManager.urge.text = "Mating urge: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.reproductiveUrge), 0,
+            selectAnimalBrain.maxStat);
         canvasManager.task.text = "Task: " + selectAnimalBehaviours.currentTask;
     }
 
-    public void SetColours()
+    public void SetDNA()
+    {
+        canvasManager.name.text = (selectAnimalBrain.name);
+        canvasManager.generation.text = ("Generation: " + selectAnimalBrain.generation);
+        canvasManager.maxHealth.text = ("Max Health: " + Math.Round(selectAnimalBrain.maxHealth,1) + " (" + Math.Round(selectAnimalBrain.maxHealth - selectAnimalBrain.animalBaseDNA.maxHealth,1)+")");
+        canvasManager.hungerSpeed.text = ("Hunger Speed: " + Math.Round(selectAnimalBrain.hungerDecrement,1) + " ("+ Math.Round(selectAnimalBrain.hungerDecrement-selectAnimalBrain.animalBaseDNA.hungerDecrement,1)+")");
+        canvasManager.thirstSpeed.text = ("Thirst Speed: " + Math.Round(selectAnimalBrain.thirstDecrement,1) + " (" + Math.Round(selectAnimalBrain.thirstDecrement - selectAnimalBrain.animalBaseDNA.thirstDecrement,1)+")");
+        canvasManager.urgeSpeed.text = ("Urge Speed: " + Math.Round(selectAnimalBrain.reproductiveIncrement,1) + " (" + Math.Round(selectAnimalBrain.reproductiveIncrement - selectAnimalBrain.animalBaseDNA.reproductiveIncrement,1)+")");
+        canvasManager.memoryLossRate.text = ("Memory Loss Rate: " + Math.Round(selectAnimalBrain.memoryLossRate,1) + " (" + Math.Round(selectAnimalBrain.memoryLossRate - selectAnimalBrain.animalBaseDNA.memoryLossRate,1)+")");
+        canvasManager.sensoryRange.text = ("Sensory Range: " + Math.Round(selectAnimalBrain.sensoryRange,1) + " (" + Math.Round(selectAnimalBrain.sensoryRange - selectAnimalBrain.animalBaseDNA.sensoryRange,1)+")");
+        canvasManager.moveSpeed.text = ("Move Speed: " + Math.Round(selectAnimalBrain.moveSpeed,1) + " (" + Math.Round(selectAnimalBrain.moveSpeed - selectAnimalBrain.animalBaseDNA.moveSpeed,1)+")");
+        canvasManager.attackRate.text = ("Attack Rate: " + Math.Round(selectAnimalBrain.attackRate,1) + " (" + Math.Round(selectAnimalBrain.attackRate - selectAnimalBrain.animalBaseDNA.attackRate,1)+")");
+        canvasManager.attackDamage.text = ("Attack Damage: " + Math.Round(selectAnimalBrain.attackDamage,1) + " (" + Math.Round(selectAnimalBrain.attackDamage - selectAnimalBrain.animalBaseDNA.attackDamage,1)+")");
+        canvasManager.predatorRating.text = ("Predator Rating: " + Math.Round(selectAnimalBrain.predatorRating,1) + " (" + Math.Round(selectAnimalBrain.predatorRating - selectAnimalBrain.animalBaseDNA.predatorRating,1)+")");
+        canvasManager.preyRating.text = ("Prey Rating: " + Math.Round(selectAnimalBrain.preyRating,1) + " (" + Math.Round(selectAnimalBrain.preyRating - selectAnimalBrain.animalBaseDNA.preyRating,1)+")");
+        canvasManager.litterSize.text = ("Litter Size: " + Math.Round(selectAnimalBrain.litterSize,1) + " (" + Math.Round(selectAnimalBrain.litterSize - selectAnimalBrain.animalBaseDNA.litterSize,1)+")");
+        canvasManager.eatsPlants.text = ("Eats Plants: " + selectAnimalBrain.eatsPlants + " (" + selectAnimalBrain.animalBaseDNA.eatsPlants+")");
+        canvasManager.maxMutate.text = ("Max amount to mutate: " + Math.Round(selectAnimalBrain.maxMutatePercent,1)+"%");
+
+
+}
+
+public void SetColours()
     {
         if (selectAnimalBrain.health >= 50)
         {

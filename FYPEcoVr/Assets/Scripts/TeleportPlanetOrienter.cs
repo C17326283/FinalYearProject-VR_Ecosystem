@@ -16,6 +16,9 @@ public class TeleportPlanetOrienter : MonoBehaviour
 
     public float rayDist=1000;
     private int layerMask;    // Start is called before the first frame update
+
+    [Header("gravity up or normal up")]
+    public bool matchNormalUp = false;
     void OnEnable()
     {
         gravityDir = (core.transform.position - transform.position).normalized; //todo flip dir
@@ -42,12 +45,22 @@ public class TeleportPlanetOrienter : MonoBehaviour
         //Vector3 playerForward = xrRig.transform.TransformDirection(Vector3.forward);
         //xrRig.transform.rotation = Quaternion.LookRotation(playerForward, -gravityDir);
         //xrRig.transform.rotation = Quaternion.FromToRotation(xrRig.transform.transform.up, -gravityDir);
-        
-        RaycastHit hit; //shoot ray and if its ground then spawn at that location
-        if (Physics.Raycast(transform.position+(-gravityDir*5), gravityDir, out hit, 1000, layerMask))
+
+
+        if (matchNormalUp)
         {
-            xrRig.MatchRigUp(hit.normal);
+            RaycastHit hit; //shoot ray and if its ground then spawn at that location
+            if (Physics.Raycast(transform.position+(-gravityDir*5), gravityDir, out hit, 1000, layerMask))
+            {
+                xrRig.MatchRigUp(hit.normal);
+            }
+            
         }
+        else
+        {
+            xrRig.MatchRigUp(-gravityDir);
+        }
+        
         
         //xrRig.MatchRigUpRigForward(-gravityDir);
 

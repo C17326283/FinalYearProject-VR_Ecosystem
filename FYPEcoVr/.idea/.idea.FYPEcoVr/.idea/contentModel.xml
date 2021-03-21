@@ -276,6 +276,7 @@
           <e p="Food.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="GravityMovement.cs" t="Include" />
+          <e p="HolsterAttach.cs" t="Include" />
           <e p="LightAtAngle.cs" t="Include" />
           <e p="LookAtLerp.cs" t="Include" />
           <e p="ManualButtonTrigger.cs" t="Include" />

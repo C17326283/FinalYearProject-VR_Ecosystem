@@ -14,7 +14,8 @@ public class ObjectGravity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        core = GameObject.Find("Core");
+        if(core==null)
+            core = GameObject.Find("Core");
         rb = GetComponent<Rigidbody>();
 
     }
