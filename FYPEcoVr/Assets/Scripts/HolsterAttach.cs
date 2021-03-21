@@ -14,9 +14,13 @@ public class HolsterAttach : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, holster.transform.position, Time.deltaTime * lerpSpeed);
+        //transform.position = Vector3.Lerp(transform.position, holster.transform.position, Time.deltaTime * lerpSpeed);
+        if(Vector3.Distance(transform.position, holster.transform.position)>0.1f)
+            transform.position = Vector3.Lerp(transform.position, holster.transform.position, Time.deltaTime * lerpSpeed);
+
+            
         transform.rotation = Quaternion.Lerp(transform.rotation, holster.transform.rotation, Time.deltaTime * lerpSpeed);
     }
 }

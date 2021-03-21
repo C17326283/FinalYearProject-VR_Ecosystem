@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DitzelGames.FastIK;
 using Panda;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class AnimalInitializer : MonoBehaviour
@@ -42,6 +43,7 @@ public class AnimalInitializer : MonoBehaviour
     public AudioManager audioManager;
 
     public bool initialiseOnStart = false;
+    public AudioMixer audioMixer;
 
     // Start is called before the first frame update
     void Awake()
@@ -64,6 +66,7 @@ public class AnimalInitializer : MonoBehaviour
         animalObj.transform.parent = this.transform;
         animalObj.transform.position = this.transform.position;
         //animalObj.tag = animalDNA.name;
+        
         
         //Todo find more efficient way
         SetMovementOrigin();

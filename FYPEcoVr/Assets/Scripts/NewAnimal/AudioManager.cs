@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
@@ -13,17 +14,24 @@ public class AudioManager : MonoBehaviour
     public float randRangeLow = 8;
     public float randRangeHigh = 20;
     
+    public AudioMixerGroup audioMixerGroup;
+    
     public void Initialize()
     {
+        audioMixerGroup = Resources.Load<AudioMixer>("MainMixer").FindMatchingGroups("Master")[0];
+            
         footstepSource = gameObject.AddComponent<AudioSource>();
+        footstepSource.outputAudioMixerGroup = audioMixerGroup;
         footstepSource.clip = footstep;
         setDefault(footstepSource,30,.7f);
         //sources.Add(footstepSource);
         attackSource = gameObject.AddComponent<AudioSource>();
+        attackSource.outputAudioMixerGroup = audioMixerGroup;
         attackSource.clip = attack;
         setDefault(attackSource,30,.9f);
         //sources.Add(attackSource);
         ambientSource = gameObject.AddComponent<AudioSource>();
+        ambientSource.outputAudioMixerGroup = audioMixerGroup;
         ambientSource.clip = ambient;
         setDefault(ambientSource,30,.9f);
         //ambientSource.playOnAwake = true;

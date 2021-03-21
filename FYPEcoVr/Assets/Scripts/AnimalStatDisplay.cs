@@ -88,7 +88,7 @@ public class AnimalStatDisplay : MonoBehaviour
         canvasManager.maxHealth.text = ("Max Health: " + Math.Round(selectAnimalBrain.maxHealth,1) + " (" + Math.Round(selectAnimalBrain.maxHealth - selectAnimalBrain.animalBaseDNA.maxHealth,1)+")");
         canvasManager.hungerSpeed.text = ("Hunger Speed: " + Math.Round(selectAnimalBrain.hungerDecrement,1) + " ("+ Math.Round(selectAnimalBrain.hungerDecrement-selectAnimalBrain.animalBaseDNA.hungerDecrement,1)+")");
         canvasManager.thirstSpeed.text = ("Thirst Speed: " + Math.Round(selectAnimalBrain.thirstDecrement,1) + " (" + Math.Round(selectAnimalBrain.thirstDecrement - selectAnimalBrain.animalBaseDNA.thirstDecrement,1)+")");
-        canvasManager.urgeSpeed.text = ("Urge Speed: " + Math.Round(selectAnimalBrain.reproductiveIncrement,1) + " (" + Math.Round(selectAnimalBrain.reproductiveIncrement - selectAnimalBrain.animalBaseDNA.reproductiveIncrement,1)+")");
+        canvasManager.urgeSpeed.text = ("Mating urge Speed: " + Math.Round(selectAnimalBrain.reproductiveIncrement,1) + " (" + Math.Round(selectAnimalBrain.reproductiveIncrement - selectAnimalBrain.animalBaseDNA.reproductiveIncrement,1)+")");
         canvasManager.memoryLossRate.text = ("Memory Loss Rate: " + Math.Round(selectAnimalBrain.memoryLossRate,1) + " (" + Math.Round(selectAnimalBrain.memoryLossRate - selectAnimalBrain.animalBaseDNA.memoryLossRate,1)+")");
         canvasManager.sensoryRange.text = ("Sensory Range: " + Math.Round(selectAnimalBrain.sensoryRange,1) + " (" + Math.Round(selectAnimalBrain.sensoryRange - selectAnimalBrain.animalBaseDNA.sensoryRange,1)+")");
         canvasManager.moveSpeed.text = ("Move Speed: " + Math.Round(selectAnimalBrain.moveSpeed,1) + " (" + Math.Round(selectAnimalBrain.moveSpeed - selectAnimalBrain.animalBaseDNA.moveSpeed,1)+")");
@@ -99,9 +99,7 @@ public class AnimalStatDisplay : MonoBehaviour
         canvasManager.litterSize.text = ("Litter Size: " + Math.Round(selectAnimalBrain.litterSize,1) + " (" + Math.Round(selectAnimalBrain.litterSize - selectAnimalBrain.animalBaseDNA.litterSize,1)+")");
         canvasManager.eatsPlants.text = ("Eats Plants: " + selectAnimalBrain.eatsPlants + " (" + selectAnimalBrain.animalBaseDNA.eatsPlants+")");
         canvasManager.maxMutate.text = ("Max amount to mutate: " + Math.Round(selectAnimalBrain.maxMutatePercent,1)+"%");
-
-
-}
+    }
 
 public void SetColours()
     {

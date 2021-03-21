@@ -324,6 +324,7 @@
             <e p="TeleporterController.cs" t="Include" />
           </e>
         </e>
+        <e p="SettingsControl.cs" t="Include" />
       </e>
       <e p="ControllerSample.csproj" t="IncludeRecursive" />
       <e p="FYPEcoVr.sln" t="IncludeFlat" />
