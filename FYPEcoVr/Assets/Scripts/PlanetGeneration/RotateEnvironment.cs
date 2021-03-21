@@ -5,11 +5,12 @@ using UnityEngine;
 //Simply rotate at set speed
 public class RotateEnvironment : MonoBehaviour
 {
-    public float rotateSpeed = .5f;
+    public float rotateSpeedX = .5f;
+    public float rotateSpeedY = .1f;
     
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(-rotateSpeed * Time.deltaTime ,0,0 );
+        transform.Rotate(-rotateSpeedX * Time.deltaTime ,-rotateSpeedY * Time.deltaTime,0 );
     }
 }

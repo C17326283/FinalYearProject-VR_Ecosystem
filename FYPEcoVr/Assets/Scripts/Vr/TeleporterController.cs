@@ -37,11 +37,4 @@ public class TeleporterController : MonoBehaviour
         onTeleportCancel.Invoke();
     }
     
-    
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

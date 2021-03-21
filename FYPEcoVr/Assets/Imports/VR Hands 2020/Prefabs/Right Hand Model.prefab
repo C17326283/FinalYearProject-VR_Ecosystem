@@ -862,6 +862,7 @@ GameObject:
   - component: {fileID: 5686134208185136530}
   - component: {fileID: 996983473598884404}
   - component: {fileID: 377146480516013916}
+  - component: {fileID: 743381475663855892}
   m_Layer: 0
   m_Name: Right Hand Model
   m_TagString: Untagged
@@ -919,6 +920,21 @@ MonoBehaviour:
   controllerActionGrip: {fileID: 1578427203831673433, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   controllerActionTrigger: {fileID: 6924748246606081878, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _handAnimator: {fileID: 996983473598884404}
+--- !u!111 &743381475663855892
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5686134208185362930}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &5686134208185362932
 GameObject:
   m_ObjectHideFlags: 0

@@ -82,7 +82,8 @@ public class AnimalFeetPositioner : MonoBehaviour
 
     private void OnEnable()
     {
-        footIKTargetObj.transform.position = transform.position;
+        if(footIKTargetObj!=null)
+            footIKTargetObj.transform.position = transform.position;
     }
 
     // Update is called once per frame

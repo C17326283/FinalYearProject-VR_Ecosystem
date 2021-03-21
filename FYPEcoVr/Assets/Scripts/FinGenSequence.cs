@@ -15,6 +15,7 @@ public class FinGenSequence : MonoBehaviour
     public TeleportPlanetOrienter VrOrienter;
 
     public LightAtAngle[] lights;
+    public GameObject viewingRoom;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +52,7 @@ public class FinGenSequence : MonoBehaviour
         }
         yield return new WaitForSeconds(1f);
         SpawnPlayer();
+        viewingRoom.SetActive(false);
         //StartCoroutine(SpawnPlayer());
     }
 

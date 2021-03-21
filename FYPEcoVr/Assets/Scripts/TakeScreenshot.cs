@@ -9,6 +9,7 @@ public class TakeScreenshot : MonoBehaviour {
 
     public string path = "/Pictures/UnityScreenshots";
     public string filePrefix = "UnityScreenshots";
+    public AudioSource audioSource;
 
 
     public string GenerateFileName()
@@ -60,6 +61,7 @@ public class TakeScreenshot : MonoBehaviour {
             string filename = GenerateFileName();
             Debug.Log("Capturing screenshot to: " + filename);
             ScreenCapture.CaptureScreenshot(filename);
+            audioSource.Play();
         }
     }
 }
