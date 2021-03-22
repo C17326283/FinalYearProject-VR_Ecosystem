@@ -39,6 +39,7 @@ public class AnimalBehaviours : MonoBehaviour
 
     public string currentTask;
     public AnimalAudioManager audioManager;
+    public AnimalForce animalForce;
 
     //public Vector3 forceToApply;
     
@@ -118,7 +119,8 @@ public class AnimalBehaviours : MonoBehaviour
         if (Physics.Raycast(headObject.position, rb.transform.forward, out hit, brain.animalHeight*4))
         {
             //todo improve this, this is temp
-            rb.AddRelativeForce(transform.right*(brain.moveSpeed/2)*Time.deltaTime*100);
+            animalForce.AddToForce(transform.right*(brain.moveSpeed/2));
+            //rb.AddRelativeForce(transform.right*(brain.moveSpeed/2)*Time.deltaTime*100);
             Task.current.Succeed(); //if found no enemies
         }
         
@@ -153,12 +155,13 @@ public class AnimalBehaviours : MonoBehaviour
                 
                     pushAmount = Mathf.Clamp(pushAmount,0,brain.moveSpeed/2);
 
-                    forceToApply = forceToApply + (force * pushAmount);
+                    animalForce.AddToForce(force * pushAmount);
+                    //forceToApply = forceToApply + (force * pushAmount);
                     found = true;
                 }
             }
         }
-        rb.AddRelativeForce(forceToApply*Time.deltaTime*100);
+        //rb.AddRelativeForce(forceToApply*Time.deltaTime*100);
     }
 
     [Task]
@@ -176,7 +179,9 @@ public class AnimalBehaviours : MonoBehaviour
                 locDir.y = 0;
 
                 Vector3 force = locDir.normalized * brain.moveSpeed;
-                rb.AddRelativeForce(force*2*Time.deltaTime*100);
+                animalForce.AddToForce(force*2);
+                animalForce.isPanicked = true;//double the force applied
+                //rb.AddRelativeForce(force*2*Time.deltaTime*100);
             }
         }
         else
@@ -200,7 +205,9 @@ public class AnimalBehaviours : MonoBehaviour
                 Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
                 locDir.y = 0;
                 Vector3 force = locDir * brain.moveSpeed;
-                rb.AddRelativeForce(force * 3 * Time.deltaTime * 100);
+                animalForce.AddToForce(force * 3);
+                animalForce.isPanicked = true;//double the force applied
+                //rb.AddRelativeForce(force * 3 * Time.deltaTime * 100);
             }
             
         }
@@ -223,7 +230,9 @@ public class AnimalBehaviours : MonoBehaviour
             Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
             locDir.y = 0;
             Vector3 force = locDir * brain.moveSpeed;
-            rb.AddRelativeForce(force*2*Time.deltaTime*100);
+            animalForce.AddToForce(force*2);
+            animalForce.isPanicked = true;//double the force applied
+            //rb.AddRelativeForce(force*2*Time.deltaTime*100);
             Task.current.Succeed(); //if found no enemies
         }
         else
@@ -340,7 +349,8 @@ public class AnimalBehaviours : MonoBehaviour
             locDir.y = 0;
 
             Vector3 force = locDir.normalized * brain.moveSpeed;
-            rb.AddRelativeForce(force*Time.deltaTime*100);
+            animalForce.AddToForce(force*2);
+            //rb.AddRelativeForce(force*Time.deltaTime*100);
             Task.current.Succeed();//if found no enemies
         }
         else
@@ -373,6 +383,7 @@ public class AnimalBehaviours : MonoBehaviour
             Task.current.Succeed();
             currentTask = "Fighting";
             toTarget = combatAnimal.transform;
+            animalForce.isPanicked = true;
 
         }
         else
@@ -432,7 +443,8 @@ public class AnimalBehaviours : MonoBehaviour
                     toTarget.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);//Hit slows other down
                     StartCoroutine(panicCoolown());//Is engaged in combat 
                     otherAnimalBrain.health -= 5; //todo brain attack strength 
-                    rb.AddRelativeForce(rb.transform.forward*(brain.moveSpeed/2)*Time.deltaTime*100,ForceMode.Impulse);
+                    //animalForce.AddToForce(rb.transform.forward*(brain.moveSpeed/2));
+                    rb.AddRelativeForce(rb.transform.forward*(brain.moveSpeed/5)*Time.deltaTime*100,ForceMode.Impulse);
 
                     Instantiate(hitCanvas, (otherBehaviours.headObject.transform.position), transform.rotation);
                     audioManager.playAttack();
@@ -461,7 +473,8 @@ public class AnimalBehaviours : MonoBehaviour
             brain.hunger = 100;
             Task.current.Succeed();
 //            print("eat");
-            rb.AddRelativeForce(-rb.transform.up*(brain.moveSpeed/2)*Time.deltaTime*100,ForceMode.Impulse);
+            //animalForce.AddToForce(-rb.transform.up*(brain.moveSpeed/5));
+            rb.AddRelativeForce(-rb.transform.up*(brain.moveSpeed/5)*Time.deltaTime*100,ForceMode.Impulse);
             Instantiate(foodCanvas, (toTarget.transform.position), transform.rotation);
             combatAnimal = null;//If was targeting to eat then complete that
             if(toTarget.parent.GetComponent<Food>()!=null)
@@ -476,7 +489,8 @@ public class AnimalBehaviours : MonoBehaviour
             brain.thirst = 100;
             Task.current.Succeed();
             Instantiate(drinkCanvas, (toTarget.transform.position), transform.rotation);
-            rb.AddRelativeForce(-rb.transform.up*(brain.moveSpeed/2)*Time.deltaTime*100,ForceMode.Impulse);
+            //animalForce.AddToForce(-rb.transform.up*(brain.moveSpeed/5));
+            rb.AddRelativeForce(-rb.transform.up*(brain.moveSpeed/5)*Time.deltaTime*100,ForceMode.Impulse);
 //            print("drink");
         }
         else if(toTarget.transform.name==(transform.name))

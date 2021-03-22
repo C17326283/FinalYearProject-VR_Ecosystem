@@ -45,6 +45,8 @@ public class AnimalInitializer : MonoBehaviour
     public bool initialiseOnStart = false;
     public AudioMixer audioMixer;
 
+    public AnimalForce animalForce;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -241,8 +243,13 @@ public class AnimalInitializer : MonoBehaviour
             behaviourTreeManager = GetComponent<BehaviourTree>();
 
         behaviourTreeManager.scripts = btTexts;
-        behaviourTreeManager.tickOn = BehaviourTree.UpdateOrder.FixedUpdate;
+        behaviourTreeManager.tickOn = BehaviourTree.UpdateOrder.Update;
         //        behaviourTreeManager.Apply();//This is the thing to fix
+        
+        animalForce = movementOriginObj.AddComponent<AnimalForce>();
+        animalForce.rb = rb;
+        animalForce.brain = brain;
+        behaviours.animalForce = animalForce;
     }
 
     

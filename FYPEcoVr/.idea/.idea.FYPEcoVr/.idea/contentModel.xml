@@ -288,6 +288,7 @@
             <e p="AnimalBT2.txt" t="Include" />
             <e p="AnimalDistanceDisabler.cs" t="Include" />
             <e p="AnimalFeetPositioner.cs" t="Include" />
+            <e p="AnimalForce.cs" t="Include" />
             <e p="AnimalGravity.cs" t="Include" />
             <e p="AnimalGroundVelocityOrienter.cs" t="Include" />
             <e p="AnimalInitializer.cs" t="Include" />

@@ -48,6 +48,7 @@ public class AnimalStatDisplay : MonoBehaviour
                                                 (selectAnimalBrain.transform.transform.up *
                                                  selectAnimalBrain.animalHeight);
                 SetDNA();
+                SetValues();
                 if (!isRefreshing)
                 {
                     StartCoroutine(UpdateStatScreen());
@@ -55,11 +56,8 @@ public class AnimalStatDisplay : MonoBehaviour
             }
             else
             {
-                print("hit other: " + hit.transform.name);
+                print("Controller hit non animal: " + hit.transform.name);
             }
-            
-
-            
         }
     }
 
