@@ -308,7 +308,7 @@ public class AnimalInitializer : MonoBehaviour
         {
             footScript.otherFootRaycastPositioner = feetPositioners[feetPositioners.Count - 2];
             feetPositioners[feetPositioners.Count - 2].otherFootRaycastPositioner = footScript;
-            footScript.hasOffset = true;
+            //footScript.hasOffset = true;
             
         }
     }

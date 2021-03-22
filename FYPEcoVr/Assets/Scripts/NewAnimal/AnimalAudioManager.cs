@@ -11,10 +11,14 @@ public class AnimalAudioManager : MonoBehaviour
     public AudioSource attackSource;
     public AudioSource ambientSource;
 
-    public float randRangeLow = 8;
-    public float randRangeHigh = 20;
+    public float randRangeLow = 10;
+    public float randRangeHigh = 25;
     
     public AudioMixerGroup audioMixerGroup;
+
+    public Transform player;
+
+    public float playRange = 30;
     
     public void Initialize()
     {
@@ -23,23 +27,24 @@ public class AnimalAudioManager : MonoBehaviour
         footstepSource = gameObject.AddComponent<AudioSource>();
         footstepSource.outputAudioMixerGroup = audioMixerGroup;
         footstepSource.clip = footstep;
-        setDefault(footstepSource,30,.7f);
+        setDefault(footstepSource,playRange,.7f);
         //sources.Add(footstepSource);
         attackSource = gameObject.AddComponent<AudioSource>();
         attackSource.outputAudioMixerGroup = audioMixerGroup;
         attackSource.clip = attack;
-        setDefault(attackSource,30,.9f);
+        setDefault(attackSource,playRange,.9f);
         //sources.Add(attackSource);
         ambientSource = gameObject.AddComponent<AudioSource>();
         ambientSource.outputAudioMixerGroup = audioMixerGroup;
         ambientSource.clip = ambient;
-        setDefault(ambientSource,30,.9f);
+        setDefault(ambientSource,playRange,.9f);
         //ambientSource.playOnAwake = true;
         //ambientSource.loop = true;
         //sources.Add(ambientSource);
+        player = GameObject.FindWithTag("Player").transform;
 
-        //StartCoroutine(RepeatSpawn());
-        InvokeRepeating("playAmbient", Random.Range(0,randRangeLow), Random.Range(randRangeLow,randRangeHigh));
+        //StartCoroutine(RandAmbientAudio());
+        InvokeRepeating("playAmbient", Random.Range(0,randRangeHigh), Random.Range(randRangeLow,randRangeHigh));
 
     }
 
@@ -65,29 +70,39 @@ public class AnimalAudioManager : MonoBehaviour
 
     public void playAttack()
     {
-        if (!attackSource.isPlaying && gameObject.activeInHierarchy)
+        if (Vector3.Distance(transform.position, player.position) < playRange)
         {
-            attackSource.pitch = Random.Range(0.6f, 1.2f);
-            attackSource.PlayOneShot(attack);
+            if (!attackSource.isPlaying && gameObject.activeInHierarchy)
+            {
+                attackSource.pitch = Random.Range(0.6f, 1.2f);
+                attackSource.PlayOneShot(attack);
+            }
         }
-        
+
     }
     
     public void playFootStep()
     {
-        if(footstepSource.isPlaying && gameObject.activeInHierarchy)
-            footstepSource.Stop();
-        footstepSource.pitch = Random.Range(0.7f, 1f);
-        footstepSource.PlayOneShot(footstep);
+        if (Vector3.Distance(transform.position, player.position) < playRange)
+        {
+            if(footstepSource.isPlaying && gameObject.activeInHierarchy)
+                footstepSource.Stop();
+            footstepSource.pitch = Random.Range(0.7f, 1f);
+            footstepSource.PlayOneShot(footstep);
+        }
+        
     }
 
     public void playAmbient()
     {
-//        print("playing ambient");
-        if (!ambientSource.isPlaying && gameObject.activeInHierarchy)
+        if (Vector3.Distance(transform.position, player.position) < playRange)
         {
-            ambientSource.pitch = Random.Range(0.5f, 1.1f);
-            ambientSource.PlayOneShot(ambient);
+//        print("playing ambient");
+            if (!ambientSource.isPlaying && gameObject.activeInHierarchy)
+            {
+                ambientSource.pitch = Random.Range(0.5f, 1.1f);
+                ambientSource.PlayOneShot(ambient);
+            }
         }
     }
     

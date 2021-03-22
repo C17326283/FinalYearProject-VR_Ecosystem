@@ -8,6 +8,7 @@ tree("Root")
             tree("SeekMate")
             tree("Wander")
         tree("Arrive")
+
         
 tree("Combat")
     sequence
@@ -22,6 +23,7 @@ tree("Avoidance")
     sequence
         AvoidOthers()
         ObstacleAvoid()
+        
     
 tree("Flee")
     sequence

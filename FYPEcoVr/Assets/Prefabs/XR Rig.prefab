@@ -7284,6 +7284,7 @@ MonoBehaviour:
   negativeColour:
     serializedVersion: 2
     rgba: 4290296063
+  isRefreshing: 0
 --- !u!1 &342881478879431310
 GameObject:
   m_ObjectHideFlags: 0

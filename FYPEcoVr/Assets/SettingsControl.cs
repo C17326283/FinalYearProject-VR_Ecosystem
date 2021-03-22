@@ -12,25 +12,16 @@ public class SettingsControl : MonoBehaviour
     //public AudioListener audioListener;
     public AudioMixer audioMixer;
 
-    //public GameObject musicSliderObj;
-    //public GameObject globalSliderObj;
     public Slider musicSlider;
     public Slider globalSlider;
     // Start is called before the first frame update
     void Start()
     {
         musicSource = GameObject.Find("AudioManager").GetComponent<AudioSource>();
-        //musicSlider = musicSliderObj.GetComponent<Slider>();
-        //globalSlider = globalSliderObj.GetComponent<Slider>();
-        UpdateQuality(3);
+        UpdateQuality(1);
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void UpdateVolume()
     {

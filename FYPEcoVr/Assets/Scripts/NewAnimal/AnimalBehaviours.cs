@@ -39,6 +39,8 @@ public class AnimalBehaviours : MonoBehaviour
 
     public string currentTask;
     public AnimalAudioManager audioManager;
+
+    //public Vector3 forceToApply;
     
 
 
@@ -103,6 +105,12 @@ public class AnimalBehaviours : MonoBehaviour
     }
 
     [Task]
+    void ApplyForce()
+    {
+        print("Apply force");
+    }
+
+    [Task]
     void ObstacleAvoid()
     {
         Task.current.Succeed();
@@ -120,6 +128,7 @@ public class AnimalBehaviours : MonoBehaviour
     void AvoidOthers()
     {
         Task.current.Succeed();
+        Vector3 forceToApply = new Vector3(0,0,0);
         bool found = false;
         if (!isPanicked)
         {
@@ -143,16 +152,13 @@ public class AnimalBehaviours : MonoBehaviour
                         pushAmount *= 1.5f;//more push from predators
                 
                     pushAmount = Mathf.Clamp(pushAmount,0,brain.moveSpeed/2);
-                    
-                    
-                    
 
-
-                    rb.AddRelativeForce(force*pushAmount*Time.deltaTime*100);
+                    forceToApply = forceToApply + (force * pushAmount);
                     found = true;
                 }
             }
         }
+        rb.AddRelativeForce(forceToApply*Time.deltaTime*100);
     }
 
     [Task]
@@ -340,9 +346,7 @@ public class AnimalBehaviours : MonoBehaviour
         else
         {
             Task.current.Fail();
-
         }
-        
     }
 
     [Task]

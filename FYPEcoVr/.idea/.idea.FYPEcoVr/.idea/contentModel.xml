@@ -270,6 +270,7 @@
           <e p="Cam.cs" t="Include" />
           <e p="CustomHandController.cs" t="Include" />
           <e p="DeactivateAfterTime.cs" t="Include" />
+          <e p="Deprecat.cs" t="Include" />
           <e p="Escape.cs" t="Include" />
           <e p="FacePlayer.cs" t="Include" />
           <e p="FinGenSequence.cs" t="Include" />

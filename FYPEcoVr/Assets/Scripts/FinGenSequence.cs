@@ -17,18 +17,6 @@ public class FinGenSequence : MonoBehaviour
     public LightAtAngle[] lights;
     public GameObject viewingRoom;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Perform()
     {
         StartCoroutine(StartSequence());

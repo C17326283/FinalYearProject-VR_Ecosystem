@@ -74,6 +74,7 @@ public class AnimalBrain : MonoBehaviour
 
     
     public float timeTillAdult= 60;
+    private bool hasDied;
 
 
 
@@ -101,7 +102,7 @@ public class AnimalBrain : MonoBehaviour
         if (hunger < 0 || thirst < 0 || age>100)
             health -= 0.01f;
         
-        if (health <= 0 && this.GetComponent<BehaviourTree>().enabled)//if died and hasnt triggered already
+        if (health <= 0 && !hasDied)//if died and hasnt triggered already
         {
             Die();
         }
@@ -124,19 +125,16 @@ public class AnimalBrain : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("Died");
-        if (this.GetComponent<BehaviourTree>().enabled == true)//Only trigger once
-        {
-            this.GetComponent<BehaviourTree>().enabled = false;//disable ai
-            //this.GetComponent<Rigidbody>().freezeRotation = false;
-            Instantiate(deathCanvas, this.transform.position, transform.rotation);
-            animalHeight = -5;
-            gameObject.GetComponent<AnimalGravity>().animalHeight = -5;//Collapse to ground
-            gameObject.GetComponentInChildren<HeadLook>().enabled = false;
-            gameObject.GetComponentInChildren<AnimalAudioManager>().enabled = false;
+        hasDied = true;
+        this.GetComponent<BehaviourTree>().enabled = false;//disable ai
+        //this.GetComponent<Rigidbody>().freezeRotation = false;
+        Instantiate(deathCanvas, this.transform.position, transform.rotation);
+        animalHeight = -5;
+        gameObject.GetComponent<AnimalGravity>().animalHeight = -5;//Collapse to ground
+        gameObject.GetComponentInChildren<HeadLook>().enabled = false;
+        gameObject.GetComponentInChildren<AnimalAudioManager>().enabled = false;
 
-            StartCoroutine(SetInactive(10));
-        }
+        StartCoroutine(SetInactive(10));
     }
 
     IEnumerator SetInactive(float time)

@@ -17,6 +17,8 @@ public class AnimalStatDisplay : MonoBehaviour
     public Color32 positiveColour;
     public Color32 negativeColour;
 
+    public bool isRefreshing = false;
+
 
 
     // Start is called before the first frame update
@@ -31,7 +33,7 @@ public class AnimalStatDisplay : MonoBehaviour
     {
         RaycastHit hit;
         //Only add if theres environment below
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 2000))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 100))
         {
             if (hit.transform.GetComponent<AnimalBrain>() != null)
             {
@@ -46,24 +48,34 @@ public class AnimalStatDisplay : MonoBehaviour
                                                 (selectAnimalBrain.transform.transform.up *
                                                  selectAnimalBrain.animalHeight);
                 SetDNA();
+                if (!isRefreshing)
+                {
+                    StartCoroutine(UpdateStatScreen());
+                }
             }
             else
             {
                 print("hit other: " + hit.transform.name);
             }
+            
 
             
         }
     }
 
-    public void Update()
+    IEnumerator UpdateStatScreen()
     {
-        if (selectAnimalBrain != null && selectAnimalBrain.gameObject.activeInHierarchy)
+        while (true)
         {
-            SetValues();
-            SetColours();
+            yield return new WaitForSeconds(1);
+            if (selectAnimalBrain != null && selectAnimalBrain.gameObject.activeInHierarchy)
+            {
+                SetValues();
+                SetColours();
+            }
         }
     }
+
 
     public void SetValues()
     {

@@ -43,7 +43,7 @@ public class GravityMovement : MonoBehaviour
         
         
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, -transform.up, out hit, 2000, 1 << 8))
+        if (Physics.Raycast(transform.position, -transform.up, out hit, 500, 1 << 8))
         {
             Quaternion targetRotation = Quaternion.FromToRotation(transform.up,hit.normal)*transform.rotation;
             transform.rotation = Quaternion.Slerp(transform.rotation,targetRotation,5*Time.deltaTime);

@@ -61,6 +61,7 @@ public class AnimalsSpawner : MonoBehaviour
     IEnumerator Spawn()
     {
         yield return new WaitForSeconds(.1f);//to make sure the mesh was spawned correctly
+        GetPointOnPlanet pointFinder = GameObject.Find("Core").GetComponent<GetPointOnPlanet>();
         for (int i = 0; i < amountToSpawn/groupAmount; i++)
         {
             AnimalProfile animalToSpawn = animalProfiles[Random.Range(0, animalProfiles.Length)];
@@ -68,13 +69,15 @@ public class AnimalsSpawner : MonoBehaviour
             {
                 if (i % 500 == 0)//Split processing into chunks because too many at once can cause issues
                 {
-                    print("mod 500");
+                    //print("mod 500");
                     yield return new WaitForSeconds(.1f);
                 }
                 newObj = null;
-                RaycastHit hit; //shoot ray and if its ground then spawn at that location
-                if (Physics.Raycast(transform.position+(transform.forward * (j)), core - gameObject.transform.position, out hit, 10000))
+                
+                RaycastHit? hitPoint = pointFinder.GetPoint("Ground", 2);
+                if (hitPoint != null)
                 {
+                    RaycastHit hit = hitPoint.Value;
                     //                Debug.Log("hit"+hit.transform.name + hit.transform.position);
                     if (hit.transform.CompareTag(tagToSpawnOn)) //Checks its allowed spawn there
                     {
@@ -83,16 +86,13 @@ public class AnimalsSpawner : MonoBehaviour
 
                         //newObj.transform.position = hit.point; //place object at hit
                         newObj.transform.up = newObj.transform.position - core; //set rotation so orients properly
-                        newObj.transform.position =
-                            hit.point + newObj.transform.up *
-                            heightFromHitPoint; //repoisition to correct height from hit
+                        newObj.transform.position = hit.point + newObj.transform.up * heightFromHitPoint; //repoisition to correct height from hit
 
                         AnimalInitializer manager = newObj.AddComponent<AnimalInitializer>();
                         manager.animalDNA = animalToSpawn;
                         manager.btTexts = btTexts;
-
-
-                        //                    print(newObj.transform.position);
+                        
+                        // print(newObj.transform.position);
                         manager.InitialiseAnimal();
                         
                     }
@@ -102,7 +102,7 @@ public class AnimalsSpawner : MonoBehaviour
                     //Debug.Log("no hit");
                 }
             }
-            Resposition();
+            //Resposition();
         }
     }
     

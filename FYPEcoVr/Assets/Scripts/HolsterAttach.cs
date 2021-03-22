@@ -7,17 +7,12 @@ public class HolsterAttach : MonoBehaviour
     public GameObject holster;
 
     public float lerpSpeed = 5;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         //transform.position = Vector3.Lerp(transform.position, holster.transform.position, Time.deltaTime * lerpSpeed);
-        if(Vector3.Distance(transform.position, holster.transform.position)>0.1f)
+        if(Vector3.Distance(transform.position, holster.transform.position)>0.05f)
             transform.position = Vector3.Lerp(transform.position, holster.transform.position, Time.deltaTime * lerpSpeed);
 
             
