@@ -281,6 +281,7 @@
           <e p="LookAtLerp.cs" t="Include" />
           <e p="ManualButtonTrigger.cs" t="Include" />
           <e p="NewAnimal" t="Include">
+            <e p="AnimalAudioManager.cs" t="Include" />
             <e p="AnimalBehaviours.cs" t="Include" />
             <e p="AnimalBrain.cs" t="Include" />
             <e p="AnimalBT2.txt" t="Include" />
@@ -292,7 +293,6 @@
             <e p="AnimalLife.cs" t="Include" />
             <e p="AnimalProfile.cs" t="Include" />
             <e p="AnimalSenses.cs" t="Include" />
-            <e p="AudioManager.cs" t="Include" />
             <e p="HeadLook.cs" t="Include" />
             <e p="SpineAnimator.cs" t="Include" />
             <e p="SpineAnimatorManager.cs" t="Include" />
@@ -303,6 +303,7 @@
             <e p="AnimalsSpawner.cs" t="Include" />
             <e p="CoastPointSpawner.cs" t="Include" />
             <e p="ColourGenerator.cs" t="Include" />
+            <e p="GetPointOnPlanet.cs" t="Include" />
             <e p="Noise.cs" t="Include" />
             <e p="NoiseLayer.cs" t="Include" />
             <e p="ObjectPool.cs" t="Include" />

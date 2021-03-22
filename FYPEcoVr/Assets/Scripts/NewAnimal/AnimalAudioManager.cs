@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class AudioManager : MonoBehaviour
+public class AnimalAudioManager : MonoBehaviour
 {
     public AudioClip footstep;
     public AudioClip attack;

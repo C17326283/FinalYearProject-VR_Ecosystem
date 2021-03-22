@@ -8,6 +8,8 @@ using Random = UnityEngine.Random;
 //I used a pool system i had in an old project and adapted it to this, since im not despawnin objects they dont go back into the pool but it would be useful in future for animals
 public class RandomGenSpawner : MonoBehaviour
 {
+    public GetPointOnPlanet getPointOnPlanetFinder;
+    
     public bool waitUntillTriggered = true;
     [SerializeField]//Make private visible in inspector, need private so doesnt give error
     public ObjectPool normalObjectPoolObj;//Pool of the objects to pull from
@@ -55,7 +57,7 @@ public class RandomGenSpawner : MonoBehaviour
     public void TriggerSpawn()
     {
         //Move the spawner object
-        Resposition();
+        //Resposition();
         /*
         //multObjectPoolObj = GetAssociatedPool();
         if (multObjectPoolObj == null)
@@ -90,90 +92,67 @@ public class RandomGenSpawner : MonoBehaviour
         {
             newObj = null;
 
-            RaycastHit hit; //shoot ray and if its ground then spawn at that location
-            if (Physics.Raycast(transform.position, core - gameObject.transform.position, out hit, 10000))
+            //getPointOnPlanet will return a point on planet(uses nullable incase you didnt get any hits)
+            RaycastHit? hitOnPlanet = getPointOnPlanetFinder.GetPoint(tagToSpawnOn, 1);
+            if (hitOnPlanet != null)
             {
-//                Debug.Log("hit"+hit.transform.name + hit.transform.position);
-                if (hit.transform.CompareTag(tagToSpawnOn)) //Checks its allowed spawn there
+                RaycastHit hit = hitOnPlanet.Value;
+                //Find which biome object to spawn
+                bool foundSpecificBiome = false;
+                for (int j = 0; j < biomeObjs.Length - 1; j++)
                 {
-                    //Find which biome object to spawn
-                    bool foundSpecificBiome = false;
-                    for (int j = 0; j < biomeObjs.Length-1; j++)
+                    float dist = Vector3.Distance(biomeObjs[j].transform.position, hit.point);
+                    if (dist < biomeDist)
                     {
-                        float dist = Vector3.Distance(biomeObjs[j].transform.position, hit.point);
-                        if (dist < biomeDist)
+                        foundSpecificBiome = true;
+                        if (j < 2) //winter
                         {
-                            foundSpecificBiome = true;
-                            if (j < 2) //winter
-                            {
-                                newObj = coldObjectPoolObj.GetObj();
-//                                print("cold");
-                            }
-                            else
-                            {
-                                newObj = warmObjectPoolObj.GetObj();
-                            }
+                            newObj = coldObjectPoolObj.GetObj();
                         }
-                    }
-                    if(foundSpecificBiome == false)
-                        newObj = normalObjectPoolObj.GetObj();
-                    
-                    
-                    
-                    if (newObj != null)
-                    {
-                        newObj.SetActive(true);
-
-                        newObj.transform.position = hit.point; //place object at hit
-                        newObj.transform.up = newObj.transform.position - core; //set rotation so orients properly
-                        newObj.transform.position = newObj.transform.position + newObj.transform.up * heightFromHitPoint; //repoisition to correct height from hit
-
-
-                        if (RandomiseScaleAndRotation)
+                        else
                         {
-                            //temp
-                            newObj.transform.parent = gameObject.transform.parent; //make its own parent so that scaling works after reactivating
-                            //newObj.transform.parent = hit.transform; //make its own parent so that scaling works after reactivating
-
-                            
-                            float scale = Random.Range(minScale, maxScale);
-                            newObj.transform.localScale = Vector3.one * scale; //.one for all round scale
-                            newObj.transform.Rotate(Random.Range(-randomXZTilt, randomXZTilt), Random.Range(0, 360),
-                                Random.Range(-randomXZTilt, randomXZTilt));
+                            newObj = warmObjectPoolObj.GetObj();
                         }
-
-                        newObj.transform.parent = parentObject.transform; //set parent to correct obj
-                        //temp
-                        //newObj.transform.parent = hit.transform; //make its own parent so that scaling works after reactivating
-                        if(usesLOD)
-                            AddLOD(newObj);
                     }
                 }
-            }
-            else
-            {
-                Debug.Log("no hit");
-            }
-            Resposition();
-        }
-    }
-    
+
+                if (foundSpecificBiome == false)
+                    newObj = normalObjectPoolObj.GetObj();
 
 
-    /*
-    //Get the pool based on the index number, this allows for infinite pools to be definted
-    public ObjectPool GetAssociatedPool()
-    {
-        //See if any of the pools match and return that else return null
-        foreach (var Pool in transform.root.GetComponents<ObjectPool>())
-        {
-            print("Pool.poolIndex"+Pool.poolIndex+"poolIndexNumber"+poolIndexNumber);
-            if(poolIndexNumber == Pool.poolIndex)//if have matching index numbers. This is so clouds can have cloud settings etc.
-                return Pool;
+
+                if (newObj != null)
+                {
+                    newObj.SetActive(true);
+
+                    newObj.transform.position = hit.point; //place object at hit
+                    newObj.transform.up = newObj.transform.position - core; //set rotation so orients properly
+                    newObj.transform.position = newObj.transform.position + newObj.transform.up * heightFromHitPoint; //repoisition to correct height from hit
+
+
+                    if (RandomiseScaleAndRotation)
+                    {
+                        //temp
+                        newObj.transform.parent =
+                            gameObject.transform.parent; //make its own parent so that scaling works after reactivating
+                        //newObj.transform.parent = hit.transform; //make its own parent so that scaling works after reactivating
+
+
+                        float scale = Random.Range(minScale, maxScale);
+                        newObj.transform.localScale = Vector3.one * scale; //.one for all round scale
+                        newObj.transform.Rotate(Random.Range(-randomXZTilt, randomXZTilt), Random.Range(0, 360),
+                            Random.Range(-randomXZTilt, randomXZTilt));
+                    }
+
+                    newObj.transform.parent = parentObject.transform; //set parent to correct obj
+                    //temp
+                    //newObj.transform.parent = hit.transform; //make its own parent so that scaling works after reactivating
+                    if (usesLOD)
+                        AddLOD(newObj);
+                }
+            }
         }
-        return null;
     }
-    */
     
     //Move the spawner to a different positon around the globe
     public void Resposition()
@@ -197,3 +176,19 @@ public class RandomGenSpawner : MonoBehaviour
         //group.RecalculateBounds();
     }
 }
+
+
+/*
+    //Get the pool based on the index number, this allows for infinite pools to be definted
+    public ObjectPool GetAssociatedPool()
+    {
+        //See if any of the pools match and return that else return null
+        foreach (var Pool in transform.root.GetComponents<ObjectPool>())
+        {
+            print("Pool.poolIndex"+Pool.poolIndex+"poolIndexNumber"+poolIndexNumber);
+            if(poolIndexNumber == Pool.poolIndex)//if have matching index numbers. This is so clouds can have cloud settings etc.
+                return Pool;
+        }
+        return null;
+    }
+    */

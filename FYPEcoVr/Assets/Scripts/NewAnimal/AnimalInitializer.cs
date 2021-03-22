@@ -40,7 +40,7 @@ public class AnimalInitializer : MonoBehaviour
     public SpineNew spineMain;
     public float damping = 15;
     
-    public AudioManager audioManager;
+    public AnimalAudioManager audioManager;
 
     public bool initialiseOnStart = false;
     public AudioMixer audioMixer;
@@ -383,7 +383,7 @@ public class AnimalInitializer : MonoBehaviour
 
     public void SetAudio()
     {
-        audioManager = movementOriginObj.AddComponent<AudioManager>();
+        audioManager = movementOriginObj.AddComponent<AnimalAudioManager>();
         audioManager.footstep = animalDNA.footstep;
         audioManager.attack = animalDNA.attack;
         audioManager.ambient = animalDNA.ambient;

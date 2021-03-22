@@ -17,13 +17,13 @@ public class AnimalDistanceDisabler : MonoBehaviour
     public SkinnedMeshRenderer renderer;
     public List<AnimalFeetPositioner> FeetPositioners;
 
-    public AudioManager audioManager;
+    public AnimalAudioManager audioManager;
     // Start is called before the first frame update
     void Start()
     {
         renderer = animal.gameObject.GetComponentInChildren<SkinnedMeshRenderer>();
         FeetPositioners = animalHolder.GetComponent<AnimalInitializer>().feetPositioners;
-        audioManager = animal.gameObject.GetComponent<AudioManager>();
+        audioManager = animal.gameObject.GetComponent<AnimalAudioManager>();
         
     }
 

@@ -71,16 +71,12 @@ public class FinGenSequence : MonoBehaviour
         {
             print("spawning vr player");
             int layerMask = 1 << 8;
-            
-            
 
-            //Get point on top of planet
-            RaycastHit hit;//todo fix incase water
-            //Only add if theres environment below
-            if (Physics.Raycast(new Vector3(0,5000,0), -transform.up, out hit, 6000,
-                layerMask))
+            GetPointOnPlanet pointFinder = GameObject.Find("Core").GetComponent<GetPointOnPlanet>();
+            RaycastHit? hitPoint = pointFinder.GetPoint("Ground", 1000);
+            if (hitPoint != null)
             {
-                print("Found spawn point");
+                RaycastHit hit = hitPoint.Value;
                 loadingGUI.SetActive(false);
                 VrPlayer.transform.position = hit.point;
                 VrPlayer.transform.parent = GameObject.Find("Core").transform;
@@ -91,6 +87,7 @@ public class FinGenSequence : MonoBehaviour
             {
                 print("couldnt find spawn point");
             }
+            
         }
     }
 }

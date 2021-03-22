@@ -132,6 +132,8 @@ public class AnimalBrain : MonoBehaviour
             Instantiate(deathCanvas, this.transform.position, transform.rotation);
             animalHeight = -5;
             gameObject.GetComponent<AnimalGravity>().animalHeight = -5;//Collapse to ground
+            gameObject.GetComponentInChildren<HeadLook>().enabled = false;
+            gameObject.GetComponentInChildren<AnimalAudioManager>().enabled = false;
 
             StartCoroutine(SetInactive(10));
         }

@@ -43,7 +43,7 @@ public class AnimalFeetPositioner : MonoBehaviour
     public float distToNext;
 
     public Vector3 axisDifferences;
-    public AudioManager audioManager;
+    public AnimalAudioManager audioManager;
     
     
     

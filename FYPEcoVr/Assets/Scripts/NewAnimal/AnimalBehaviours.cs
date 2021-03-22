@@ -38,7 +38,7 @@ public class AnimalBehaviours : MonoBehaviour
     public GameObject drinkCanvas;
 
     public string currentTask;
-    public AudioManager audioManager;
+    public AnimalAudioManager audioManager;
     
 
 

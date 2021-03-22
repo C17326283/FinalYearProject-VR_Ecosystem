@@ -211,6 +211,7 @@ public class PlanetSpawner : MonoBehaviour
     {
         print("planet gen "+Time.time);
         GameObject core = new GameObject("Core");
+        GetPointOnPlanet getPointOnPlanetFinder = core.AddComponent<GetPointOnPlanet>();
 
         //add atmosphere
         GameObject atmosphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
@@ -230,6 +231,7 @@ public class PlanetSpawner : MonoBehaviour
                 sp.parentObject = holder.gameObject;
                 sp.planetObject = this.gameObject;
                 sp.biomeObjs = planetScript.biomeObjs;
+                sp.getPointOnPlanetFinder = getPointOnPlanetFinder;
                 if (sp.isRotatingObject)
                     holder.AddComponent<RotateEnvironment>();
                 sp.TriggerSpawn();
