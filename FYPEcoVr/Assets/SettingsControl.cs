@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-using UnityEngine.UIElements;
 using UnityEngine.Audio;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Slider = UnityEngine.UI.Slider;
 
 public class SettingsControl : MonoBehaviour
@@ -14,6 +12,7 @@ public class SettingsControl : MonoBehaviour
 
     public Slider musicSlider;
     public Slider globalSlider;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +24,7 @@ public class SettingsControl : MonoBehaviour
 
     public void UpdateVolume()
     {
-        print("update slider "+musicSource.volume+":"+musicSlider.value);
+//        print("update slider "+musicSource.volume+":"+musicSlider.value);
         musicSource.volume = musicSlider.value;
         audioMixer.SetFloat("MasterVolume",globalSlider.value);
 
@@ -35,5 +34,27 @@ public class SettingsControl : MonoBehaviour
     {
         QualitySettings.SetQualityLevel(qualityIndex);
 
+    }
+
+    public void RestartScene()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName,LoadSceneMode.Single);
+    }
+
+    public void RespawnPlayer()
+    {
+        if (GameObject.Find("Core") != null)
+        {
+            GetPointOnPlanet corePointFinder = GameObject.Find("Core").GetComponent<GetPointOnPlanet>();//this can happen before core is spawned so dont allow
+            
+            RaycastHit? hitPoint = corePointFinder.GetPoint("Ground", 100);
+            if (hitPoint != null)
+            {
+                RaycastHit hit = hitPoint.Value;
+                GameObject.FindWithTag("Player").transform.position = hit.point;
+            }
+        }
+        
     }
 }

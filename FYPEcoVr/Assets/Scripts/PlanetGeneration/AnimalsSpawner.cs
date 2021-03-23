@@ -85,9 +85,10 @@ public class AnimalsSpawner : MonoBehaviour
                         newObj.transform.parent = parentObject.transform;
 
                         //newObj.transform.position = hit.point; //place object at hit
-                        newObj.transform.up = newObj.transform.position - core; //set rotation so orients properly
+                        //newObj.transform.up = newObj.transform.position - core; //set rotation so orients properly
                         newObj.transform.position = hit.point + newObj.transform.up * heightFromHitPoint; //repoisition to correct height from hit
-
+                        newObj.transform.up = hit.normal;
+                        
                         AnimalInitializer manager = newObj.AddComponent<AnimalInitializer>();
                         manager.animalDNA = animalToSpawn;
                         manager.btTexts = btTexts;

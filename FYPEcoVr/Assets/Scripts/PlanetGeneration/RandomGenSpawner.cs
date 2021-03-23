@@ -87,7 +87,7 @@ public class RandomGenSpawner : MonoBehaviour
     //Spawn objects from pool in loop
     IEnumerator Spawn()
     {
-        yield return new WaitForSeconds(1f);//to make sure the mesh was spawned correctly
+        yield return new WaitForSeconds(.1f);//to make sure the mesh was spawned correctly
         for (int i = 0; i < amountToSpawn; i++)
         {
             newObj = null;
@@ -157,8 +157,9 @@ public class RandomGenSpawner : MonoBehaviour
     //Move the spawner to a different positon around the globe
     public void Resposition()
     {
-        gameObject.transform.position = core;
-        gameObject.transform.rotation  = Random.rotation;
+        GameObject obj = gameObject;
+        obj.transform.position = core;
+        obj.transform.rotation  = Random.rotation;
         gameObject.transform.position = transform.forward * spawnerDistanceFromCore;
     }
 

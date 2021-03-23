@@ -38,7 +38,7 @@ public class FinGenSequence : MonoBehaviour
         {
             light.enabled = true;
         }
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         SpawnPlayer();
         viewingRoom.SetActive(false);
         //StartCoroutine(SpawnPlayer());
@@ -58,7 +58,6 @@ public class FinGenSequence : MonoBehaviour
         else//is vr player
         {
             print("spawning vr player");
-            int layerMask = 1 << 8;
 
             GetPointOnPlanet pointFinder = GameObject.Find("Core").GetComponent<GetPointOnPlanet>();
             RaycastHit? hitPoint = pointFinder.GetPoint("Ground", 1000);

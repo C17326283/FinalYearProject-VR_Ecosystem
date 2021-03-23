@@ -82,6 +82,7 @@ public class AnimalGravity : MonoBehaviour
 
     public void AddGravity() //todo fix this mess
     {
+        /*
         foreach (var point in forcePoints)
         {
             RaycastHit hit;
@@ -114,6 +115,40 @@ public class AnimalGravity : MonoBehaviour
                     ForceMode.Acceleration);
 
             }
+        }*/
+        //foreach (var point in forcePoints)//Deprecated because it took too much performance and very little improvement
+        
+        var point = forcePoints[0];
+        RaycastHit hit;
+        //Only add if theres environment below
+        if (Physics.Raycast(point.transform.position + (-gravityDir * 100), gravityDir, out hit, 5000, layerMask))
+        {
+                
+            float furthestFootDist = GetFurthestFootDist();
+
+            //get height based on magnitude or default height
+            //float desiredHeight = Mathf.Min(animalHeight * .9f, animalHeight - (rb.velocity.magnitude / 30)); //strides get bigger at faster speeds so animate lower body too
+
+            float clampedMag = Mathf.Clamp(rb.velocity.magnitude/2, 1, Mathf.Min(2,animalHeight* .8f));
+            float desiredHeight = (animalHeight * .8f)-((furthestFootDist/clampedMag)/8); //height based on stride
+            //               print("desiredHeight"+transform.name+desiredHeight);
+            desiredHeight = Mathf.Clamp(desiredHeight, animalHeight * .5f, animalHeight * .8f);
+
+
+
+            //get a distance away from target than can be used to reduce force// *8 to decrease range it affects
+            var position = point.transform.position;
+            float distForce = Vector3.Distance(hit.point + (transform.up * desiredHeight), position) * 5; //find dist between current and desired point
+
+//                    print("distFroce"+distForce);
+
+            float gravForce = Mathf.Min(gravityStrength * distForce, gravityStrength); //if close to point then add less force
+
+            Vector3 dir = (hit.point + (-gravityDir * (desiredHeight)) - position).normalized;
+
+            rb.AddForceAtPosition(dir * (gravForce * Time.deltaTime), position,
+                ForceMode.Acceleration);
+
         }
     }
 

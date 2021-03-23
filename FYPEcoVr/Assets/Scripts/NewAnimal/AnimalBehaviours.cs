@@ -318,8 +318,10 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void TargetResource(String resource)
     {
-        
-        bool found = toTarget.transform.CompareTag(resource) && toTarget.gameObject.activeInHierarchy;
+
+        bool found = false;
+        if (toTarget)
+            found = toTarget.transform.CompareTag(resource) && toTarget.gameObject.activeInHierarchy;
         //if current target isnt the resource or active then this is false and it continues to find a new one
 
         if (!isPanicked && !found)

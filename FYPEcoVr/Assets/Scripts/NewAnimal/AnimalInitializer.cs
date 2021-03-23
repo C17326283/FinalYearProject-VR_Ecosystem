@@ -367,7 +367,7 @@ public class AnimalInitializer : MonoBehaviour
         int checks = 0;
         while (checks < 30)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1);//Wait until player spawns
 
             if (GameObject.FindWithTag("Player") != null)
             {
