@@ -102,7 +102,7 @@ public class CoastPointSpawner : MonoBehaviour
         }
         else
         {
-            print("no spawn, overlap. cols found"+numOfCollidersFound+", size"+overlapTestBoxScale);
+//            print("no spawn, overlap. cols found"+numOfCollidersFound+", size"+overlapTestBoxScale);
         }
     }
 

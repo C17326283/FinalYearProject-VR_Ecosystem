@@ -226,14 +226,10 @@ public class AnimalInitializer : MonoBehaviour
         else
             behaviours = GetComponent<AnimalBehaviours>();
         behaviours.brain = brain;
+        //Pool object are got from a find in the scene on awake
         behaviours.audioManager = audioManager;
         behaviours.headObject = head.transform;
         behaviours.rb = rb;
-        behaviours.hitCanvas = animalDNA.attackCanvas;
-        behaviours.heartCanvas = animalDNA.heartCanvas;
-        behaviours.foodCanvas = animalDNA.foodCanvas;
-        behaviours.drinkCanvas = animalDNA.drinkCanvas;
-        brain.deathCanvas = animalDNA.deathCanvas;
         HeadLook headTargeter = head.AddComponent<HeadLook>();
         headTargeter.behaviourTargeting = behaviours;
 

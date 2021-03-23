@@ -49,8 +49,7 @@ public class ObjectPool : MonoBehaviour
     GameObject CreateObj()
     {
         // create a new object
-        GameObject newObj = Instantiate(getRandomFromPrefabList());
-        newObj.transform.parent = this.transform;//just set as default unless overwritten
+        GameObject newObj = Instantiate(getRandomFromPrefabList(), this.transform, true);
 
         // set this new object to inactive
         newObj.SetActive(false);

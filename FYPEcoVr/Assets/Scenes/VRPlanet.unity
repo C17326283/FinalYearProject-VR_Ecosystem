@@ -5790,6 +5790,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 799430266}
   m_CullTransparentMesh: 1
+--- !u!1001 &807874406
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9222419831829042817, guid: 68e5d3533cb879841b024f73da704712, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222419831829042817, guid: 68e5d3533cb879841b024f73da704712, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.777964
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222419831829042817, guid: 68e5d3533cb879841b024f73da704712, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1269.1876
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222419831829042817, guid: 68e5d3533cb879841b024f73da704712, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 54.20275
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222419831829042817, guid: 68e5d3533cb879841b024f73da704712, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.03693561
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222419831829042817, guid: 68e5d3533cb879841b024f73da704712, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.032780208
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222419831829042817, guid: 68e5d3533cb879841b024f73da704712, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.4574021
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222419831829042817, guid: 68e5d3533cb879841b024f73da704712, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.8878877
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222419831829042817, guid: 68e5d3533cb879841b024f73da704712, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222419831829042817, guid: 68e5d3533cb879841b024f73da704712, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222419831829042817, guid: 68e5d3533cb879841b024f73da704712, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222419831829042818, guid: 68e5d3533cb879841b024f73da704712, type: 3}
+      propertyPath: m_Name
+      value: CanvasPools
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 68e5d3533cb879841b024f73da704712, type: 3}
 --- !u!1 &815095448
 GameObject:
   m_ObjectHideFlags: 0
@@ -12459,7 +12516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToWait: 1
-  DestoryInsteadOfDisable: 0
+  DestroyInsteadOfDisable: 0
 --- !u!1 &1702362421
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,7 +24,11 @@ tree("Avoidance")
         AvoidOthers()
         ObstacleAvoid()
         
-
+    
+tree("Flee")
+    sequence
+        EnemyIsTooCloseCondition()
+        FleeFromPredator()
         
 tree("Arrive")
     sequence

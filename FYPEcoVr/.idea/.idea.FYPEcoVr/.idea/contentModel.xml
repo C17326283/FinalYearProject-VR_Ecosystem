@@ -286,6 +286,7 @@
             <e p="AnimalBehaviours.cs" t="Include" />
             <e p="AnimalBrain.cs" t="Include" />
             <e p="AnimalBT2.txt" t="Include" />
+            <e p="AnimalBT2Backup2.txt" t="Include" />
             <e p="AnimalDistanceDisabler.cs" t="Include" />
             <e p="AnimalFeetPositioner.cs" t="Include" />
             <e p="AnimalForce.cs" t="Include" />

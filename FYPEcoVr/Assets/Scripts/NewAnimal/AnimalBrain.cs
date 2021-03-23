@@ -62,7 +62,7 @@ public class AnimalBrain : MonoBehaviour
     public float animalLength;
     
     [Header("Canvas")]
-    public GameObject deathCanvas;
+    public ObjectPool deathCanvasPool;
 
     [Header("Parents")]
     public AnimalBrain mother;
@@ -74,7 +74,7 @@ public class AnimalBrain : MonoBehaviour
 
     
     public float timeTillAdult= 60;
-    private bool hasDied;
+    private bool hasDied = false;
 
 
 
@@ -83,6 +83,7 @@ public class AnimalBrain : MonoBehaviour
     {
         objSensedMemory = new List<GameObject>();
         forgettingObjs = new List<GameObject>();
+        deathCanvasPool = GameObject.Find("DeathCanvasPool").GetComponent<ObjectPool>();
     }
 
     // Start is called before the first frame update
@@ -104,6 +105,7 @@ public class AnimalBrain : MonoBehaviour
         
         if (health <= 0 && !hasDied)//if died and hasnt triggered already
         {
+            
             Die();
         }
     }
@@ -128,7 +130,8 @@ public class AnimalBrain : MonoBehaviour
         hasDied = true;
         this.GetComponent<BehaviourTree>().enabled = false;//disable ai
         //this.GetComponent<Rigidbody>().freezeRotation = false;
-        Instantiate(deathCanvas, this.transform.position, transform.rotation);
+        GameObject deathCanvas = deathCanvasPool.GetObj();
+        deathCanvas.transform.position = this.transform.position;
         animalHeight = -5;
         gameObject.GetComponent<AnimalGravity>().animalHeight = -5;//Collapse to ground
         gameObject.GetComponentInChildren<HeadLook>().enabled = false;

@@ -38,7 +38,7 @@ public class AnimalStatDisplay : MonoBehaviour
             if (hit.transform.GetComponent<AnimalBrain>() != null)
             {
                 print(hit.transform.name);
-                statCanvas.transform.parent = hit.transform;
+                statCanvas.transform.SetParent(hit.transform);
                 statCanvas.transform.position = hit.transform.position + (hit.transform.transform.up);
                 statCanvas.transform.rotation = hit.transform.rotation;
 

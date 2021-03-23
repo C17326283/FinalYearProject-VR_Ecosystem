@@ -151,7 +151,7 @@ public class SpineNew : MonoBehaviour {
                 Vector3 offset = current.transform.position - prev.transform.position; 
                 
                 // Rotating from world back to local
-                offset = Quaternion.Inverse(prev.transform.rotation) * offset;//rotate it so it stays at the original rotation
+                offset = Quaternion.Inverse(prev.rotation) * offset;//rotate it so it stays at the original rotation
                 offsets.Add(offset);                
             }            
         }
@@ -169,17 +169,20 @@ public class SpineNew : MonoBehaviour {
         {
             Transform prev = spineContainers[i - 1];
             Transform current = spineContainers[i];
-            Vector3 wantedPosition = prev.position + ((prev.rotation * offsets[i-1]));
+            Vector3 prevPosition = prev.position;
+            Quaternion prevRotation = prev.rotation;
+            
+            Vector3 wantedPosition = prevPosition + ((prevRotation * offsets[i-1]));
 
             Vector3 lerpedPosition = Vector3.Lerp(current.position, wantedPosition, Time.deltaTime * damping);
             
             // Dont move the segments too far apart
-            Vector3 clampedOffset = lerpedPosition - prev.position;
+            Vector3 clampedOffset = lerpedPosition - prevPosition;
             clampedOffset = Vector3.ClampMagnitude(clampedOffset, offsets[i-1].magnitude);
-            current.position = prev.position + clampedOffset;
+            current.position = prevPosition + clampedOffset;
 
             //uses containers to preserve the natural bone rotations so containers match the head
-            current.rotation = Quaternion.Slerp(current.rotation, prev.rotation, Time.deltaTime * (damping));
+            current.rotation = Quaternion.Slerp(current.rotation, prevRotation, Time.deltaTime * (damping));
         }
         
         

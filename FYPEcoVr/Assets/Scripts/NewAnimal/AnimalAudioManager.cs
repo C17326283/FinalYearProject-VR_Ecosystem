@@ -70,7 +70,7 @@ public class AnimalAudioManager : MonoBehaviour
 
     public void playAttack()
     {
-        if (Vector3.Distance(transform.position, player.position) < playRange)
+        if (Vector3.Distance(transform.position, player.position) < playRange && attackSource.isActiveAndEnabled)
         {
             if (!attackSource.isPlaying && gameObject.activeInHierarchy)
             {
@@ -83,7 +83,7 @@ public class AnimalAudioManager : MonoBehaviour
     
     public void playFootStep()
     {
-        if (Vector3.Distance(transform.position, player.position) < playRange)
+        if (Vector3.Distance(transform.position, player.position) < playRange && footstepSource.isActiveAndEnabled)
         {
             if(footstepSource.isPlaying && gameObject.activeInHierarchy)
                 footstepSource.Stop();
@@ -95,7 +95,7 @@ public class AnimalAudioManager : MonoBehaviour
 
     public void playAmbient()
     {
-        if (Vector3.Distance(transform.position, player.position) < playRange)
+        if (Vector3.Distance(transform.position, player.position) < playRange && ambientSource.isActiveAndEnabled)
         {
 //        print("playing ambient");
             if (!ambientSource.isPlaying && gameObject.activeInHierarchy)

@@ -29,13 +29,15 @@ public class AnimalBehaviours : MonoBehaviour
     public bool isStunned = false;
     public GameObject combatAnimal;
 
+    //For performed with delay
     public float lastAttackTime = 0;
-
-    public GameObject hitCanvas;
-    public GameObject heartCanvas;
-    //public GameObject deathCanvas;
-    public GameObject foodCanvas;
-    public GameObject drinkCanvas;
+    public float lastEnemyCheck = 0;
+    
+    //Object pools instead of instanciating
+    public ObjectPool foodCanvasPool;
+    public ObjectPool heartCanvasPool;
+    public ObjectPool drinkCanvasPool;
+    public ObjectPool attackCanvasPool;
 
     public string currentTask;
     public AnimalAudioManager audioManager;
@@ -68,29 +70,35 @@ public class AnimalBehaviours : MonoBehaviour
         wanderObj=new GameObject("WanderObj");
         wanderObj.transform.parent = this.transform.parent;
         layerMask = 1 << 8;//bit shift to get mask for raycasting so only on environment and not other animals
-        
-        
+
+        foodCanvasPool = GameObject.Find("FoodCanvasPool").GetComponent<ObjectPool>();
+        heartCanvasPool = GameObject.Find("HeartCanvasPool").GetComponent<ObjectPool>();
+        drinkCanvasPool = GameObject.Find("DrinkCanvasPool").GetComponent<ObjectPool>();
+        attackCanvasPool = GameObject.Find("AttackCanvasPool").GetComponent<ObjectPool>();
     }
     
 
     [Task]
     void EnemyIsTooCloseCondition()
     {
-        float closestPredator = Mathf.Infinity;
-
         bool found = false;
-        foreach (var obj in brain.objSensedMemory)
+        //only search through if already not panicked and do every second instead of every frame
+        if (!isPanicked && Time.time > lastEnemyCheck + 1)
         {
-            float distanceToCurrent = Vector3.Distance(rb.transform.position, obj.transform.position);
-            //todo run from multiple
-            if (distanceToCurrent<tooCloseDist&&obj.transform.name!=this.transform.name&&obj.GetComponent<AnimalBrain>()!=null&&obj.GetComponent<AnimalBrain>().predatorRating>brain.preyRating && distanceToCurrent<tooCloseDist)
+            lastEnemyCheck = Time.time;
+            foreach (var obj in brain.objSensedMemory)
             {
-                found = true;
-                fromTarget = obj.transform;
-                isPanicked = true;
-                StartCoroutine(panicCoolown());//Become panicked until timer stops
-                Task.current.Succeed();
-                break;
+                float distanceToCurrent = Vector3.Distance(rb.transform.position, obj.transform.position);
+                //todo run from multiple
+                if (distanceToCurrent<tooCloseDist&&obj.transform.name!=this.transform.name&&obj.GetComponent<AnimalBrain>()!=null&&obj.GetComponent<AnimalBrain>().predatorRating>brain.preyRating && distanceToCurrent<tooCloseDist)
+                {
+                    found = true;
+                    fromTarget = obj.transform;
+                    isPanicked = true;
+                    StartCoroutine(panicCoolown());//Become panicked until timer stops
+                    Task.current.Succeed();
+                    break;
+                }
             }
         }
 
@@ -130,8 +138,6 @@ public class AnimalBehaviours : MonoBehaviour
     void AvoidOthers()
     {
         Task.current.Succeed();
-        Vector3 forceToApply = new Vector3(0,0,0);
-        bool found = false;
         if (!isPanicked)
         {
             foreach (var obj in brain.objSensedMemory)
@@ -157,11 +163,9 @@ public class AnimalBehaviours : MonoBehaviour
 
                     animalForce.AddToForce(force * pushAmount);
                     //forceToApply = forceToApply + (force * pushAmount);
-                    found = true;
                 }
             }
         }
-        //rb.AddRelativeForce(forceToApply*Time.deltaTime*100);
     }
 
     [Task]
@@ -187,7 +191,6 @@ public class AnimalBehaviours : MonoBehaviour
         else
         {
             Task.current.Fail();
-
         }
     }
 
@@ -200,8 +203,7 @@ public class AnimalBehaviours : MonoBehaviour
             currentTask = "Fleeing from predator";
             if (!isStunned)
             {
-                Vector3 fleeDir;
-                fleeDir = (rb.transform.position - combatAnimal.transform.position).normalized;
+                Vector3 fleeDir = (rb.transform.position - combatAnimal.transform.position).normalized;
                 Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
                 locDir.y = 0;
                 Vector3 force = locDir * brain.moveSpeed;
@@ -225,8 +227,7 @@ public class AnimalBehaviours : MonoBehaviour
         if (fromTarget != null && !isStunned)
         {
             currentTask = "Fleeing from predator";
-            Vector3 fleeDir;
-            fleeDir = (rb.transform.position - fromTarget.position).normalized;
+            Vector3 fleeDir = (rb.transform.position - fromTarget.position).normalized;
             Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
             locDir.y = 0;
             Vector3 force = locDir * brain.moveSpeed;
@@ -251,7 +252,7 @@ public class AnimalBehaviours : MonoBehaviour
         {
             float distanceToCurrent =
                 Vector3.Distance(rb.transform.position, obj.transform.position);
-            if (obj.transform.name!=this.transform.name&&obj.activeInHierarchy&&obj.GetComponent<AnimalBrain>()!=null&&obj.GetComponent<AnimalBrain>().preyRating<brain.predatorRating && distanceToCurrent<closestWeakAnimal)//get easiest and closest target
+            if (obj.transform.name!=this.transform.name&&obj.activeInHierarchy&&obj.GetComponent<AnimalBrain>()&&obj.GetComponent<AnimalBrain>().preyRating<brain.predatorRating && distanceToCurrent<closestWeakAnimal)//get easiest and closest target
             {
                 closestWeakAnimal = distanceToCurrent;
                 toTarget = obj.transform;
@@ -299,7 +300,7 @@ public class AnimalBehaviours : MonoBehaviour
         bool found = false;
         foreach (var obj in brain.objSensedMemory)
         {
-            if (obj.transform.name == transform.name&&obj.transform!=transform &&obj.activeInHierarchy&&obj.GetComponent<AnimalBrain>()!=null&& obj.GetComponent<AnimalBrain>().reproductiveUrge>90 && obj.GetComponent<AnimalBehaviours>().combatAnimal == null)
+            if (obj.transform.name == transform.name&&obj.transform!=transform &&obj.activeInHierarchy&&obj.GetComponent<AnimalBrain>()&& obj.GetComponent<AnimalBrain>().reproductiveUrge>90 && obj.GetComponent<AnimalBehaviours>().combatAnimal == null)
             {
                 toTarget = obj.transform;
                 Task.current.Succeed();
@@ -317,19 +318,30 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void TargetResource(String resource)
     {
-        //todo only if not panicked
-        bool found = false;
-        foreach (var obj in brain.objSensedMemory)
+        
+        bool found = toTarget.transform.CompareTag(resource) && toTarget.gameObject.activeInHierarchy;
+        //if current target isnt the resource or active then this is false and it continues to find a new one
+
+        if (!isPanicked && !found)
         {
-            if (obj.transform.CompareTag(resource) && found==false && obj.activeInHierarchy)
+            foreach (var obj in brain.objSensedMemory)
             {
-                currentTask = "Getting "+resource;
-                toTarget = obj.transform;
-                Task.current.Succeed();
-                found = true;
-                break;
+                if (obj.transform.CompareTag(resource) && found==false && obj.activeInHierarchy)
+                {
+                    currentTask = "Getting "+resource;
+                    toTarget = obj.transform;
+                    Task.current.Succeed();
+                    found = true;
+                    break;
+                }
             }
         }
+        else//already has a target
+        {
+            found = true;
+            Task.current.Succeed();
+        }
+       
 
         if (found == false)
         {
@@ -340,7 +352,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void SeekTarget()
     {
-        if (toTarget != null && !isStunned)
+        if (toTarget && !isStunned)
         {
             //currentTask = "Getting "+toTarget.transform.name;
             Vector3 seekDir;
@@ -378,7 +390,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void HasCombatTarget()
     {
-        if (combatAnimal != null && combatAnimal.activeInHierarchy == true)
+        if (combatAnimal && combatAnimal.activeInHierarchy == true)
         {
             Task.current.Succeed();
             currentTask = "Fighting";
@@ -397,7 +409,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void ArrivedAtTargetCondition()
     {
-        if (toTarget != null)
+        if (toTarget)
         {
             float distance = Vector3.Distance(toTarget.transform.position, headObject.position);
             if (distance < brain.animalLength*1.5f)
@@ -427,7 +439,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void AttackTarget()
     {
-        if (toTarget.GetComponent<AnimalBrain>()!=null &&toTarget.transform.name!=transform.name&& toTarget.gameObject.activeInHierarchy&&Vector3.Distance(toTarget.position,headObject.position)<attackRange+brain.animalHeight)//if has health
+        if (toTarget.GetComponent<AnimalBrain>() &&toTarget.transform.name!=transform.name&& toTarget.gameObject.activeInHierarchy&&Vector3.Distance(toTarget.position,headObject.position)<attackRange+brain.animalHeight)//if has health
         {
             AnimalBrain otherAnimalBrain = toTarget.GetComponent<AnimalBrain>();
             if (otherAnimalBrain.health > 0)
@@ -446,7 +458,9 @@ public class AnimalBehaviours : MonoBehaviour
                     //animalForce.AddToForce(rb.transform.forward*(brain.moveSpeed/2));
                     rb.AddRelativeForce(rb.transform.forward*(brain.moveSpeed/5)*Time.deltaTime*100,ForceMode.Impulse);
 
-                    Instantiate(hitCanvas, (otherBehaviours.headObject.transform.position), transform.rotation);
+                    GameObject hitCanvas = attackCanvasPool.GetObj();
+                    hitCanvas.transform.position = headObject.transform.position+transform.up;
+                    
                     audioManager.playAttack();
 
                     lastAttackTime = Time.time;
@@ -468,38 +482,44 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void CompleteTarget()//if health lower than x
     {
-        if (toTarget.CompareTag("Food") || (toTarget.GetComponent<AnimalBrain>()!=null && toTarget.GetComponent<AnimalBrain>().foodWorth>0&& toTarget.GetComponent<AnimalBrain>().health<=0) && toTarget.gameObject.activeInHierarchy)//if natural food or animal
+        if (((toTarget.CompareTag("Food") && brain.hunger<brain.hungerThresh) || (toTarget.GetComponent<AnimalBrain>() && toTarget.GetComponent<AnimalBrain>().foodWorth>0&& toTarget.GetComponent<AnimalBrain>().health<=0) && toTarget.gameObject.activeInHierarchy))//if natural food or animal
         {
             brain.hunger = 100;
             Task.current.Succeed();
 //            print("eat");
             //animalForce.AddToForce(-rb.transform.up*(brain.moveSpeed/5));
             rb.AddRelativeForce(-rb.transform.up*(brain.moveSpeed/5)*Time.deltaTime*100,ForceMode.Impulse);
-            Instantiate(foodCanvas, (toTarget.transform.position), transform.rotation);
+            GameObject foodCanvasObj = foodCanvasPool.GetObj();
+            foodCanvasObj.transform.position = toTarget.transform.position;
+            //Instantiate(foodCanvas, (toTarget.transform.position), transform.rotation);
             combatAnimal = null;//If was targeting to eat then complete that
-            if(toTarget.parent.GetComponent<Food>()!=null)
+            if(toTarget.parent.GetComponent<Food>())
                 toTarget.parent.GetComponent<Food>().isEaten();
-            if(toTarget.parent.GetComponent<AnimalBrain>()!=null)
+            if(toTarget.parent.GetComponent<AnimalBrain>())
                 toTarget.parent.GetComponent<AnimalBrain>().foodWorth -= 1;
             
 
         }
-        else if(toTarget.CompareTag("Water"))
+        else if(toTarget.CompareTag("Water")&& brain.thirst<brain.thirstThresh)
         {
             brain.thirst = 100;
             Task.current.Succeed();
-            Instantiate(drinkCanvas, (toTarget.transform.position), transform.rotation);
+            GameObject drinkCanvas = drinkCanvasPool.GetObj();
+            drinkCanvas.transform.position = toTarget.transform.position;
+            
             //animalForce.AddToForce(-rb.transform.up*(brain.moveSpeed/5));
             rb.AddRelativeForce(-rb.transform.up*(brain.moveSpeed/5)*Time.deltaTime*100,ForceMode.Impulse);
 //            print("drink");
         }
-        else if(toTarget.transform.name==(transform.name))
+        else if(toTarget.transform.name==(transform.name)&&brain.reproductiveUrge<90)
         {
             print("mate");
             int amountToSpawn = Random.Range(1,Mathf.RoundToInt(brain.litterSize));
             
             brain.reproductiveUrge = 0;
-            Instantiate(heartCanvas, (toTarget.transform.position+this.transform.position)/2, transform.rotation);
+            GameObject heartCanvas = heartCanvasPool.GetObj();
+            heartCanvas.transform.position = (toTarget.transform.position+this.transform.position)/2;
+            
             toTarget.GetComponent<AnimalBrain>().reproductiveUrge = 0;
             for (int i = 0; i < amountToSpawn; i++)
             {
@@ -517,7 +537,7 @@ public class AnimalBehaviours : MonoBehaviour
     void HasWanderTargetCondition()
     {
 //        print("Has:"+toTarget+":"+Vector3.Distance(wanderObj.transform.position, rb.transform.position));
-        if (toTarget != null&&toTarget==wanderObj.transform&&Vector3.Distance(wanderObj.transform.position, rb.transform.position) < brain.wanderRadius*2)
+        if (toTarget&&toTarget==wanderObj.transform&&Vector3.Distance(wanderObj.transform.position, rb.transform.position) < brain.wanderRadius*2)
         {
             Task.current.Succeed();
         }
@@ -652,10 +672,4 @@ public class AnimalBehaviours : MonoBehaviour
         isStunned = false;
     }
     
-
-    void hit()
-    {
-        Instantiate(hitCanvas, (toTarget.transform.position+this.transform.position)/2, transform.rotation);
-    }
-
 }

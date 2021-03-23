@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToWait: 2
-  DestoryInsteadOfDisable: 1
+  DestroyInsteadOfDisable: 0
 --- !u!114 &4843983619455247148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,8 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cfdc5c91a5fd6b49bccc3363160b889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpSpeed: 4
-  reverse: 0
+  lerpSpeed: 10
+  reverse: 1
 --- !u!95 &4106441814794754894
 Animator:
   serializedVersion: 3
