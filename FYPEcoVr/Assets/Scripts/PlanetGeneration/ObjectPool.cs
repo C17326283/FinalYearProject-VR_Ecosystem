@@ -11,7 +11,7 @@ public class ObjectPool : MonoBehaviour
 
     //initial number of element
     public int initialNum = 0;
-    public int maxAmountActive = 100;
+    public int maxAmountActive = 200;
 
     //collection
     List<GameObject> pooledObjects;

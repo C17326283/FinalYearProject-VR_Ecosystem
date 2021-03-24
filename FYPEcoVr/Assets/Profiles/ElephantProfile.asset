@@ -19,13 +19,14 @@ MonoBehaviour:
   thirst: 0
   reproductiveUrge: 0
   age: 0
+  deathAge: 100
   maxHealth: 200
   maxStat: 100
   healthStarveDecrement: 3
   hungerDecrement: 2
   thirstDecrement: 1
   reproductiveIncrement: 2
-  ageIncrement: 1
+  ageIncrement: 0.5
   memoryLossRate: 1000
   sensoryRange: 600
   moveSpeed: 200
@@ -42,6 +43,7 @@ MonoBehaviour:
   predatorRating: 0
   preyRating: 7
   eatsPlants: 1
+  eatsMeat: 0
   gen: 6
   attackCanvas: {fileID: 8659279713810492492, guid: d236e3eb041b17b4eac632b9c35ddf39, type: 3}
   heartCanvas: {fileID: 8659279713810492492, guid: 3e64c767f0c3da044bb9a0702bd82883, type: 3}

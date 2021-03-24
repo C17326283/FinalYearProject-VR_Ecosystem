@@ -109,6 +109,7 @@ public class CoastPointSpawner : MonoBehaviour
     public void Spawn(Vector3 spawnPos)
     {
         GameObject obj = new GameObject("water");
+        obj.transform.SetParent(this.transform);
         obj.transform.position = spawnPos;
         obj.transform.tag = "Water";
         obj.layer = 10;

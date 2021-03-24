@@ -14,6 +14,7 @@ public class AnimalProfile : ScriptableObject
     public float thirst = 100;
     public float reproductiveUrge = 0;
     public float age = 0;
+    public float deathAge = 0;
     
     public float maxHealth = 100f;
     public float maxStat = 100;
@@ -41,6 +42,7 @@ public class AnimalProfile : ScriptableObject
     public float predatorRating = 1;
     public float preyRating = 1;
     public bool eatsPlants = true;
+    public bool eatsMeat = true;
     
     public int gen = 1;
     

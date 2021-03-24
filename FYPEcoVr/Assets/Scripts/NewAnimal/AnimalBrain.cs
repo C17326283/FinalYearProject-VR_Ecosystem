@@ -41,19 +41,22 @@ public class AnimalBrain : MonoBehaviour
     
     public float litterSize = 1;
     public bool eatsPlants = false;
+    public bool eatsMeat = true;
     public float predatorRating = 1;
     public float preyRating = 1;
     
     public float hungerThresh = 50;
     public float thirstThresh = 50;
     public float mateThresh = 90;
+    public bool genderIsMale = true;
+    public float deathAge = 100f;
     
     
     [Header("Static stats")]
     public float foodWorth = 2;
     public float maxMutatePercent = 2;
     public float forwardWanderBias = 2;
-    public float ageIncrement = 0.5f;
+    public float ageIncrement = 0.02f;
     public float maxStat = 100;
 
     
@@ -75,6 +78,7 @@ public class AnimalBrain : MonoBehaviour
     
     public float timeTillAdult= 60;
     private bool hasDied = false;
+    public AnimalDistanceDisabler distDisabler;
 
 
 
@@ -98,12 +102,15 @@ public class AnimalBrain : MonoBehaviour
     {
         hunger = hunger - hungerDecrement * Time.deltaTime;// div 100 to keep it within normal numbers for testing
         thirst = thirst - thirstDecrement * Time.deltaTime;
-        reproductiveUrge = reproductiveUrge + reproductiveIncrement * Time.deltaTime;
-        age = age + ageIncrement * Time.deltaTime;
-        if (hunger < 0 || thirst < 0 || age>100)
+        age += ageIncrement * Time.deltaTime;
+        if (hunger < 0 || thirst < 0 || age>deathAge)
             health -= 0.01f;
         
-        if (health <= 0 && !hasDied)//if died and hasnt triggered already
+        //Dont immediately reproduce
+        if(age>deathAge/4)
+            reproductiveUrge = reproductiveUrge + reproductiveIncrement * Time.deltaTime;
+            
+        if ((health <= 0 || age>100) && !hasDied)//if died and hasnt triggered already
         {
             
             Die();
@@ -113,8 +120,10 @@ public class AnimalBrain : MonoBehaviour
     public void GiveBirth(AnimalBrain motherBrain, AnimalBrain fatherBrain)
     {
         GameObject baby = new GameObject("Gen2Holder");
-        baby.transform.parent = transform.parent.parent;//the overall holder not the initialiser
-        baby.transform.position = transform.position+(transform.forward*2);
+        Transform transf = transform;
+        baby.transform.parent = transf.parent.parent;//the overall holder not the initialiser
+        baby.transform.localRotation = Quaternion.Euler(0, Random.Range(-180,180), 0);
+        baby.transform.position = transf.position+(transf.forward*animalLength);
         AnimalInitializer initializer = baby.AddComponent<AnimalInitializer>();
         initializer.animalDNA = animalBaseDNA;
         initializer.btTexts = transform.parent.GetComponent<AnimalInitializer>().btTexts;//copy current ones
@@ -137,7 +146,7 @@ public class AnimalBrain : MonoBehaviour
         gameObject.GetComponentInChildren<HeadLook>().enabled = false;
         gameObject.GetComponentInChildren<AnimalAudioManager>().enabled = false;
 
-        StartCoroutine(SetInactive(10));
+        StartCoroutine(SetInactive(10));//Maybe destroy or pool on death instead
     }
 
     IEnumerator SetInactive(float time)
@@ -147,6 +156,7 @@ public class AnimalBrain : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         gameObject.GetComponentInParent<AnimalInitializer>().gameObject.SetActive(false);
+        distDisabler.enabled = false;
         gameObject.SetActive(false);
     }
 
@@ -159,6 +169,7 @@ public class AnimalBrain : MonoBehaviour
           reproductiveUrge = 0;
           age = 0;
           generation = 1;
+          genderIsMale = (Random.value > 0.5f);//random.value returns 0 to 1 so returns true or false with 50/50 odds
           
           //If has parents then mutate instead of doing default 
           if (mother != null)
@@ -172,6 +183,7 @@ public class AnimalBrain : MonoBehaviour
           else
           {
               //Set self as parent so it can have a mutation on first generation for more interest
+              SetStatsFromDNA();
               mother = GetComponent<AnimalBrain>();
               father = GetComponent<AnimalBrain>();
               MutateStats();
@@ -194,7 +206,7 @@ public class AnimalBrain : MonoBehaviour
         percentDif = thirstDecrement * change;
         thirstDecrement = Mathf.Clamp(((mother.thirstDecrement+father.thirstDecrement)/2)+Random.Range(-percentDif, percentDif), 0.1f, 30000);
         percentDif = reproductiveIncrement * change;
-        reproductiveIncrement = Mathf.Clamp(((mother.reproductiveIncrement+father.reproductiveIncrement)/2)+Random.Range(-percentDif, percentDif), 0.1f, hungerDecrement);//Dont let reproduce before they get hungry
+        reproductiveIncrement = Mathf.Clamp(((mother.reproductiveIncrement+father.reproductiveIncrement)/2)+Random.Range(-percentDif, percentDif), 0.1f, 30000);//Dont let reproduce before they get hungry
         percentDif = memoryLossRate * change;
         memoryLossRate = Mathf.Clamp(((mother.memoryLossRate+father.memoryLossRate)/2)+Random.Range(-percentDif, percentDif), 0.1f, 30000);
         percentDif = sensoryRange * change;
@@ -216,11 +228,29 @@ public class AnimalBrain : MonoBehaviour
         percentDif = hungerThresh * change;
         hungerThresh = Mathf.Clamp(((mother.hungerThresh+father.hungerThresh)/2)+Random.Range(-percentDif, percentDif), 0.1f, 30000);
         percentDif = thirst * change;
-        thirst = Mathf.Clamp(((mother.thirst+father.thirst)/2)+Random.Range(-percentDif, percentDif), 0.1f, 30000);
+        thirstThresh = Mathf.Clamp(((mother.thirstThresh+father.thirstThresh)/2)+Random.Range(-percentDif, percentDif), 0.1f, 30000);
         percentDif = mateThresh * change;
         mateThresh = Mathf.Clamp(((mother.mateThresh+father.mateThresh)/2)+Random.Range(-percentDif, percentDif), 0.1f, 30000);
-        
+        percentDif = deathAge * change;
+        deathAge = Mathf.Clamp(((mother.deathAge+father.deathAge)/2)+Random.Range(-percentDif, percentDif), 0.1f, 30000);
+        percentDif = mateThresh * change;
+        mateThresh = Mathf.Clamp(((mother.mateThresh+father.mateThresh)/2)+Random.Range(-percentDif, percentDif), 0.1f, 30000);
+        percentDif = mateThresh * change;
+        mateThresh = Mathf.Clamp(((mother.mateThresh+father.mateThresh)/2)+Random.Range(-percentDif, percentDif), 0.1f, 30000);
 
+        
+        
+        
+        //Evolve to eat new things
+        if (!eatsPlants && Random.Range(0, 100) < maxMutatePercent) //X% chance of being true
+        {
+            eatsPlants = true;
+        }
+        if (!eatsMeat && Random.Range(0, 100) < maxMutatePercent) //X% chance of being true
+        {
+            eatsMeat = true;
+        }
+        
     }
 
         
@@ -235,6 +265,7 @@ public class AnimalBrain : MonoBehaviour
         thirstDecrement = animalBaseDNA.thirstDecrement;
         reproductiveIncrement = animalBaseDNA.reproductiveIncrement;
         ageIncrement = animalBaseDNA.ageIncrement;
+        deathAge = animalBaseDNA.deathAge;
         
         memoryLossRate = animalBaseDNA.memoryLossRate;
         sensoryRange = animalBaseDNA.sensoryRange;
@@ -245,6 +276,7 @@ public class AnimalBrain : MonoBehaviour
         predatorRating = animalBaseDNA.predatorRating;
         preyRating = animalBaseDNA.preyRating;
         eatsPlants = animalBaseDNA.eatsPlants;
+        eatsMeat = animalBaseDNA.eatsMeat;
 
         attackDamage = animalBaseDNA.attackDamage;
         attackRate = animalBaseDNA.attackRate;

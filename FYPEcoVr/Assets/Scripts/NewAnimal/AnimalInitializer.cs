@@ -373,11 +373,11 @@ public class AnimalInitializer : MonoBehaviour
             {
                 AnimalDistanceDisabler distDisabler = transform.parent.gameObject.AddComponent<AnimalDistanceDisabler>();
                 distDisabler.player = GameObject.FindWithTag("Player").transform;
-                distDisabler.enabled = false;
                 distDisabler.animal = movementOriginObj.transform;
                 distDisabler.animalHolder = transform.gameObject;
                 distDisabler.bt = behaviourTreeManager;
                 distDisabler.enabled = true;
+                brain.distDisabler = distDisabler;//for turning off on death
                 checks = 100;//exit
                 transform.gameObject.SetActive(false);//disable to begin with for loading
             }

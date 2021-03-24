@@ -10,10 +10,12 @@ public class StatCanvasManager : MonoBehaviour
     public TextMeshProUGUI hunger;
     public TextMeshProUGUI thirst;
     public TextMeshProUGUI urge;
+    public TextMeshProUGUI age;
     public TextMeshProUGUI task;
     [Header("Animal DNA")]
-    public TextMeshProUGUI name;
+    public TextMeshProUGUI animalname;
     public TextMeshProUGUI generation;
+    public TextMeshProUGUI gender;
     public TextMeshProUGUI maxHealth;
     public TextMeshProUGUI hungerSpeed;
     public TextMeshProUGUI thirstSpeed;
@@ -26,6 +28,8 @@ public class StatCanvasManager : MonoBehaviour
     public TextMeshProUGUI predatorRating;
     public TextMeshProUGUI preyRating;
     public TextMeshProUGUI eatsPlants;
+    public TextMeshProUGUI eatsMeat;
     public TextMeshProUGUI litterSize;
     public TextMeshProUGUI maxMutate;
+    public TextMeshProUGUI deathAge;
 }

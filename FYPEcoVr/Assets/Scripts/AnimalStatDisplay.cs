@@ -39,16 +39,16 @@ public class AnimalStatDisplay : MonoBehaviour
             {
                 print(hit.transform.name);
                 statCanvas.transform.SetParent(hit.transform);
-                statCanvas.transform.position = hit.transform.position + (hit.transform.transform.up);
                 statCanvas.transform.rotation = hit.transform.rotation;
 
                 selectAnimalBrain = hit.transform.GetComponent<AnimalBrain>();
                 selectAnimalBehaviours = hit.transform.GetComponent<AnimalBehaviours>();
-                statCanvas.transform.position = selectAnimalBrain.transform.position +
-                                                (selectAnimalBrain.transform.transform.up *
-                                                 selectAnimalBrain.animalHeight);
+                Transform anTransform = selectAnimalBrain.transform;
+                statCanvas.transform.position = anTransform.position +
+                                                (anTransform.transform.up * (selectAnimalBrain.animalHeight/2));
                 SetDNA();
                 SetValues();
+                SetColours();
                 if (!isRefreshing)
                 {
                     StartCoroutine(UpdateStatScreen());
@@ -65,12 +65,12 @@ public class AnimalStatDisplay : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1);
             if (selectAnimalBrain != null && selectAnimalBrain.gameObject.activeInHierarchy)
             {
                 SetValues();
                 SetColours();
             }
+            yield return new WaitForSeconds(1);
         }
     }
 
@@ -88,12 +88,14 @@ public class AnimalStatDisplay : MonoBehaviour
                                         selectAnimalBrain.maxStat);
         canvasManager.urge.text = "Mating urge: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.reproductiveUrge), 0,
             selectAnimalBrain.maxStat);
+        canvasManager.age.text = "Age: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.age), 0,
+            selectAnimalBrain.maxStat);
         canvasManager.task.text = "Task: " + selectAnimalBehaviours.currentTask;
     }
 
     public void SetDNA()
     {
-        canvasManager.name.text = (selectAnimalBrain.name);
+        canvasManager.animalname.text = (selectAnimalBrain.name);
         canvasManager.generation.text = ("Generation: " + selectAnimalBrain.generation);
         canvasManager.maxHealth.text = ("Max Health: " + Math.Round(selectAnimalBrain.maxHealth,1) + " (" + Math.Round(selectAnimalBrain.maxHealth - selectAnimalBrain.animalBaseDNA.maxHealth,1)+")");
         canvasManager.hungerSpeed.text = ("Hunger Speed: " + Math.Round(selectAnimalBrain.hungerDecrement,1) + " ("+ Math.Round(selectAnimalBrain.hungerDecrement-selectAnimalBrain.animalBaseDNA.hungerDecrement,1)+")");
@@ -107,8 +109,16 @@ public class AnimalStatDisplay : MonoBehaviour
         canvasManager.predatorRating.text = ("Predator Rating: " + Math.Round(selectAnimalBrain.predatorRating,1) + " (" + Math.Round(selectAnimalBrain.predatorRating - selectAnimalBrain.animalBaseDNA.predatorRating,1)+")");
         canvasManager.preyRating.text = ("Prey Rating: " + Math.Round(selectAnimalBrain.preyRating,1) + " (" + Math.Round(selectAnimalBrain.preyRating - selectAnimalBrain.animalBaseDNA.preyRating,1)+")");
         canvasManager.litterSize.text = ("Litter Size: " + Math.Round(selectAnimalBrain.litterSize,1) + " (" + Math.Round(selectAnimalBrain.litterSize - selectAnimalBrain.animalBaseDNA.litterSize,1)+")");
+        canvasManager.deathAge.text = ("Lifespan: " + Math.Round(selectAnimalBrain.deathAge,1) + " (" + Math.Round(selectAnimalBrain.deathAge - selectAnimalBrain.animalBaseDNA.deathAge,1)+")");
         canvasManager.eatsPlants.text = ("Eats Plants: " + selectAnimalBrain.eatsPlants + " (" + selectAnimalBrain.animalBaseDNA.eatsPlants+")");
+        canvasManager.eatsMeat.text = ("Eats Meat: " + selectAnimalBrain.eatsMeat + " (" + selectAnimalBrain.animalBaseDNA.eatsMeat+")");
         canvasManager.maxMutate.text = ("Max amount to mutate: " + Math.Round(selectAnimalBrain.maxMutatePercent,1)+"%");
+
+        if (selectAnimalBrain.genderIsMale)
+            canvasManager.gender.text = ("Gender: Male");
+        else
+            canvasManager.gender.text = ("Gender: Female");
+        
     }
 
 public void SetColours()
@@ -121,6 +131,7 @@ public void SetColours()
         {
             canvasManager.health.color = negativeColour;
         }
+        
         
         if (selectAnimalBrain.hunger >= selectAnimalBrain.hungerThresh)
         {
@@ -138,6 +149,15 @@ public void SetColours()
         else
         {
             canvasManager.thirst.color = negativeColour;
+        }
+        
+        if (selectAnimalBrain.age < selectAnimalBrain.deathAge/2)
+        {
+            canvasManager.age.color = positiveColour;
+        }
+        else
+        {
+            canvasManager.age.color = negativeColour;
         }
         
         if (selectAnimalBrain.reproductiveUrge >=  selectAnimalBrain.mateThresh)
