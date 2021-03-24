@@ -11,8 +11,8 @@ public class AnimalDistanceDisabler : MonoBehaviour
     public GameObject animalHolder;
     public BehaviourTree bt;//for applying since it didnt work without
 
-    public float activeDistance = 100;
-    public float aiDistance = 200;
+    public float activeDistance = 150;
+    public float aiDistance = 300;
 
     public SkinnedMeshRenderer renderer;
     public List<AnimalFeetPositioner> FeetPositioners;
@@ -20,6 +20,8 @@ public class AnimalDistanceDisabler : MonoBehaviour
     public AnimalAudioManager audioManager;
 
     public CapsuleCollider col;
+
+    public float checkFrequency = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,11 +29,19 @@ public class AnimalDistanceDisabler : MonoBehaviour
         FeetPositioners = animalHolder.GetComponent<AnimalInitializer>().feetPositioners;
         audioManager = animal.gameObject.GetComponent<AnimalAudioManager>();
         col = animal.gameObject.GetComponent<CapsuleCollider>();
+        
+        InvokeRepeating("CheckAnimal", 0, checkFrequency);
+
+        
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CancelCheck()
+    {
+        CancelInvoke();
+    }
+
+    public void CheckAnimal()
     {
         float dist = Vector3.Distance(player.position, animal.position);
         
@@ -81,6 +91,8 @@ public class AnimalDistanceDisabler : MonoBehaviour
                 }
             }
         }
+    
+
     }
     
 }

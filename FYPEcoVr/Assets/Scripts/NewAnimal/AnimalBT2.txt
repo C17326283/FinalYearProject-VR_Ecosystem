@@ -61,11 +61,12 @@ tree("Wander")
     sequence
         fallback
             HasWanderTargetCondition()
+            GetRandomTaskTarget()
             GetWanderTarget()
         SeekTarget()
         fallback
             GettingCloserCondition()
-            GetWanderTarget()
+            RemoveWanderTarget()
             
             
  

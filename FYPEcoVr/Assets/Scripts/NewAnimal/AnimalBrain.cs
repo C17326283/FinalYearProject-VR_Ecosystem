@@ -100,20 +100,23 @@ public class AnimalBrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hunger = hunger - hungerDecrement * Time.deltaTime;// div 100 to keep it within normal numbers for testing
-        thirst = thirst - thirstDecrement * Time.deltaTime;
-        age += ageIncrement * Time.deltaTime;
-        if (hunger < 0 || thirst < 0 || age>deathAge)
-            health -= 0.01f;
-        
-        //Dont immediately reproduce
-        if(age>deathAge/4)
-            reproductiveUrge = reproductiveUrge + reproductiveIncrement * Time.deltaTime;
-            
-        if ((health <= 0 || age>100) && !hasDied)//if died and hasnt triggered already
+        if (transform.parent.gameObject.activeInHierarchy) //only update and check if animal manager active
         {
-            
-            Die();
+            hunger = hunger - hungerDecrement * Time.deltaTime; // div 100 to keep it within normal numbers for testing
+            thirst = thirst - thirstDecrement * Time.deltaTime;
+            age += ageIncrement * Time.deltaTime;
+            if (hunger < 0 || thirst < 0 || age > deathAge)
+                health -= 0.01f;
+
+            //Dont immediately reproduce
+            if (age > deathAge / 4)
+                reproductiveUrge = reproductiveUrge + reproductiveIncrement * Time.deltaTime;
+
+            if ((health <= 0 || age > 100) && !hasDied) //if died and hasnt triggered already
+            {
+
+                Die();
+            }
         }
     }
 
@@ -146,16 +149,18 @@ public class AnimalBrain : MonoBehaviour
         gameObject.GetComponentInChildren<HeadLook>().enabled = false;
         gameObject.GetComponentInChildren<AnimalAudioManager>().enabled = false;
 
-        StartCoroutine(SetInactive(10));//Maybe destroy or pool on death instead
+        StartCoroutine(SetInactive(30));//Maybe destroy or pool on death instead
     }
 
     IEnumerator SetInactive(float time)
     {
         yield return new WaitForSeconds(time);//wait specific time
         gameObject.GetComponent<Collider>().enabled = false;//fall through floor
+        foodWorth = -1;//so it wont be targeted anymore
         yield return new WaitForSeconds(1);
 
         gameObject.GetComponentInParent<AnimalInitializer>().gameObject.SetActive(false);
+        distDisabler.CancelCheck();
         distDisabler.enabled = false;
         gameObject.SetActive(false);
     }

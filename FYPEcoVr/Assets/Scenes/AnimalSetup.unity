@@ -346,17 +346,6 @@ Transform:
   m_Father: {fileID: 146682657}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &216934441 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1169677455, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-  m_PrefabInstance: {fileID: 419807200}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea9eb4f937f4ef64e93a2bab47ed6888, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &250040462
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,34 +1017,6 @@ MonoBehaviour:
   biomeDist: 500
   usesLOD: 1
   screenPercentLODCull: 1
---- !u!1 &359267411 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 342881478712933549, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-  m_PrefabInstance: {fileID: 419807200}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &359267413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 359267411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a78b91269c445444b52e1bd80bd4bf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statCanvas: {fileID: 0}
-  canvasManager: {fileID: 216934441}
-  selectAnimalBrain: {fileID: 0}
-  selectAnimalBehaviours: {fileID: 0}
-  positiveColour:
-    serializedVersion: 2
-    rgba: 4290772931
-  negativeColour:
-    serializedVersion: 2
-    rgba: 4290296063
-  isRefreshing: 0
 --- !u!1001 &361897099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1279,14 +1240,6 @@ PrefabInstance:
       propertyPath: core
       value: 
       objectReference: {fileID: 927105571}
-    - target: {fileID: 342881478712933544, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 359267413}
-    - target: {fileID: 342881478712933544, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetToPos
-      objectReference: {fileID: 0}
     - target: {fileID: 342881479001926701, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_Name
       value: XR Rig
@@ -1336,7 +1289,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 2040836792, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+    - {fileID: 1785378521, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
 --- !u!1 &446955518
 GameObject:
@@ -3820,6 +3773,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 01ad58d8724c7704a8661907c7eafbd7, type: 3}
+--- !u!1 &1546935909 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 342881477377479479, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+  m_PrefabInstance: {fileID: 419807200}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1546935915
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546935909}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.01, y: 0.01, z: 0.01}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1570512401
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -22,10 +22,10 @@ MonoBehaviour:
   deathAge: 30
   maxHealth: 50
   maxStat: 100
-  healthStarveDecrement: 3
-  hungerDecrement: 0.5
-  thirstDecrement: 1
-  reproductiveIncrement: 5
+  healthStarveDecrement: 1
+  hungerDecrement: 4
+  thirstDecrement: 0.6
+  reproductiveIncrement: 6
   ageIncrement: 0.5
   memoryLossRate: 1000
   sensoryRange: 200

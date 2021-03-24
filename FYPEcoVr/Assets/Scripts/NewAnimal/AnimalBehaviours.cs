@@ -38,11 +38,13 @@ public class AnimalBehaviours : MonoBehaviour
     public ObjectPool heartCanvasPool;
     public ObjectPool drinkCanvasPool;
     public ObjectPool attackCanvasPool;
+    public ObjectPool questionCanvasPool;
 
     public string currentTask;
     public AnimalAudioManager audioManager;
     public AnimalForce animalForce;
 
+    public GameObject playerCam;
     //public Vector3 forceToApply;
     
 
@@ -75,6 +77,9 @@ public class AnimalBehaviours : MonoBehaviour
         heartCanvasPool = GameObject.Find("HeartCanvasPool").GetComponent<ObjectPool>();
         drinkCanvasPool = GameObject.Find("DrinkCanvasPool").GetComponent<ObjectPool>();
         attackCanvasPool = GameObject.Find("AttackCanvasPool").GetComponent<ObjectPool>();
+        questionCanvasPool = GameObject.Find("QuestionCanvasPool").GetComponent<ObjectPool>();
+        playerCam = GameObject.FindGameObjectWithTag("MainCamera");
+
     }
     
 
@@ -144,7 +149,7 @@ public class AnimalBehaviours : MonoBehaviour
             {
                 float distanceToCurrent = Vector3.Distance(rb.transform.position, obj.transform.position);
                 //todo run from multiple
-                if (distanceToCurrent<brain.animalLength*15&&(obj.GetComponent<AnimalBrain>()!=null || obj.transform.CompareTag("Player"))&&obj.transform!=toTarget)//if animal is tooclose and not a target
+                if (distanceToCurrent<brain.animalLength*15&&(obj.GetComponent<AnimalBrain>()!=null || obj.transform.CompareTag("MainCamera"))&&obj.transform!=toTarget)//if animal is tooclose and not a target
                 {
                     Vector3 fleeDir;
                     fleeDir = (rb.transform.position - obj.transform.position).normalized;
@@ -153,7 +158,7 @@ public class AnimalBehaviours : MonoBehaviour
                     Vector3 force = locDir * brain.moveSpeed;//Add avoid forc ebased on dist
 //                print(force);
 
-                    float pushAmount = (brain.animalHeight*6)/distanceToCurrent;
+                    float pushAmount = (brain.animalHeight*4)/distanceToCurrent;
                 
                 
                     if (obj.GetComponent<AnimalBrain>()!=null && (obj.GetComponent<AnimalBrain>().preyRating > brain.preyRating))
@@ -251,8 +256,8 @@ public class AnimalBehaviours : MonoBehaviour
         if (brain.eatsMeat)
         {
             //If already has target else get
-            if (toTarget.GetComponent<AnimalBrain>() &&
-                toTarget.GetComponent<AnimalBrain>().preyRating < brain.predatorRating)
+            if (toTarget&&toTarget.GetComponent<AnimalBrain>()!=null &&
+                toTarget.GetComponent<AnimalBrain>().preyRating < brain.predatorRating &&toTarget.GetComponent<AnimalBrain>().foodWorth>0)
             {
                 found = true;
             }
@@ -571,6 +576,14 @@ public class AnimalBehaviours : MonoBehaviour
             }
             Task.current.Succeed();
         }
+        else if(toTarget == playerCam.transform)//investigation
+        {
+            GameObject questionCanvas = questionCanvasPool.GetObj();
+            questionCanvas.transform.position = headObject.transform.position+(rb.transform.up*(brain.animalHeight/2));
+            toTarget = null;
+            StartCoroutine(stunCoolown());
+            Task.current.Succeed();
+        }
         else
         {
             Task.current.Fail();
@@ -578,10 +591,17 @@ public class AnimalBehaviours : MonoBehaviour
     }
 
     [Task]
+    void RemoveWanderTarget()
+    {
+        toTarget = null;
+        Task.current.Succeed();
+    }
+
+    [Task]
     void HasWanderTargetCondition()
     {
 //        print("Has:"+toTarget+":"+Vector3.Distance(wanderObj.transform.position, rb.transform.position));
-        if (toTarget&&toTarget==wanderObj.transform&&Vector3.Distance(wanderObj.transform.position, rb.transform.position) < brain.wanderRadius*2)
+        if (toTarget&&(toTarget==wanderObj.transform || toTarget==playerCam.transform)&&Vector3.Distance(wanderObj.transform.position, rb.transform.position) < brain.wanderRadius*2)
         {
             Task.current.Succeed();
         }
@@ -592,6 +612,24 @@ public class AnimalBehaviours : MonoBehaviour
     }
 
     [Task]
+    void GetRandomTaskTarget()
+    {
+        if (Random.value > 0.9f && playerCam)//Random chance of triggering
+        {
+            print("Investigating player");
+            toTarget = playerCam.transform;
+            wanderObj.transform.position = playerCam.transform.position;
+            Task.current.Succeed();
+            currentTask = "Investigating player";
+        }
+        else
+        {
+            Task.current.Fail();
+        }
+    }
+    
+
+    [Task]
     void GetWanderTarget()
     {
         Vector3 randomPoint = headObject.position +(Random.insideUnitSphere * brain.wanderRadius);
@@ -600,9 +638,9 @@ public class AnimalBehaviours : MonoBehaviour
         //Vector3 locTarPos = rb.transform.InverseTransformDirection(tarPos);//cancel out y
         //locTarPos.y = 0;//cancel out vertical force
         //tarPos = rb.transform.TransformDirection(locTarPos);//set the new cancelled related velocity
-            
-            
-            
+
+        
+        
         RaycastHit hit; //shoot ray and if its ground then spawn at that location
         if (Physics.Raycast(tarPos, -rb.transform.up, out hit, 1000,layerMask))
         {
@@ -612,7 +650,7 @@ public class AnimalBehaviours : MonoBehaviour
                 wanderObj.transform.position = hit.point;
                 toTarget = wanderObj.transform;
                 currentTask = "Wandering";
-                
+            
                 Task.current.Succeed();
             }
             else
@@ -625,6 +663,8 @@ public class AnimalBehaviours : MonoBehaviour
             //toTarget.transform.position = rb.transform.position + (rb.transform.forward * 10);
             Task.current.Fail();
         }
+        
+            
         
     }
     
@@ -674,6 +714,23 @@ public class AnimalBehaviours : MonoBehaviour
         if (brain.thirst < brain.thirstThresh)
         {
             Task.current.Succeed();
+        }
+        else
+        {
+            Task.current.Fail();
+        }
+    }
+
+    [Task]
+    void InvestigatePlayer()
+    {
+        if (playerCam)
+        {
+            print("Investigating player");
+            toTarget = playerCam.transform;
+            wanderObj.transform.position = playerCam.transform.position;
+            Task.current.Succeed();
+            currentTask = "Investigating player";
         }
         else
         {
