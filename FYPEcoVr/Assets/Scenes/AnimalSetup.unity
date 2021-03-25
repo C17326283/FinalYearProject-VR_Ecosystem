@@ -128,6 +128,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8179af335b0337e4f8ecd55458dad529, type: 3}
   m_PrefabInstance: {fileID: 302319082}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &46358673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 46358674}
+  - component: {fileID: 46358675}
+  m_Layer: 0
+  m_Name: ' An1 (37)'
+  m_TagString: AnimalContainer
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &46358674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46358673}
+  m_LocalRotation: {x: -0.015717067, y: -0.3558718, z: -0.0059655877, w: 0.9343836}
+  m_LocalPosition: {x: 3031.3, y: 1708.3, z: -1067.6}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 146682657}
+  m_RootOrder: 31
+  m_LocalEulerAnglesHint: {x: -1.927, y: -41.7, z: 0.002}
+--- !u!114 &46358675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46358673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f28bc9048ad6b469837e3373bc4bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalDNA: {fileID: 11400000, guid: cdca369f04daeb744b24fa84c6342e00, type: 2}
+  btTexts:
+  - {fileID: 4900000, guid: c10ebbd1b339bb14185c233b95adb9fc, type: 3}
+  animalObj: {fileID: 0}
+  collider: {fileID: 0}
+  rb: {fileID: 0}
+  head: {fileID: 0}
+  spineCore: {fileID: 0}
+  legs: []
+  feet: []
+  otherLimbs: []
+  feetPositioners: []
+  core: {fileID: 0}
+  movementOriginObj: {fileID: 0}
+  brain: {fileID: 0}
+  behaviours: {fileID: 0}
+  behaviourTreeManager: {fileID: 0}
+  animalGravity: {fileID: 0}
+  groundOrienter: {fileID: 0}
+  sensorySphere: {fileID: 0}
+  spineMain: {fileID: 0}
+  damping: 15
+  audioManager: {fileID: 0}
+  initialiseOnStart: 1
+  audioMixer: {fileID: 0}
+  animalForce: {fileID: 0}
 --- !u!1001 &108760956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -274,6 +343,12 @@ Transform:
   - {fileID: 1928935108}
   - {fileID: 579684184}
   - {fileID: 307747400}
+  - {fileID: 319579506}
+  - {fileID: 902051986}
+  - {fileID: 1077804593}
+  - {fileID: 1718013644}
+  - {fileID: 210066054}
+  - {fileID: 46358674}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -346,6 +421,75 @@ Transform:
   m_Father: {fileID: 146682657}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &210066053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 210066054}
+  - component: {fileID: 210066055}
+  m_Layer: 0
+  m_Name: ' An1 (36)'
+  m_TagString: AnimalContainer
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &210066054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210066053}
+  m_LocalRotation: {x: -0.015717067, y: -0.3558718, z: -0.0059655877, w: 0.9343836}
+  m_LocalPosition: {x: 3003, y: 1708.3, z: -1105.2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 146682657}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: -1.927, y: -41.7, z: 0.002}
+--- !u!114 &210066055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210066053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f28bc9048ad6b469837e3373bc4bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalDNA: {fileID: 11400000, guid: cdca369f04daeb744b24fa84c6342e00, type: 2}
+  btTexts:
+  - {fileID: 4900000, guid: c10ebbd1b339bb14185c233b95adb9fc, type: 3}
+  animalObj: {fileID: 0}
+  collider: {fileID: 0}
+  rb: {fileID: 0}
+  head: {fileID: 0}
+  spineCore: {fileID: 0}
+  legs: []
+  feet: []
+  otherLimbs: []
+  feetPositioners: []
+  core: {fileID: 0}
+  movementOriginObj: {fileID: 0}
+  brain: {fileID: 0}
+  behaviours: {fileID: 0}
+  behaviourTreeManager: {fileID: 0}
+  animalGravity: {fileID: 0}
+  groundOrienter: {fileID: 0}
+  sensorySphere: {fileID: 0}
+  spineMain: {fileID: 0}
+  damping: 15
+  audioManager: {fileID: 0}
+  initialiseOnStart: 1
+  audioMixer: {fileID: 0}
+  animalForce: {fileID: 0}
 --- !u!1 &250040462
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,6 +833,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9159743648875011297, guid: 26a94f4fee55b5447a15901b233da4a5, type: 3}
   m_PrefabInstance: {fileID: 361897099}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &319579505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 319579506}
+  - component: {fileID: 319579507}
+  m_Layer: 0
+  m_Name: ' An1 (32)'
+  m_TagString: AnimalContainer
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &319579506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319579505}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3005.2603, y: 1703.28, z: -1098.12}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 146682657}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &319579507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319579505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f28bc9048ad6b469837e3373bc4bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalDNA: {fileID: 11400000, guid: 65a28cc022734484b89bb830e4f597cb, type: 2}
+  btTexts:
+  - {fileID: 4900000, guid: c10ebbd1b339bb14185c233b95adb9fc, type: 3}
+  animalObj: {fileID: 0}
+  collider: {fileID: 0}
+  rb: {fileID: 0}
+  head: {fileID: 0}
+  spineCore: {fileID: 0}
+  legs: []
+  feet: []
+  otherLimbs: []
+  feetPositioners: []
+  core: {fileID: 0}
+  movementOriginObj: {fileID: 0}
+  brain: {fileID: 0}
+  behaviours: {fileID: 0}
+  behaviourTreeManager: {fileID: 0}
+  animalGravity: {fileID: 0}
+  groundOrienter: {fileID: 0}
+  sensorySphere: {fileID: 0}
+  spineMain: {fileID: 0}
+  damping: 15
+  audioManager: {fileID: 0}
+  initialiseOnStart: 1
+  audioMixer: {fileID: 0}
+  animalForce: {fileID: 0}
 --- !u!1 &321031277
 GameObject:
   m_ObjectHideFlags: 0
@@ -2161,7 +2374,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702483006}
   m_LocalRotation: {x: -0.015717067, y: -0.3558718, z: -0.0059655877, w: 0.9343836}
-  m_LocalPosition: {x: 3041.6, y: 1699.9, z: -1087.9}
+  m_LocalPosition: {x: 3070, y: 1698.5, z: -1119.8}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 146682657}
@@ -2637,6 +2850,75 @@ MonoBehaviour:
   initialiseOnStart: 1
   audioMixer: {fileID: 0}
   animalForce: {fileID: 0}
+--- !u!1 &902051985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 902051986}
+  - component: {fileID: 902051987}
+  m_Layer: 0
+  m_Name: ' An1 (33)'
+  m_TagString: AnimalContainer
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &902051986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902051985}
+  m_LocalRotation: {x: 0.11325745, y: -0.35329574, z: 0.043155786, w: 0.9276273}
+  m_LocalPosition: {x: 2967.83, y: 1706.31, z: -1080.65}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 146682657}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &902051987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902051985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f28bc9048ad6b469837e3373bc4bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalDNA: {fileID: 11400000, guid: 65a28cc022734484b89bb830e4f597cb, type: 2}
+  btTexts:
+  - {fileID: 4900000, guid: c10ebbd1b339bb14185c233b95adb9fc, type: 3}
+  animalObj: {fileID: 0}
+  collider: {fileID: 0}
+  rb: {fileID: 0}
+  head: {fileID: 0}
+  spineCore: {fileID: 0}
+  legs: []
+  feet: []
+  otherLimbs: []
+  feetPositioners: []
+  core: {fileID: 0}
+  movementOriginObj: {fileID: 0}
+  brain: {fileID: 0}
+  behaviours: {fileID: 0}
+  behaviourTreeManager: {fileID: 0}
+  animalGravity: {fileID: 0}
+  groundOrienter: {fileID: 0}
+  sensorySphere: {fileID: 0}
+  spineMain: {fileID: 0}
+  damping: 15
+  audioManager: {fileID: 0}
+  initialiseOnStart: 1
+  audioMixer: {fileID: 0}
+  animalForce: {fileID: 0}
 --- !u!1 &916162411 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6443852219947562045, guid: 8179af335b0337e4f8ecd55458dad529, type: 3}
@@ -2916,6 +3198,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26a94f4fee55b5447a15901b233da4a5, type: 3}
+--- !u!1 &1077804592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1077804593}
+  - component: {fileID: 1077804594}
+  m_Layer: 0
+  m_Name: ' An1 (34)'
+  m_TagString: AnimalContainer
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1077804593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077804592}
+  m_LocalRotation: {x: 0.03276813, y: -0.3557022, z: 0.012500583, w: 0.9339411}
+  m_LocalPosition: {x: 2967.34, y: 1709.0801, z: -1041.13}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 146682657}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 4.02, y: -41.7, z: 0.002}
+--- !u!114 &1077804594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077804592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f28bc9048ad6b469837e3373bc4bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalDNA: {fileID: 11400000, guid: 65a28cc022734484b89bb830e4f597cb, type: 2}
+  btTexts:
+  - {fileID: 4900000, guid: c10ebbd1b339bb14185c233b95adb9fc, type: 3}
+  animalObj: {fileID: 0}
+  collider: {fileID: 0}
+  rb: {fileID: 0}
+  head: {fileID: 0}
+  spineCore: {fileID: 0}
+  legs: []
+  feet: []
+  otherLimbs: []
+  feetPositioners: []
+  core: {fileID: 0}
+  movementOriginObj: {fileID: 0}
+  brain: {fileID: 0}
+  behaviours: {fileID: 0}
+  behaviourTreeManager: {fileID: 0}
+  animalGravity: {fileID: 0}
+  groundOrienter: {fileID: 0}
+  sensorySphere: {fileID: 0}
+  spineMain: {fileID: 0}
+  damping: 15
+  audioManager: {fileID: 0}
+  initialiseOnStart: 1
+  audioMixer: {fileID: 0}
+  animalForce: {fileID: 0}
 --- !u!1001 &1087342020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4464,6 +4815,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -210, z: 0}
+--- !u!1 &1718013643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1718013644}
+  - component: {fileID: 1718013645}
+  m_Layer: 0
+  m_Name: ' An1 (35)'
+  m_TagString: AnimalContainer
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1718013644
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718013643}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3002.5, y: 1707.5851, z: -1146.4}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 146682657}
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1718013645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718013643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f28bc9048ad6b469837e3373bc4bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalDNA: {fileID: 11400000, guid: cdca369f04daeb744b24fa84c6342e00, type: 2}
+  btTexts:
+  - {fileID: 4900000, guid: c10ebbd1b339bb14185c233b95adb9fc, type: 3}
+  animalObj: {fileID: 0}
+  collider: {fileID: 0}
+  rb: {fileID: 0}
+  head: {fileID: 0}
+  spineCore: {fileID: 0}
+  legs: []
+  feet: []
+  otherLimbs: []
+  feetPositioners: []
+  core: {fileID: 0}
+  movementOriginObj: {fileID: 0}
+  brain: {fileID: 0}
+  behaviours: {fileID: 0}
+  behaviourTreeManager: {fileID: 0}
+  animalGravity: {fileID: 0}
+  groundOrienter: {fileID: 0}
+  sensorySphere: {fileID: 0}
+  spineMain: {fileID: 0}
+  damping: 15
+  audioManager: {fileID: 0}
+  initialiseOnStart: 1
+  audioMixer: {fileID: 0}
+  animalForce: {fileID: 0}
 --- !u!1 &1789322853
 GameObject:
   m_ObjectHideFlags: 0

@@ -80,6 +80,8 @@ public class AnimalBrain : MonoBehaviour
     private bool hasDied = false;
     public AnimalDistanceDisabler distDisabler;
 
+    public float bounceMult = 1;
+
 
 
 
@@ -105,16 +107,17 @@ public class AnimalBrain : MonoBehaviour
             hunger = hunger - hungerDecrement * Time.deltaTime; // div 100 to keep it within normal numbers for testing
             thirst = thirst - thirstDecrement * Time.deltaTime;
             age += ageIncrement * Time.deltaTime;
-            if (hunger < 0 || thirst < 0 || age > deathAge)
+            if (hunger < 0 || thirst < 0)
                 health -= 0.01f;
+
 
             //Dont immediately reproduce
             if (age > deathAge / 4)
                 reproductiveUrge = reproductiveUrge + reproductiveIncrement * Time.deltaTime;
 
-            if ((health <= 0 || age > 100) && !hasDied) //if died and hasnt triggered already
+            if ((health <= 0 || age > deathAge) && !hasDied) //if died and hasnt triggered already
             {
-
+                health = 0;
                 Die();
             }
         }
@@ -145,9 +148,11 @@ public class AnimalBrain : MonoBehaviour
         GameObject deathCanvas = deathCanvasPool.GetObj();
         deathCanvas.transform.position = this.transform.position;
         animalHeight = -5;
+        transform.right = transform.up;//Lay on side
         gameObject.GetComponent<AnimalGravity>().animalHeight = -5;//Collapse to ground
         gameObject.GetComponentInChildren<HeadLook>().enabled = false;
         gameObject.GetComponentInChildren<AnimalAudioManager>().enabled = false;
+        
 
         StartCoroutine(SetInactive(30));//Maybe destroy or pool on death instead
     }
@@ -287,5 +292,7 @@ public class AnimalBrain : MonoBehaviour
         attackRate = animalBaseDNA.attackRate;
         litterSize = animalBaseDNA.litterSize;
         foodWorth = animalBaseDNA.foodWorth;
+        
+        bounceMult = animalBaseDNA.bounceMult;
     }
 }

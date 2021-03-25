@@ -10,46 +10,46 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9bbea3655ab8f9488423b44b0b2a909, type: 3}
-  m_Name: FoxProfile
+  m_Name: RabbitProfile
   m_EditorClassIdentifier: 
-  name: Fox
-  model: {fileID: 7225137790603996746, guid: 40dd3874a6d1172468bb98483f7b852c, type: 3}
+  name: Rabbit
+  model: {fileID: 2695039514763521788, guid: 18db8eb58b8bfd945a302edba8ef6d8d, type: 3}
   health: 100
   hunger: 0
   thirst: 0
   reproductiveUrge: 0
   age: 0
-  deathAge: 50
-  maxHealth: 100
+  deathAge: 30
+  maxHealth: 50
   maxStat: 100
   healthStarveDecrement: 0.5
-  hungerDecrement: 1.5
-  thirstDecrement: 0.8
-  reproductiveIncrement: 3
+  hungerDecrement: 4
+  thirstDecrement: 0.6
+  reproductiveIncrement: 6
   ageIncrement: 0.5
   memoryLossRate: 1000
-  sensoryRange: 300
-  moveSpeed: 500
-  rotSpeed: 491.2
+  sensoryRange: 200
+  moveSpeed: 200
+  rotSpeed: 50
   wanderRadius: 50
   forwardWanderBias: 2
   foodTag: Food
   maxMutatePercent: 10
   numOfLegs: 4
-  attackRate: 0.4
-  attackDamage: 15
-  litterSize: 4
+  attackRate: 0.5
+  attackDamage: 3
+  litterSize: 1
   foodWorth: 2
-  predatorRating: 3
-  preyRating: 3
-  eatsPlants: 0
-  eatsMeat: 1
-  gen: 3
+  predatorRating: 0.1
+  preyRating: 0.1
+  eatsPlants: 1
+  eatsMeat: 0
+  gen: 1
   attackCanvas: {fileID: 8659279713810492492, guid: d236e3eb041b17b4eac632b9c35ddf39, type: 3}
   heartCanvas: {fileID: 8659279713810492492, guid: 3e64c767f0c3da044bb9a0702bd82883, type: 3}
   deathCanvas: {fileID: 8659279713810492492, guid: 58c1cddaa99cc2d408b22ea0d748b13a, type: 3}
   foodCanvas: {fileID: 8659279713810492492, guid: ac590355eaf7fb141a5dcfdcbeb475b3, type: 3}
   drinkCanvas: {fileID: 8659279713810492492, guid: 1a0cdddfb580da440886613f7d58311c, type: 3}
   footstep: {fileID: 8300000, guid: 80239785e252f734a942b4bd5c1b91e1, type: 3}
-  attack: {fileID: 8300000, guid: 3f29a9097edf7354f8edc5560c836735, type: 3}
-  ambient: {fileID: 8300000, guid: bfb855cad41789e449df1af1775c543b, type: 3}
+  attack: {fileID: 8300000, guid: 8cc35f8847e95874bb8a55041ab9290f, type: 3}
+  ambient: {fileID: 8300000, guid: 7aba57f15b0ad374da030dc914a19472, type: 3}

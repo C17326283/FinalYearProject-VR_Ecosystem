@@ -23,6 +23,8 @@ public class AnimalGravity : MonoBehaviour
 
     public List<AnimalFeetPositioner> footPositioners;
 
+    public float defaultHeightMult = 0.8f;
+
 
 
     // Update is called once per frame
@@ -124,15 +126,18 @@ public class AnimalGravity : MonoBehaviour
         if (Physics.Raycast(point.transform.position + (-gravityDir * 100), gravityDir, out hit, 5000, layerMask))
         {
                 
-            float furthestFootDist = GetFurthestFootDist();
+            
 
             //get height based on magnitude or default height
             //float desiredHeight = Mathf.Min(animalHeight * .9f, animalHeight - (rb.velocity.magnitude / 30)); //strides get bigger at faster speeds so animate lower body too
 
-            float clampedMag = Mathf.Clamp(rb.velocity.magnitude/2, 1, Mathf.Min(2,animalHeight* .8f));
-            float desiredHeight = (animalHeight * .8f)-((furthestFootDist/clampedMag)/8); //height based on stride
+            
+            //Walk animation based on foot distance and velocity
+            float clampedMag = Mathf.Clamp(rb.velocity.magnitude/2, 1, Mathf.Min(2,animalHeight* defaultHeightMult));
+            float furthestFootDist = GetFurthestFootDist();
+            float desiredHeight = (animalHeight * defaultHeightMult)-(((furthestFootDist/clampedMag)*(1+brain.bounceMult))/7); //height based on stride
             //               print("desiredHeight"+transform.name+desiredHeight);
-            desiredHeight = Mathf.Clamp(desiredHeight, animalHeight * .5f, animalHeight * .8f);
+            desiredHeight = Mathf.Clamp(desiredHeight, animalHeight * .5f, animalHeight * defaultHeightMult*(1+brain.bounceMult));
 
 
 
@@ -141,6 +146,7 @@ public class AnimalGravity : MonoBehaviour
             float distForce = Vector3.Distance(hit.point + (transform.up * desiredHeight), position) * 5; //find dist between current and desired point
 
 //                    print("distFroce"+distForce);
+
 
             float gravForce = Mathf.Min(gravityStrength * distForce, gravityStrength); //if close to point then add less force
 

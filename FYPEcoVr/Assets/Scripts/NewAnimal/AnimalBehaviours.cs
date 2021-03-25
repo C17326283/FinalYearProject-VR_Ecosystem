@@ -333,26 +333,29 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void TargetMate()
     {
-        //todo only if not panicked
         bool found = false;
-        foreach (var obj in brain.objSensedMemory)
+        if (brain.hunger < brain.hungerThresh && !isPanicked) //Make sure animal has eaten first to avoid overpopulation
         {
-            if (obj.transform.name == transform.name&& obj.GetComponent<AnimalBrain>())//if animal of same type
+            foreach (var obj in brain.objSensedMemory)
             {
-                AnimalBrain otherBrain;
-                otherBrain = obj.GetComponent<AnimalBrain>();
-                
-                //dif obj, opposite gender, active,
-                if (obj.transform!=transform &&!otherBrain.genderIsMale&&obj.activeInHierarchy&&otherBrain.reproductiveUrge>90 && !obj.GetComponent<AnimalBehaviours>().isPanicked)
+                if (obj.transform.name == transform.name && obj.GetComponent<AnimalBrain>()) //if animal of same type
                 {
-                    toTarget = obj.transform;
-                    Task.current.Succeed();
-                    found = true;
-                    break;
-                }
-            }
+                    AnimalBrain otherBrain;
+                    otherBrain = obj.GetComponent<AnimalBrain>();
 
-            
+                    //dif obj, opposite gender, active,
+                    if (obj.transform != transform && !otherBrain.genderIsMale && obj.activeInHierarchy &&
+                        otherBrain.reproductiveUrge > 90 && !obj.GetComponent<AnimalBehaviours>().isPanicked)
+                    {
+                        toTarget = obj.transform;
+                        Task.current.Succeed();
+                        found = true;
+                        break;
+                    }
+                }
+
+
+            }
         }
 
         if (found == false)

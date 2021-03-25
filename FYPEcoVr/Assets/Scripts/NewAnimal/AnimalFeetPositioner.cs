@@ -22,7 +22,7 @@ public class AnimalFeetPositioner : MonoBehaviour
     public float footHeightMult = 0.6f;
     public bool footAtPosition = true;
     public AnimalFeetPositioner otherFootRaycastPositioner;
-    public float extraSpace = 0.2f;
+    public float extraSpace = 0.1f;
     //public float footOnGroundDist = 0.2f;
     public float footMoveStopDist = 0.2f;
 

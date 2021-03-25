@@ -45,7 +45,9 @@ public class AnimalProfile : ScriptableObject
     public bool eatsMeat = true;
     
     public int gen = 1;
-    
+
+    public float bounceMult = 1;
+
     public GameObject attackCanvas;
     public GameObject heartCanvas;
     public GameObject deathCanvas;
@@ -55,5 +57,7 @@ public class AnimalProfile : ScriptableObject
     public AudioClip footstep;
     public AudioClip attack;
     public AudioClip ambient;
+    
+    
     
 }

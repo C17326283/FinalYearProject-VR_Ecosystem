@@ -10,38 +10,38 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9bbea3655ab8f9488423b44b0b2a909, type: 3}
-  m_Name: FoxProfile
+  m_Name: WolfProfile
   m_EditorClassIdentifier: 
-  name: Fox
-  model: {fileID: 7225137790603996746, guid: 40dd3874a6d1172468bb98483f7b852c, type: 3}
-  health: 100
+  name: Wolf
+  model: {fileID: 2999935579391446196, guid: 77c06b45b4f388d48a4f7dda07160afb, type: 3}
+  health: 120
   hunger: 0
   thirst: 0
   reproductiveUrge: 0
   age: 0
-  deathAge: 50
-  maxHealth: 100
+  deathAge: 60
+  maxHealth: 120
   maxStat: 100
   healthStarveDecrement: 0.5
-  hungerDecrement: 1.5
+  hungerDecrement: 1.3
   thirstDecrement: 0.8
-  reproductiveIncrement: 3
+  reproductiveIncrement: 2.5
   ageIncrement: 0.5
-  memoryLossRate: 1000
-  sensoryRange: 300
+  memoryLossRate: 1200
+  sensoryRange: 350
   moveSpeed: 500
   rotSpeed: 491.2
-  wanderRadius: 50
+  wanderRadius: 60
   forwardWanderBias: 2
   foodTag: Food
   maxMutatePercent: 10
   numOfLegs: 4
-  attackRate: 0.4
-  attackDamage: 15
-  litterSize: 4
-  foodWorth: 2
-  predatorRating: 3
-  preyRating: 3
+  attackRate: 0.6
+  attackDamage: 20
+  litterSize: 3
+  foodWorth: 3
+  predatorRating: 5
+  preyRating: 4
   eatsPlants: 0
   eatsMeat: 1
   gen: 3
