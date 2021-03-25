@@ -38,11 +38,16 @@ public class ObjectGravity : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.CompareTag("Ground"))
+        if (other.transform.CompareTag("Ground")||other.transform.CompareTag("WaterMesh")||other.transform.CompareTag(transform.tag))
         {
-            this.enabled = false;
-            rb.isKinematic = true;
+            Invoke("Disable",1);
 
         }
+    }
+
+    public void Disable()
+    {
+        this.enabled = false;
+        rb.isKinematic = true;
     }
 }

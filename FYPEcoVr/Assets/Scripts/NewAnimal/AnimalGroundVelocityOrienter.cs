@@ -88,7 +88,7 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
                 rotation = Quaternion.LookRotation(moveVel, orienter.transform.up);//look to velocity, align with ground
                 rb.transform.rotation = Quaternion.Slerp(col.transform.rotation, rotation, (turnSpeed)*Time.deltaTime);//do it over time
             }
-            else if (locVel.magnitude>.05f)//moving very slowly
+            else if (locVel.magnitude>.02f)//moving very slowly
             {
                 rotation = Quaternion.LookRotation(transform.forward, hit.normal);//look to velocity, align with ground
                 rb.transform.rotation = Quaternion.Slerp(col.transform.rotation, rotation, (Mathf.Max(1,turnSpeed/3))*Time.deltaTime);

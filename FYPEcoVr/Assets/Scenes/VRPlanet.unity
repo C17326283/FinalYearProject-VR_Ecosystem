@@ -9598,7 +9598,7 @@ MonoBehaviour:
   planetObject: {fileID: 0}
   amountToSpawn: 3000
   spawnerDistanceFromCore: 5000
-  heightFromHitPoint: 0
+  heightFromHitPoint: 20
   tagToSpawnOn: Ground
   isRotatingObject: 0
   RandomiseScaleAndRotation: 0
@@ -9623,6 +9623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolPrefabList:
   - {fileID: 8382926230217131611, guid: 26a94f4fee55b5447a15901b233da4a5, type: 3}
+  - {fileID: 8382926230217131611, guid: 946c30c5cdbf89c4aa839b31b1e1c6f0, type: 3}
   initialNum: 0
   maxAmountActive: 100000
 --- !u!1 &1234417989
@@ -10296,6 +10297,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 88b846987ed9c4b4ea4352d204f22679, type: 2}
   - {fileID: 11400000, guid: 7104b5ccd3c514d46a3e2f2acaaa4faa, type: 2}
   - {fileID: 11400000, guid: 37b47e6228fae784d8b77270fc285e42, type: 2}
+  - {fileID: 11400000, guid: 65a28cc022734484b89bb830e4f597cb, type: 2}
+  - {fileID: 11400000, guid: cdca369f04daeb744b24fa84c6342e00, type: 2}
   btTexts:
   - {fileID: 4900000, guid: c10ebbd1b339bb14185c233b95adb9fc, type: 3}
   audioClip: {fileID: 8300000, guid: 6cb3eace11794c84db4995aa0a617ad1, type: 3}
@@ -11404,7 +11407,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443668991}
   m_LocalRotation: {x: -1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -16000}
+  m_LocalPosition: {x: 0, y: 0, z: -18000}
   m_LocalScale: {x: 5000, y: 5000, z: 5000}
   m_Children: []
   m_Father: {fileID: 760984590}
@@ -12449,7 +12452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToWait: 1
-  DestroyInsteadOfDisable: 0
+  destroyInsteadOfDisable: 0
 --- !u!1 &1702362421
 GameObject:
   m_ObjectHideFlags: 0
@@ -12759,7 +12762,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1711375494}
   m_LocalRotation: {x: -1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 10212}
+  m_LocalPosition: {x: 0, y: 0, z: 12000}
   m_LocalScale: {x: 1000, y: 1000, z: 1000}
   m_Children: []
   m_Father: {fileID: 760984590}
@@ -16938,6 +16941,7 @@ MonoBehaviour:
   forcePoints: []
   InitializeOnStart: 1
   footPositioners: []
+  animalDefaultHeightAmount: 0.8
 --- !u!33 &4416744093512669630
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -45,6 +45,7 @@ MonoBehaviour:
   eatsPlants: 0
   eatsMeat: 1
   gen: 4
+  bounceMult: 1
   attackCanvas: {fileID: 8659279713810492492, guid: d236e3eb041b17b4eac632b9c35ddf39, type: 3}
   heartCanvas: {fileID: 8659279713810492492, guid: 3e64c767f0c3da044bb9a0702bd82883, type: 3}
   deathCanvas: {fileID: 8659279713810492492, guid: 58c1cddaa99cc2d408b22ea0d748b13a, type: 3}

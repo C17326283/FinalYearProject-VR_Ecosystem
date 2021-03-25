@@ -10,6 +10,7 @@ using Random = UnityEngine.Random;
 public class AnimalBehaviours : MonoBehaviour
 {
     public AnimalBrain brain;
+    public AnimalGravity gravityScript;
     
     //use these by reference instead
     public Rigidbody rb;
@@ -27,6 +28,7 @@ public class AnimalBehaviours : MonoBehaviour
     public float lastWanderSuccess;
     public bool isPanicked = false;
     public bool isStunned = false;
+    public bool isSleeping = false;
     public GameObject combatAnimal;
 
     //For performed with delay
@@ -39,6 +41,7 @@ public class AnimalBehaviours : MonoBehaviour
     public ObjectPool drinkCanvasPool;
     public ObjectPool attackCanvasPool;
     public ObjectPool questionCanvasPool;
+    public ObjectPool sleepCanvasPool;
 
     public string currentTask;
     public AnimalAudioManager audioManager;
@@ -46,6 +49,10 @@ public class AnimalBehaviours : MonoBehaviour
 
     public GameObject playerCam;
     //public Vector3 forceToApply;
+
+    public SunAngle angleScript;
+    
+    public int secondsToSleep = 10;
     
 
 
@@ -78,7 +85,11 @@ public class AnimalBehaviours : MonoBehaviour
         drinkCanvasPool = GameObject.Find("DrinkCanvasPool").GetComponent<ObjectPool>();
         attackCanvasPool = GameObject.Find("AttackCanvasPool").GetComponent<ObjectPool>();
         questionCanvasPool = GameObject.Find("QuestionCanvasPool").GetComponent<ObjectPool>();
+        sleepCanvasPool = GameObject.Find("SleepCanvasPool").GetComponent<ObjectPool>();
         playerCam = GameObject.FindGameObjectWithTag("MainCamera");
+
+        gravityScript = GetComponent<AnimalGravity>();
+        angleScript = GameObject.Find("Core").GetComponent<SunAngle>();
 
     }
     
@@ -100,7 +111,7 @@ public class AnimalBehaviours : MonoBehaviour
                     found = true;
                     fromTarget = obj.transform;
                     isPanicked = true;
-                    StartCoroutine(panicCoolown());//Become panicked until timer stops
+                    StartCoroutine(PanicCoolown());//Become panicked until timer stops
                     Task.current.Succeed();
                     break;
                 }
@@ -118,11 +129,6 @@ public class AnimalBehaviours : MonoBehaviour
         }
     }
 
-    [Task]
-    void ApplyForce()
-    {
-        print("Apply force");
-    }
 
     [Task]
     void ObstacleAvoid()
@@ -273,7 +279,7 @@ public class AnimalBehaviours : MonoBehaviour
                         AnimalBrain otherAnBrain = obj.GetComponent<AnimalBrain>();
                         
                         //If dead target then just use that instead of attacking alive one
-                        if (otherAnBrain.health<0 && otherAnBrain.foodWorth>0)
+                        if (otherAnBrain.health<=0 && otherAnBrain.foodWorth>0)
                         {
                             found = true;
                             break;
@@ -438,6 +444,20 @@ public class AnimalBehaviours : MonoBehaviour
         }
     }
 
+    [Task]
+    void IsSleepingCondition()
+    {
+        if (!isSleeping)
+        {
+            Task.current.Succeed();
+        }
+        else
+        {
+            Task.current.Fail();
+
+        }
+    }
+
 
     [Task]
     void HasCombatTarget()
@@ -464,7 +484,7 @@ public class AnimalBehaviours : MonoBehaviour
         if (toTarget)
         {
             float distance = Vector3.Distance(toTarget.transform.position, headObject.position);
-            if (distance < brain.animalLength*1.5f)
+            if (distance < brain.animalHeight*1.5f)
             {
 //                print(transform.name+distance+" and "+(attackRange+brain.animalHeight));
                 Task.current.Succeed();
@@ -502,10 +522,10 @@ public class AnimalBehaviours : MonoBehaviour
                     combatAnimal = toTarget.gameObject;
                     AnimalBehaviours otherBehaviours = toTarget.GetComponent<AnimalBehaviours>();
                     otherBehaviours.combatAnimal = this.gameObject;
-                    StartCoroutine(otherBehaviours.panicCoolown());
-                    StartCoroutine(otherBehaviours.stunCoolown());
+                    StartCoroutine(otherBehaviours.PanicCoolown());
+                    StartCoroutine(otherBehaviours.StunCoolown());
                     toTarget.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);//Hit slows other down
-                    StartCoroutine(panicCoolown());//Is engaged in combat 
+                    StartCoroutine(PanicCoolown());//Is engaged in combat 
                     otherAnimalBrain.health -= 5; //todo brain attack strength 
                     //animalForce.AddToForce(rb.transform.forward*(brain.moveSpeed/2));
                     rb.AddRelativeForce(rb.transform.forward*(brain.moveSpeed/5)*Time.deltaTime*100,ForceMode.Impulse);
@@ -584,7 +604,7 @@ public class AnimalBehaviours : MonoBehaviour
             GameObject questionCanvas = questionCanvasPool.GetObj();
             questionCanvas.transform.position = headObject.transform.position+(rb.transform.up*(brain.animalHeight/2));
             toTarget = null;
-            StartCoroutine(stunCoolown());
+            StartCoroutine(StunCoolown());
             Task.current.Succeed();
         }
         else
@@ -617,6 +637,11 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void GetRandomTaskTarget()
     {
+        if (angleScript.GetTargetAngleToSun(this.gameObject,false)<60 && !isSleeping)//nighttime
+        {
+            StartCoroutine("Sleeping");
+            print("sleep condition");
+        }
         if (Random.value > 0.9f && playerCam)//Random chance of triggering
         {
             print("Investigating player");
@@ -760,8 +785,30 @@ public class AnimalBehaviours : MonoBehaviour
     {
         Task.current.Fail();
     }
+    
+    IEnumerator Sleeping()
+    {
+        
+        int secondsPassed = 0;
+        isSleeping = true;
 
-    IEnumerator panicCoolown()
+        float originalHeight = gravityScript.animalHeight;
+        gravityScript.animalHeight = originalHeight / 2;
+
+        while (secondsPassed < secondsToSleep*2 && !isPanicked)//*2 because it run every half of second
+        {
+            yield return new WaitForSeconds(.5f);
+            GameObject sleepCanvasObj = sleepCanvasPool.GetObj();
+            sleepCanvasObj.transform.position = headObject.position+transform.up;
+            secondsPassed++;
+        }
+        isSleeping = false;
+        gravityScript.animalHeight = originalHeight;
+        
+        
+    }
+
+    IEnumerator PanicCoolown()
     {
         isPanicked = true;
         yield return new WaitForSeconds(5);
@@ -769,7 +816,7 @@ public class AnimalBehaviours : MonoBehaviour
         combatAnimal = null;
     }
     
-    IEnumerator stunCoolown()
+    IEnumerator StunCoolown()
     {
         isStunned = true;
         yield return new WaitForSeconds(.3f);

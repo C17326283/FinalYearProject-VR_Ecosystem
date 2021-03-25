@@ -1,5 +1,6 @@
 tree("Root")
     sequence
+        tree("Special") 
         tree("Avoidance") 
         fallback
             tree("Combat") 
@@ -9,6 +10,11 @@ tree("Root")
             tree("Wander")
         tree("Arrive")
 
+tree("Special")
+    sequence
+        IsSleepingCondition()
+        
+        
         
 tree("Combat")
     sequence

@@ -81,8 +81,8 @@ public class AnimalInitializer : MonoBehaviour
         
         SetRb();
         SetAudio();
-        SetAI();
         SetPositioners();
+        SetAI();
         //brain.animalHeight = animalHeight;
         //brain.animalLength = animalLength;
         SetSenses();

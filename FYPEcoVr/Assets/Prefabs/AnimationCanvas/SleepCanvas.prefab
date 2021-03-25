@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: ec78bfa44f3c60c4f95761276423f194, type: 3}
+  m_Texture: {fileID: 2800000, guid: e689e9d1efdeaa24197af0f56dc2dd3e, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4843983619455247148}
   - component: {fileID: 4106441814794754894}
   m_Layer: 5
-  m_Name: QuestionCanvas
+  m_Name: QuestionCanvas 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

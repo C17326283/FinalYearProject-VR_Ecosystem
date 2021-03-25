@@ -90,12 +90,13 @@ public class RandomGenSpawner : MonoBehaviour
         yield return new WaitForSeconds(.1f);//to make sure the mesh was spawned correctly
         for (int i = 0; i < amountToSpawn; i++)
         {
-            newObj = null;
 
             //getPointOnPlanet will return a point on planet(uses nullable incase you didnt get any hits)
             RaycastHit? hitOnPlanet = getPointOnPlanetFinder.GetPoint(tagToSpawnOn, 1);
             if (hitOnPlanet != null)
             {
+                newObj = null;
+                
                 RaycastHit hit = hitOnPlanet.Value;
                 //Find which biome object to spawn
                 bool foundSpecificBiome = false;

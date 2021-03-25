@@ -35,7 +35,7 @@ public class AnimalStatDisplay : MonoBehaviour
         //Only add if theres environment below
         if (Physics.Raycast(transform.position, transform.forward, out hit, 100))
         {
-            if (hit.transform.GetComponent<AnimalBrain>() != null)
+            if (hit.transform.GetComponent<AnimalBrain>() && hit.transform.GetComponent<AnimalBrain>().health>0)
             {
                 print(hit.transform.name);
                 statCanvas.transform.SetParent(hit.transform);
