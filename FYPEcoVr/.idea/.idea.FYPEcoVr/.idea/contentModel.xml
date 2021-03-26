@@ -319,6 +319,7 @@
             <e p="TerrainFace.cs" t="Include" />
             <e p="TerrainMinMaxHeights.cs" t="Include" />
           </e>
+          <e p="SettingsControl.cs" t="Include" />
           <e p="SpawnEnvironmentInRange.cs" t="Include" />
           <e p="StatCanvasManager.cs" t="Include" />
           <e p="SunAngle.cs" t="Include" />
@@ -329,7 +330,6 @@
             <e p="TeleporterController.cs" t="Include" />
           </e>
         </e>
-        <e p="SettingsControl.cs" t="Include" />
       </e>
       <e p="ControllerSample.csproj" t="IncludeRecursive" />
       <e p="FYPEcoVr.sln" t="IncludeFlat" />

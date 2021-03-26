@@ -212,6 +212,7 @@ public class PlanetSpawner : MonoBehaviour
         print("planet gen "+Time.time);
         GameObject core = new GameObject("Core");
         GetPointOnPlanet getPointOnPlanetFinder = core.AddComponent<GetPointOnPlanet>();
+        SunAngle sunAngle = core.AddComponent<SunAngle>();
 
         //add atmosphere
         GameObject atmosphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);

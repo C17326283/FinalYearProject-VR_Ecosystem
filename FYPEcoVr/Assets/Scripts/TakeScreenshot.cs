@@ -42,26 +42,25 @@ public class TakeScreenshot : MonoBehaviour {
         return home + path + "/" + filePrefix + (last + 1).ToString("00000") + ".png";
     }
 
-	void Start () {
-
+	void Start ()
+    {
         // See: https://stackoverflow.com/questions/1143706/getting-the-path-of-the-home-directory-in-c
-
-        
     }
 	
-	// Update is called once per frame
-	void Update ()
-    { 
-    }
-
     public void ScreenShot(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            string filename = GenerateFileName();
-            Debug.Log("Capturing screenshot to: " + filename);
-            ScreenCapture.CaptureScreenshot(filename);
-            audioSource.Play();
+            CaptureScreenshot();
+
         }
+    }
+
+    public void CaptureScreenshot()
+    {
+        string filename = GenerateFileName();
+        Debug.Log("Capturing screenshot to: " + filename);
+        ScreenCapture.CaptureScreenshot(filename);
+        audioSource.Play();
     }
 }
