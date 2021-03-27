@@ -53,6 +53,8 @@ public class AnimalBehaviours : MonoBehaviour
     public SunAngle angleScript;
     
     public int secondsToSleep = 10;
+
+    public GameObject leader;
     
 
 
@@ -164,7 +166,7 @@ public class AnimalBehaviours : MonoBehaviour
                     Vector3 force = locDir * brain.moveSpeed;//Add avoid forc ebased on dist
 //                print(force);
 
-                    float pushAmount = (brain.animalHeight*4)/distanceToCurrent;
+                    float pushAmount = (brain.animalHeight)/distanceToCurrent;
                 
                 
                     if (obj.GetComponent<AnimalBrain>()!=null && (obj.GetComponent<AnimalBrain>().preyRating > brain.preyRating))
@@ -265,12 +267,11 @@ public class AnimalBehaviours : MonoBehaviour
             if (toTarget&&toTarget.GetComponent<AnimalBrain>()!=null &&
                 toTarget.GetComponent<AnimalBrain>().preyRating < brain.predatorRating &&toTarget.GetComponent<AnimalBrain>().foodWorth>0)
             {
+                print("get an target, alreayd has");
                 found = true;
             }
             else
             {
-                
-                
                 float closestWeakAnimal = Mathf.Infinity;
                 foreach (var obj in brain.objSensedMemory)
                 {
@@ -281,6 +282,7 @@ public class AnimalBehaviours : MonoBehaviour
                         //If dead target then just use that instead of attacking alive one
                         if (otherAnBrain.health<=0 && otherAnBrain.foodWorth>0)
                         {
+                            print("get an target, theres a dead");
                             found = true;
                             break;
                         }
@@ -289,24 +291,21 @@ public class AnimalBehaviours : MonoBehaviour
                     
                         if (obj.transform.name != this.transform.name && obj.activeInHierarchy && otherAnBrain.preyRating < brain.predatorRating && distanceToCurrent < closestWeakAnimal) //get easiest and closest target
                         {
+                            print("get an target, an to hunt");
                             closestWeakAnimal = distanceToCurrent;
                             toTarget = obj.transform;
                             currentTask = "Hunting " + toTarget.name;
                             found = true;
                         }
-                        
                     }
-                        
-                    
                 }
             }
-
         }
-        
-        if(found==false)
-            Task.current.Fail();
-        else
+
+        if (found)
             Task.current.Succeed();
+        else
+            Task.current.Fail();
     }
     
     [Task]
@@ -340,7 +339,7 @@ public class AnimalBehaviours : MonoBehaviour
     void TargetMate()
     {
         bool found = false;
-        if (brain.hunger < brain.hungerThresh && !isPanicked) //Make sure animal has eaten first to avoid overpopulation
+        if (brain.hunger > brain.hungerThresh && !isPanicked) //Make sure animal has eaten first to avoid overpopulation
         {
             foreach (var obj in brain.objSensedMemory)
             {
@@ -637,14 +636,14 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void GetRandomTaskTarget()
     {
-        if (angleScript.GetTargetAngleToSun(this.gameObject,false)<60 && !isSleeping)//nighttime
+        if (Random.value > 0.8f && angleScript.GetTargetAngleToSun(this.gameObject,false)<60 && !isSleeping)//nighttime
         {
             StartCoroutine("Sleeping");
             print("sleep condition");
         }
-        if (Random.value > 0.9f && playerCam)//Random chance of triggering
+        else if (Random.value > 0.9f && playerCam)//Random chance of triggering
         {
-            print("Investigating player");
+//            print("Investigating player");
             toTarget = playerCam.transform;
             wanderObj.transform.position = playerCam.transform.position;
             Task.current.Succeed();
@@ -653,6 +652,77 @@ public class AnimalBehaviours : MonoBehaviour
         else
         {
             Task.current.Fail();
+        }
+    }
+
+    [Task]
+    void FollowPack()
+    {
+//        print("leader: " + leader);
+        AnimalBehaviours leaderBehaviour = leader.GetComponent<AnimalBehaviours>();
+        //print("leader: "+leader+", lt: "+leaderBehaviour.toTarget.name+", ");
+
+        //Only follow behaviour for wandering toegther or fighting, not mating
+        if (leaderBehaviour.toTarget && (leaderBehaviour.toTarget.name == ("WanderObj") || (leaderBehaviour.toTarget.GetComponent<AnimalBrain>()!=null &&leaderBehaviour.toTarget.name != brain.name)))
+        {
+            currentTask = "Following Pack";
+            toTarget = leaderBehaviour.toTarget;
+            Task.current.Succeed();
+        }
+        else
+        {
+            Task.current.Fail();
+        }
+    }
+
+
+    [Task]
+    void HasLeaderCondition()
+    {
+        if (leader != null && leader.activeInHierarchy)
+        {
+            Task.current.Succeed();
+        }
+        else
+        {
+            leader = null;
+            Task.current.Fail();
+        }
+    }
+
+    [Task]
+    void GetLeader()
+    {
+        bool found = false;
+        float strongestFound = brain.predatorRating;//start at own rating so the other has to be higher
+        
+        foreach (var obj in brain.objSensedMemory)
+        {
+            //if active animal
+            if (obj.gameObject.activeInHierarchy && obj.GetComponent<AnimalBrain>())
+            {
+                AnimalBrain objBrain = obj.GetComponent<AnimalBrain>();
+
+                //if stronger of same type
+                if (obj.transform.name == (transform.name) && objBrain.predatorRating > brain.predatorRating && objBrain.predatorRating > strongestFound)
+                {
+                    strongestFound = objBrain.predatorRating;
+
+                    leader = obj;
+                    found = true;
+                }
+            }
+        }
+
+        if (found)
+        {
+            Task.current.Succeed();
+            //toTarget = leader.GetComponent<AnimalBehaviours>().toTarget;
+        }
+        else
+        {
+            Task.current.Fail();
+
         }
     }
     

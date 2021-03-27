@@ -158,6 +158,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Leg
       objectReference: {fileID: 0}
+    - target: {fileID: 3320324661660149744, guid: d73c840c53a98d749828966f093addd6, type: 3}
+      propertyPath: m_TagString
+      value: Leg
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401681159131483605, guid: d73c840c53a98d749828966f093addd6, type: 3}
+      propertyPath: m_TagString
+      value: Foot
+      objectReference: {fileID: 0}
     - target: {fileID: 8926635756320773164, guid: d73c840c53a98d749828966f093addd6, type: 3}
       propertyPath: m_TagString
       value: Foot

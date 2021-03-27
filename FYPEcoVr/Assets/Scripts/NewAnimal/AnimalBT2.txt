@@ -7,6 +7,7 @@ tree("Root")
             tree("SeekFood")
             tree("SeekWater")
             tree("SeekMate")
+            tree("PackBehaviour")
             tree("Wander")
         tree("Arrive")
 
@@ -62,6 +63,15 @@ tree("SeekMate")
          WantsToMateCondition()
          TargetMate()
          SeekTarget()
+         
+tree("PackBehaviour")    
+    sequence
+        fallback
+            HasLeaderCondition()
+            GetLeader()
+        HasLeaderCondition()
+        FollowPack()
+        SeekTarget()
         
 tree("Wander")
     sequence

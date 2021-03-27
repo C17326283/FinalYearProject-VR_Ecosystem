@@ -112,7 +112,7 @@ public class AnimalBrain : MonoBehaviour
 
 
             //Dont immediately reproduce
-            if (age > deathAge / 5)
+            if (age > deathAge / 6)
                 reproductiveUrge = reproductiveUrge + reproductiveIncrement * Time.deltaTime;
 
             if ((health <= 0 || age > deathAge) && !hasDied) //if died and hasnt triggered already

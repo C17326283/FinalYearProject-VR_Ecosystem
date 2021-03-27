@@ -25,7 +25,7 @@ MonoBehaviour:
   healthStarveDecrement: 0.5
   hungerDecrement: 1.5
   thirstDecrement: 0.8
-  reproductiveIncrement: 3
+  reproductiveIncrement: 6
   ageIncrement: 0.5
   memoryLossRate: 1000
   sensoryRange: 300
