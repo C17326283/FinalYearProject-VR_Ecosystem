@@ -83,8 +83,6 @@ public class AnimalBrain : MonoBehaviour
     public float bounceMult = 1;
 
 
-
-
     void Awake()
     {
         objSensedMemory = new List<GameObject>();
@@ -125,18 +123,19 @@ public class AnimalBrain : MonoBehaviour
 
     public void GiveBirth(AnimalBrain motherBrain, AnimalBrain fatherBrain)
     {
-        GameObject baby = new GameObject("Gen2Holder");
+        GameObject babyHolder = new GameObject(motherBrain.name+",Gen:"+motherBrain.generation+1);
         Transform transf = transform;
-        baby.transform.parent = transf.parent.parent;//the overall holder not the initialiser
-        baby.transform.localRotation = Quaternion.Euler(0, Random.Range(-180,180), 0);
-        baby.transform.position = transf.position+(transf.forward*animalLength);
-        AnimalInitializer initializer = baby.AddComponent<AnimalInitializer>();
+        babyHolder.transform.parent = transf.parent.parent;//the overall holder not the initialiser
+        babyHolder.transform.localRotation = Quaternion.Euler(0, Random.Range(-180,180), 0);
+        babyHolder.transform.position = transf.position+(-transf.forward*animalLength);
+        AnimalInitializer initializer = babyHolder.AddComponent<AnimalInitializer>();
         initializer.animalDNA = animalBaseDNA;
         initializer.btTexts = transform.parent.GetComponent<AnimalInitializer>().btTexts;//copy current ones
         initializer.InitialiseAnimal();
         //todo optimise
         initializer.brain.mother = motherBrain;
         initializer.brain.father = fatherBrain;
+        
 
     }
 

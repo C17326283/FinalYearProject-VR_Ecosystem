@@ -23,22 +23,22 @@ MonoBehaviour:
   maxHealth: 50
   maxStat: 100
   healthStarveDecrement: 0.5
-  hungerDecrement: 4
+  hungerDecrement: 1
   thirstDecrement: 0.6
-  reproductiveIncrement: 12
-  ageIncrement: 0.5
+  reproductiveIncrement: 13
+  ageIncrement: 0.2
   memoryLossRate: 1000
-  sensoryRange: 200
+  sensoryRange: 50
   moveSpeed: 200
   rotSpeed: 50
-  wanderRadius: 50
+  wanderRadius: 20
   forwardWanderBias: 2
   foodTag: Food
   maxMutatePercent: 10
   numOfLegs: 4
   attackRate: 0.5
   attackDamage: 3
-  litterSize: 1
+  litterSize: 2
   foodWorth: 2
   predatorRating: 0.1
   preyRating: 0.1

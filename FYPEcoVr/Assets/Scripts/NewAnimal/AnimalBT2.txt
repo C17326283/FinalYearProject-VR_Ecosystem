@@ -1,15 +1,17 @@
 tree("Root")
-    sequence
+    fallback 
         tree("Special") 
-        tree("Avoidance") 
-        fallback
-            tree("Combat") 
-            tree("SeekFood")
-            tree("SeekWater")
-            tree("SeekMate")
-            tree("PackBehaviour")
-            tree("Wander")
         tree("Arrive")
+        sequence
+            tree("Avoidance") 
+            fallback
+                tree("Combat") 
+                tree("SeekWater")
+                tree("SeekFood")
+                tree("SeekMate")
+                tree("PackBehaviour")
+                tree("RandomTask")
+                tree("Wander")
 
 tree("Special")
     sequence
@@ -39,7 +41,6 @@ tree("Arrive")
         fallback
             AttackTarget()
             CompleteTarget()
-            GetWanderTarget()
 	         
 tree("SeekFood")
     sequence
@@ -69,15 +70,19 @@ tree("PackBehaviour")
         fallback
             HasLeaderCondition()
             GetLeader()
-        HasLeaderCondition()
         FollowPack()
         SeekTarget()
+        
+tree("RandomTask")
+    fallback
+        HasWanderTargetCondition()
+        Sleep(0.2)
+        InvestigatePlayer(0.1)
         
 tree("Wander")
     sequence
         fallback
             HasWanderTargetCondition()
-            GetRandomTaskTarget()
             GetWanderTarget()
         SeekTarget()
         fallback

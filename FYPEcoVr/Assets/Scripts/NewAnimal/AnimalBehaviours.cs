@@ -14,8 +14,6 @@ public class AnimalBehaviours : MonoBehaviour
     
     //use these by reference instead
     public Rigidbody rb;
-    public float tooCloseDist = 3;
-    public float attackRange = 3;
     public Transform toTarget;
     public Transform fromTarget;
     public GameObject wanderObj;
@@ -33,7 +31,6 @@ public class AnimalBehaviours : MonoBehaviour
 
     //For performed with delay
     public float lastAttackTime = 0;
-    public float lastEnemyCheck = 0;
     
     //Object pools instead of instanciating
     public ObjectPool foodCanvasPool;
@@ -95,41 +92,6 @@ public class AnimalBehaviours : MonoBehaviour
 
     }
     
-
-    [Task]
-    void EnemyIsTooCloseCondition()
-    {
-        bool found = false;
-        //only search through if already not panicked and do every second instead of every frame
-        if (!isPanicked && Time.time > lastEnemyCheck + 1)
-        {
-            lastEnemyCheck = Time.time;
-            foreach (var obj in brain.objSensedMemory)
-            {
-                float distanceToCurrent = Vector3.Distance(rb.transform.position, obj.transform.position);
-                //todo run from multiple
-                if (distanceToCurrent<tooCloseDist&&obj.transform.name!=this.transform.name&&obj.GetComponent<AnimalBrain>()!=null&&obj.GetComponent<AnimalBrain>().predatorRating>brain.preyRating && distanceToCurrent<tooCloseDist)
-                {
-                    found = true;
-                    fromTarget = obj.transform;
-                    isPanicked = true;
-                    StartCoroutine(PanicCoolown());//Become panicked until timer stops
-                    Task.current.Succeed();
-                    break;
-                }
-            }
-        }
-
-        if (isPanicked)
-        {
-            Task.current.Succeed();
-        }
-        else if (found == false)
-        {
-            fromTarget = null;
-            Task.current.Fail();
-        }
-    }
 
 
     [Task]
@@ -350,7 +312,7 @@ public class AnimalBehaviours : MonoBehaviour
 
                     //dif obj, opposite gender, active,
                     if (obj.transform != transform && !otherBrain.genderIsMale && obj.activeInHierarchy &&
-                        otherBrain.reproductiveUrge > 90 && !obj.GetComponent<AnimalBehaviours>().isPanicked)
+                        otherBrain.reproductiveUrge > 90 && otherBrain.health >= 0 && !obj.GetComponent<AnimalBehaviours>().isPanicked)
                     {
                         toTarget = obj.transform;
                         Task.current.Succeed();
@@ -446,7 +408,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void IsSleepingCondition()
     {
-        if (!isSleeping)
+        if (isSleeping)
         {
             Task.current.Succeed();
         }
@@ -483,7 +445,7 @@ public class AnimalBehaviours : MonoBehaviour
         if (toTarget)
         {
             float distance = Vector3.Distance(toTarget.transform.position, headObject.position);
-            if (distance < brain.animalHeight*1.5f)
+            if (distance < brain.animalHeight*3f)
             {
 //                print(transform.name+distance+" and "+(attackRange+brain.animalHeight));
                 Task.current.Succeed();
@@ -553,7 +515,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void CompleteTarget()//if health lower than x
     {
-        if (((toTarget.CompareTag("Food") && brain.hunger<brain.hungerThresh) || (toTarget.GetComponent<AnimalBrain>() && toTarget.GetComponent<AnimalBrain>().foodWorth>0&& toTarget.GetComponent<AnimalBrain>().health<=0) && toTarget.gameObject.activeInHierarchy))//if natural food or animal
+        if (((toTarget.CompareTag("Food") && brain.hunger<brain.hungerThresh) || (toTarget.GetComponent<AnimalBrain>() && toTarget.GetComponent<AnimalBrain>().foodWorth>0&& toTarget.GetComponent<AnimalBrain>().health<=0) && toTarget.gameObject.activeInHierarchy&&brain.hunger<brain.hungerThresh))//if natural food or animal
         {
             brain.hunger = 100;
             Task.current.Succeed();
@@ -568,6 +530,7 @@ public class AnimalBehaviours : MonoBehaviour
                 toTarget.parent.GetComponent<Food>().isEaten();
             if(toTarget.parent.GetComponent<AnimalBrain>())
                 toTarget.parent.GetComponent<AnimalBrain>().foodWorth -= 1;
+            toTarget = null;
             
 
         }
@@ -581,8 +544,10 @@ public class AnimalBehaviours : MonoBehaviour
             //animalForce.AddToForce(-rb.transform.up*(brain.moveSpeed/5));
             rb.AddRelativeForce(-rb.transform.up*(brain.moveSpeed/5)*Time.deltaTime*100,ForceMode.Impulse);
 //            print("drink");
+            toTarget = null;
         }
-        else if(toTarget.transform.name==(transform.name)&&brain.reproductiveUrge>90)
+        else if (toTarget.transform.name == (transform.name) && brain.reproductiveUrge > 90 &&
+                 toTarget.GetComponent<AnimalBrain>().health >= 0) 
         {
             print("mate");
             int amountToSpawn = Random.Range(1,Mathf.RoundToInt(brain.litterSize));
@@ -597,6 +562,7 @@ public class AnimalBehaviours : MonoBehaviour
                 brain.GiveBirth(brain,toTarget.GetComponent<AnimalBrain>());
             }
             Task.current.Succeed();
+            toTarget = null;
         }
         else if(toTarget == playerCam.transform)//investigation
         {
@@ -632,22 +598,27 @@ public class AnimalBehaviours : MonoBehaviour
             Task.current.Fail();
         }
     }
-
     [Task]
-    void GetRandomTaskTarget()
+    void Sleep(float chanceToTrigger)//chance to trigger between 0 and 1
     {
-        if (Random.value > 0.8f && angleScript.GetTargetAngleToSun(this.gameObject,false)<60 && !isSleeping)//nighttime
+        if (Random.value < chanceToTrigger && angleScript.GetTargetAngleToSun(this.gameObject,false)<60 && !isSleeping&& !isPanicked)//nighttime
         {
             StartCoroutine("Sleeping");
             print("sleep condition");
         }
-        else if (Random.value > 0.9f && playerCam)//Random chance of triggering
+        else
         {
-//            print("Investigating player");
-            toTarget = playerCam.transform;
-            wanderObj.transform.position = playerCam.transform.position;
-            Task.current.Succeed();
-            currentTask = "Investigating player";
+            Task.current.Fail();
+        }
+    }
+
+    [Task]
+    void InvestigatePlayer(float chanceToTrigger)
+    {
+        if (Random.value < chanceToTrigger && angleScript.GetTargetAngleToSun(this.gameObject,false)<60 && !isSleeping&& !isPanicked)//nighttime
+        {
+            StartCoroutine("Sleeping");
+            print("sleep condition");
         }
         else
         {
@@ -679,7 +650,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void HasLeaderCondition()
     {
-        if (leader != null && leader.activeInHierarchy)
+        if (leader != null && leader.activeInHierarchy&& Vector3.Distance(leader.transform.position,transform.position)<brain.sensoryRange/2)
         {
             Task.current.Succeed();
         }
@@ -698,8 +669,8 @@ public class AnimalBehaviours : MonoBehaviour
         
         foreach (var obj in brain.objSensedMemory)
         {
-            //if active animal
-            if (obj.gameObject.activeInHierarchy && obj.GetComponent<AnimalBrain>())
+            //if active animal and close
+            if (obj.gameObject.activeInHierarchy && obj.GetComponent<AnimalBrain>() && Vector3.Distance(obj.transform.position,transform.position)<brain.sensoryRange/2)
             {
                 AnimalBrain objBrain = obj.GetComponent<AnimalBrain>();
 
