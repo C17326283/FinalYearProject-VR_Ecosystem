@@ -12,10 +12,16 @@ tree("Root")
                 tree("PackBehaviour")
                 tree("RandomTask")
                 tree("Wander")
+            tree("StuckPrevention") 
 
 tree("Special")
-    sequence
+    fallback
         IsSleepingCondition()
+            
+tree("StuckPrevention") 
+    fallback
+        GettingCloserCondition()
+        RemoveWanderTarget()
         
         
         
@@ -32,6 +38,7 @@ tree("Avoidance")
     sequence
         AvoidOthers()
         ObstacleAvoid()
+        
         
 
         
@@ -85,9 +92,7 @@ tree("Wander")
             HasWanderTargetCondition()
             GetWanderTarget()
         SeekTarget()
-        fallback
-            GettingCloserCondition()
-            RemoveWanderTarget()
+        
             
             
  
