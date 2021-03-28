@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9bbea3655ab8f9488423b44b0b2a909, type: 3}
-  m_Name: FoxProfile
+  m_Name: Test~An
   m_EditorClassIdentifier: 
   name: Fox
-  model: {fileID: 7225137790603996746, guid: 40dd3874a6d1172468bb98483f7b852c, type: 3}
+  model: {fileID: 7225137790603996746, guid: 727505d716a753849a0a1e11766c03ae, type: 3}
   health: 100
   hunger: 0
   thirst: 0

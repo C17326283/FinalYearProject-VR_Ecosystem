@@ -278,6 +278,7 @@
           <e p="GameManager.cs" t="Include" />
           <e p="GravityMovement.cs" t="Include" />
           <e p="HolsterAttach.cs" t="Include" />
+          <e p="JetPack.cs" t="Include" />
           <e p="LightAtAngle.cs" t="Include" />
           <e p="LookAtLerp.cs" t="Include" />
           <e p="ManualButtonTrigger.cs" t="Include" />
@@ -330,6 +331,7 @@
             <e p="TeleporterController.cs" t="Include" />
           </e>
         </e>
+        <e p="XrGravity.cs" t="Include" />
       </e>
       <e p="ControllerSample.csproj" t="IncludeRecursive" />
       <e p="FYPEcoVr.sln" t="IncludeFlat" />

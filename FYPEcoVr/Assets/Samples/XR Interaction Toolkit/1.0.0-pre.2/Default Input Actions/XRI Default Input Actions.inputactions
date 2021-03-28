@@ -584,6 +584,14 @@
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "JetpackMode",
+                    "type": "Button",
+                    "id": "3eca8d2d-6085-4fac-9350-af3491009cc9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -859,6 +867,17 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "ActivateVal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f605734b-0ace-4e2d-bb90-8d70b6833a4f",
+                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller;Continuous Move;Noncontinuous Move",
+                    "action": "JetpackMode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -16,6 +16,7 @@ public class FinGenSequence : MonoBehaviour
 
     public LightAtAngle[] lights;
     public GameObject viewingRoom;
+    public XrGravity xrGravity;
 
     public void Perform()
     {
@@ -63,12 +64,15 @@ public class FinGenSequence : MonoBehaviour
             RaycastHit? hitPoint = pointFinder.GetPoint("Ground", 1000);
             if (hitPoint != null)
             {
+                GameObject core = GameObject.Find("Core");
                 RaycastHit hit = hitPoint.Value;
                 loadingGUI.SetActive(false);
                 VrPlayer.transform.position = hit.point;
-                VrPlayer.transform.parent = GameObject.Find("Core").transform;
-                VrOrienter.core = GameObject.Find("Core");
+                VrPlayer.transform.parent = core.transform;
+                VrOrienter.core = core;
                 VrOrienter.enabled = true;
+                xrGravity.core = core;
+                xrGravity.enabled = true;
             }
             else
             {

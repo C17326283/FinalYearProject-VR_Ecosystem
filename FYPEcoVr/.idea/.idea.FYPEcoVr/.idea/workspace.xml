@@ -20,11 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c86a74b-a54b-44cd-a93d-b82d2bbe20ff" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/XR Rig.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/XR Rig.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Test~An.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Profiles/Test~An.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/1.0.0-pre.2/Default Input Actions/XRI Default Input Actions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/1.0.0-pre.2/Default Input Actions/XRI Default Input Actions.inputactions" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/AnimalSetup.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AnimalSetup.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FinGenSequence.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FinGenSequence.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ObjectGravity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ObjectGravity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vr/TeleporterController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vr/TeleporterController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,33 +46,32 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightAtAngle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@1.0.0-pre.2/Runtime/Interaction/XRInteractionManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Vr/TeleporterController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ObjectGravity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AltBehaviours.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalSenses.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Escape.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Vr/HandController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@1.0.0-pre.2/Runtime/Interaction/Interactables/XRBaseInteractable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SunAngle.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalForce.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HolsterAttach.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ObjectGravity.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalSenses.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Food.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewAnimal/SpineNew.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SunAngle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AnimalStatDisplay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@1.0.0-pre.2/Runtime/UI/TrackedDeviceGraphicRaycaster.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@1.0.0-pre.2/Runtime/Locomotion/Teleportation/BaseTeleportationInteractable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Cam.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/JetPack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/UnityVersions/2020.2.3f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/InputModules/BaseInput.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalForce.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/UnityVersions/2020.2.3f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HolsterAttach.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/BasicBehaviours.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/HeadLook.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalSenses.cs" />
         <option value="$PROJECT_DIR$/Assets/GetCollisionOverlap.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetTerrainGenerator.cs" />
@@ -77,7 +84,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/AnimalDistanceDisabler.cs" />
         <option value="$PROJECT_DIR$/Assets/DeactivateAfterTime.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Food.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Vr/TeleporterController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/RotateEnvironment.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Escape.cs" />
         <option value="$PROJECT_DIR$/Assets/VolumeControl.cs" />
@@ -93,7 +99,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalAudioManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/AnimalsSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/SettingsControl.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/FinGenSequence.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DeactivateAfterTime.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/ObjectPool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/CoastPointSpawner.cs" />
@@ -102,7 +107,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/RandomGenSpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ObjectGravity.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AnimalStatDisplay.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LightAtAngle.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SunAngle.cs" />
@@ -114,6 +118,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalProfile.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2.txt" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Vr/TeleporterController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FinGenSequence.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/JetPack.cs" />
+        <option value="$PROJECT_DIR$/Assets/XrGravity.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ObjectGravity.cs" />
       </list>
     </option>
   </component>
@@ -235,7 +244,7 @@
       <workItem from="1616723623031" duration="727000" />
       <workItem from="1616787310783" duration="13613000" />
       <workItem from="1616850001228" duration="21199000" />
-      <workItem from="1616933865818" duration="9248000" />
+      <workItem from="1616933865818" duration="22759000" />
     </task>
     <servers />
   </component>
@@ -366,11 +375,11 @@
     </state>
     <state x="1920" y="47" width="1802" height="1028" key="dock-window-3/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1612029046947" />
     <state x="-2340" y="75" width="1551" height="974" maximized="true" key="dock-window-3/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1616369680860" />
-    <state x="149" y="120" width="1273" height="920" key="find.popup" timestamp="1616884754673">
+    <state x="149" y="120" width="1273" height="920" key="find.popup" timestamp="1616969457735">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="529" y="147" width="1007" height="801" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1616723673667" />
-    <state x="149" y="120" width="1273" height="920" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1616884754673" />
+    <state x="149" y="120" width="1273" height="920" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1616969457735" />
     <state x="2480" y="139" width="736" height="801" key="find.popup/1920.47.1786.986/-1920.86.1920.1040/0.0.1920.1040@1920.47.1786.986" timestamp="1616187282317" />
     <state x="2476" y="258" width="672" height="678" key="search.everywhere.popup" timestamp="1616433502624">
       <screen x="1920" y="47" width="1786" height="986" />

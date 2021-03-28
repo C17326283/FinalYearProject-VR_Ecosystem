@@ -10,6 +10,7 @@ public class ObjectGravity : MonoBehaviour
     public float gravForce = 1000;
     public Rigidbody rb;
     public bool disableOnCollision = true;
+    private int layerMask;
 
     
 
@@ -20,6 +21,8 @@ public class ObjectGravity : MonoBehaviour
             core = GameObject.Find("Core");
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = false;
+        layerMask = 1 << 8;
+
 
     }
 
@@ -27,7 +30,16 @@ public class ObjectGravity : MonoBehaviour
     void Update()
     {
         gravityDir = (core.transform.position - transform.position).normalized; //todo flip dir
-        rb.AddForce(gravityDir * (gravForce * Time.deltaTime));
+        //If abovce groudn then add gravity else push back up above ground
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, gravityDir, out hit, 100, layerMask))
+        {
+            rb.AddForce(gravityDir * (gravForce * Time.deltaTime));
+        }
+        else
+        {
+            rb.AddForce(-gravityDir * ((gravForce/10) * Time.deltaTime));
+        }
 
     }
 

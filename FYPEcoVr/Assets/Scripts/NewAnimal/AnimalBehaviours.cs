@@ -90,10 +90,7 @@ public class AnimalBehaviours : MonoBehaviour
 
         gravityScript = GetComponent<AnimalGravity>();
         angleScript = GameObject.Find("Core").GetComponent<SunAngle>();
-
     }
-    
-
 
     [Task]
     void ObstacleAvoid()
@@ -108,19 +105,12 @@ public class AnimalBehaviours : MonoBehaviour
             {
                 var position = rb.transform.position;
                 Debug.DrawLine(position, hit.point, Color.black, .2f);
-                //animalForce.AddToForce((-rb.transform.forward)+(transform.right/2));
                 Task.current.Succeed(); //if found no enemies
 
                 Vector3 avoidDir;
-                avoidDir = (position - hit.transform.position)
-                    .normalized; //dont normalize because need the force amounts
-                //Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
-
-                //Vector3 force = locDir.normalized;
+                avoidDir = (position - hit.transform.position).normalized;
 
                 animalForce.AddToForce((avoidDir+(transform.right/5)) * 6);
-                //animalForce.AddToForce(rb.transform.forward);
-                //animalForce.AddToForce(-avoidDir*3);
             }
         }
         
@@ -130,28 +120,16 @@ public class AnimalBehaviours : MonoBehaviour
             {
                 var position = rb.transform.position;
                 Debug.DrawLine(position, hit.point, Color.yellow, .2f);
-                //animalForce.AddToForce((-rb.transform.forward)+(transform.right/2));
                 Task.current.Succeed(); //if found no enemies
 
                 Vector3 avoidDir;
-                avoidDir = (position - hit.transform.position)
-                    .normalized; //dont normalize because need the force amounts
-                print("avoiddir" + avoidDir);
+                avoidDir = (position - hit.transform.position).normalized;
                 avoidDir = (avoidDir + new Vector3(-1, 0, 0)).normalized;
-                print("avoiddir right" + avoidDir);
+//                print("avoiddir right" + avoidDir);
 
-
-                Debug.DrawRay(position, avoidDir, Color.green, .2f);
+                //Debug.DrawRay(position, avoidDir, Color.green, .2f);
                 animalForce.AddToForce(((avoidDir)) * 4);
 
-                //Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
-
-                //Vector3 force = locDir.normalized;
-
-                //animalForce.AddToForce(((avoidDir/2))*3);//+(-
-
-                //animalForce.AddToForce((-transform.right)*3);//+(-transform.right)
-                //animalForce.AddToForce(rb.transform.forward*3);
             }
         }
         
@@ -162,90 +140,20 @@ public class AnimalBehaviours : MonoBehaviour
             {
                 var position = rb.transform.position;
                 Debug.DrawLine(position, hit.point, Color.blue, .2f);
-                //animalForce.AddToForce((-rb.transform.forward)+(transform.right/2));
                 Task.current.Succeed(); //if found no enemies
 
                 Vector3 avoidDir;
-                avoidDir = (position - hit.transform.position)
-                    .normalized; //dont normalize because need the force amounts
-                print("avoiddir" + avoidDir);
+                avoidDir = (position - hit.transform.position).normalized; //dont normalize because need the force amounts
+                //print("avoiddir" + avoidDir);
                 avoidDir = (avoidDir + new Vector3(1, 0, 0)).normalized;
-                print("avoiddir right" + avoidDir);
+                //print("avoiddir right" + avoidDir);
 
 
-                Debug.DrawRay(position, avoidDir, Color.green, .2f);
+                //Debug.DrawRay(position, avoidDir, Color.green, .2f);
                 animalForce.AddToForce(((avoidDir)) * 4);
-                //avoidDir = avoidDir + new Vector3(0, 90, 0);
-                //print("avoiddir left"+avoidDir);
-                //Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
-
-                //Vector3 force = locDir.normalized;
-
-                //animalForce.AddToForce(((avoidDir))*3);
-                //animalForce.AddToForce(((avoidDir/2))*3);//+(-transform.right)
-                //animalForce.AddToForce((transform.right)*3);
-                //animalForce.AddToForce((transform.right)*3);
-                //animalForce.AddToForce(rb.transform.forward*3);
             }
         }
         
-        /*
-        else if (Physics.Raycast(rb.transform.position, rb.transform.right, out hit, rayDist))
-        {
-            Debug.DrawLine(rb.transform.position, hit.point,Color.yellow,rayDist);
-            //animalForce.AddToForce((-rb.transform.forward)+(transform.right/2));
-            Task.current.Succeed(); //if found no enemies
-            
-            Vector3 avoidDir;
-            avoidDir = -(hit.transform.position - rb.transform.position);//dont normalize because need the force amounts
-            print("avoiddir right"+avoidDir);
-            //Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
-
-            //Vector3 force = locDir.normalized;
-            
-            //animalForce.AddToForce(((avoidDir/2))*3);//+(-
-            animalForce.AddToForce((-transform.right)*3);//+(-transform.right)
-            //animalForce.AddToForce(rb.transform.forward*3);
-        }
-        //lookDir = headObject.transform.forward + headObject.TransformDirection(0, 0, 30);
-        else if (Physics.Raycast(rb.transform.position, -rb.transform.right, out hit, rayDist))
-        {
-            Debug.DrawLine(rb.transform.position, hit.point,Color.blue,rayDist);
-            //animalForce.AddToForce((-rb.transform.forward)+(transform.right/2));
-            Task.current.Succeed(); //if found no enemies
-            
-            Vector3 avoidDir;
-            avoidDir = -(hit.transform.position - rb.transform.position);//dont normalize because need the force amounts
-            //avoidDir = avoidDir + new Vector3(0, 90, 0);
-            print("avoiddir left"+avoidDir);
-            //Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
-
-            //Vector3 force = locDir.normalized;
-            
-            //animalForce.AddToForce(((avoidDir))*3);
-            //animalForce.AddToForce(((avoidDir/2))*3);//+(-transform.right)
-            animalForce.AddToForce((transform.right)*3);
-           //animalForce.AddToForce((transform.right)*3);
-            //animalForce.AddToForce(rb.transform.forward*3);
-        }
-        */
-        
-        /*
-        if (Physics.Raycast(transform.position, rb.transform.forward+new Vector3(0,30,0), out hit, brain.animalHeight*4))
-        {
-            Debug.DrawLine(transform.position, hit.point,Color.gray,brain.animalHeight*6);
-            animalForce.AddToForce((-(rb.transform.forward+new Vector3(0,30,0)))+(transform.right/2));
-            Task.current.Succeed(); //if found no enemies
-        }
-        */
-        /*
-        if (Physics.Raycast(transform.position, rb.transform.forward+new Vector3(0,-30,0), out hit, brain.animalHeight*4))
-        {
-            Debug.DrawRay(transform.position, rb.transform.forward+new Vector3(0,-30,0),Color.yellow);
-            animalForce.AddToForce((-(rb.transform.forward+new Vector3(0,-30,0)))+(transform.right/2));
-            Task.current.Succeed(); //if found no enemies
-        }
-        */
         
     }
 
@@ -384,7 +292,7 @@ public class AnimalBehaviours : MonoBehaviour
                         //If dead target then just use that instead of attacking alive one
                         if (otherAnBrain.health<=0 && otherAnBrain.foodWorth>0)
                         {
-                            print("get an target, theres a dead");
+//                            print("get an target, theres a dead");
                             found = true;
                             break;
                         }
