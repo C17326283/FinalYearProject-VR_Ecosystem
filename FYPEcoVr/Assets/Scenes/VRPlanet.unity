@@ -4674,6 +4674,7 @@ MonoBehaviour:
   Light: {fileID: 697091047}
   core: {fileID: 0}
   sun: {fileID: 1443668991}
+  angleScript: {fileID: 0}
   toPlayer: {x: 0.002610393, y: -0.9996085, z: 0.027855298}
   toSun: {x: 0.36383155, y: 0.9074682, z: -0.2100668}
   dayLightIntensity: 1.5
@@ -5452,6 +5453,7 @@ MonoBehaviour:
   - {fileID: 1735571477}
   - {fileID: 792104342}
   viewingRoom: {fileID: 647017231}
+  xrGravity: {fileID: 1533872242}
 --- !u!114 &782749337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5580,6 +5582,7 @@ MonoBehaviour:
   Light: {fileID: 792104341}
   core: {fileID: 0}
   sun: {fileID: 1711375494}
+  angleScript: {fileID: 0}
   toPlayer: {x: 0, y: 0, z: 0}
   toSun: {x: 0, y: 0, z: 0}
   dayLightIntensity: 0.1
@@ -9490,6 +9493,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 647017232}
     m_Modifications:
+    - target: {fileID: 1186597975, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186597975, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471313964, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471313964, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533872240, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1728486592, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: maxHeightFromSurface
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 342881479001926701, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_Name
       value: XR Rig
@@ -11963,6 +11990,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 342881479001926702, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
   m_PrefabInstance: {fileID: 1209258987}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1533872242 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1728486592, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+  m_PrefabInstance: {fileID: 1209258987}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533872239}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd25f1d8c12d64418a935004e31dbe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1555909517
 GameObject:
   m_ObjectHideFlags: 0
@@ -12932,6 +12970,7 @@ MonoBehaviour:
   Light: {fileID: 1735571476}
   core: {fileID: 0}
   sun: {fileID: 1443668991}
+  angleScript: {fileID: 0}
   toPlayer: {x: 0, y: 0, z: 0}
   toSun: {x: 0, y: 0, z: 0}
   dayLightIntensity: 60

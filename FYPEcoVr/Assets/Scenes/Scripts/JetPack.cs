@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class JetPack : MonoBehaviour
     public Transform controller;
     
     [SerializeField] InputActionReference controllerActionGrip;
+    
+    public float gripValue;
 
     public bool allowedFly = true;
 
@@ -19,21 +22,41 @@ public class JetPack : MonoBehaviour
     {
         //Create interactions for new input system
         controllerActionGrip.action.performed += GripPress;
+        controllerActionGrip.action.canceled += GripCancel;
         if(controller==null)
             controller = this.transform;
 
         
     }
 
-    private void GripPress(InputAction.CallbackContext obj)
+    private void FixedUpdate()
     {
         if (gameObject.activeInHierarchy && allowedFly)
         {
-            //_handAnimator.SetFloat("Grip",obj.ReadValue<float>());
-            print("jet" + obj.ReadValue<float>());
-            float forceAmount = obj.ReadValue<float>() * jetForce;
-            rigRb.AddForce(controller.transform.up * forceAmount * Time.deltaTime);
+            rigRb.AddForce(controller.transform.up * ((gripValue*jetForce) * Time.deltaTime));
+        
+//            print("gripValue*jetForce"+(gripValue*jetForce));
         }
+        else
+        {
+            gripValue = 0;
+            Vector3 locVel = rigRb.transform.InverseTransformDirection(rigRb.velocity);//Find velocity in relation to an object oriented to ground
+            locVel.y = locVel.y*0.99f;//lower the vel exponentially rather than cancelling because that is jarring
+            rigRb.velocity = rigRb.transform.TransformDirection(locVel);//set the new cancelled related velocity
+
+        }
+    }
+
+    private void GripPress(InputAction.CallbackContext obj)
+    {
+        gripValue = obj.ReadValue<float>();
+        //_handAnimator.SetFloat("Grip",obj.ReadValue<float>());
+//        print("jet" + obj.ReadValue<float>());
+    }
+    
+    private void GripCancel(InputAction.CallbackContext obj)
+    {
+        gripValue = 0;
     }
     
     //[SerializeField] InputActionReference controllerActionGrip;

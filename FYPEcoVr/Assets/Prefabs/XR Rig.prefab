@@ -4310,6 +4310,7 @@ MonoBehaviour:
   jetForce: 200
   controller: {fileID: 0}
   controllerActionGrip: {fileID: 1578427203831673433, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  gripValue: 0
   allowedFly: 1
 --- !u!1 &1319569649
 GameObject:
@@ -5565,6 +5566,7 @@ MonoBehaviour:
   jetForce: 200
   controller: {fileID: 0}
   controllerActionGrip: {fileID: 4403012508483182263, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  gripValue: 0
   allowedFly: 1
 --- !u!1 &1699429187
 GameObject:
@@ -8111,7 +8113,7 @@ MonoBehaviour:
   gravityDir: {x: 0, y: 0, z: 0}
   core: {fileID: 0}
   gravForce: 100
-  maxDistFromCore: 2000
+  maxHeightFromSurface: 150
   jetPackController1: {fileID: 1643953622}
   jetPackController2: {fileID: 1292429032}
 --- !u!1 &626277196884998058

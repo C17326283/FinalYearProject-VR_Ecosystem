@@ -854,7 +854,7 @@
                     "path": "<XRController>{RightHand}/grip",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Generic XR Controller",
+                    "groups": "Generic XR Controller;Continuous Move;Noncontinuous Move",
                     "action": "SelectVal",
                     "isComposite": false,
                     "isPartOfComposite": false

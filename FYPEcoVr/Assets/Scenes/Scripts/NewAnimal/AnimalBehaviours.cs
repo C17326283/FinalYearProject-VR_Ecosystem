@@ -301,7 +301,7 @@ public class AnimalBehaviours : MonoBehaviour
                     
                         if (obj.transform.name != this.transform.name && obj.activeInHierarchy && otherAnBrain.preyRating < brain.predatorRating && distanceToCurrent < closestWeakAnimal) //get easiest and closest target
                         {
-                            print("get an target, an to hunt");
+//                            print("get an target, an to hunt");
                             closestWeakAnimal = distanceToCurrent;
                             toTarget = obj.transform;
                             currentTask = "Hunting " + toTarget.name;

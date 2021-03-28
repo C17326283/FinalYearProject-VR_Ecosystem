@@ -10,8 +10,7 @@ public class XrGravity : MonoBehaviour
     public GameObject core;
     public float gravForce = 100;
 
-    public float maxDistFromCore = 1200;
-    public float maxHeightFromSurface = 1200;
+    public float maxHeightFromSurface = 150;
     public JetPack jetPackController1;
     public JetPack jetPackController2;
     
@@ -31,21 +30,27 @@ public class XrGravity : MonoBehaviour
         
         //If ground
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, gravityDir, out hit, 500, layerMask))
+        if (Physics.Raycast(transform.position, gravityDir, out hit, maxHeightFromSurface*4, layerMask))
         {
             rigRb.AddForce(gravityDir * (gravForce * Time.deltaTime));
 
             //If not too high then allow jetpack to get higher
             if (hit.distance < maxHeightFromSurface)
             {
+//                print("current height"+hit.distance);
                 jetPackController1.allowedFly = true;
                 jetPackController2.allowedFly = true;
             }
             else
             {
+ //               print("cancel fly");
                 jetPackController1.allowedFly = false;
                 jetPackController2.allowedFly = false;
             }
+        }
+        else//starting to fall through ground so cancel vel
+        {
+            rigRb.velocity = Vector3.zero;
         }
         
         
