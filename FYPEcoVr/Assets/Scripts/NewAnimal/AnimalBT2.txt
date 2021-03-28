@@ -41,6 +41,7 @@ tree("Arrive")
         fallback
             AttackTarget()
             CompleteTarget()
+            GetWanderTarget()
 	         
 tree("SeekFood")
     sequence
@@ -75,7 +76,6 @@ tree("PackBehaviour")
         
 tree("RandomTask")
     fallback
-        HasWanderTargetCondition()
         Sleep(0.2)
         InvestigatePlayer(0.1)
         

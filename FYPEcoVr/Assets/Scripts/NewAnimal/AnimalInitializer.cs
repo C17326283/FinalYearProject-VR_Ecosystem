@@ -246,6 +246,7 @@ public class AnimalInitializer : MonoBehaviour
         animalForce.rb = rb;
         animalForce.brain = brain;
         behaviours.animalForce = animalForce;
+        brain.behaviours = behaviours;
     }
 
     

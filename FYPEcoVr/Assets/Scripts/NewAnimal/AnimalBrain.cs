@@ -82,6 +82,8 @@ public class AnimalBrain : MonoBehaviour
 
     public float bounceMult = 1;
 
+    public AnimalBehaviours behaviours;
+
 
     void Awake()
     {
@@ -110,7 +112,7 @@ public class AnimalBrain : MonoBehaviour
 
 
             //Dont immediately reproduce
-            if (age > deathAge / 6)
+            if (age > deathAge / 10 && behaviours.hasEaten)
                 reproductiveUrge = reproductiveUrge + reproductiveIncrement * Time.deltaTime;
 
             if ((health <= 0 || age > deathAge) && !hasDied) //if died and hasnt triggered already
@@ -286,6 +288,9 @@ public class AnimalBrain : MonoBehaviour
         preyRating = animalBaseDNA.preyRating;
         eatsPlants = animalBaseDNA.eatsPlants;
         eatsMeat = animalBaseDNA.eatsMeat;
+        hungerThresh = animalBaseDNA.hungerThresh;
+        thirstThresh = animalBaseDNA.thirstThresh;
+        mateThresh = animalBaseDNA.mateThresh;
 
         attackDamage = animalBaseDNA.attackDamage;
         attackRate = animalBaseDNA.attackRate;

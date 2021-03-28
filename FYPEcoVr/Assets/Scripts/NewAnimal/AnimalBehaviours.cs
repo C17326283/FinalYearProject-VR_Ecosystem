@@ -52,7 +52,8 @@ public class AnimalBehaviours : MonoBehaviour
     public int secondsToSleep = 10;
 
     public GameObject leader;
-    
+
+    public bool hasEaten = false;
 
 
     public void OnDrawGizmos()
@@ -99,13 +100,69 @@ public class AnimalBehaviours : MonoBehaviour
     {
         Task.current.Succeed();
         RaycastHit hit; //shoot ray and if its ground then spawn at that location
-        if (Physics.Raycast(headObject.position, rb.transform.forward, out hit, brain.animalHeight*4))
+        if (Physics.Raycast(headObject.transform.position, headObject.transform.forward, out hit, brain.animalHeight*8))
         {
-            //todo improve this, this is temp
-            animalForce.AddToForce(transform.right*(brain.moveSpeed/2));
-            //rb.AddRelativeForce(transform.right*(brain.moveSpeed/2)*Time.deltaTime*100);
+            Debug.DrawLine(headObject.transform.position, hit.point,Color.black,brain.animalHeight*8);
+            //animalForce.AddToForce((-rb.transform.forward)+(transform.right/2));
+            Task.current.Succeed(); //if found no enemies
+            
+            Vector3 avoidDir;
+            avoidDir = -(hit.transform.position - headObject.transform.position);//dont normalize because need the force amounts
+            //Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
+
+            //Vector3 force = locDir.normalized;
+            
+            animalForce.AddToForce(avoidDir*2);
+        }
+        
+        Vector3 lookDir = headObject.transform.forward + (headObject.transform.right/2f);
+        if (Physics.Raycast(headObject.transform.position, lookDir, out hit, brain.animalHeight*8))
+        {
+            Debug.DrawLine(headObject.transform.position, hit.point,Color.yellow,brain.animalHeight*8);
+            //animalForce.AddToForce((-rb.transform.forward)+(transform.right/2));
+            Task.current.Succeed(); //if found no enemies
+            
+            Vector3 avoidDir;
+            avoidDir = -(hit.transform.position - headObject.transform.position);//dont normalize because need the force amounts
+            //Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
+
+            //Vector3 force = locDir.normalized;
+            
+            animalForce.AddToForce((avoidDir+(-transform.right))*3);
+        }
+        lookDir = headObject.transform.forward + ((-headObject.transform.right)/2f);
+        //lookDir = headObject.transform.forward + headObject.TransformDirection(0, 0, 30);
+        if (Physics.Raycast(headObject.transform.position, lookDir, out hit, brain.animalHeight*8))
+        {
+            Debug.DrawLine(headObject.transform.position, hit.point,Color.blue,brain.animalHeight*8);
+            //animalForce.AddToForce((-rb.transform.forward)+(transform.right/2));
+            Task.current.Succeed(); //if found no enemies
+            
+            Vector3 avoidDir;
+            avoidDir = -(hit.transform.position - headObject.transform.position);//dont normalize because need the force amounts
+            //Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
+
+            //Vector3 force = locDir.normalized;
+            
+            animalForce.AddToForce((avoidDir+transform.right)*3);
+        }
+        
+        /*
+        if (Physics.Raycast(transform.position, rb.transform.forward+new Vector3(0,30,0), out hit, brain.animalHeight*4))
+        {
+            Debug.DrawLine(transform.position, hit.point,Color.gray,brain.animalHeight*6);
+            animalForce.AddToForce((-(rb.transform.forward+new Vector3(0,30,0)))+(transform.right/2));
             Task.current.Succeed(); //if found no enemies
         }
+        */
+        /*
+        if (Physics.Raycast(transform.position, rb.transform.forward+new Vector3(0,-30,0), out hit, brain.animalHeight*4))
+        {
+            Debug.DrawRay(transform.position, rb.transform.forward+new Vector3(0,-30,0),Color.yellow);
+            animalForce.AddToForce((-(rb.transform.forward+new Vector3(0,-30,0)))+(transform.right/2));
+            Task.current.Succeed(); //if found no enemies
+        }
+        */
         
     }
 
@@ -125,7 +182,7 @@ public class AnimalBehaviours : MonoBehaviour
                     fleeDir = (rb.transform.position - obj.transform.position).normalized;
                     Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
                     locDir.y = 0;
-                    Vector3 force = locDir * brain.moveSpeed;//Add avoid forc ebased on dist
+                    Vector3 force = locDir;//Add avoid forc ebased on dist
 //                print(force);
 
                     float pushAmount = (brain.animalHeight)/distanceToCurrent;
@@ -157,7 +214,7 @@ public class AnimalBehaviours : MonoBehaviour
                 Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
                 locDir.y = 0;
 
-                Vector3 force = locDir.normalized * brain.moveSpeed;
+                Vector3 force = locDir.normalized;
                 animalForce.AddToForce(force*2);
                 animalForce.isPanicked = true;//double the force applied
                 //rb.AddRelativeForce(force*2*Time.deltaTime*100);
@@ -181,7 +238,7 @@ public class AnimalBehaviours : MonoBehaviour
                 Vector3 fleeDir = (rb.transform.position - combatAnimal.transform.position).normalized;
                 Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
                 locDir.y = 0;
-                Vector3 force = locDir * brain.moveSpeed;
+                Vector3 force = locDir;
                 animalForce.AddToForce(force * 3);
                 animalForce.isPanicked = true;//double the force applied
                 //rb.AddRelativeForce(force * 3 * Time.deltaTime * 100);
@@ -205,7 +262,7 @@ public class AnimalBehaviours : MonoBehaviour
             Vector3 fleeDir = (rb.transform.position - fromTarget.position).normalized;
             Vector3 locDir = rb.transform.InverseTransformDirection(fleeDir);
             locDir.y = 0;
-            Vector3 force = locDir * brain.moveSpeed;
+            Vector3 force = locDir;
             animalForce.AddToForce(force*2);
             animalForce.isPanicked = true;//double the force applied
             //rb.AddRelativeForce(force*2*Time.deltaTime*100);
@@ -378,7 +435,7 @@ public class AnimalBehaviours : MonoBehaviour
             Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
             locDir.y = 0;
 
-            Vector3 force = locDir.normalized * brain.moveSpeed;
+            Vector3 force = locDir.normalized;
             animalForce.AddToForce(force*2);
             //rb.AddRelativeForce(force*Time.deltaTime*100);
             Task.current.Succeed();//if found no enemies
@@ -445,7 +502,7 @@ public class AnimalBehaviours : MonoBehaviour
         if (toTarget)
         {
             float distance = Vector3.Distance(toTarget.transform.position, headObject.position);
-            if (distance < brain.animalHeight*3f)
+            if (distance < 1+(brain.animalHeight*3f))
             {
 //                print(transform.name+distance+" and "+(attackRange+brain.animalHeight));
                 Task.current.Succeed();
@@ -519,8 +576,6 @@ public class AnimalBehaviours : MonoBehaviour
         {
             brain.hunger = 100;
             Task.current.Succeed();
-//            print("eat");
-            //animalForce.AddToForce(-rb.transform.up*(brain.moveSpeed/5));
             rb.AddRelativeForce(-rb.transform.up*(brain.moveSpeed/5)*Time.deltaTime*100,ForceMode.Impulse);
             GameObject foodCanvasObj = foodCanvasPool.GetObj();
             foodCanvasObj.transform.position = toTarget.transform.position;
@@ -531,6 +586,7 @@ public class AnimalBehaviours : MonoBehaviour
             if(toTarget.parent.GetComponent<AnimalBrain>())
                 toTarget.parent.GetComponent<AnimalBrain>().foodWorth -= 1;
             toTarget = null;
+            hasEaten = true;
             
 
         }
@@ -570,6 +626,11 @@ public class AnimalBehaviours : MonoBehaviour
             questionCanvas.transform.position = headObject.transform.position+(rb.transform.up*(brain.animalHeight/2));
             toTarget = null;
             StartCoroutine(StunCoolown());
+            Task.current.Succeed();
+        }
+        else if(toTarget.gameObject == wanderObj)//investigation
+        {
+            toTarget = null;
             Task.current.Succeed();
         }
         else
@@ -703,13 +764,7 @@ public class AnimalBehaviours : MonoBehaviour
     {
         Vector3 randomPoint = headObject.position +(Random.insideUnitSphere * brain.wanderRadius);
         Vector3 tarPos = randomPoint +(rb.transform.up*brain.wanderRadius*2)+(rb.transform.forward*brain.forwardWanderBias);//+(rb.transform.forward*brain.forwardWanderBias)
-        
-        //Vector3 locTarPos = rb.transform.InverseTransformDirection(tarPos);//cancel out y
-        //locTarPos.y = 0;//cancel out vertical force
-        //tarPos = rb.transform.TransformDirection(locTarPos);//set the new cancelled related velocity
 
-        
-        
         RaycastHit hit; //shoot ray and if its ground then spawn at that location
         if (Physics.Raycast(tarPos, -rb.transform.up, out hit, 1000,layerMask))
         {

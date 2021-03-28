@@ -23,7 +23,7 @@ MonoBehaviour:
   maxHealth: 50
   maxStat: 100
   healthStarveDecrement: 0.5
-  hungerDecrement: 1
+  hungerDecrement: 2
   thirstDecrement: 0.6
   reproductiveIncrement: 13
   ageIncrement: 0.2
@@ -39,7 +39,7 @@ MonoBehaviour:
   attackRate: 0.5
   attackDamage: 3
   litterSize: 2
-  foodWorth: 2
+  foodWorth: 1
   predatorRating: 0.1
   preyRating: 0.1
   eatsPlants: 1
@@ -54,3 +54,6 @@ MonoBehaviour:
   footstep: {fileID: 8300000, guid: 80239785e252f734a942b4bd5c1b91e1, type: 3}
   attack: {fileID: 8300000, guid: 8cc35f8847e95874bb8a55041ab9290f, type: 3}
   ambient: {fileID: 8300000, guid: 7aba57f15b0ad374da030dc914a19472, type: 3}
+  hungerThresh: 50
+  thirstThresh: 50
+  mateThresh: 90

@@ -58,6 +58,10 @@ public class AnimalProfile : ScriptableObject
     public AudioClip attack;
     public AudioClip ambient;
     
+    public float hungerThresh = 50;
+    public float thirstThresh = 50;
+    public float mateThresh = 90;
+    
     
     
 }

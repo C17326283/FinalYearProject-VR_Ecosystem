@@ -278,6 +278,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carrot
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 362717216af368c40a75ea987ef9cb2a, type: 3}
+      propertyPath: m_TagString
+      value: Food
+      objectReference: {fileID: 0}
     - target: {fileID: 1893194068992980029, guid: 362717216af368c40a75ea987ef9cb2a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

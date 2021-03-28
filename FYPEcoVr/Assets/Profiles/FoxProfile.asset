@@ -25,7 +25,7 @@ MonoBehaviour:
   healthStarveDecrement: 0.5
   hungerDecrement: 1.5
   thirstDecrement: 0.8
-  reproductiveIncrement: 5
+  reproductiveIncrement: 3
   ageIncrement: 0.2
   memoryLossRate: 1000
   sensoryRange: 350
@@ -54,3 +54,6 @@ MonoBehaviour:
   footstep: {fileID: 8300000, guid: 80239785e252f734a942b4bd5c1b91e1, type: 3}
   attack: {fileID: 8300000, guid: 3f29a9097edf7354f8edc5560c836735, type: 3}
   ambient: {fileID: 8300000, guid: bfb855cad41789e449df1af1775c543b, type: 3}
+  hungerThresh: 50
+  thirstThresh: 50
+  mateThresh: 90
