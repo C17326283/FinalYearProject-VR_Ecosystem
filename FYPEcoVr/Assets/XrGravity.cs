@@ -11,8 +11,6 @@ public class XrGravity : MonoBehaviour
     public float gravForce = 100;
 
     public float maxHeightFromSurface = 150;
-    public JetPack jetPackController1;
-    public JetPack jetPackController2;
     
     private int layerMask;
     
@@ -24,8 +22,8 @@ public class XrGravity : MonoBehaviour
         if (core == null)
         {
             core = GameObject.Find("Core");
-            hasCore = true;
         }
+        hasCore = true;
         
         layerMask = 1 << 8;
 
@@ -37,9 +35,29 @@ public class XrGravity : MonoBehaviour
         
         //If ground
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, gravityDir, out hit, maxHeightFromSurface*4, layerMask))
+        if (Physics.Raycast(transform.position, gravityDir, out hit, maxHeightFromSurface*2, layerMask))
         {
-            rigRb.AddForce(gravityDir * (gravForce * Time.deltaTime));
+            if (hit.transform.CompareTag("WaterMesh")) //if its water player may be under land 
+            {
+                //shoot another ray from above to test if underground
+                RaycastHit rayHit;
+                if (Physics.Raycast(transform.position+(transform.up*100), gravityDir, out rayHit, maxHeightFromSurface*2, layerMask))
+                {
+                    if (hit.transform.CompareTag("Ground"))
+                    {
+                        rigRb.velocity = Vector3.zero;
+                        rigRb.transform.position += rigRb.transform.up;//Add slight bit up so can eventually get back onto ground
+                    }
+                    else
+                    {
+                        rigRb.AddForce(gravityDir * (gravForce * Time.deltaTime));
+                    }
+                }
+            }
+            else
+            {
+                rigRb.AddForce(gravityDir * (gravForce * Time.deltaTime));
+            }
 
             //If not too high then allow jetpack to get higher
             if (hit.distance < maxHeightFromSurface)

@@ -17662,8 +17662,7 @@ MonoBehaviour:
   core: {fileID: 0}
   gravForce: 100
   maxHeightFromSurface: 100
-  jetPackController1: {fileID: 1643953622}
-  jetPackController2: {fileID: 1292429032}
+  rayStartHeight: 150
   hasCore: 0
   allowedFly: 1
 --- !u!1 &626277196884998058

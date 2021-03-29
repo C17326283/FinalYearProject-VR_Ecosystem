@@ -1598,10 +1598,9 @@ MonoBehaviour:
   minScale: 3
   maxScale: 5
   randomXZTilt: 2
-  biomeObjs: []
-  biomeDist: 500
   usesLOD: 1
   screenPercentLODCull: 2.5
+  biomeManager: {fileID: 0}
 --- !u!114 &223584067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5213,10 +5212,9 @@ MonoBehaviour:
   minScale: 2
   maxScale: 3
   randomXZTilt: 3
-  biomeObjs: []
-  biomeDist: 500
   usesLOD: 1
   screenPercentLODCull: 2
+  biomeManager: {fileID: 0}
 --- !u!1 &781846870
 GameObject:
   m_ObjectHideFlags: 0
@@ -8843,7 +8841,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1140478013
 Transform:
   m_ObjectHideFlags: 0
@@ -9636,10 +9634,9 @@ MonoBehaviour:
   minScale: 0.1
   maxScale: 0.2
   randomXZTilt: 2
-  biomeObjs: []
-  biomeDist: 500
   usesLOD: 1
   screenPercentLODCull: 1
+  biomeManager: {fileID: 0}
 --- !u!114 &1219441157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10671,10 +10668,9 @@ MonoBehaviour:
   minScale: 2
   maxScale: 4
   randomXZTilt: 3
-  biomeObjs: []
-  biomeDist: 500
   usesLOD: 1
   screenPercentLODCull: 1.5
+  biomeManager: {fileID: 0}
 --- !u!114 &1384593978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13918,10 +13914,9 @@ MonoBehaviour:
   minScale: 2
   maxScale: 4
   randomXZTilt: 3
-  biomeObjs: []
-  biomeDist: 500
   usesLOD: 1
   screenPercentLODCull: 2
+  biomeManager: {fileID: 0}
 --- !u!1 &1796096449
 GameObject:
   m_ObjectHideFlags: 0
@@ -16581,10 +16576,9 @@ MonoBehaviour:
   minScale: 1
   maxScale: 7
   randomXZTilt: 5
-  biomeObjs: []
-  biomeDist: 500
   usesLOD: 1
   screenPercentLODCull: 3
+  biomeManager: {fileID: 0}
 --- !u!114 &2125029175
 MonoBehaviour:
   m_ObjectHideFlags: 0

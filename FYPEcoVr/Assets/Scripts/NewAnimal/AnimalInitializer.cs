@@ -233,16 +233,15 @@ public class AnimalInitializer : MonoBehaviour
         headTargeter.behaviourTargeting = behaviours;
 
         behaviourTreeManager = movementOriginObj.gameObject.AddComponent<BehaviourTree>();
-
         behaviourTreeManager.scripts = btTexts;
         behaviourTreeManager.tickOn = BehaviourTree.UpdateOrder.Update;
-        //        behaviourTreeManager.Apply();//This is the thing to fix
         
         animalForce = movementOriginObj.AddComponent<AnimalForce>();
         animalForce.rb = rb;
         animalForce.brain = brain;
+        
         behaviours.animalForce = animalForce;
-        brain.behaviours = behaviours;
+        
     }
 
     void SetLife()
@@ -250,7 +249,11 @@ public class AnimalInitializer : MonoBehaviour
         life = movementOriginObj.gameObject.AddComponent<AnimalLife>();
         life.brain = brain;
         life.core = core;
+        life.behaviours = behaviours;
+        
+        behaviours.life = life;
 
+        
 
     }
 
@@ -383,7 +386,7 @@ public class AnimalInitializer : MonoBehaviour
                 distDisabler.animalHolder = transform.gameObject;
                 distDisabler.bt = behaviourTreeManager;
                 distDisabler.enabled = true;
-                brain.distDisabler = distDisabler;//for turning off on death
+                life.distDisabler = distDisabler;//for turning off on death
                 checks = 100;//exit
                 transform.gameObject.SetActive(false);//disable to begin with for loading
             }

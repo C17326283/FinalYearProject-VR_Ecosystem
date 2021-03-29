@@ -64,8 +64,6 @@ public class AnimalBrain : MonoBehaviour
     public float animalHeight;
     public float animalLength;
     
-    [Header("Canvas")]
-    public ObjectPool deathCanvasPool;
 
     [Header("Parents")]
     public AnimalBrain mother;
@@ -76,20 +74,15 @@ public class AnimalBrain : MonoBehaviour
     public List<GameObject> forgettingObjs = new List<GameObject>();//List for objects that animal is no longer touching but are still in memory
 
     
-    public float timeTillAdult= 60;
-    private bool hasDied = false;
-    public AnimalDistanceDisabler distDisabler;
-
     public float bounceMult = 1;
-
-    public AnimalBehaviours behaviours;
     
 
     void Awake()
     {
         objSensedMemory = new List<GameObject>();
         forgettingObjs = new List<GameObject>();
-        deathCanvasPool = GameObject.Find("DeathCanvasPool").GetComponent<ObjectPool>();
+        //SetStatsFromDNA();
+        //Born();
     }
 
     // Start is called before the first frame update
@@ -98,109 +91,38 @@ public class AnimalBrain : MonoBehaviour
         SetStatsFromDNA();
         Born();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (transform.parent.gameObject.activeInHierarchy) //only update and check if animal manager active
-        {
-            hunger = hunger - hungerDecrement * Time.deltaTime; // div 100 to keep it within normal numbers for testing
-            thirst = thirst - thirstDecrement * Time.deltaTime;
-            age += ageIncrement * Time.deltaTime;
-            if (hunger < 0 || thirst < 0)
-                health -= 0.01f;
-
-
-            //Dont immediately reproduce
-            if (age > deathAge / 10 && behaviours.hasEaten)
-                reproductiveUrge = reproductiveUrge + reproductiveIncrement * Time.deltaTime;
-
-            if ((health <= 0 || age > deathAge) && !hasDied) //if died and hasnt triggered already
-            {
-                health = -1;
-                Die();
-            }
-        }
-    }
-
-    public void GiveBirth(AnimalBrain motherBrain, AnimalBrain fatherBrain)
-    {
-        GameObject babyHolder = new GameObject(motherBrain.name+",Gen:"+motherBrain.generation+1);
-        Transform transf = transform;
-        babyHolder.transform.parent = transf.parent.parent;//the overall holder not the initialiser
-        babyHolder.transform.localRotation = Quaternion.Euler(0, Random.Range(-180,180), 0);
-        babyHolder.transform.position = transf.position+(-transf.forward*animalLength);
-        AnimalInitializer initializer = babyHolder.AddComponent<AnimalInitializer>();
-        initializer.animalDNA = animalBaseDNA;
-        initializer.btTexts = transform.parent.GetComponent<AnimalInitializer>().btTexts;//copy current ones
-        initializer.InitialiseAnimal();
-        //todo optimise
-        initializer.brain.mother = motherBrain;
-        initializer.brain.father = fatherBrain;
-        
-
-    }
-
-    public void Die()
-    {
-        hasDied = true;
-        this.GetComponent<BehaviourTree>().enabled = false;//disable ai
-        //this.GetComponent<Rigidbody>().freezeRotation = false;
-        GameObject deathCanvas = deathCanvasPool.GetObj();
-        deathCanvas.transform.position = this.transform.position;
-        animalHeight = -5;
-        transform.right = transform.up;//Lay on side
-        gameObject.GetComponent<AnimalGravity>().animalHeight = -5;//Collapse to ground
-        gameObject.GetComponentInChildren<HeadLook>().enabled = false;
-        gameObject.GetComponentInChildren<AnimalAudioManager>().enabled = false;
-        
-
-        StartCoroutine(SetInactive(30));//Maybe destroy or pool on death instead
-    }
-
-    IEnumerator SetInactive(float time)
-    {
-        yield return new WaitForSeconds(time);//wait specific time
-        gameObject.GetComponent<Collider>().enabled = false;//fall through floor
-        foodWorth = -1;//so it wont be targeted anymore
-        yield return new WaitForSeconds(1);
-
-        gameObject.GetComponentInParent<AnimalInitializer>().gameObject.SetActive(false);
-        distDisabler.CancelCheck();
-        distDisabler.enabled = false;
-        gameObject.SetActive(false);
-    }
-
+    
     public void Born()
     {
         //Need a better mating system with father and mother and get a base stat based on the 2 of them
-          health = maxHealth;
-          hunger = maxStat;
-          thirst = maxStat;
-          reproductiveUrge = 0;
-          age = 0;
-          generation = 1;
-          genderIsMale = (Random.value > 0.5f);//random.value returns 0 to 1 so returns true or false with 50/50 odds
+        health = maxHealth;
+        hunger = maxStat;
+        thirst = maxStat;
+        reproductiveUrge = 0;
+        age = 0;
+        generation = 1;
+        genderIsMale = (Random.value > 0.5f);//random.value returns 0 to 1 so returns true or false with 50/50 odds
           
-          //If has parents then mutate instead of doing default 
-          if (mother != null)
-          {
-              if (mother.generation >= father.generation)
-                  generation = mother.generation + 1;
-              else
-                  generation = father.generation + 1;
-              MutateStats();
-          }
-          else
-          {
-              //Set self as parent so it can have a mutation on first generation for more interest
-              SetStatsFromDNA();
-              mother = GetComponent<AnimalBrain>();
-              father = GetComponent<AnimalBrain>();
-              MutateStats();
-          }
+        //If has parents then mutate instead of doing default 
+        if (mother != null)
+        {
+            if (mother.generation >= father.generation)
+                generation = mother.generation + 1;
+            else
+                generation = father.generation + 1;
+            MutateStats();
+        }
+        else
+        {
+            //Set self as parent so it can have a mutation on first generation for more interest
+            SetStatsFromDNA();
+            mother = GetComponent<AnimalBrain>();
+            father = GetComponent<AnimalBrain>();
+            MutateStats();
+        }
     }
-    
+
+
 
     public void MutateStats()
     {

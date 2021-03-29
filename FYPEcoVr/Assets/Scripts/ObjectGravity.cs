@@ -34,13 +34,39 @@ public class ObjectGravity : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, gravityDir, out hit, 100, layerMask))
         {
-            rb.AddForce(gravityDir * (gravForce * Time.deltaTime));
+            //Is above ground add gravity
+            if (hit.transform.CompareTag("Ground"))
+            {
+                rb.AddForce(gravityDir * (gravForce * Time.deltaTime));
+            }
+            else//is above water but may be under ground
+            {
+                FixPos();
+            }
+
         }
         else
         {
-            rb.AddForce(-gravityDir * ((gravForce/10) * Time.deltaTime));
+            FixPos();
         }
 
+    }
+    
+    public void FixPos()
+    {
+        RaycastHit rayHit;
+        if (Physics.Raycast(transform.position + (-gravityDir * 100), gravityDir, out rayHit, 200, layerMask))
+        {
+            if (rayHit.transform.CompareTag("Ground"))
+            {
+                transform.position = rayHit.point;
+                rb.velocity = Vector3.zero;
+            }
+        }
+        else
+        {
+            rb.AddForce(gravityDir * (gravForce * Time.deltaTime));
+        }
     }
 
     private void OnEnable()

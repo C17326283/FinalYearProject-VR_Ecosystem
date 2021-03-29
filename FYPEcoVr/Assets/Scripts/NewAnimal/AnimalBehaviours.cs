@@ -10,6 +10,7 @@ using Random = UnityEngine.Random;
 public class AnimalBehaviours : MonoBehaviour
 {
     public AnimalBrain brain;
+    public AnimalLife life;
     public AnimalGravity gravityScript;
     
     //use these by reference instead
@@ -606,7 +607,7 @@ public class AnimalBehaviours : MonoBehaviour
             toTarget.GetComponent<AnimalBrain>().reproductiveUrge = 0;
             for (int i = 0; i < amountToSpawn; i++)
             {
-                brain.GiveBirth(brain,toTarget.GetComponent<AnimalBrain>());
+                life.GiveBirth(brain,toTarget.GetComponent<AnimalBrain>());
             }
             Task.current.Succeed();
             toTarget = null;
