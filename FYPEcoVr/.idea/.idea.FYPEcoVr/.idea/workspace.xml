@@ -21,16 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1c86a74b-a54b-44cd-a93d-b82d2bbe20ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/XR Rig.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/XR Rig.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/VRPlanet.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/VRPlanet.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBrain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalLife.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalLife.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ObjectGravity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ObjectGravity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XrGravity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XrGravity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/JetPack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/JetPack.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,6 +40,7 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/UnityVersions/2020.2.3f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/InputModules/BaseInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@1.0.0-pre.2/Runtime/Interaction/Interactables/XRBaseInteractable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/UnityVersions/2020.2.3f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@1.0.0-pre.2/Runtime/Inputs/InputActionManager.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -91,7 +84,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2.txt" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Vr/TeleporterController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FinGenSequence.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/JetPack.cs" />
         <option value="$PROJECT_DIR$/Assets/Scenes/Scripts/JetPack.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/AnimalsSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/BiomeManager.cs" />
@@ -103,6 +95,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalLife.cs" />
         <option value="$PROJECT_DIR$/Assets/XrGravity.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ObjectGravity.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/JetPack.cs" />
       </list>
     </option>
   </component>
@@ -226,7 +219,7 @@
       <workItem from="1616850001228" duration="21199000" />
       <workItem from="1616933865818" duration="28950000" />
       <workItem from="1617021451267" duration="7511000" />
-      <workItem from="1617048177462" duration="9205000" />
+      <workItem from="1617048177462" duration="12401000" />
     </task>
     <servers />
   </component>

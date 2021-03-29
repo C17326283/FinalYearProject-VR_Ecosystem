@@ -17,6 +17,8 @@ public class JetPack : MonoBehaviour
     public float gripValue;
     public ParticleSystem particles;
     public int particleRateAtStart;
+    public AudioSource audioSource;
+    
 
 
     // Start is called before the first frame update
@@ -34,23 +36,26 @@ public class JetPack : MonoBehaviour
         particles = controller.GetComponent<ParticleSystem>();
         particleRateAtStart = particles.main.maxParticles;
 
-        
+
     }
 
     private void Update()
     {
+        var particlesMain = particles.main;
         if (gameObject.activeInHierarchy && rigGravity.allowedFly && rigGravity.hasCore && particles)
         {
             rigRb.AddForce(controller.transform.forward * ((gripValue*jetForce) * Time.deltaTime));
+            audioSource.volume = gripValue/2;
             
-            var particlesMain = particles.main;
-            particlesMain.maxParticles = Mathf.CeilToInt(gripValue*particleRateAtStart);
+            particlesMain.maxParticles = Mathf.FloorToInt(gripValue*particleRateAtStart);
 
 //            print("gripValue*jetForce"+(gripValue*jetForce));
         }
         else
         {
             gripValue = 0;
+            particlesMain.maxParticles = 0;
+            audioSource.volume = 0;
             //Vector3 locVel = rigRb.transform.InverseTransformDirection(rigRb.velocity);//Find velocity in relation to an object oriented to ground
             //locVel.y = locVel.y*0.99f;//lower the vel exponentially rather than cancelling because that is jarring
             //rigRb.velocity = rigRb.transform.TransformDirection(locVel);//set the new cancelled related velocity
