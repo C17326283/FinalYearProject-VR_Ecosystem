@@ -35,14 +35,13 @@ public class RandomGenSpawner : MonoBehaviour
     public float randomXZTilt = 2f;
 
     private GameObject newObj;//declare here so can edit in reposition
-    public GameObject[] biomeObjs;
-    public float biomeDist=1000;//set dynamicallu
 
     // Start is called before the first frame update
 
 
     public bool usesLOD = true;
     public float screenPercentLODCull = 4;
+    public BiomeManager biomeManager;
     
     
 
@@ -98,27 +97,22 @@ public class RandomGenSpawner : MonoBehaviour
                 newObj = null;
                 
                 RaycastHit hit = hitOnPlanet.Value;
+                
                 //Find which biome object to spawn
-                bool foundSpecificBiome = false;
-                for (int j = 0; j < biomeObjs.Length - 1; j++)
+                String biome = biomeManager.GetClosestBiome(hit.point);
+                
+                if(biome =="Desert")
                 {
-                    float dist = Vector3.Distance(biomeObjs[j].transform.position, hit.point);
-                    if (dist < biomeDist)
-                    {
-                        foundSpecificBiome = true;
-                        if (j < 2) //winter
-                        {
-                            newObj = coldObjectPoolObj.GetObj();
-                        }
-                        else
-                        {
-                            newObj = warmObjectPoolObj.GetObj();
-                        }
-                    }
+                    newObj = warmObjectPoolObj.GetObj();
                 }
-
-                if (foundSpecificBiome == false)
+                else if(biome =="Winter")
+                {
+                    newObj = coldObjectPoolObj.GetObj();
+                }
+                else
+                {
                     newObj = normalObjectPoolObj.GetObj();
+                }
 
 
 

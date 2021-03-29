@@ -212,6 +212,8 @@ public class PlanetSpawner : MonoBehaviour
         print("planet gen "+Time.time);
         GameObject core = new GameObject("Core");
         GetPointOnPlanet getPointOnPlanetFinder = core.AddComponent<GetPointOnPlanet>();
+        BiomeManager biomeManager = core.AddComponent<BiomeManager>();
+        biomeManager.biomeObjs = planetScript.biomeObjs;
         SunAngle sunAngle = core.AddComponent<SunAngle>();
 
         //add atmosphere
@@ -231,7 +233,7 @@ public class PlanetSpawner : MonoBehaviour
                 GameObject holder = new GameObject("holder");
                 sp.parentObject = holder.gameObject;
                 sp.planetObject = this.gameObject;
-                sp.biomeObjs = planetScript.biomeObjs;
+                sp.biomeManager = biomeManager;
                 sp.getPointOnPlanetFinder = getPointOnPlanetFinder;
                 if (sp.isRotatingObject)
                     holder.AddComponent<RotateEnvironment>();

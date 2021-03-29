@@ -9514,6 +9514,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1728486592, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1728486592, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: maxHeightFromSurface
       value: 150
       objectReference: {fileID: 0}

@@ -83,7 +83,7 @@ public class AnimalBrain : MonoBehaviour
     public float bounceMult = 1;
 
     public AnimalBehaviours behaviours;
-
+    
 
     void Awake()
     {

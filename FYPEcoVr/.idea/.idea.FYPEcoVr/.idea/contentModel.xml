@@ -264,73 +264,72 @@
             </e>
           </e>
         </e>
-        <e p="Scenes" t="Include">
-          <e p="Scripts" t="Include">
-            <e p="AltBehaviours.cs" t="Include" />
-            <e p="AnimalStatDisplay.cs" t="Include" />
-            <e p="AutoGen.cs" t="Include" />
-            <e p="Cam.cs" t="Include" />
-            <e p="CustomHandController.cs" t="Include" />
-            <e p="DeactivateAfterTime.cs" t="Include" />
-            <e p="Escape.cs" t="Include" />
-            <e p="FacePlayer.cs" t="Include" />
-            <e p="FinGenSequence.cs" t="Include" />
-            <e p="Food.cs" t="Include" />
-            <e p="GameManager.cs" t="Include" />
-            <e p="GravityMovement.cs" t="Include" />
-            <e p="HolsterAttach.cs" t="Include" />
-            <e p="JetPack.cs" t="Include" />
-            <e p="LightAtAngle.cs" t="Include" />
-            <e p="LookAtLerp.cs" t="Include" />
-            <e p="ManualButtonTrigger.cs" t="Include" />
-            <e p="NewAnimal" t="Include">
-              <e p="AnimalAudioManager.cs" t="Include" />
-              <e p="AnimalBehaviours.cs" t="Include" />
-              <e p="AnimalBrain.cs" t="Include" />
-              <e p="AnimalBT2.txt" t="Include" />
-              <e p="AnimalBT2Backup2.txt" t="Include" />
-              <e p="AnimalDistanceDisabler.cs" t="Include" />
-              <e p="AnimalFeetPositioner.cs" t="Include" />
-              <e p="AnimalForce.cs" t="Include" />
-              <e p="AnimalGravity.cs" t="Include" />
-              <e p="AnimalGroundVelocityOrienter.cs" t="Include" />
-              <e p="AnimalInitializer.cs" t="Include" />
-              <e p="AnimalLife.cs" t="Include" />
-              <e p="AnimalProfile.cs" t="Include" />
-              <e p="AnimalSenses.cs" t="Include" />
-              <e p="HeadLook.cs" t="Include" />
-              <e p="SpineAnimator.cs" t="Include" />
-              <e p="SpineAnimatorManager.cs" t="Include" />
-              <e p="SpineNew.cs" t="Include" />
-            </e>
-            <e p="ObjectGravity.cs" t="Include" />
-            <e p="PlanetGeneration" t="Include">
-              <e p="AnimalsSpawner.cs" t="Include" />
-              <e p="CoastPointSpawner.cs" t="Include" />
-              <e p="ColourGenerator.cs" t="Include" />
-              <e p="GetPointOnPlanet.cs" t="Include" />
-              <e p="Noise.cs" t="Include" />
-              <e p="NoiseLayer.cs" t="Include" />
-              <e p="ObjectPool.cs" t="Include" />
-              <e p="ObjSpawnManager.cs" t="Include" />
-              <e p="PlanetSettings.cs" t="Include" />
-              <e p="PlanetSpawner.cs" t="Include" />
-              <e p="PlanetTerrainGenerator.cs" t="Include" />
-              <e p="RandomGenSpawner.cs" t="Include" />
-              <e p="RotateEnvironment.cs" t="Include" />
-              <e p="TerrainFace.cs" t="Include" />
-              <e p="TerrainMinMaxHeights.cs" t="Include" />
-            </e>
-            <e p="SettingsControl.cs" t="Include" />
-            <e p="SpawnEnvironmentInRange.cs" t="Include" />
-            <e p="StatCanvasManager.cs" t="Include" />
-            <e p="SunAngle.cs" t="Include" />
-            <e p="TakeScreenshot.cs" t="Include" />
+        <e p="Scripts" t="Include">
+          <e p="AltBehaviours.cs" t="Include" />
+          <e p="AnimalStatDisplay.cs" t="Include" />
+          <e p="AutoGen.cs" t="Include" />
+          <e p="Cam.cs" t="Include" />
+          <e p="CustomHandController.cs" t="Include" />
+          <e p="DeactivateAfterTime.cs" t="Include" />
+          <e p="Escape.cs" t="Include" />
+          <e p="FacePlayer.cs" t="Include" />
+          <e p="FinGenSequence.cs" t="Include" />
+          <e p="Food.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
+          <e p="GravityMovement.cs" t="Include" />
+          <e p="HolsterAttach.cs" t="Include" />
+          <e p="JetPack.cs" t="Include" />
+          <e p="LightAtAngle.cs" t="Include" />
+          <e p="LookAtLerp.cs" t="Include" />
+          <e p="ManualButtonTrigger.cs" t="Include" />
+          <e p="NewAnimal" t="Include">
+            <e p="AnimalAudioManager.cs" t="Include" />
+            <e p="AnimalBehaviours.cs" t="Include" />
+            <e p="AnimalBrain.cs" t="Include" />
+            <e p="AnimalBT2.txt" t="Include" />
+            <e p="AnimalBT2Backup2.txt" t="Include" />
+            <e p="AnimalDistanceDisabler.cs" t="Include" />
+            <e p="AnimalFeetPositioner.cs" t="Include" />
+            <e p="AnimalForce.cs" t="Include" />
+            <e p="AnimalGravity.cs" t="Include" />
+            <e p="AnimalGroundVelocityOrienter.cs" t="Include" />
+            <e p="AnimalInitializer.cs" t="Include" />
+            <e p="AnimalLife.cs" t="Include" />
+            <e p="AnimalProfile.cs" t="Include" />
+            <e p="AnimalSenses.cs" t="Include" />
+            <e p="HeadLook.cs" t="Include" />
+            <e p="SpineAnimator.cs" t="Include" />
+            <e p="SpineAnimatorManager.cs" t="Include" />
+            <e p="SpineNew.cs" t="Include" />
+          </e>
+          <e p="ObjectGravity.cs" t="Include" />
+          <e p="PlanetGeneration" t="Include">
+            <e p="AnimalsSpawner.cs" t="Include" />
+            <e p="BiomeManager.cs" t="Include" />
+            <e p="CoastPointSpawner.cs" t="Include" />
+            <e p="ColourGenerator.cs" t="Include" />
+            <e p="GetPointOnPlanet.cs" t="Include" />
+            <e p="Noise.cs" t="Include" />
+            <e p="NoiseLayer.cs" t="Include" />
+            <e p="ObjectPool.cs" t="Include" />
+            <e p="ObjSpawnManager.cs" t="Include" />
+            <e p="PlanetSettings.cs" t="Include" />
+            <e p="PlanetSpawner.cs" t="Include" />
+            <e p="PlanetTerrainGenerator.cs" t="Include" />
+            <e p="RandomGenSpawner.cs" t="Include" />
+            <e p="RotateEnvironment.cs" t="Include" />
+            <e p="TerrainFace.cs" t="Include" />
+            <e p="TerrainMinMaxHeights.cs" t="Include" />
+          </e>
+          <e p="SettingsControl.cs" t="Include" />
+          <e p="SpawnEnvironmentInRange.cs" t="Include" />
+          <e p="StatCanvasManager.cs" t="Include" />
+          <e p="SunAngle.cs" t="Include" />
+          <e p="TakeScreenshot.cs" t="Include" />
+          <e p="Vr" t="Include">
+            <e p="HandController.cs" t="Include" />
+            <e p="TeleporterController.cs" t="Include" />
             <e p="TeleportPlanetOrienter.cs" t="Include" />
-            <e p="Vr" t="Include">
-              <e p="HandController.cs" t="Include" />
-              <e p="TeleporterController.cs" t="Include" />
-            </e>
           </e>
         </e>
         <e p="XrGravity.cs" t="Include" />

@@ -32,6 +32,7 @@ public class AnimalInitializer : MonoBehaviour
     [HideInInspector]
     public AnimalBrain brain;//manages memory and senses
     public AnimalBehaviours behaviours;//The behaviours uses by behaviour tree
+    public AnimalLife life;
     [HideInInspector]
     public BehaviourTree behaviourTreeManager;
     public AnimalGravity animalGravity;
@@ -46,7 +47,7 @@ public class AnimalInitializer : MonoBehaviour
     public AudioMixer audioMixer;
 
     public AnimalForce animalForce;
-
+    
     // Start is called before the first frame update
     void Awake()
     {
@@ -83,6 +84,7 @@ public class AnimalInitializer : MonoBehaviour
         SetAudio();
         SetPositioners();
         SetAI();
+        SetLife();
         //brain.animalHeight = animalHeight;
         //brain.animalLength = animalLength;
         SetSenses();
@@ -221,10 +223,7 @@ public class AnimalInitializer : MonoBehaviour
     {
         brain.animalBaseDNA = animalDNA;
         
-        if (GetComponent<AnimalBehaviours>() == null) //incase i have it attached for testing
-            behaviours = movementOriginObj.gameObject.AddComponent<AnimalBehaviours>(); //todo get a way to add this at runtime
-        else
-            behaviours = GetComponent<AnimalBehaviours>();
+        behaviours = movementOriginObj.gameObject.AddComponent<AnimalBehaviours>();
         behaviours.brain = brain;
         //Pool object are got from a find in the scene on awake
         behaviours.audioManager = audioManager;
@@ -233,10 +232,7 @@ public class AnimalInitializer : MonoBehaviour
         HeadLook headTargeter = head.AddComponent<HeadLook>();
         headTargeter.behaviourTargeting = behaviours;
 
-        if (GetComponent<BehaviourTree>() == null) //incase i have it attached for testing
-            behaviourTreeManager = movementOriginObj.gameObject.AddComponent<BehaviourTree>(); //todo get a way to add this at runtime
-        else
-            behaviourTreeManager = GetComponent<BehaviourTree>();
+        behaviourTreeManager = movementOriginObj.gameObject.AddComponent<BehaviourTree>();
 
         behaviourTreeManager.scripts = btTexts;
         behaviourTreeManager.tickOn = BehaviourTree.UpdateOrder.Update;
@@ -249,7 +245,16 @@ public class AnimalInitializer : MonoBehaviour
         brain.behaviours = behaviours;
     }
 
-    
+    void SetLife()
+    {
+        life = movementOriginObj.gameObject.AddComponent<AnimalLife>();
+        life.brain = brain;
+        life.core = core;
+
+
+    }
+
+
 
     void SetPositioners()
     {

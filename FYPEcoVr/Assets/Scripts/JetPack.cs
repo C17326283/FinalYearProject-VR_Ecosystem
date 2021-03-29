@@ -54,7 +54,7 @@ public class JetPack : MonoBehaviour
             //Vector3 locVel = rigRb.transform.InverseTransformDirection(rigRb.velocity);//Find velocity in relation to an object oriented to ground
             //locVel.y = locVel.y*0.99f;//lower the vel exponentially rather than cancelling because that is jarring
             //rigRb.velocity = rigRb.transform.TransformDirection(locVel);//set the new cancelled related velocity
-            rigRb.velocity = rigRb.velocity * 0.99f;
+            rigRb.velocity = rigRb.velocity * 0.99f;//This lowers it by 1% every frame to avoid the playerhaving a harsh stop
 
         }
     }
