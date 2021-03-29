@@ -7,42 +7,54 @@ using UnityEngine.InputSystem;
 public class JetPack : MonoBehaviour
 {
     public GameObject rig;
-    public Rigidbody rigRb;
+    private Rigidbody rigRb;
+    private XrGravity rigGravity;
     public float jetForce = 100;
     public Transform controller;
     
     [SerializeField] InputActionReference controllerActionGrip;
     
     public float gripValue;
+    public ParticleSystem particles;
+    public int particleRateAtStart;
 
-    public bool allowedFly = true;
 
     // Start is called before the first frame update
     void Awake()
     {
+        rigRb = rig.GetComponent<Rigidbody>();
+        rigGravity = rig.GetComponent<XrGravity>();
+
         //Create interactions for new input system
         controllerActionGrip.action.performed += GripPress;
         controllerActionGrip.action.canceled += GripCancel;
         if(controller==null)
             controller = this.transform;
+        
+        particles = controller.GetComponent<ParticleSystem>();
+        particleRateAtStart = particles.main.maxParticles;
 
         
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (gameObject.activeInHierarchy && allowedFly)
+        if (gameObject.activeInHierarchy && rigGravity.allowedFly && rigGravity.hasCore && particles)
         {
-            rigRb.AddForce(controller.transform.up * ((gripValue*jetForce) * Time.deltaTime));
-        
+            rigRb.AddForce(controller.transform.forward * ((gripValue*jetForce) * Time.deltaTime));
+            
+            var particlesMain = particles.main;
+            particlesMain.maxParticles = Mathf.CeilToInt(gripValue*particleRateAtStart);
+
 //            print("gripValue*jetForce"+(gripValue*jetForce));
         }
         else
         {
             gripValue = 0;
-            Vector3 locVel = rigRb.transform.InverseTransformDirection(rigRb.velocity);//Find velocity in relation to an object oriented to ground
-            locVel.y = locVel.y*0.99f;//lower the vel exponentially rather than cancelling because that is jarring
-            rigRb.velocity = rigRb.transform.TransformDirection(locVel);//set the new cancelled related velocity
+            //Vector3 locVel = rigRb.transform.InverseTransformDirection(rigRb.velocity);//Find velocity in relation to an object oriented to ground
+            //locVel.y = locVel.y*0.99f;//lower the vel exponentially rather than cancelling because that is jarring
+            //rigRb.velocity = rigRb.transform.TransformDirection(locVel);//set the new cancelled related velocity
+            rigRb.velocity = rigRb.velocity * 0.99f;
 
         }
     }

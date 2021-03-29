@@ -16,10 +16,17 @@ public class XrGravity : MonoBehaviour
     
     private int layerMask;
     
+    public bool hasCore = false;//Making sure not in starting room
+    public bool allowedFly = true;//Is above ground and not too high
+    
     void OnEnable()
     {
-        if(core==null)
+        if (core == null)
+        {
             core = GameObject.Find("Core");
+            hasCore = true;
+        }
+        
         layerMask = 1 << 8;
 
         
@@ -38,14 +45,13 @@ public class XrGravity : MonoBehaviour
             if (hit.distance < maxHeightFromSurface)
             {
 //                print("current height"+hit.distance);
-                jetPackController1.allowedFly = true;
-                jetPackController2.allowedFly = true;
+                allowedFly = true;
             }
             else
             {
+                
  //               print("cancel fly");
-                jetPackController1.allowedFly = false;
-                jetPackController2.allowedFly = false;
+                allowedFly = false;
             }
         }
         else//starting to fall through ground so cancel vel
