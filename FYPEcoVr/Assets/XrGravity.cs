@@ -29,36 +29,40 @@ public class XrGravity : MonoBehaviour
 
         
     }
+    
+    public void CheckGroundPos()
+    {
+        //if ray hits anything above
+        RaycastHit rayHit;
+        if (Physics.Raycast(transform.position + (-gravityDir * (maxHeightFromSurface*2)), gravityDir, out rayHit, maxHeightFromSurface*2, layerMask))
+        {
+            transform.position = rayHit.point;
+            rigRb.velocity = Vector3.zero;
+        }
+        else
+        {
+            rigRb.AddForce(gravityDir * (gravForce * Time.deltaTime));
+        }
+    }
+    
     void FixedUpdate()
     {
         gravityDir = (core.transform.position - transform.position).normalized; //todo flip dir
-        
-        //If ground
+        //If abovce groudn then add gravity else push back up above ground
         RaycastHit hit;
         if (Physics.Raycast(transform.position, gravityDir, out hit, maxHeightFromSurface*2, layerMask))
         {
-            if (hit.transform.CompareTag("WaterMesh")) //if its water player may be under land 
+            //Is above ground add gravity
+            if (hit.transform.CompareTag("Ground"))
             {
-                //shoot another ray from above to test if underground
-                RaycastHit rayHit;
-                if (Physics.Raycast(transform.position+(transform.up*100), gravityDir, out rayHit, maxHeightFromSurface*2, layerMask))
-                {
-                    if (hit.transform.CompareTag("Ground"))
-                    {
-                        rigRb.velocity = Vector3.zero;
-                        rigRb.transform.position += rigRb.transform.up;//Add slight bit up so can eventually get back onto ground
-                    }
-                    else
-                    {
-                        rigRb.AddForce(gravityDir * (gravForce * Time.deltaTime));
-                    }
-                }
+                if(Vector3.Distance(transform.position,hit.point)>0.1f)
+                    rigRb.AddForce(gravityDir * (gravForce * Time.deltaTime));
             }
-            else
+            else if (hit.transform.CompareTag("WaterMesh"))
             {
-                rigRb.AddForce(gravityDir * (gravForce * Time.deltaTime));
+                CheckGroundPos();
             }
-
+            
             //If not too high then allow jetpack to get higher
             if (hit.distance < maxHeightFromSurface)
             {
@@ -68,15 +72,15 @@ public class XrGravity : MonoBehaviour
             else
             {
                 
- //               print("cancel fly");
+                //               print("cancel fly");
                 allowedFly = false;
             }
+
         }
-        else//starting to fall through ground so cancel vel
+        else
         {
-            rigRb.velocity = Vector3.zero;
+            CheckGroundPos();
         }
-        
         
 
     }

@@ -53,6 +53,7 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
 //        print("brain"+brain.moveSpeed);
         
 
+        gravityDir = (core.transform.position - transform.position).normalized;
         transform.up = -gravityDir;
         
         

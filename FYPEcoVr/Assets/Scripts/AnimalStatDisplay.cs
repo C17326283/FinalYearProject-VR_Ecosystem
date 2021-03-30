@@ -13,6 +13,7 @@ public class AnimalStatDisplay : MonoBehaviour
     public StatCanvasManager canvasManager;
     public AnimalBrain selectAnimalBrain;
     public AnimalBehaviours selectAnimalBehaviours;
+    public AnimalLife selectAnimalLife;
 
     public Color32 positiveColour;
     public Color32 negativeColour;
@@ -43,6 +44,7 @@ public class AnimalStatDisplay : MonoBehaviour
 
                 selectAnimalBrain = hit.transform.GetComponent<AnimalBrain>();
                 selectAnimalBehaviours = hit.transform.GetComponent<AnimalBehaviours>();
+                selectAnimalLife = hit.transform.GetComponent<AnimalLife>();
                 Transform anTransform = selectAnimalBrain.transform;
                 statCanvas.transform.position = anTransform.position +
                                                 (anTransform.transform.up * (selectAnimalBrain.animalHeight/2));
@@ -91,6 +93,9 @@ public class AnimalStatDisplay : MonoBehaviour
         canvasManager.age.text = "Age: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.age), 0,
             selectAnimalBrain.maxStat);
         canvasManager.task.text = "Task: " + selectAnimalBehaviours.currentTask;
+        canvasManager.debuff.text = "Status Effect: " + selectAnimalLife.debuff;
+        canvasManager.bravery.text = "Pack Bravery: " + Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.packBravery), 0,
+            1000);
     }
 
     public void SetDNA()
@@ -168,6 +173,7 @@ public void SetColours()
         {
             canvasManager.urge.color = Color.white;
         }
+        
     }
 
 }

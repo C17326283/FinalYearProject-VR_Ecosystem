@@ -20,9 +20,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c86a74b-a54b-44cd-a93d-b82d2bbe20ff" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/MoonLight.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/MoonLight.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Water.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Water.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Rabbit.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Rabbit.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Wolf.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Wolf.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AnimalPrefabs/Rabbit.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AnimalPrefabs/Rabbit.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/XR Rig.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/XR Rig.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/JetPack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/JetPack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/BearProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Profiles/BearProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/CheetahProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Profiles/CheetahProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/ChickenProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Profiles/ChickenProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/DeerProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Profiles/DeerProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/ElephantProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Profiles/ElephantProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/FoxProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Profiles/FoxProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/RabbitProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Profiles/RabbitProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/WolfProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Profiles/WolfProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AnimalSetup.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AnimalSetup.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/WaterNew.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/WaterNew.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/VRPlanet.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/VRPlanet.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AnimalStatDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AnimalStatDisplay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LightAtAngle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LightAtAngle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBrain.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StatCanvasManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StatCanvasManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SunAngle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SunAngle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TakeScreenshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TakeScreenshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vr/TeleporterController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vr/TeleporterController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XrGravity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XrGravity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,31 +103,31 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/DeactivateAfterTime.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/ObjectPool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/CoastPointSpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StatCanvasManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalDistanceDisabler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/AnimalStatDisplay.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/LightAtAngle.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SunAngle.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/TakeScreenshot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalProfile.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2.txt" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Vr/TeleporterController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FinGenSequence.cs" />
         <option value="$PROJECT_DIR$/Assets/Scenes/Scripts/JetPack.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/AnimalsSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/BiomeManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/RandomGenSpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBrain.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalLife.cs" />
-        <option value="$PROJECT_DIR$/Assets/XrGravity.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ObjectGravity.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/JetPack.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Vr/TeleporterController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBrain.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StatCanvasManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AnimalStatDisplay.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2.txt" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LightAtAngle.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SunAngle.cs" />
+        <option value="$PROJECT_DIR$/Assets/XrGravity.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TakeScreenshot.cs" />
       </list>
     </option>
   </component>
@@ -219,7 +251,8 @@
       <workItem from="1616850001228" duration="21199000" />
       <workItem from="1616933865818" duration="28950000" />
       <workItem from="1617021451267" duration="7511000" />
-      <workItem from="1617048177462" duration="12401000" />
+      <workItem from="1617048177462" duration="16416000" />
+      <workItem from="1617110156698" duration="11919000" />
     </task>
     <servers />
   </component>

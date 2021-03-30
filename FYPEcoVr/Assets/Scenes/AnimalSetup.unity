@@ -443,13 +443,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118381104}
-  m_LocalRotation: {x: 0.03276813, y: -0.3557022, z: 0.012500583, w: 0.9339411}
+  m_LocalRotation: {x: -0.93306905, y: -0.019817177, z: -0.35536972, w: 0.051978774}
   m_LocalPosition: {x: 2979.3, y: 1713, z: -1096.7}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 146682657}
   m_RootOrder: 35
-  m_LocalEulerAnglesHint: {x: 4.02, y: -41.7, z: 0.002}
+  m_LocalEulerAnglesHint: {x: -173.622, y: -41.700012, z: -0.0020141602}
 --- !u!114 &118381106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1868,22 +1868,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1186597975, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1186597975, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1471313964, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1471313964, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1533872240, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: core
       value: 
@@ -2080,12 +2064,11 @@ MonoBehaviour:
   player: {fileID: 0}
   Light: {fileID: 430624229}
   core: {fileID: 0}
-  sun: {fileID: 1960686637}
   angleScript: {fileID: 0}
   toPlayer: {x: 0.002610393, y: -0.9996085, z: 0.027855298}
   toSun: {x: 0.36383155, y: 0.9074682, z: -0.2100668}
   dayLightIntensity: 1.5
-  reverseDir: 0
+  moonInstead: 0
 --- !u!108 &430624229
 Light:
   m_ObjectHideFlags: 0
@@ -4459,6 +4442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   core: {fileID: 0}
   sun: {fileID: 0}
+  moon: {fileID: 0}
 --- !u!114 &927105575
 MonoBehaviour:
   m_ObjectHideFlags: 0

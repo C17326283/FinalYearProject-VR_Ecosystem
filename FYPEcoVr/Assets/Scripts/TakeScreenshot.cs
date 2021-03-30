@@ -7,8 +7,8 @@ using UnityEngine.InputSystem;
 
 public class TakeScreenshot : MonoBehaviour {
 
-    public string path = "/Pictures/UnityScreenshots";
-    public string filePrefix = "UnityScreenshots";
+    public string path = "/Pictures/EvolVRScreenshots";
+    public string filePrefix = "EvolVR";
     public AudioSource audioSource;
 
 

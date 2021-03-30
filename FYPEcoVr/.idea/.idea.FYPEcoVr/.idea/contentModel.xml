@@ -327,8 +327,8 @@
           <e p="SunAngle.cs" t="Include" />
           <e p="TakeScreenshot.cs" t="Include" />
           <e p="Vr" t="Include">
+            <e p="ControllerSwitcher.cs" t="Include" />
             <e p="HandController.cs" t="Include" />
-            <e p="TeleporterController.cs" t="Include" />
             <e p="TeleportPlanetOrienter.cs" t="Include" />
           </e>
         </e>

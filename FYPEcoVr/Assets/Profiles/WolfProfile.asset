@@ -34,7 +34,7 @@ MonoBehaviour:
   wanderRadius: 60
   forwardWanderBias: 2
   foodTag: Food
-  maxMutatePercent: 10
+  maxMutatePercent: 5
   numOfLegs: 4
   attackRate: 0.6
   attackDamage: 20
@@ -54,3 +54,6 @@ MonoBehaviour:
   footstep: {fileID: 8300000, guid: 80239785e252f734a942b4bd5c1b91e1, type: 3}
   attack: {fileID: 8300000, guid: 95484a489abd77e40966956691056e65, type: 3}
   ambient: {fileID: 8300000, guid: 0c61b474847070f4fa0be988c0b6e986, type: 3}
+  hungerThresh: 50
+  thirstThresh: 50
+  mateThresh: 90

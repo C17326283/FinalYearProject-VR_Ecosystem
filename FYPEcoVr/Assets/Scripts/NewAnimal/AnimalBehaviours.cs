@@ -276,7 +276,7 @@ public class AnimalBehaviours : MonoBehaviour
         {
             //If already has target else get
             if (toTarget&&toTarget.GetComponent<AnimalBrain>()!=null &&
-                toTarget.GetComponent<AnimalBrain>().preyRating < brain.predatorRating &&toTarget.GetComponent<AnimalBrain>().foodWorth>0)
+                toTarget.GetComponent<AnimalBrain>().preyRating < brain.packBravery &&toTarget.GetComponent<AnimalBrain>().foodWorth>0)
             {
 //                print("get an target, alreayd has");
                 found = true;
@@ -442,7 +442,7 @@ public class AnimalBehaviours : MonoBehaviour
     void WantsToAttackCondition()
     {
         //IF other animal is weaker and not scarier and health is high enough
-        if (brain.health>brain.maxHealth/10&&toTarget.GetComponent<AnimalBrain>().preyRating < brain.predatorRating || toTarget.GetComponent<AnimalBrain>().preyRating < brain.preyRating)
+        if (brain.health>brain.maxHealth/10&&toTarget.GetComponent<AnimalBrain>().preyRating < brain.packBravery || toTarget.GetComponent<AnimalBrain>().preyRating < brain.preyRating)
         {
             Task.current.Succeed();
 
@@ -715,10 +715,11 @@ public class AnimalBehaviours : MonoBehaviour
     }
 
     [Task]
-    void GetLeader()
+    void GetLeader()//also gets pack bravery rating
     {
         bool found = false;
         float strongestFound = brain.predatorRating;//start at own rating so the other has to be higher
+        float packBravery = brain.predatorRating;
         
         foreach (var obj in brain.objSensedMemory)
         {
@@ -730,10 +731,16 @@ public class AnimalBehaviours : MonoBehaviour
                 //if stronger of same type
                 if (obj.transform.name == (transform.name) && objBrain.predatorRating > brain.predatorRating && objBrain.predatorRating > strongestFound)
                 {
-                    strongestFound = objBrain.predatorRating;
+                    packBravery += objBrain.predatorRating;//add to pack bravery
 
-                    leader = obj;
                     found = true;
+
+                    if (objBrain.predatorRating > strongestFound)
+                    {
+                        strongestFound = objBrain.predatorRating;
+
+                        leader = obj;
+                    }
                 }
             }
         }
@@ -741,6 +748,7 @@ public class AnimalBehaviours : MonoBehaviour
         if (found)
         {
             Task.current.Succeed();
+            brain.packBravery = packBravery;
             //toTarget = leader.GetComponent<AnimalBehaviours>().toTarget;
         }
         else

@@ -11,6 +11,8 @@ public class StatCanvasManager : MonoBehaviour
     public TextMeshProUGUI thirst;
     public TextMeshProUGUI urge;
     public TextMeshProUGUI age;
+    public TextMeshProUGUI bravery;
+    public TextMeshProUGUI debuff;
     public TextMeshProUGUI task;
     [Header("Animal DNA")]
     public TextMeshProUGUI animalname;

@@ -196,10 +196,14 @@ public class AnimalInitializer : MonoBehaviour
         //collider.size = newMeshBounds;
 
         float anH = Mathf.Abs(movementOriginObj.transform.InverseTransformPoint(head.transform.position).y - movementOriginObj.transform.InverseTransformPoint(feet[0].transform.position).y)*1.1f;
-        float anW = Mathf.Abs(movementOriginObj.transform.InverseTransformPoint(legs[1].transform.position).x -movementOriginObj.transform.InverseTransformPoint(legs[0].transform.position).x)*1.1f;
+        float anW = Mathf.Abs(movementOriginObj.transform.InverseTransformPoint(legs[1].transform.position).x -movementOriginObj.transform.InverseTransformPoint(legs[0].transform.position).x);
+
         //float anL = (transform.InverseTransformPoint(head.transform.position).z - transform.InverseTransformPoint(spineMain.spineContainers[spineMain.spineContainers.Count - 1].transform.position).z)*4;
         float anL = Mathf.Abs(movementOriginObj.transform.InverseTransformPoint(head.transform.position).z - movementOriginObj.transform.InverseTransformPoint(spineMain.spineContainers[spineMain.spineContainers.Count - 1].transform.position).z)*1.5f;
 
+        if (anW < 0.1f) //legs dont differ on x// single leg bone controls 2 mesh legs
+            anW = anL / 5;
+        
         brain.animalHeight = anH;
         brain.animalLength = anL;
         

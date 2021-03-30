@@ -25,6 +25,7 @@ public class AnimalBrain : MonoBehaviour
     public float thirst = 100;
     public float reproductiveUrge = 0;
     public float age = 0;
+    public float packBravery = 0;
     
     [Header("DNA")]
     public float maxHealth = 100f;
@@ -90,6 +91,7 @@ public class AnimalBrain : MonoBehaviour
     {
         SetStatsFromDNA();
         Born();
+        packBravery = predatorRating;//set default
     }
     
     public void Born()

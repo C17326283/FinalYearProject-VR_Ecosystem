@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class TeleporterController : MonoBehaviour
+public class ControllerSwitcher : MonoBehaviour
 {
     public GameObject baseController;
 
