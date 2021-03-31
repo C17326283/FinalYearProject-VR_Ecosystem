@@ -81,12 +81,13 @@ public class AnimalsSpawner : MonoBehaviour
                     if (hit.transform.CompareTag(tagToSpawnOn)) //Checks its allowed spawn there
                     {
                         newObj = new GameObject("Animalholder");
+                        newObj.transform.up = hit.normal;
                         newObj.transform.parent = parentObject.transform;
 
                         //newObj.transform.position = hit.point; //place object at hit
                         //newObj.transform.up = newObj.transform.position - core; //set rotation so orients properly
                         newObj.transform.position = hit.point + newObj.transform.up * heightFromHitPoint; //repoisition to correct height from hit
-                        newObj.transform.up = hit.normal;
+                        
                         
                         AnimalInitializer manager = newObj.AddComponent<AnimalInitializer>();
                         manager.animalDNA = animalToSpawn;

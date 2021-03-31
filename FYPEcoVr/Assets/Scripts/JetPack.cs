@@ -19,7 +19,7 @@ public class JetPack : MonoBehaviour
     public int particleRateAtStart;
     public AudioSource audioSource;
 
-    public float skyMagLimit = 100;
+    public float skyMagLimit = 10;
     
 
 
@@ -62,7 +62,7 @@ public class JetPack : MonoBehaviour
             //locVel.y = locVel.y*0.99f;//lower the vel exponentially rather than cancelling because that is jarring
             //rigRb.velocity = rigRb.transform.TransformDirection(locVel);//set the new cancelled related velocity
             if(rigRb.velocity.magnitude > skyMagLimit)
-                rigRb.velocity = rigRb.velocity * (0.9f * Time.deltaTime);//This lowers it by 1% every frame to avoid the playerhaving a harsh stop
+                rigRb.velocity = rigRb.velocity * (0.9999f * Time.deltaTime);//This lowers it by 1% every frame to avoid the playerhaving a harsh stop
             
 
         }

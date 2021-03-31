@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f5ad696a0b03b44a8419a742d2ab4d, type: 3}
   m_Name: planet
   m_EditorClassIdentifier: 
-  res: 100
+  res: 150
   biomeGradients:
   - serializedVersion: 2
     key0: {r: 0.9056604, g: 0.6691832, b: 0.06407974, a: 1}

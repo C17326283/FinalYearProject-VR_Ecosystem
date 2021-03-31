@@ -4591,7 +4591,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7104b5ccd3c514d46a3e2f2acaaa4faa, type: 2}
   btTexts:
   - {fileID: 4900000, guid: 1ede0e05c4c71fa4794802c447a2d2d1, type: 3}
-  audioClip: {fileID: 0}
   groupAmount: 3
 --- !u!1 &940048671
 GameObject:
@@ -7010,7 +7009,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fb938e899d5d2ee4e8dbc8c364c53f31, type: 2}
+  - {fileID: 2100000, guid: ea2e4fb9ccc03924cae5d28a909c2e9d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8188,13 +8187,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932826629}
-  m_LocalRotation: {x: 0.11325745, y: -0.35329574, z: 0.043155786, w: 0.9276273}
+  m_LocalRotation: {x: -0.18682648, y: -0.32053238, z: 0.71834964, w: 0.58849704}
   m_LocalPosition: {x: 2997.808, y: 1712.265, z: -1069.038}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 146682657}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 13.923, y: -41.699, z: 96.024}
 --- !u!1 &1949085665 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 129768, guid: 4895edb163acc354795e6cf0bd9b4ac0, type: 3}

@@ -1664,7 +1664,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 223584068}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 2500
+  amountToSpawn: 3000
   spawnerDistanceFromCore: 2000
   heightFromHitPoint: 0
   tagToSpawnOn: Ground
@@ -10755,9 +10755,9 @@ MonoBehaviour:
   waitUntillTriggered: 1
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 3000
+  amountToSpawn: 4000
   spawnerDistanceFromCore: 2000
-  heightFromHitPoint: 3
+  heightFromHitPoint: 4
   tagToSpawnOn: Ground
   animalProfiles:
   - {fileID: 11400000, guid: ab106465f1c545e4c90f0fd82910b929, type: 2}
@@ -11099,7 +11099,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 1384593979}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 15000
+  amountToSpawn: 20000
   spawnerDistanceFromCore: 2000
   heightFromHitPoint: 0.01
   tagToSpawnOn: Ground
@@ -14383,7 +14383,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 1793077441}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 1000
+  amountToSpawn: 1200
   spawnerDistanceFromCore: 2000
   heightFromHitPoint: 0.01
   tagToSpawnOn: Ground
