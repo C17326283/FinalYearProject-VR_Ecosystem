@@ -90,7 +90,7 @@ public class AnimalFeetPositioner : MonoBehaviour
         footMoveStopDist = extraSpace+((rb.velocity.magnitude/100)*animalLength);
 
         axisDifferences = this.transform.InverseTransformPoint(footIKTargetObj.transform.position);
-        footIKTargetObj.transform.forward = forwardFacingObj.transform.forward;//this prevents the feet from beign twisted
+        footIKTargetObj.transform.rotation = forwardFacingObj.transform.rotation;//this prevents the feet from beign twisted
 
         //Get a longer forward step distance if doing faster
         float velForwardStep = Mathf.Max(forwardStepDist,(forwardStepDist * rb.velocity.magnitude*0.8f)/3f);
@@ -146,14 +146,14 @@ public class AnimalFeetPositioner : MonoBehaviour
                     //float footMoveSpeed = Mathf.Max(lerpSpeed,(distToNext/3)*lerpSpeed);
                     footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos+(forwardFacingObj.transform.up*footLift), footMoveSpeed * Time.deltaTime);//+(forwardFacingObj.transform.up*footLift)
                 }
-                else if(Mathf.Abs(axisDifferences.z)>forwardStepDist*5||Mathf.Abs(axisDifferences.x)>sideStepDist*5)
+                else if(Mathf.Abs(axisDifferences.z)>forwardStepDist*6||Mathf.Abs(axisDifferences.x)>sideStepDist*6)
                 {
                     //                   print("far foot");
                     footAtPosition = false;//has started moving to next position so set to false and only becomes true if gets close enough to next position
                     footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos, footMoveSpeed*4 * Time.deltaTime);
                     
                 }
-                else if(Mathf.Abs(axisDifferences.z)>forwardStepDist*12||Mathf.Abs(axisDifferences.x)>sideStepDist*10)//is extremely far
+                else if(Mathf.Abs(axisDifferences.z)>forwardStepDist*13||Mathf.Abs(axisDifferences.x)>sideStepDist*13)//is extremely far
                 {
                     //                   print("far foot");
                     footAtPosition = false;//has started moving to next position so set to false and only becomes true if gets close enough to next position

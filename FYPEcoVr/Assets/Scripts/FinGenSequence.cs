@@ -1,6 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
+using Slider = UnityEngine.UI.Slider;
 
 public class FinGenSequence : MonoBehaviour
 {
@@ -16,7 +20,10 @@ public class FinGenSequence : MonoBehaviour
 
     public LightAtAngle[] lights;
     public GameObject viewingRoom;
+    public Slider progressSlider;
+
     public XrGravity xrGravity;
+    public TextMeshProUGUI progressText;
 
     public void Perform()
     {
@@ -25,24 +32,39 @@ public class FinGenSequence : MonoBehaviour
     
     IEnumerator StartSequence()
     {
+        IncreaseLoadProgress(5, "Starting Generation");
         loadingGUI.SetActive(true);
         yield return new WaitForSeconds(.1f);
-        
+
+        IncreaseLoadProgress(5, "Generating Colliders");
         PlanetSpawner.Explore();
         yield return new WaitForSeconds(.1f);
         
-        StartCoroutine(PlanetSpawner.AddExtras());
-        print("after while"+PlanetSpawner.finishedAddingExtras);
+        IncreaseLoadProgress(5, "Generating Atmosphere");
+        StartCoroutine(PlanetSpawner.AddExtras(this));
+        yield return new WaitForSeconds(2f);
         
-        yield return new WaitForSeconds(1f);
+        IncreaseLoadProgress(5, "Generating Lighting");
+        //Turn on here because this relies on player being on planet
         foreach (var light in lights)
         {
             light.enabled = true;
         }
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(.5f);
+        
+        IncreaseLoadProgress(10, "Finalising & Teleporting player");
         SpawnPlayer();
         viewingRoom.SetActive(false);
+        yield return new WaitForSeconds(.1f);
+        
         //StartCoroutine(SpawnPlayer());
+    }
+
+    public void IncreaseLoadProgress(float amount, String statusText)
+    {
+        progressSlider.value += amount;
+        progressText.text = progressSlider.value+"% - "+statusText;
+        print("slider val: "+progressSlider.value);
     }
 
     public void SpawnPlayer()

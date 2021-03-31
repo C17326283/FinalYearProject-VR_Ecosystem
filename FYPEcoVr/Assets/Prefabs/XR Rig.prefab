@@ -4452,6 +4452,7 @@ MonoBehaviour:
   particles: {fileID: 884354877}
   particleRateAtStart: 1000
   audioSource: {fileID: 1764787550}
+  skyMagLimit: 100
 --- !u!198 &884354877
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -10579,6 +10580,7 @@ MonoBehaviour:
   particles: {fileID: 734403051}
   particleRateAtStart: 0
   audioSource: {fileID: 1252994418}
+  skyMagLimit: 100
 --- !u!198 &734403051
 ParticleSystem:
   m_ObjectHideFlags: 0

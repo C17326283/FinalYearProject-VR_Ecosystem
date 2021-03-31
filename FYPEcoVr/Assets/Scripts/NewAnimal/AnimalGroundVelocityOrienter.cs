@@ -54,14 +54,14 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
         
 
         gravityDir = (core.transform.position - transform.position).normalized;
-        transform.up = -gravityDir;
+        //transform.up = -gravityDir;
         
         
         //Todo find more efficient way than adding another obj
         orienter = new GameObject("orienter");
-        orienter.transform.parent = this.transform;
         orienter.transform.position = this.transform.position;
         orienter.transform.rotation = this.transform.rotation;
+        orienter.transform.parent = this.transform;
         col = GetComponent<CapsuleCollider>();
 
         offset = transform.position - col.bounds.center; 

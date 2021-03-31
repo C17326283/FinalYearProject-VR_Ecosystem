@@ -23,7 +23,6 @@ public class AnimalsSpawner : MonoBehaviour
     public TextAsset[] btTexts;
     
     private GameObject newObj;//declare here so can edit in reposition
-    public AudioClip audioClip;
     public int groupAmount = 3;
 
     // Start is called before the first frame update

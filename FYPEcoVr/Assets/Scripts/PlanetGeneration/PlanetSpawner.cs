@@ -207,7 +207,7 @@ public class PlanetSpawner : MonoBehaviour
     
     
     //Adding the spawner objects which fill the terrain with trees etc
-    public IEnumerator AddExtras()
+    public IEnumerator AddExtras(FinGenSequence genSequenceScript)
     {
         print("planet gen "+Time.time);
         GameObject core = new GameObject("Core");
@@ -223,10 +223,11 @@ public class PlanetSpawner : MonoBehaviour
         atmosphere.GetComponent<Renderer>().material = atmosphereMat;
         atmosphere.layer = 9;//atmosphere layer for reverse lighting
         FlipNormals(atmosphere);
-        yield return new WaitForSeconds(.1f);
         //add spawners
         foreach (Transform spawnerObj in allSpawnersObjects.transform)
         {
+            yield return new WaitForSeconds(.2f);
+            genSequenceScript.IncreaseLoadProgress(10,"Generating "+spawnerObj.transform.name);
             if (spawnerObj.GetComponent<RandomGenSpawner>() != null)
             {
                 RandomGenSpawner sp = spawnerObj.GetComponent<RandomGenSpawner>();
@@ -243,7 +244,7 @@ public class PlanetSpawner : MonoBehaviour
             {
                 spawnerObj.GetComponent<AnimalsSpawner>().TriggerSpawn();
             }
-            yield return new WaitForSeconds(.1f);
+
         }
         
         planetObj.GetComponent<PlanetTerrainGenerator>().GenerateCoastline();

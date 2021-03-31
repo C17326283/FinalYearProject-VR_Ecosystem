@@ -62,6 +62,8 @@ public class AnimalInitializer : MonoBehaviour
         feetPositioners = new List<AnimalFeetPositioner> ();
         otherLimbs = new List<GameObject> ();
         core = GameObject.Find("Core");
+        transform.up =  -(core.transform.position - transform.position).normalized;
+        
         
         
         //make the animal object

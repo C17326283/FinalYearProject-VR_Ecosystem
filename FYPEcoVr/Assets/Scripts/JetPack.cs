@@ -18,6 +18,8 @@ public class JetPack : MonoBehaviour
     public ParticleSystem particles;
     public int particleRateAtStart;
     public AudioSource audioSource;
+
+    public float skyMagLimit = 100;
     
 
 
@@ -39,7 +41,7 @@ public class JetPack : MonoBehaviour
 
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         var particlesMain = particles.main;
         if (gameObject.activeInHierarchy && rigGravity.allowedFly && rigGravity.hasCore && particles)
@@ -59,7 +61,9 @@ public class JetPack : MonoBehaviour
             //Vector3 locVel = rigRb.transform.InverseTransformDirection(rigRb.velocity);//Find velocity in relation to an object oriented to ground
             //locVel.y = locVel.y*0.99f;//lower the vel exponentially rather than cancelling because that is jarring
             //rigRb.velocity = rigRb.transform.TransformDirection(locVel);//set the new cancelled related velocity
-            rigRb.velocity = rigRb.velocity * 0.99f;//This lowers it by 1% every frame to avoid the playerhaving a harsh stop
+            if(rigRb.velocity.magnitude > skyMagLimit)
+                rigRb.velocity = rigRb.velocity * (0.9f * Time.deltaTime);//This lowers it by 1% every frame to avoid the playerhaving a harsh stop
+            
 
         }
     }
