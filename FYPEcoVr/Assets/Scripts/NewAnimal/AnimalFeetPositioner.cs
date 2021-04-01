@@ -87,7 +87,7 @@ public class AnimalFeetPositioner : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        footMoveStopDist = extraSpace+((rb.velocity.magnitude/100)*animalLength);
+        footMoveStopDist = extraSpace+((rb.velocity.magnitude/80)*animalLength);
 
         axisDifferences = this.transform.InverseTransformPoint(footIKTargetObj.transform.position);
         footIKTargetObj.transform.rotation = forwardFacingObj.transform.rotation;//this prevents the feet from beign twisted
@@ -135,7 +135,11 @@ public class AnimalFeetPositioner : MonoBehaviour
             {
                 //How fast to move foot
                 float footMoveSpeed = Mathf.Max(rb.velocity.magnitude,(distToNext*animalLength+(axisDifferences.x*5))/2)*footSpeed;//Sidestepping needs to be faster
-
+                footMoveSpeed = Mathf.Clamp(footMoveSpeed, 1f, 15f);//Prevent from being too fast or slow
+                
+                print("footmovespeed"+footMoveSpeed);
+                
+                
                 float footLift= (Vector3.Distance(footIKTargetObj.transform.position, nextFootPos)*footHeightMult)-footMoveStopDist;
                 footLift= Mathf.Clamp(footLift,0f,(animalHeight/rb.velocity.magnitude)*3);
 

@@ -61,50 +61,51 @@ public class AnimalsSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(.1f);//to make sure the mesh was spawned correctly
         GetPointOnPlanet pointFinder = GameObject.Find("Core").GetComponent<GetPointOnPlanet>();
-        for (int i = 0; i < amountToSpawn/groupAmount; i++)
+        int i = 0;
+        while (i < amountToSpawn)//Increments on successful spawn, allows group spawning
         {
             AnimalProfile animalToSpawn = animalProfiles[Random.Range(0, animalProfiles.Length)];
-            for (int j = 0; j < groupAmount; j++)
+            
+            if (i % 500 == 0)//Split processing into chunks because too many at once can cause issues
             {
-                if (i % 500 == 0)//Split processing into chunks because too many at once can cause issues
+                //print("mod 500");
+                yield return new WaitForSeconds(.1f);
+            }
+            newObj = null;
+            
+            RaycastHit? hitPoint = pointFinder.GetPoint("Ground", 2);
+            if (hitPoint != null)
+            {
+                RaycastHit hit = hitPoint.Value;
+                //                Debug.Log("hit"+hit.transform.name + hit.transform.position);
+                if (hit.transform.CompareTag(tagToSpawnOn)) //Checks its allowed spawn there
                 {
-                    //print("mod 500");
-                    yield return new WaitForSeconds(.1f);
-                }
-                newObj = null;
-                
-                RaycastHit? hitPoint = pointFinder.GetPoint("Ground", 2);
-                if (hitPoint != null)
-                {
-                    RaycastHit hit = hitPoint.Value;
-                    //                Debug.Log("hit"+hit.transform.name + hit.transform.position);
-                    if (hit.transform.CompareTag(tagToSpawnOn)) //Checks its allowed spawn there
+                    int groupSize = Random.Range(1, 3);//Spawn a group
+                    for (int j = 0; j < groupSize; j++)
                     {
                         newObj = new GameObject("Animalholder");
                         newObj.transform.up = hit.normal;
+                        float randDist = Random.Range(-4, 4);//random dist from main spawned animal, spawn others close
+                        newObj.transform.position = hit.point + (newObj.transform.up* heightFromHitPoint)+(newObj.transform.right*(j*randDist)+(newObj.transform.forward*(j*randDist))); //repoisition to correct height from hit
                         newObj.transform.parent = parentObject.transform;
 
                         //newObj.transform.position = hit.point; //place object at hit
                         //newObj.transform.up = newObj.transform.position - core; //set rotation so orients properly
-                        newObj.transform.position = hit.point + newObj.transform.up * heightFromHitPoint; //repoisition to correct height from hit
-                        
-                        
+
+
                         AnimalInitializer manager = newObj.AddComponent<AnimalInitializer>();
                         manager.animalDNA = animalToSpawn;
                         manager.btTexts = btTexts;
-                        
+
                         // print(newObj.transform.position);
                         manager.InitialiseAnimal();
-                        
+
+                        i++;
                     }
                 }
-                else
-                {
-                    //Debug.Log("no hit");
-                }
             }
-            //Resposition();
         }
+        
     }
     
 

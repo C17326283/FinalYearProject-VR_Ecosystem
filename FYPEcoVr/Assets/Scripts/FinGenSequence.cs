@@ -38,7 +38,7 @@ public class FinGenSequence : MonoBehaviour
 
         IncreaseLoadProgress(5, "Generating Colliders");
         PlanetSpawner.Explore();
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(1f);
         
         IncreaseLoadProgress(5, "Generating Atmosphere");
         StartCoroutine(PlanetSpawner.AddExtras(this));

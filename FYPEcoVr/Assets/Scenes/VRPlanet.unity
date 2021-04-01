@@ -1495,7 +1495,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &223326813
 GameObject:
@@ -1639,7 +1639,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223584064}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
+  m_LocalPosition: {x: 0, y: 0.000015258789, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 881058077}
@@ -1997,7 +1997,7 @@ GameObject:
   - component: {fileID: 232997528}
   - component: {fileID: 232997527}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Intro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2554,7 +2554,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &350062574
 MonoBehaviour:
@@ -4532,17 +4532,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647017231}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 124.24, z: -3373.73}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: 0, y: 123.626, z: -3373.73}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 781846871}
   - {fileID: 596869500}
   - {fileID: 782749334}
   - {fileID: 718751412}
-  - {fileID: 1533872241}
   - {fileID: 1140478013}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &678185053
 PrefabInstance:
@@ -5187,7 +5186,7 @@ Transform:
   - {fileID: 369969817}
   - {fileID: 1711375495}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 161.3, y: -85.5, z: 17.18}
 --- !u!1 &768379369
 GameObject:
@@ -5290,11 +5289,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769613468}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
+  m_LocalPosition: {x: 0, y: 0.000015258789, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 881058077}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &769613472
 MonoBehaviour:
@@ -5352,7 +5351,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 769613472}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 1500
+  amountToSpawn: 1000
   spawnerDistanceFromCore: 2000
   heightFromHitPoint: 0.01
   tagToSpawnOn: Ground
@@ -5950,7 +5949,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9222419831829042817, guid: 68e5d3533cb879841b024f73da704712, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9222419831829042817, guid: 68e5d3533cb879841b024f73da704712, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6658,11 +6657,11 @@ Transform:
   - {fileID: 223584065}
   - {fileID: 1793077440}
   - {fileID: 1384593976}
-  - {fileID: 1330926527}
   - {fileID: 769613469}
+  - {fileID: 1330926527}
   - {fileID: 2125029173}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &887747202
 GameObject:
@@ -8540,7 +8539,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1087180074
 GameObject:
@@ -9253,7 +9252,7 @@ Transform:
   m_Children:
   - {fileID: 1396592489}
   m_Father: {fileID: 647017232}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1140478014
 MonoBehaviour:
@@ -9922,8 +9921,20 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 647017232}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 164851711, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -18.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 164851711, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 328246986, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 1186597975, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -9932,9 +9943,9 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1292429032, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: skyMagLimit
-      value: 10
+    - target: {fileID: 1368883152, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1471313964, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_AnchorMax.x
@@ -9943,22 +9954,6 @@ PrefabInstance:
     - target: {fileID: 1471313964, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1533872240, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1643953622, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: skyMagLimit
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1728486592, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1728486592, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: maxHeightFromSurface
-      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 342881479001926701, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_Name
@@ -9966,7 +9961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 342881479001926702, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 342881479001926702, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9974,11 +9969,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 342881479001926702, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.128
+      value: 121.49
       objectReference: {fileID: 0}
     - target: {fileID: 342881479001926702, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.8466797
+      value: -3375
       objectReference: {fileID: 0}
     - target: {fileID: 342881479001926702, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10738,7 +10733,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 881058077}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1330926529
 MonoBehaviour:
@@ -10755,9 +10750,9 @@ MonoBehaviour:
   waitUntillTriggered: 1
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 4000
+  amountToSpawn: 3000
   spawnerDistanceFromCore: 2000
-  heightFromHitPoint: 4
+  heightFromHitPoint: 5
   tagToSpawnOn: Ground
   animalProfiles:
   - {fileID: 11400000, guid: ab106465f1c545e4c90f0fd82910b929, type: 2}
@@ -10770,7 +10765,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cdca369f04daeb744b24fa84c6342e00, type: 2}
   btTexts:
   - {fileID: 4900000, guid: c10ebbd1b339bb14185c233b95adb9fc, type: 3}
-  groupAmount: 2
+  groupAmount: 3
 --- !u!1 &1332432136
 GameObject:
   m_ObjectHideFlags: 0
@@ -10907,7 +10902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1343639765
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11074,7 +11069,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384593975}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
+  m_LocalPosition: {x: 0, y: 0.000015258789, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 881058077}
@@ -11099,13 +11094,13 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 1384593979}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 20000
+  amountToSpawn: 15000
   spawnerDistanceFromCore: 2000
   heightFromHitPoint: 0.01
   tagToSpawnOn: Ground
   isRotatingObject: 0
   RandomiseScaleAndRotation: 1
-  minScale: 2
+  minScale: 3
   maxScale: 4
   randomXZTilt: 3
   usesLOD: 1
@@ -12425,11 +12420,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd5405ce4c744d459667312048ff59d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1533872241 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 342881479001926702, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-  m_PrefabInstance: {fileID: 1209258987}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1533872242 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1728486592, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
@@ -14245,7 +14235,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1793077439
 GameObject:
@@ -14275,7 +14265,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793077439}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.000015258789, z: -0}
+  m_LocalPosition: {x: 0, y: 0.000015258789, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 881058077}
@@ -14383,7 +14373,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 1793077441}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 1200
+  amountToSpawn: 800
   spawnerDistanceFromCore: 2000
   heightFromHitPoint: 0.01
   tagToSpawnOn: Ground
@@ -16531,7 +16521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2068466640
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17184,7 +17174,7 @@ MonoBehaviour:
   warmObjectPoolObj: {fileID: 2125029175}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 800
+  amountToSpawn: 700
   spawnerDistanceFromCore: 2000
   heightFromHitPoint: 200
   tagToSpawnOn: Ground
@@ -17433,7 +17423,7 @@ Transform:
   m_Children:
   - {fileID: 4416744093236048951}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4416744093512669620
 GameObject:

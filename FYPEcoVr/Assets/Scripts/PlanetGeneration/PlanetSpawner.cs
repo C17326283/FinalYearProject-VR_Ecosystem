@@ -243,6 +243,7 @@ public class PlanetSpawner : MonoBehaviour
             else if (spawnerObj.GetComponent<AnimalsSpawner>() != null)
             {
                 spawnerObj.GetComponent<AnimalsSpawner>().TriggerSpawn();
+                yield return new WaitForSeconds(1f);
             }
 
         }

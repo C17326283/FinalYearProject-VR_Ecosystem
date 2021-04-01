@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -44,7 +45,12 @@ public class XrGravity : MonoBehaviour
             rigRb.AddForce(gravityDir * (gravForce * Time.deltaTime));
         }
     }
-    
+
+    private void OnCollisionEnter(Collision other)
+    {
+        rigRb.velocity = Vector3.zero;//Cancel sliding force
+    }
+
     void FixedUpdate()
     {
         gravityDir = (core.transform.position - transform.position).normalized; //todo flip dir
