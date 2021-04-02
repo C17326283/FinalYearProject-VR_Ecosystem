@@ -12,14 +12,14 @@ It aims to let the user explore a world of their own creation and view the ecosy
 * Follow the instructions on the back wall and explore your world.
 
 # Features
-* Procedural Mesh generation
-* Planet Setting customisatio
+* Procedural Planet Mesh generation
+* Planet Setting customisation
 * Shader Terrain Colouring with height generation
 * Multiple biomes: Desert, Winter & Normal Fields
 * Procedural Animal Animations with inverse kinematics
 * Custom Animal models
 * Animal Generation from a single profile
-* VR EIntegration
+* VR Integration
 * Unity new input system and UnityXR
 * Teleportation and jetpack movement
 * Animal Info discovery of stats and dna
@@ -73,5 +73,5 @@ It aims to let the user explore a world of their own creation and view the ecosy
 
 
 # Demonstration
-Early version of world generationL [![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=XY-E6R6fm3Q&feature=youtu.be)
+Early version of world generation [![YouTube](https://youtu.be/XY-E6R6fm3Q/0.jpg)](https://youtu.be/XY-E6R6fm3Q)
 
