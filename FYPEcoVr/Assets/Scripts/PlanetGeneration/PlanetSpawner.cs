@@ -163,19 +163,18 @@ public class PlanetSpawner : MonoBehaviour
         persistanceTextMeshPro2.text = "Amplification: "+System.Math.Round(persistanceSlider2.value,2);
         baseRoughnessTextMeshPro2.text = "Continent Spread: "+System.Math.Round(baseRoughnessSlider2.value,2);
         noiseCyclesTextMeshPro2.text = "Cycles: "+System.Math.Round(noiseCyclesSlider2.value,2);
-        minValueTextMeshPro2.text = "Sea Amount: "+System.Math.Round(minValueSlider2.value,2);
+        minValueTextMeshPro2.text = "Mountain Amount: "+System.Math.Round(minValueSlider2.value,2);
     }
     
     //sets the value and slider at beginning from the base template
     public void ResetSettings()
     {
         
-        planetSettings.res = 100;
+        planetSettings.res = defaultPlanetSettings.res;
         resSlider.value = planetSettings.res;
         
         planetSettings.noiseLayers[0].strength = defaultPlanetSettings.noiseLayers[0].strength;
         strengthSlider.value = defaultPlanetSettings.noiseLayers[0].strength;
-
         planetSettings.noiseLayers[0].roughness = defaultPlanetSettings.noiseLayers[0].roughness;
         roughnessSlider.value = defaultPlanetSettings.noiseLayers[0].roughness;
         planetSettings.noiseLayers[0].persistance = defaultPlanetSettings.noiseLayers[0].persistance;
@@ -187,6 +186,8 @@ public class PlanetSpawner : MonoBehaviour
         planetSettings.noiseLayers[0].minValue = defaultPlanetSettings.noiseLayers[0].minValue;
         minValueSlider.value = defaultPlanetSettings.noiseLayers[0].minValue;
         
+        planetSettings.noiseLayers[1].strength = defaultPlanetSettings.noiseLayers[1].strength;
+        strengthSlider2.value = defaultPlanetSettings.noiseLayers[1].strength;
         planetSettings.noiseLayers[1].roughness = defaultPlanetSettings.noiseLayers[1].roughness;
         roughnessSlider2.value = defaultPlanetSettings.noiseLayers[1].roughness;
         planetSettings.noiseLayers[1].persistance = defaultPlanetSettings.noiseLayers[1].persistance;
@@ -223,10 +224,11 @@ public class PlanetSpawner : MonoBehaviour
         atmosphere.GetComponent<Renderer>().material = atmosphereMat;
         atmosphere.layer = 9;//atmosphere layer for reverse lighting
         FlipNormals(atmosphere);
+        yield return new WaitForSeconds(.2f);
         //add spawners
         foreach (Transform spawnerObj in allSpawnersObjects.transform)
         {
-            yield return new WaitForSeconds(.2f);
+            print("spawning "+spawnerObj.transform.name);
             genSequenceScript.IncreaseLoadProgress(10,"Generating "+spawnerObj.transform.name);
             if (spawnerObj.GetComponent<RandomGenSpawner>() != null)
             {
@@ -245,6 +247,7 @@ public class PlanetSpawner : MonoBehaviour
                 spawnerObj.GetComponent<AnimalsSpawner>().TriggerSpawn();
                 yield return new WaitForSeconds(1f);
             }
+            yield return new WaitForSeconds(.5f);
 
         }
         

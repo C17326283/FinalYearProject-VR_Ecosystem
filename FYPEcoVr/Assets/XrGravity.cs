@@ -61,7 +61,7 @@ public class XrGravity : MonoBehaviour
             //Is above ground add gravity
             if (hit.transform.CompareTag("Ground"))
             {
-                if(Vector3.Distance(transform.position,hit.point)>0.1f)
+                if(Vector3.Distance(transform.position,hit.point)>0.4f)
                     rigRb.AddForce(gravityDir * (gravForce * Time.deltaTime));
             }
             else if (hit.transform.CompareTag("WaterMesh"))

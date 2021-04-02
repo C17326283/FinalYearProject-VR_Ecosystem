@@ -34,7 +34,7 @@ MonoBehaviour:
   wanderRadius: 20
   forwardWanderBias: 2
   foodTag: Food
-  maxMutatePercent: 5
+  maxMutatePercent: 10
   numOfLegs: 4
   attackRate: 0.5
   attackDamage: 3

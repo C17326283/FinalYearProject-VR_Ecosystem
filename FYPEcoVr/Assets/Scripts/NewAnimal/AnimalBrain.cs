@@ -26,12 +26,14 @@ public class AnimalBrain : MonoBehaviour
     public float reproductiveUrge = 0;
     public float age = 0;
     public float packBravery = 0;
+    public float tiredness = 0;//
     
     [Header("DNA")]
     public float maxHealth = 100f;
     public float healthStarveDecrement = 0.01f;
-    public float hungerDecrement = 0.02f;
-    public float thirstDecrement = 0.01f;
+    public float hungerDecrement = 2f;
+    public float thirstDecrement = 1f;
+    public float tiredIncrement = 3f;
     public float reproductiveIncrement = 0.01f;
     public float memoryLossRate = 20;
     public float sensoryRange = 15;
@@ -116,11 +118,24 @@ public class AnimalBrain : MonoBehaviour
         }
         else
         {
+            //Set default stuff 
+            generation = Random.Range(1,3);//small variation in start ones
             //Set self as parent so it can have a mutation on first generation for more interest
             SetStatsFromDNA();
             mother = GetComponent<AnimalBrain>();
             father = GetComponent<AnimalBrain>();
-            MutateStats();
+            
+            //Mutate based on start gen
+            for (int i = 0; i < generation; i++)
+            {
+                MutateStats();
+            }
+            
+            //start animals should start as if they had been running
+            hunger = Random.Range(maxStat/2,maxStat);
+            thirst = Random.Range(maxStat/2,maxStat);
+            reproductiveUrge = Random.Range(maxStat/2,maxStat);
+            
         }
     }
 
@@ -177,11 +192,11 @@ public class AnimalBrain : MonoBehaviour
         
         
         //Evolve to eat new things
-        if (!eatsPlants && Random.Range(0, 100) < maxMutatePercent) //X% chance of being true
+        if (!eatsPlants && Random.Range(0, 100) < maxMutatePercent/2) //X% chance of being true
         {
             eatsPlants = true;
         }
-        if (!eatsMeat && Random.Range(0, 100) < maxMutatePercent) //X% chance of being true
+        if (!eatsMeat && Random.Range(0, 100) < maxMutatePercent/2) //X% chance of being true
         {
             eatsMeat = true;
         }

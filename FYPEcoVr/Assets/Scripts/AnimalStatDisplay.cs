@@ -14,20 +14,23 @@ public class AnimalStatDisplay : MonoBehaviour
     public AnimalBrain selectAnimalBrain;
     public AnimalBehaviours selectAnimalBehaviours;
     public AnimalLife selectAnimalLife;
+    public GameObject rig;
 
     public Color32 positiveColour;
     public Color32 negativeColour;
 
-    public bool isRefreshing = false;
+    //public bool isRefreshing = false;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        statCanvas = GameObject.Find("StatCanvas");
+        if(statCanvas==null)
+            statCanvas = GameObject.Find("StatCanvas");
         if(canvasManager==null)
             canvasManager = statCanvas.GetComponentInChildren<StatCanvasManager>();
+        InvokeRepeating("UpdateStatScreen",0,1);
     }
 
     public void SetToPos()
@@ -51,28 +54,33 @@ public class AnimalStatDisplay : MonoBehaviour
                 SetDNA();
                 SetValues();
                 SetColours();
-                if (!isRefreshing)
-                {
-                    StartCoroutine(UpdateStatScreen());
-                }
             }
             else
             {
+                SetToOffScreen();
                 print("Controller hit non animal: " + hit.transform.name);
             }
         }
     }
 
-    IEnumerator UpdateStatScreen()
+    public void SetToOffScreen()
     {
-        while (true)
+        statCanvas.transform.SetParent(rig.transform);
+        statCanvas.transform.rotation = rig.transform.rotation;
+        statCanvas.transform.position = rig.transform.position + (-rig.transform.up*300);
+
+    }
+
+    public void UpdateStatScreen()
+    {
+        if (selectAnimalBrain && selectAnimalBrain.gameObject.activeInHierarchy && selectAnimalBrain.health>0)
         {
-            if (selectAnimalBrain != null && selectAnimalBrain.gameObject.activeInHierarchy)
-            {
-                SetValues();
-                SetColours();
-            }
-            yield return new WaitForSeconds(1);
+            SetValues();
+            SetColours();
+        }
+        else
+        {
+            SetToOffScreen();
         }
     }
 

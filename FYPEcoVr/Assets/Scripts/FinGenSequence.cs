@@ -42,7 +42,7 @@ public class FinGenSequence : MonoBehaviour
         
         IncreaseLoadProgress(5, "Generating Atmosphere");
         StartCoroutine(PlanetSpawner.AddExtras(this));
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(6f);//this needs to be longer than the waits inside the add extras function
         
         IncreaseLoadProgress(5, "Generating Lighting");
         //Turn on here because this relies on player being on planet

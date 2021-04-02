@@ -12,7 +12,7 @@ public class AnimalAudioManager : MonoBehaviour
     public AudioSource ambientSource;
 
     public float randRangeLow = 10;
-    public float randRangeHigh = 25;
+    public float randRangeHigh = 30;
     
     public AudioMixerGroup audioMixerGroup;
 
@@ -27,12 +27,12 @@ public class AnimalAudioManager : MonoBehaviour
         footstepSource = gameObject.AddComponent<AudioSource>();
         footstepSource.outputAudioMixerGroup = audioMixerGroup;
         footstepSource.clip = footstep;
-        setDefault(footstepSource,playRange,.7f);
+        setDefault(footstepSource,playRange,.5f);
         //sources.Add(footstepSource);
         attackSource = gameObject.AddComponent<AudioSource>();
         attackSource.outputAudioMixerGroup = audioMixerGroup;
         attackSource.clip = attack;
-        setDefault(attackSource,playRange,.9f);
+        setDefault(attackSource,playRange,.8f);
         //sources.Add(attackSource);
         ambientSource = gameObject.AddComponent<AudioSource>();
         ambientSource.outputAudioMixerGroup = audioMixerGroup;
@@ -44,14 +44,14 @@ public class AnimalAudioManager : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
 
         //StartCoroutine(RandAmbientAudio());
-        InvokeRepeating("playAmbient", Random.Range(0,randRangeHigh), Random.Range(randRangeLow,randRangeHigh));
+        StartAudio();
 
     }
 
     public void StartAudio()
     {
 //        print("start audio");
-        InvokeRepeating("playAmbient", Random.Range(0,10), Random.Range(5,25));
+        InvokeRepeating("playAmbient", Random.Range(0,randRangeHigh), Random.Range(randRangeLow,randRangeHigh));
     }
     
     public void StopAudio()
@@ -74,7 +74,7 @@ public class AnimalAudioManager : MonoBehaviour
         {
             if (!attackSource.isPlaying && gameObject.activeInHierarchy)
             {
-                attackSource.pitch = Random.Range(0.6f, 1.2f);
+                attackSource.pitch = Random.Range(0.6f, 1.1f);
                 attackSource.PlayOneShot(attack);
             }
         }
@@ -87,7 +87,7 @@ public class AnimalAudioManager : MonoBehaviour
         {
             if(footstepSource.isPlaying && gameObject.activeInHierarchy)
                 footstepSource.Stop();
-            footstepSource.pitch = Random.Range(0.7f, 1f);
+            footstepSource.pitch = Random.Range(0.5f, 1.1f);
             footstepSource.PlayOneShot(footstep);
         }
         
@@ -103,6 +103,8 @@ public class AnimalAudioManager : MonoBehaviour
                 ambientSource.pitch = Random.Range(0.5f, 1.1f);
                 ambientSource.PlayOneShot(ambient);
             }
+            ambientSource.pitch = Random.Range(0.5f, 1.1f);
+            ambientSource.PlayOneShot(ambient);
         }
     }
     

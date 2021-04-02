@@ -19,7 +19,7 @@ public class AnimalLife : MonoBehaviour
     [Header("Canvas")]
     public ObjectPool deathCanvasPool;
     
-    private bool hasDied = false;
+    public bool hasDied = false;
     public AnimalDistanceDisabler distDisabler;
     public AnimalBehaviours behaviours;
 
@@ -33,7 +33,7 @@ public class AnimalLife : MonoBehaviour
     
     void Update()
     {
-        if (transform.parent.gameObject.activeInHierarchy) //only update and check if animal manager active
+        if (!hasDied && transform.parent.gameObject.activeInHierarchy) //only update and check if animal manager active
         {
             if(debuff=="Cold")//Get hungry faster in winter biome
                 brain.hunger = brain.hunger - (brain.hungerDecrement*1.5f) * Time.deltaTime; // div 100 to keep it within normal numbers for testing
@@ -49,6 +49,7 @@ public class AnimalLife : MonoBehaviour
             if (brain.hunger < 0 || brain.thirst < 0)
                 brain.health -= 0.01f;
 
+            brain.tiredness += brain.tiredIncrement;
 
             //Dont immediately reproduce
             if (brain.age > brain.deathAge / 10 && behaviours.hasEaten)
@@ -110,8 +111,6 @@ public class AnimalLife : MonoBehaviour
         //todo optimise
         initializer.brain.mother = motherBrain;
         initializer.brain.father = fatherBrain;
-        
-
     }
 
     public void Die()

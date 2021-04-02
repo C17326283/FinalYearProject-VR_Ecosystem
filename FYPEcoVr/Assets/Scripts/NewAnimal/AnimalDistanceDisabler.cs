@@ -11,8 +11,8 @@ public class AnimalDistanceDisabler : MonoBehaviour
     public GameObject animalHolder;
     public BehaviourTree bt;//for applying since it didnt work without
 
-    public float activeDistance = 150;
-    public float aiDistance = 300;
+    public float activeDistance = 120;
+    public float aiDistance = 220;
 
     public SkinnedMeshRenderer renderer;
     public List<AnimalFeetPositioner> FeetPositioners;
@@ -63,11 +63,14 @@ public class AnimalDistanceDisabler : MonoBehaviour
             if (dist > aiDistance)
             {
                 animalHolder.gameObject.SetActive(false);
+                bt.enabled = false;
             }
             else if (animalHolder.gameObject.activeInHierarchy == false)
             {
                 animalHolder.gameObject.SetActive(true);
+                bt.enabled = true;
                 bt.Apply();//start ai again
+                bt.Reset();
             }
         }
         else//renable
@@ -75,7 +78,9 @@ public class AnimalDistanceDisabler : MonoBehaviour
             if (animalHolder.gameObject.activeInHierarchy == false)
             {
                 animalHolder.gameObject.SetActive(true);
+                bt.enabled = true;
                 bt.Apply();//start ai again
+                bt.Reset();
                 audioManager.StartAudio();
                 
                 
@@ -85,6 +90,9 @@ public class AnimalDistanceDisabler : MonoBehaviour
             {
                 renderer.enabled = true;
                 col.enabled = true;
+                bt.enabled = true;
+                bt.Apply();//start ai again
+                bt.Reset();
                 foreach (var foot in FeetPositioners)
                 {
                     foot.enabled = true;

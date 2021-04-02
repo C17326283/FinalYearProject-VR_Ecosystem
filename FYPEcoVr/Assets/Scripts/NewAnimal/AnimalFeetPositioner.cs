@@ -62,7 +62,7 @@ public class AnimalFeetPositioner : MonoBehaviour
             animalLength = brain.animalLength;
         }
         forwardStepDist = animalLength / 7f;
-        sideStepDist = forwardStepDist / 3f;
+        sideStepDist = forwardStepDist / 4f;
         
 
         endBoneObj.GetComponentInParent<FastIKFabric>().Target = footIKTargetObj.transform;
@@ -87,7 +87,8 @@ public class AnimalFeetPositioner : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        footMoveStopDist = extraSpace+((rb.velocity.magnitude/80)*animalLength);
+        //Really fast animals feet cant quite reach the target, i assume floating point errors, so this fixes but changing how close it needs to get
+        footMoveStopDist = extraSpace+((rb.velocity.magnitude/50)*(1+animalLength));
 
         axisDifferences = this.transform.InverseTransformPoint(footIKTargetObj.transform.position);
         footIKTargetObj.transform.rotation = forwardFacingObj.transform.rotation;//this prevents the feet from beign twisted
@@ -135,9 +136,9 @@ public class AnimalFeetPositioner : MonoBehaviour
             {
                 //How fast to move foot
                 float footMoveSpeed = Mathf.Max(rb.velocity.magnitude,(distToNext*animalLength+(axisDifferences.x*5))/2)*footSpeed;//Sidestepping needs to be faster
-                footMoveSpeed = Mathf.Clamp(footMoveSpeed, 1f, 15f);//Prevent from being too fast or slow
+                //footMoveSpeed = Mathf.Clamp(footMoveSpeed, 1f, 15f);//Prevent from being too fast or slow
                 
-                print("footmovespeed"+footMoveSpeed);
+//                print("footmovespeed"+footMoveSpeed);
                 
                 
                 float footLift= (Vector3.Distance(footIKTargetObj.transform.position, nextFootPos)*footHeightMult)-footMoveStopDist;

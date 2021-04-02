@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f5ad696a0b03b44a8419a742d2ab4d, type: 3}
   m_Name: UserSettingsForPlanet
   m_EditorClassIdentifier: 
-  res: 150
+  res: 200
   biomeGradients:
   - serializedVersion: 2
     key0: {r: 0.92966306, g: 1, b: 0.051886797, a: 1}
@@ -113,20 +113,11 @@ MonoBehaviour:
     centre: {x: 0, y: 446.32, z: 0}
   - enabled: 1
     useFirstLayerAsMask: 1
-    strength: 41.29
+    strength: 0.5
     roughness: 3.15
     NumOfNoiseCycles: 5
     persistance: 1.39
     baseRoughness: 0.33
     minValue: 4.17
     centre: {x: 0, y: 1.36, z: 0}
-  - enabled: 0
-    useFirstLayerAsMask: 1
-    strength: 0.1
-    roughness: 0.87
-    NumOfNoiseCycles: 5
-    persistance: 0.5
-    baseRoughness: 1
-    minValue: 0
-    centre: {x: 0, y: 0, z: 0}
   havePoles: 1

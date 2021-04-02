@@ -177,7 +177,7 @@ public class AnimalBehaviours : MonoBehaviour
                     Vector3 force = locDir;//Add avoid forc ebased on dist
 //                print(force);
 
-                    float pushAmount = (brain.animalHeight)/distanceToCurrent;
+                    float pushAmount = (brain.animalHeight*2)/distanceToCurrent;
                 
                 
                     if (obj.GetComponent<AnimalBrain>()!=null && (obj.GetComponent<AnimalBrain>().preyRating > brain.preyRating))
@@ -197,7 +197,7 @@ public class AnimalBehaviours : MonoBehaviour
     {
         if (toTarget != null)
         {
-            currentTask = "Hunting prey";
+            currentTask = "Chasing prey";
             Task.current.Succeed();//if found no enemies
             if (Vector3.Distance(toTarget.transform.position, headObject.position) > brain.animalLength)
             {
@@ -358,6 +358,7 @@ public class AnimalBehaviours : MonoBehaviour
                 {
                     AnimalBrain otherBrain;
                     otherBrain = obj.GetComponent<AnimalBrain>();
+                    currentTask = "Looking for mate";
 
                     //dif obj, opposite gender, active,
                     if (obj.transform != transform && !otherBrain.genderIsMale && obj.activeInHierarchy &&
@@ -459,6 +460,7 @@ public class AnimalBehaviours : MonoBehaviour
     {
         if (isSleeping)
         {
+            currentTask = "Sleeping";
             Task.current.Succeed();
         }
         else
@@ -513,12 +515,6 @@ public class AnimalBehaviours : MonoBehaviour
     }
     
     [Task]
-    void CheckWorking()
-    {
-        print("working on"+gameObject.transform.name);
-    }
-    
-    [Task]
     void AttackTarget()
     {
         if (toTarget.GetComponent<AnimalBrain>() &&toTarget.transform.name!=transform.name&& toTarget.gameObject.activeInHierarchy)//if has health
@@ -538,7 +534,7 @@ public class AnimalBehaviours : MonoBehaviour
                     StartCoroutine(PanicCoolown());//Is engaged in combat 
                     otherAnimalBrain.health -= 5; //todo brain attack strength 
                     //animalForce.AddToForce(rb.transform.forward*(brain.moveSpeed/2));
-                    rb.AddRelativeForce(rb.transform.forward*(brain.moveSpeed/5)*Time.deltaTime*100,ForceMode.Impulse);
+                    rb.AddRelativeForce((rb.transform.position-otherAnimalBrain.transform.position)*(60)*Time.deltaTime*100,ForceMode.Impulse);
 
                     GameObject hitCanvas = attackCanvasPool.GetObj();
                     hitCanvas.transform.position = headObject.transform.position+transform.up;
@@ -568,7 +564,7 @@ public class AnimalBehaviours : MonoBehaviour
         {
             brain.hunger = 100;
             Task.current.Succeed();
-            rb.AddRelativeForce(-rb.transform.up*(brain.moveSpeed/5)*Time.deltaTime*100,ForceMode.Impulse);
+            rb.AddRelativeForce(-rb.transform.up*(30)*Time.deltaTime*100,ForceMode.Impulse);
             GameObject foodCanvasObj = foodCanvasPool.GetObj();
             foodCanvasObj.transform.position = toTarget.transform.position;
             //Instantiate(foodCanvas, (toTarget.transform.position), transform.rotation);
@@ -590,7 +586,7 @@ public class AnimalBehaviours : MonoBehaviour
             drinkCanvas.transform.position = toTarget.transform.position;
             
             //animalForce.AddToForce(-rb.transform.up*(brain.moveSpeed/5));
-            rb.AddRelativeForce(-rb.transform.up*(brain.moveSpeed/5)*Time.deltaTime*100,ForceMode.Impulse);
+            rb.AddRelativeForce(-rb.transform.up*(30)*Time.deltaTime*100,ForceMode.Impulse);
 //            print("drink");
             toTarget = null;
         }
@@ -603,6 +599,8 @@ public class AnimalBehaviours : MonoBehaviour
             brain.reproductiveUrge = 0;
             GameObject heartCanvas = heartCanvasPool.GetObj();
             heartCanvas.transform.position = (toTarget.transform.position+this.transform.position)/2;
+            rb.AddRelativeForce(-rb.transform.up*(30)*Time.deltaTime*100,ForceMode.Impulse);
+
             
             toTarget.GetComponent<AnimalBrain>().reproductiveUrge = 0;
             for (int i = 0; i < amountToSpawn; i++)
@@ -617,8 +615,8 @@ public class AnimalBehaviours : MonoBehaviour
             GameObject questionCanvas = questionCanvasPool.GetObj();
             questionCanvas.transform.position = headObject.transform.position+(rb.transform.up*(brain.animalHeight/2));
             toTarget = null;
-            StartCoroutine(StunCoolown());
             Task.current.Succeed();
+            StartCoroutine(StunCoolown());
         }
         else if(toTarget.gameObject == wanderObj)//investigation
         {
@@ -654,24 +652,13 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void Sleep(float chanceToTrigger)//chance to trigger between 0 and 1
     {
-        if (Random.value < chanceToTrigger && angleScript.GetTargetAngleToSun(this.gameObject,false)<60 && !isSleeping&& !isPanicked)//nighttime
+        //random chance, is sleepy and is nightime & not in danger
+        if (Random.value < chanceToTrigger && brain.tiredness>50 && angleScript.GetTargetAngleToSun(this.gameObject,false)<60 && !isSleeping&& !isPanicked)//nighttime
         {
             StartCoroutine("Sleeping");
             print("sleep condition");
-        }
-        else
-        {
-            Task.current.Fail();
-        }
-    }
+            Task.current.Succeed();
 
-    [Task]
-    void InvestigatePlayer(float chanceToTrigger)
-    {
-        if (Random.value < chanceToTrigger && angleScript.GetTargetAngleToSun(this.gameObject,false)<60 && !isSleeping&& !isPanicked)//nighttime
-        {
-            StartCoroutine("Sleeping");
-            print("sleep condition");
         }
         else
         {
@@ -811,7 +798,7 @@ public class AnimalBehaviours : MonoBehaviour
             {
 //            print("stuck too long. Time"+Time.time+" last success"+lastWanderSuccess+" ob"+this.transform.name);
                 lastWanderSuccess = Time.time;
-                rb.AddRelativeForce(-rb.transform.forward * (brain.moveSpeed/5) * Time.deltaTime * 100,
+                rb.AddRelativeForce(-rb.transform.forward *(100) * Time.deltaTime * 100,
                     ForceMode.Impulse);
                 Task.current.Fail();
 //            print(" stuck, got new wander");
@@ -856,9 +843,9 @@ public class AnimalBehaviours : MonoBehaviour
     }
 
     [Task]
-    void InvestigatePlayer()
+    void InvestigatePlayer(float chanceToTrigger)
     {
-        if (playerCam)
+        if (playerCam && Random.value < chanceToTrigger)
         {
             print("Investigating player");
             toTarget = playerCam.transform;
@@ -894,14 +881,14 @@ public class AnimalBehaviours : MonoBehaviour
     
     IEnumerator Sleeping()
     {
-        
+        currentTask = "Sleeping";
         int secondsPassed = 0;
         isSleeping = true;
 
         float originalHeight = gravityScript.animalHeight;
         gravityScript.animalHeight = originalHeight / 2;
 
-        while (secondsPassed < secondsToSleep*2 && !isPanicked)//*2 because it run every half of second
+        while (secondsPassed < secondsToSleep*2 && !isPanicked && !life.hasDied)//*2 because it run every half of second
         {
             yield return new WaitForSeconds(.5f);
             GameObject sleepCanvasObj = sleepCanvasPool.GetObj();

@@ -83,8 +83,8 @@ tree("PackBehaviour")
         
 tree("RandomTask")
     fallback
-        Sleep(0.1)
-        InvestigatePlayer(0.5)
+        Sleep(0.01)
+        InvestigatePlayer(0.001)
         
 tree("Wander")
     sequence
