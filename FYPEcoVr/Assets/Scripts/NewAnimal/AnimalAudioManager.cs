@@ -27,7 +27,7 @@ public class AnimalAudioManager : MonoBehaviour
         footstepSource = gameObject.AddComponent<AudioSource>();
         footstepSource.outputAudioMixerGroup = audioMixerGroup;
         footstepSource.clip = footstep;
-        setDefault(footstepSource,playRange,.5f);
+        setDefault(footstepSource,playRange,.55f);
         //sources.Add(footstepSource);
         attackSource = gameObject.AddComponent<AudioSource>();
         attackSource.outputAudioMixerGroup = audioMixerGroup;

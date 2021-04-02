@@ -62,7 +62,7 @@ public class XrGravity : MonoBehaviour
             if (hit.transform.CompareTag("Ground"))
             {
                 if(Vector3.Distance(transform.position,hit.point)>0.4f)
-                    rigRb.AddForce(gravityDir * (gravForce * Time.deltaTime));
+                    rigRb.AddForce(gravityDir * (gravForce * Time.deltaTime),ForceMode.Force);
             }
             else if (hit.transform.CompareTag("WaterMesh"))
             {

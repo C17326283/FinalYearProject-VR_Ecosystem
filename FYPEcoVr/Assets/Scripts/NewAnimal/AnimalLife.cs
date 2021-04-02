@@ -124,6 +124,7 @@ public class AnimalLife : MonoBehaviour
         transform.right = transform.up;//Lay on side
         gameObject.GetComponent<AnimalGravity>().animalHeight = -5;//Collapse to ground
         gameObject.GetComponentInChildren<HeadLook>().enabled = false;
+        gameObject.GetComponentInChildren<AnimalAudioManager>().StopAudio();
         gameObject.GetComponentInChildren<AnimalAudioManager>().enabled = false;
         
 

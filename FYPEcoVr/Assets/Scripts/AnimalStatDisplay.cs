@@ -89,7 +89,7 @@ public class AnimalStatDisplay : MonoBehaviour
     {
         canvasManager.health.text = "Health: " +
                                     Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.health), 0,
-                                        selectAnimalBrain.maxHealth);
+                                        Mathf.RoundToInt(selectAnimalBrain.maxHealth));
         canvasManager.hunger.text = "Nutrition: " +
                                     Mathf.Clamp(Mathf.RoundToInt(selectAnimalBrain.hunger), 0,
                                         selectAnimalBrain.maxStat);

@@ -1927,134 +1927,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 462306406, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSize
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 462306406, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 462306406, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSizeMin
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 462306406, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 561244174, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSize
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 561244174, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 561244174, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSizeMin
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 707466961, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSize
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 707466961, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 707466961, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSizeMin
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 707466961, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1059000420, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSize
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 1059000420, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 1059000420, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSizeMin
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1059000420, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1158369787, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSize
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 1158369787, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 1158369787, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSizeMin
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1158369787, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1533872240, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: core
       value: 
       objectReference: {fileID: 927105571}
-    - target: {fileID: 1669249160, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSize
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 1669249160, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 1669249160, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSizeMin
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1669249160, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1995621952, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSize
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 1995621952, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 1995621952, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSizeMin
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1995621952, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2000028932, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSize
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 2000028932, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 2000028932, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_fontSizeMin
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2000028932, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 342881479001926701, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_Name
       value: XR Rig
@@ -4757,7 +4633,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3260bbec84345f4a8eda05519baa23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitUntillTriggered: 1
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
   amountToSpawn: 3000
@@ -7140,9 +7015,10 @@ GameObject:
   - component: {fileID: 1644109274}
   - component: {fileID: 1644109273}
   - component: {fileID: 1644109272}
-  m_Layer: 0
+  - component: {fileID: 1644109276}
+  m_Layer: 8
   m_Name: Water
-  m_TagString: Untagged
+  m_TagString: WaterMesh
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7234,6 +7110,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0.963, y: -121.028, z: -3.092}
+--- !u!64 &1644109276
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644109271}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1664849564 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6695415480466730718, guid: ebf640827d0dd5a45a5621aabcdde7c7, type: 3}

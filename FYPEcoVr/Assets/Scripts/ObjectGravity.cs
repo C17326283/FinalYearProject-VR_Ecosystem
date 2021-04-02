@@ -62,6 +62,10 @@ public class ObjectGravity : MonoBehaviour
                 transform.position = rayHit.point;
                 rb.velocity = Vector3.zero;
             }
+            else
+            {
+                rb.AddForce(gravityDir * (gravForce * Time.deltaTime));
+            }
         }
         else
         {

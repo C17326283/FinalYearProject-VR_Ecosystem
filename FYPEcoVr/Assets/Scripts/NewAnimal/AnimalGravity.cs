@@ -87,7 +87,7 @@ public class AnimalGravity : MonoBehaviour
         var point = forcePoints[0];
         RaycastHit hit;
         //Only add if theres environment below
-        if (Physics.Raycast(point.transform.position + (-gravityDir * 100), gravityDir, out hit, 5000, layerMask))
+        if (Physics.Raycast(point.transform.position + (-gravityDir * 100), gravityDir, out hit, 1000, layerMask))
         {
                 
             float furthestFootDist = GetFurthestFootDist();

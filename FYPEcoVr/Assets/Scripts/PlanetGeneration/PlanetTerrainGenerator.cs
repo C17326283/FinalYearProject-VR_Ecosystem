@@ -27,6 +27,8 @@ public class PlanetTerrainGenerator : MonoBehaviour
     public TerrainMinMaxHeights elevationMinMax;//for getting the highest and lowest points
     public GameObject[] biomeObjs;//4 object fro being placed around globe
 
+    public float biomeDist = 500;
+
     //Call the functions needed for planet
     public void GenerateFace()
     {
@@ -192,9 +194,41 @@ public class PlanetTerrainGenerator : MonoBehaviour
             }
             else
             {
-                biomeObjs[i].transform.position = Random.onUnitSphere * planetSettings.planetRadius;
+                biomeObjs[i].transform.position = RandomUniquePoint(i);
             }
         }
         
+    }
+
+    //Get point and make sure its not overlapping too much
+    public Vector3 RandomUniquePoint(int objectsMadeSoFar)
+    {
+        Vector3 point;
+        int maxAttempts = 20;
+        for (int i = 0; i < maxAttempts; i++)
+        {
+            bool notOverlapping = true;
+            point = Random.onUnitSphere * planetSettings.planetRadius;
+            
+            for (int j = 0; j < objectsMadeSoFar; j++)
+            {
+                //Check not overlapping
+                if (Vector3.Distance(point,biomeObjs[j].transform.position) < biomeDist * 1.7f)//a tiny overlap is fine//so not *2 biome dist
+                {
+                    notOverlapping = false;
+                    j = 100;//exit
+
+                }
+            }
+
+            if (notOverlapping)
+            {
+                i = maxAttempts * 2;//exit
+                return point;
+            }
+        }
+        
+            
+        return Random.onUnitSphere * planetSettings.planetRadius;//if couldnt find a good one then return any
     }
 }

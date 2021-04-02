@@ -225,13 +225,17 @@ public class PlanetSpawner : MonoBehaviour
         atmosphere.layer = 9;//atmosphere layer for reverse lighting
         FlipNormals(atmosphere);
         yield return new WaitForSeconds(.2f);
+        float numOfSpawnerObjects = allSpawnersObjects.transform.childCount;
+
         //add spawners
         foreach (Transform spawnerObj in allSpawnersObjects.transform)
         {
             print("spawning "+spawnerObj.transform.name);
-            genSequenceScript.IncreaseLoadProgress(10,"Generating "+spawnerObj.transform.name);
+
             if (spawnerObj.GetComponent<RandomGenSpawner>() != null)
             {
+                genSequenceScript.IncreaseLoadProgress(40/(numOfSpawnerObjects-1),"Generating "+spawnerObj.transform.name);
+
                 RandomGenSpawner sp = spawnerObj.GetComponent<RandomGenSpawner>();
                 GameObject holder = new GameObject("holder");
                 sp.parentObject = holder.gameObject;
@@ -244,7 +248,7 @@ public class PlanetSpawner : MonoBehaviour
             }
             else if (spawnerObj.GetComponent<AnimalsSpawner>() != null)
             {
-                spawnerObj.GetComponent<AnimalsSpawner>().TriggerSpawn();
+                spawnerObj.GetComponent<AnimalsSpawner>().TriggerSpawn(genSequenceScript);
                 yield return new WaitForSeconds(1f);
             }
             yield return new WaitForSeconds(.5f);

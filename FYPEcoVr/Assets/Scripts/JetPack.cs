@@ -49,8 +49,9 @@ public class JetPack : MonoBehaviour
         if (gameObject.activeInHierarchy && rigGravity.allowedFly && rigGravity.hasCore && particles)
         {
 //            print("jetpack mag"+rigRb.velocity.magnitude);
-            if(rigRb.velocity.magnitude < maxMagnitude)
-                rigRb.AddForce(controller.transform.forward * ((gripValue*jetForce) * Time.deltaTime));
+            rigRb.AddForce(controller.transform.forward * ((gripValue*jetForce) * Time.deltaTime),ForceMode.Force);
+            rigRb.velocity = Vector3.ClampMagnitude(rigRb.velocity,maxMagnitude);
+            
             audioSource.volume = gripValue/2;
             
             particlesMain.maxParticles = Mathf.FloorToInt(gripValue*particleRateAtStart);

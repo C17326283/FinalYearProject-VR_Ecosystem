@@ -51,7 +51,7 @@ MonoBehaviour:
   deathCanvas: {fileID: 8659279713810492492, guid: 58c1cddaa99cc2d408b22ea0d748b13a, type: 3}
   foodCanvas: {fileID: 8659279713810492492, guid: ac590355eaf7fb141a5dcfdcbeb475b3, type: 3}
   drinkCanvas: {fileID: 8659279713810492492, guid: 1a0cdddfb580da440886613f7d58311c, type: 3}
-  footstep: {fileID: 8300000, guid: 80239785e252f734a942b4bd5c1b91e1, type: 3}
+  footstep: {fileID: 8300000, guid: 7e30146df5f9bb84d9d63ed8211311b9, type: 3}
   attack: {fileID: 8300000, guid: 01d103ef16cea0d44bfcf2ed5d4675a7, type: 3}
   ambient: {fileID: 8300000, guid: 79689559ecbbf49428ccbb3a26e31283, type: 3}
   hungerThresh: 50

@@ -9923,18 +9923,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 164851711, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -18.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 164851711, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 328246986, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.3
-      objectReference: {fileID: 0}
     - target: {fileID: 1186597975, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -9943,24 +9931,12 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1368883152, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1471313964, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1471313964, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1533872240, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1728486592, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 342881479001926701, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
@@ -10755,7 +10731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3260bbec84345f4a8eda05519baa23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitUntillTriggered: 1
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
   amountToSpawn: 3500
@@ -14387,8 +14362,8 @@ MonoBehaviour:
   tagToSpawnOn: Ground
   isRotatingObject: 0
   RandomiseScaleAndRotation: 1
-  minScale: 2
-  maxScale: 4
+  minScale: 1
+  maxScale: 3
   randomXZTilt: 3
   usesLOD: 1
   screenPercentLODCull: 2

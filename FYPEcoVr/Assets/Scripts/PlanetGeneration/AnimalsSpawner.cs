@@ -8,7 +8,6 @@ using Random = UnityEngine.Random;
 //I used a pool system i had in an old project and adapted it to this, since im not despawnin objects they dont go back into the pool but it would be useful in future for animals
 public class AnimalsSpawner : MonoBehaviour
 {
-    public bool waitUntillTriggered = true;
     [SerializeField]//Make private visible in inspector, need private so doesnt give error
     public GameObject parentObject;
     public GameObject planetObject;
@@ -27,16 +26,8 @@ public class AnimalsSpawner : MonoBehaviour
 
     // Start is called before the first frame update
     
-    void Awake()
-    {
-        //start spawning objects
-        if (waitUntillTriggered == false)
-        {
-            StartCoroutine(Spawn());
-        }
-    }
 
-    public void TriggerSpawn()
+    public void TriggerSpawn(FinGenSequence genSequenceScript)
     {
         //Move the spawner object
         Resposition();
@@ -51,25 +42,29 @@ public class AnimalsSpawner : MonoBehaviour
         core = planetObject.transform.position;
 
         
-        StartCoroutine(Spawn());
+        StartCoroutine(Spawn(genSequenceScript));
     }
     
 
 
     //Spawn objects from pool in loop
-    IEnumerator Spawn()
+    IEnumerator Spawn(FinGenSequence genSequenceScript)
     {
         yield return new WaitForSeconds(.1f);//to make sure the mesh was spawned correctly
         GetPointOnPlanet pointFinder = GameObject.Find("Core").GetComponent<GetPointOnPlanet>();
         int i = 0;
         while (i < amountToSpawn)//Increments on successful spawn, allows group spawning
         {
+
             AnimalProfile animalToSpawn = animalProfiles[Random.Range(0, animalProfiles.Length)];
             
-            if (i % 500 == 0)//Split processing into chunks because too many at once can cause issues
+            if (i % 250 == 0)//Split processing into chunks because too many at once can cause issues
             {
+                int amountOfSpawnGroups = amountToSpawn / 250;
+                genSequenceScript.IncreaseLoadProgress(35/amountOfSpawnGroups,"Generating Animals");
+
                 //print("mod 500");
-                yield return new WaitForSeconds(.1f);
+                yield return new WaitForSeconds(.05f);
             }
             newObj = null;
             

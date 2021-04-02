@@ -12,8 +12,8 @@ public class CoastPointSpawner : MonoBehaviour
     private int layerMask;
 
 
-    public float rayStartHeight = 2f;
-    public float rayDist = 2f;
+    public float rayStartHeight = 1.5f;
+    public float rayDist = 1.5f;
     public int incrementAmount =2;
 
     public int res=0;
@@ -26,11 +26,10 @@ public class CoastPointSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         if(runOnStart)
             Run();
         
-        
-         
     }
 
     public void Run()

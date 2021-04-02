@@ -119,7 +119,7 @@ public class AnimalBrain : MonoBehaviour
         else
         {
             //Set default stuff 
-            generation = Random.Range(1,3);//small variation in start ones
+            generation = Random.Range(1,4);//small variation in start ones
             //Set self as parent so it can have a mutation on first generation for more interest
             SetStatsFromDNA();
             mother = GetComponent<AnimalBrain>();

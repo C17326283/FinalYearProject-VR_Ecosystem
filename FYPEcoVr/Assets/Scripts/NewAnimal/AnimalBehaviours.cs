@@ -94,6 +94,36 @@ public class AnimalBehaviours : MonoBehaviour
     }
 
     [Task]
+    void WaterAvoid()
+    {
+        Task.current.Succeed();
+        float rayDist = 30;
+
+        currentTask = "Cleaning";
+        Vector3 frontRayStart = rb.transform.position + (rb.transform.forward* (brain.animalLength*2) );//* (brain.animalLength)
+        RaycastHit hit; //shoot ray and if its ground then spawn at that location
+        if (toTarget && !toTarget.CompareTag("Water"))         //dont check while thirsty as they may not get close enough to water and be stuck
+        {
+            if (Physics.Raycast(frontRayStart + (rb.transform.up*5), -rb.transform.up,
+                out hit, rayDist, layerMask))
+            {
+                Debug.DrawLine(frontRayStart, hit.point, Color.green, .2f);
+                if (hit.transform.CompareTag("WaterMesh"))
+                {
+                    Debug.DrawLine(frontRayStart, hit.point, Color.red, .2f);
+                    Task.current.Succeed(); //if found no enemies
+
+                    Vector3 avoidDir;
+                    avoidDir = (rb.transform.position - frontRayStart).normalized;
+
+                    animalForce.AddToForce(((avoidDir * 4) + (transform.right / 10)) * 12);
+                }
+
+            }
+        }
+    }
+
+    [Task]
     void ObstacleAvoid()
     {
         Task.current.Succeed();
@@ -389,18 +419,20 @@ public class AnimalBehaviours : MonoBehaviour
         if (toTarget)
             found = toTarget.transform.CompareTag(resource) && toTarget.gameObject.activeInHierarchy;
         //if current target isnt the resource or active then this is false and it continues to find a new one
-
+        float closestResource = Mathf.Infinity;
+        
         if (!isPanicked && !found)
         {
             foreach (var obj in brain.objSensedMemory)
             {
-                if (obj.transform.CompareTag(resource) && found==false && obj.activeInHierarchy)
+                float distToCurObj = Vector3.Distance(obj.transform.position, transform.position);
+                if (obj.transform.CompareTag(resource) && found==false && obj.activeInHierarchy && distToCurObj<closestResource)
                 {
+                    closestResource = distToCurObj;
                     currentTask = "Getting "+resource;
                     toTarget = obj.transform;
                     Task.current.Succeed();
                     found = true;
-                    break;
                 }
             }
         }
@@ -496,7 +528,7 @@ public class AnimalBehaviours : MonoBehaviour
         if (toTarget)
         {
             float distance = Vector3.Distance(toTarget.transform.position, headObject.position);
-            if (distance < 1+(brain.animalHeight*2f))
+            if (distance < 1+(brain.animalHeight*1.5f))
             {
 //                print(transform.name+distance+" and "+(attackRange+brain.animalHeight));
                 Task.current.Succeed();
@@ -529,12 +561,12 @@ public class AnimalBehaviours : MonoBehaviour
                     AnimalBehaviours otherBehaviours = toTarget.GetComponent<AnimalBehaviours>();
                     otherBehaviours.combatAnimal = this.gameObject;
                     StartCoroutine(otherBehaviours.PanicCoolown());
-                    StartCoroutine(otherBehaviours.StunCoolown());
+                    StartCoroutine(otherBehaviours.StunCoolown(0.3f));
                     toTarget.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);//Hit slows other down
                     StartCoroutine(PanicCoolown());//Is engaged in combat 
                     otherAnimalBrain.health -= 5; //todo brain attack strength 
                     //animalForce.AddToForce(rb.transform.forward*(brain.moveSpeed/2));
-                    rb.AddRelativeForce((rb.transform.position-otherAnimalBrain.transform.position)*(60)*Time.deltaTime*100,ForceMode.Impulse);
+                    rb.AddRelativeForce((rb.transform.position-otherAnimalBrain.transform.position)*(50)*Time.deltaTime*100,ForceMode.Impulse);
 
                     GameObject hitCanvas = attackCanvasPool.GetObj();
                     hitCanvas.transform.position = headObject.transform.position+transform.up;
@@ -575,6 +607,7 @@ public class AnimalBehaviours : MonoBehaviour
                 toTarget.parent.GetComponent<AnimalBrain>().foodWorth -= 1;
             toTarget = null;
             hasEaten = true;
+            StartCoroutine(StunCoolown(1f));
             
 
         }
@@ -616,7 +649,7 @@ public class AnimalBehaviours : MonoBehaviour
             questionCanvas.transform.position = headObject.transform.position+(rb.transform.up*(brain.animalHeight/2));
             toTarget = null;
             Task.current.Succeed();
-            StartCoroutine(StunCoolown());
+            StartCoroutine(StunCoolown(1f));
         }
         else if(toTarget.gameObject == wanderObj)//investigation
         {
@@ -653,7 +686,7 @@ public class AnimalBehaviours : MonoBehaviour
     void Sleep(float chanceToTrigger)//chance to trigger between 0 and 1
     {
         //random chance, is sleepy and is nightime & not in danger
-        if (Random.value < chanceToTrigger && brain.tiredness>50 && angleScript.GetTargetAngleToSun(this.gameObject,false)<60 && !isSleeping&& !isPanicked)//nighttime
+        if (Random.value < chanceToTrigger &&brain.hunger>brain.hungerThresh&&brain.thirst>brain.hungerThresh&& brain.tiredness>50 && angleScript.GetTargetAngleToSun(this.gameObject,false)<60 && !isSleeping&& !isPanicked)//nighttime
         {
             StartCoroutine("Sleeping");
             print("sleep condition");
@@ -798,7 +831,7 @@ public class AnimalBehaviours : MonoBehaviour
             {
 //            print("stuck too long. Time"+Time.time+" last success"+lastWanderSuccess+" ob"+this.transform.name);
                 lastWanderSuccess = Time.time;
-                rb.AddRelativeForce(-rb.transform.forward *(100) * Time.deltaTime * 100,
+                rb.AddRelativeForce(-rb.transform.forward *(60) * Time.deltaTime * 100,
                     ForceMode.Impulse);
                 Task.current.Fail();
 //            print(" stuck, got new wander");
@@ -909,10 +942,10 @@ public class AnimalBehaviours : MonoBehaviour
         combatAnimal = null;
     }
     
-    IEnumerator StunCoolown()
+    IEnumerator StunCoolown(float stunLength)
     {
         isStunned = true;
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(stunLength);
         isStunned = false;
     }
     

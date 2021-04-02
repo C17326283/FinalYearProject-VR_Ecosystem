@@ -7,20 +7,21 @@ public class HolsterPosition : MonoBehaviour
 {
     public Transform head;
     public Transform rigBase;
-    public Vector3 defaultPos;
+    public Vector3 offset;
 
     private void Start()
     {
-        defaultPos = transform.localPosition;
+        //offset = transform.localPosition;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
 
 
         float dist = Vector3.Distance(head.position, rigBase.position);
-        transform.position = defaultPos+(rigBase.up*(dist*.7f));//+rigBase.InverseTransformDirection(offset)
+        transform.localPosition = head.localPosition+offset;//+rigBase.InverseTransformDirection(offset)
 
         
     }
