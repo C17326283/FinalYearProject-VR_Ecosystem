@@ -113,10 +113,14 @@ public class AnimalBehaviours : MonoBehaviour
                 {
                     Debug.DrawLine(frontRayStart, hit.point, Color.red, .2f);
 
-                    Vector3 avoidDir;
-                    avoidDir = (rb.transform.position - frontRayStart).normalized;
+                    Vector3 avoidDir = (rb.transform.position - frontRayStart).normalized;
+                    
+                    Vector3 locDir = rb.transform.InverseTransformDirection(avoidDir);
+                    locDir.y = 0;
 
-                    animalForce.AddToForce(((avoidDir * 4) + (transform.right / 10)) * 12);
+                    Vector3 force = locDir.normalized;
+
+                    animalForce.AddToForce(((force * 4)) * 10);
                 }
 
             }
@@ -138,7 +142,7 @@ public class AnimalBehaviours : MonoBehaviour
         {
             if (waterHit.transform.CompareTag("WaterMesh"))
             {
-                gravityScript.animalHeight = 0;
+                gravityScript.animalHeight = gravityScript.animalStartingHeight/12;
                 currentTask = "Swimming";
             }
             else
@@ -153,9 +157,10 @@ public class AnimalBehaviours : MonoBehaviour
     {
         Task.current.Succeed();
         float rayDist = brain.animalLength * 2;
+        //int revLayerMask = ~layerMask;
         
         RaycastHit hit; //shoot ray and if its ground then spawn at that location
-        if (Physics.Raycast(rb.transform.position, rb.transform.forward, out hit, rayDist))
+        if (Physics.Raycast(rb.transform.position, rb.transform.forward, out hit, rayDist,~layerMask))//~layermask means every layer except this one
         {
             if (hit.transform != toTarget)
             {
@@ -166,11 +171,16 @@ public class AnimalBehaviours : MonoBehaviour
                 Vector3 avoidDir;
                 avoidDir = (position - hit.transform.position).normalized;
 
-                animalForce.AddToForce((avoidDir+(transform.right/5)) * 6);
+                Vector3 locDir = rb.transform.InverseTransformDirection(avoidDir);
+                locDir.y = 0;
+
+                Vector3 force = locDir.normalized;
+
+                animalForce.AddToForce((force+(transform.right/5)) * 10);
             }
         }
         
-        if (Physics.Raycast(rb.transform.position, (rb.transform.forward + (rb.transform.right/2f)).normalized, out hit, rayDist))
+        if (Physics.Raycast(rb.transform.position, (rb.transform.forward + (rb.transform.right/2f)).normalized, out hit, rayDist,~layerMask))
         {
             if (hit.transform != toTarget)
             {
@@ -181,16 +191,19 @@ public class AnimalBehaviours : MonoBehaviour
                 Vector3 avoidDir;
                 avoidDir = (position - hit.transform.position).normalized;
                 avoidDir = (avoidDir + new Vector3(-1, 0, 0)).normalized;
-//                print("avoiddir right" + avoidDir);
+                
+                Vector3 locDir = rb.transform.InverseTransformDirection(avoidDir);
+                locDir.y = 0;
 
-                //Debug.DrawRay(position, avoidDir, Color.green, .2f);
-                animalForce.AddToForce(((avoidDir)) * 4);
+                Vector3 force = locDir.normalized;
+
+                animalForce.AddToForce(((force)) * 4);
 
             }
         }
         
         //lookDir = headObject.transform.forward + headObject.TransformDirection(0, 0, 30);
-        else if (Physics.Raycast(rb.transform.position, (rb.transform.forward + ((-rb.transform.right)/2f)).normalized, out hit, rayDist))
+        else if (Physics.Raycast(rb.transform.position, (rb.transform.forward + ((-rb.transform.right)/2f)).normalized, out hit, rayDist,~layerMask))
         {
             if (hit.transform != toTarget)
             {
@@ -202,11 +215,12 @@ public class AnimalBehaviours : MonoBehaviour
                 avoidDir = (position - hit.transform.position).normalized; //dont normalize because need the force amounts
                 //print("avoiddir" + avoidDir);
                 avoidDir = (avoidDir + new Vector3(1, 0, 0)).normalized;
-                //print("avoiddir right" + avoidDir);
+                Vector3 locDir = rb.transform.InverseTransformDirection(avoidDir);
+                locDir.y = 0;
 
+                Vector3 force = locDir.normalized;
 
-                //Debug.DrawRay(position, avoidDir, Color.green, .2f);
-                animalForce.AddToForce(((avoidDir)) * 4);
+                animalForce.AddToForce(((force)) * 4);
             }
         }
         

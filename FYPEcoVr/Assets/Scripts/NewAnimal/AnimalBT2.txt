@@ -37,7 +37,6 @@ tree("Combat")
 tree("Avoidance") 
     sequence
         AvoidOthers()
-        WaterAvoid()
         ObstacleAvoid()
         ManageSwimming()
         

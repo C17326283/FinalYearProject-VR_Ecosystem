@@ -193,7 +193,7 @@ public class AnimalFeetPositioner : MonoBehaviour
 
             if (legDefaultStretching)
             {
-                nextFootPos = brain.transform.position + (-brain.transform.up * 20);//Set very far below and avoid sticking to surface
+                nextFootPos = brain.transform.position + (-brain.transform.up * (animalHeight*3));//Set very far below and avoid sticking to surface
             }
             else
             {

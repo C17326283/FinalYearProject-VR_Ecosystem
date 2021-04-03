@@ -21,18 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="1c86a74b-a54b-44cd-a93d-b82d2bbe20ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/XR Rig.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/XR Rig.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/AnimalSetup.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AnimalSetup.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/VRPlanet.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/VRPlanet.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalLife.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalLife.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +63,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/TeleportPlanetOrienter.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AutoGen.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalForce.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/SpineNew.cs" />
         <option value="$PROJECT_DIR$/Assets/GraphicDisplayCanvas.cs" />
         <option value="$PROJECT_DIR$/Assets/SettingsControl.cs" />
@@ -83,7 +77,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/LightAtAngle.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SunAngle.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TakeScreenshot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Escape.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FacePlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/HolsterAttach.cs" />
@@ -102,10 +95,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/CoastPointSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2.txt" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalLife.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalForce.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2.txt" />
       </list>
     </option>
   </component>
@@ -234,6 +229,7 @@
       <workItem from="1617195792169" duration="19713000" />
       <workItem from="1617282831019" duration="24734000" />
       <workItem from="1617364761601" duration="22498000" />
+      <workItem from="1617446658218" duration="1951000" />
     </task>
     <servers />
   </component>
