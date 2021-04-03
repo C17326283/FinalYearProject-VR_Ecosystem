@@ -143,15 +143,16 @@ public class AnimalGravity : MonoBehaviour
     public void CheckOnGround()
     {
         //If animal is swimming or dead then set feet to not stick to surface. check is on correct to avoid multiple accesses when not needed
-        if (animalHeight < animalStartingHeight/10 && footPositioners[0].legDefaultStretching == false)
+        if (animalHeight < animalStartingHeight/4 && footPositioners[0].legDefaultStretching == false)
         {
             foreach (var footPositioner in footPositioners)
             {
                 footPositioner.legDefaultStretching = true;
+                footPositioner.needToMove = true;
                 col.enabled = false;
             }
         }
-        else if(animalHeight > animalStartingHeight/10 && footPositioners[0].legDefaultStretching == true)
+        else if(animalHeight > animalStartingHeight/4 && footPositioners[0].legDefaultStretching == true)
         {
             foreach (var footPositioner in footPositioners)
             {

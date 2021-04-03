@@ -728,7 +728,7 @@ public class AnimalBehaviours : MonoBehaviour
         if (Random.value < chanceToTrigger &&brain.hunger>brain.hungerThresh&&brain.thirst>brain.hungerThresh&& brain.tiredness>50 && angleScript.GetTargetAngleToSun(this.gameObject,false)<60 && !isSleeping&& !isPanicked)//nighttime
         {
             StartCoroutine("Sleeping");
-            print("sleep condition");
+//            print("sleep condition");
             Task.current.Succeed();
 
         }

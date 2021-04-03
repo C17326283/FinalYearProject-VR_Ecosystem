@@ -222,6 +222,11 @@ MonoBehaviour:
   initialiseOnStart: 1
   audioMixer: {fileID: 0}
   animalForce: {fileID: 0}
+--- !u!1 &63008900 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132148273585607, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+  m_PrefabInstance: {fileID: 419807200}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &88377751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1930,6 +1935,42 @@ PrefabInstance:
       propertyPath: core
       value: 
       objectReference: {fileID: 927105571}
+    - target: {fileID: 1558273608, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558273608, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558273608, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 854620960}
+    - target: {fileID: 1558273608, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558273608, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetOffset
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558273608, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: HolsterPosition, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558273608, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558273608, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 63008900}
+    - target: {fileID: 1558273608, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 342881479001926701, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_Name
       value: XR Rig
@@ -4146,6 +4187,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &854620960 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 293833634, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
+  m_PrefabInstance: {fileID: 419807200}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f340d85dacf8e34d9752c55f07dff55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &855422916
 GameObject:
   m_ObjectHideFlags: 0

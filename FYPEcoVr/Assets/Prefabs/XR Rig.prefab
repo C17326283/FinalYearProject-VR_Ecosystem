@@ -859,6 +859,7 @@ MonoBehaviour:
   head: {fileID: 342881477377479474}
   rigBase: {fileID: 342881479001926702}
   offset: {x: -0.39, y: -0.55, z: 0.1}
+  maxDist: 0
 --- !u!1 &350896820
 GameObject:
   m_ObjectHideFlags: 0

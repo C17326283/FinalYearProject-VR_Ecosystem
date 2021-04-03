@@ -138,7 +138,7 @@ public class AnimalFeetPositioner : MonoBehaviour
             {
                 //How fast to move foot
                 float footMoveSpeed = Mathf.Max(rb.velocity.magnitude,(distToNext*animalLength+(axisDifferences.x*5))/2)*footSpeed;//Sidestepping needs to be faster
-                //footMoveSpeed = Mathf.Clamp(footMoveSpeed, 1f, 15f);//Prevent from being too fast or slow
+                footMoveSpeed = Mathf.Clamp(footMoveSpeed, .5f, 30f);//Prevent from being too fast or slow
                 
 //                print("footmovespeed"+footMoveSpeed);
                 
@@ -185,15 +185,10 @@ public class AnimalFeetPositioner : MonoBehaviour
         RaycastHit hit;//hit informationf
         if (Physics.Raycast(raycastStart+ (forwardFacingObj.transform.up*10), -forwardFacingObj.transform.up, out hit, 50,layerMask))//cast ray and return if hit//use layer mask to avoid default layer and only hit environment layer
         {
-            if (debug)
-            {
-                Debug.DrawLine(raycastStart+ (forwardFacingObj.transform.up*10), hit.point, Color.yellow);
-                //print(hit.point);
-            }
-
             if (legDefaultStretching)
             {
-                nextFootPos = brain.transform.position + (-brain.transform.up * (animalHeight*3));//Set very far below and avoid sticking to surface
+                footIKTargetObj.transform.position = transform.position;
+                nextFootPos = transform.position;//Set very far below and avoid sticking to surface
             }
             else
             {
@@ -202,6 +197,7 @@ public class AnimalFeetPositioner : MonoBehaviour
             
         }
     }
+    
 
     
 }

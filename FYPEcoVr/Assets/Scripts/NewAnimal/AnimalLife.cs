@@ -122,7 +122,8 @@ public class AnimalLife : MonoBehaviour
         deathCanvas.transform.position = this.transform.position;
         brain.animalHeight = .1f;
         transform.right = transform.up;//Lay on side
-        gameObject.GetComponent<AnimalGravity>().animalHeight = .1f;//Collapse to ground
+        gameObject.GetComponent<AnimalGroundVelocityOrienter>().enabled = false;
+        gameObject.GetComponent<AnimalGravity>().animalHeight = gameObject.GetComponent<AnimalGravity>().animalStartingHeight/5;//Collapse to ground
         gameObject.GetComponentInChildren<HeadLook>().enabled = false;
         gameObject.GetComponentInChildren<AnimalAudioManager>().StopAudio();
         gameObject.GetComponentInChildren<AnimalAudioManager>().enabled = false;
@@ -133,7 +134,9 @@ public class AnimalLife : MonoBehaviour
 
     IEnumerator SetInactive(float time)
     {
-        yield return new WaitForSeconds(time);//wait specific time
+        yield return new WaitForSeconds(3);
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;//stop bouncing body
+        yield return new WaitForSeconds(Mathf.Abs(time-3));//wait specific time
         gameObject.GetComponent<Collider>().enabled = false;//fall through floor
         brain.foodWorth = -1;//so it wont be targeted anymore
         yield return new WaitForSeconds(1);
