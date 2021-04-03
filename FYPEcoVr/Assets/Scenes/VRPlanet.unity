@@ -1483,6 +1483,7 @@ MonoBehaviour:
   meshFilters: []
   waterMeshFilters: []
   biomeObjs: []
+  biomeDist: 500
 --- !u!4 &208762146
 Transform:
   m_ObjectHideFlags: 0
@@ -9923,22 +9924,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1186597975, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1186597975, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1471313964, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1471313964, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 342881479001926701, guid: 31820f0c7d8d3c844982350f022d65c7, type: 3}
       propertyPath: m_Name
       value: XR Rig

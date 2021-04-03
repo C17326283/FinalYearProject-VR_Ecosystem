@@ -42,6 +42,8 @@ public class AnimalFeetPositioner : MonoBehaviour
 
     public Vector3 axisDifferences;
     public AnimalAudioManager audioManager;
+
+    public bool legDefaultStretching = false;
     
     
     
@@ -188,7 +190,16 @@ public class AnimalFeetPositioner : MonoBehaviour
                 Debug.DrawLine(raycastStart+ (forwardFacingObj.transform.up*10), hit.point, Color.yellow);
                 //print(hit.point);
             }
-            nextFootPos = hit.point;
+
+            if (legDefaultStretching)
+            {
+                nextFootPos = brain.transform.position + (-brain.transform.up * 20);//Set very far below and avoid sticking to surface
+            }
+            else
+            {
+                nextFootPos = hit.point;
+            }
+            
         }
     }
 

@@ -39,6 +39,7 @@ tree("Avoidance")
         AvoidOthers()
         WaterAvoid()
         ObstacleAvoid()
+        ManageSwimming()
         
         
 

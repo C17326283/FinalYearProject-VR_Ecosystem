@@ -311,6 +311,7 @@ public class AnimalInitializer : MonoBehaviour
         {
             ikPole.transform.position = footPositioner.transform.position+(footPositioner.transform.forward * 10)+(footPositioner.transform.up *
                 (brain.animalHeight/3));
+            animalGravity.footPositioners.Add(footScript);
         }
         else
         {

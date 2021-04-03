@@ -4112,7 +4112,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.9, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4332,7 +4332,7 @@ MonoBehaviour:
   particles: {fileID: 884354877}
   particleRateAtStart: 1000
   audioSource: {fileID: 1764787550}
-  maxMagnitude: 30
+  maxMagnitude: 45
   skyMagLimit: 8
 --- !u!198 &884354877
 ParticleSystem:
@@ -9626,7 +9626,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.9, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10461,7 +10461,7 @@ MonoBehaviour:
   particles: {fileID: 734403051}
   particleRateAtStart: 0
   audioSource: {fileID: 1252994418}
-  maxMagnitude: 30
+  maxMagnitude: 45
   skyMagLimit: 8
 --- !u!198 &734403051
 ParticleSystem:

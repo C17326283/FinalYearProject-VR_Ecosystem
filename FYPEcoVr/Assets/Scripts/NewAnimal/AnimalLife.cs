@@ -120,9 +120,9 @@ public class AnimalLife : MonoBehaviour
         //this.GetComponent<Rigidbody>().freezeRotation = false;
         GameObject deathCanvas = deathCanvasPool.GetObj();
         deathCanvas.transform.position = this.transform.position;
-        brain.animalHeight = -5;
+        brain.animalHeight = .1f;
         transform.right = transform.up;//Lay on side
-        gameObject.GetComponent<AnimalGravity>().animalHeight = -5;//Collapse to ground
+        gameObject.GetComponent<AnimalGravity>().animalHeight = .1f;//Collapse to ground
         gameObject.GetComponentInChildren<HeadLook>().enabled = false;
         gameObject.GetComponentInChildren<AnimalAudioManager>().StopAudio();
         gameObject.GetComponentInChildren<AnimalAudioManager>().enabled = false;

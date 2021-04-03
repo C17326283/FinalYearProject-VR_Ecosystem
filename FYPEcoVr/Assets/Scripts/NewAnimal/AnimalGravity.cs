@@ -13,6 +13,7 @@ public class AnimalGravity : MonoBehaviour
     public Vector3 gravityDir;
     public AnimalBrain brain;
     public float animalHeight = 2;
+    public float animalStartingHeight = 2;
     public float animalLength = 2;
     public Rigidbody rb;
     public GameObject headHeightPosObj;
@@ -23,7 +24,8 @@ public class AnimalGravity : MonoBehaviour
 
     public List<AnimalFeetPositioner> footPositioners;
 
-    public float animalDefaultHeightAmount = 0.8f;
+    public float animalHCorrectorAmount = 0.8f;
+    public Collider col;
 
 
 
@@ -50,17 +52,21 @@ public class AnimalGravity : MonoBehaviour
     {
         //Get center of planet for orienting to
         core = GameObject.Find("Core");
+        
 
         rb = GetComponent<Rigidbody>();
+        col = GetComponent<CapsuleCollider>();
         layerMask = 1 << 8; //bit shift to get mask for raycasting so only on environment and not other animals
         
         if (brain != null)
         {
             animalHeight = brain.animalHeight;
+            animalStartingHeight = brain.animalHeight;//for reseting to if animal was swimming and normal height was changed
             animalLength = brain.animalLength;
         }
 
         footPositioners = new List<AnimalFeetPositioner>();
+        
 
         
         //Default values for proper weights
@@ -95,10 +101,10 @@ public class AnimalGravity : MonoBehaviour
             //get height based on magnitude or default height
             //float desiredHeight = Mathf.Min(animalHeight * .9f, animalHeight - (rb.velocity.magnitude / 30)); //strides get bigger at faster speeds so animate lower body too
 
-            float clampedMag = Mathf.Clamp(rb.velocity.magnitude/2, 1, Mathf.Min(2,animalHeight* animalDefaultHeightAmount));
-            float desiredHeight = (animalHeight * animalDefaultHeightAmount)-((furthestFootDist/clampedMag)/8); //height based on stride
+            float clampedMag = Mathf.Clamp(rb.velocity.magnitude/2, 1, Mathf.Min(2,animalHeight* animalHCorrectorAmount));
+            float desiredHeight = (animalHeight * animalHCorrectorAmount)-((furthestFootDist/clampedMag)/8); //height based on stride
             //               print("desiredHeight"+transform.name+desiredHeight);
-            desiredHeight = Mathf.Clamp(desiredHeight, animalHeight * .5f, animalHeight *animalDefaultHeightAmount);
+            desiredHeight = Mathf.Clamp(desiredHeight, animalHeight * .5f, animalHeight *animalHCorrectorAmount);
             //desiredHeight = desiredHeight * (1 * brain.bounceMult);
 
 
@@ -115,6 +121,8 @@ public class AnimalGravity : MonoBehaviour
             rb.AddForceAtPosition(dir * (gravForce * Time.deltaTime), position,
                 ForceMode.Acceleration);
 
+            CheckOnGround();
+            
         }
     }
 
@@ -123,64 +131,33 @@ public class AnimalGravity : MonoBehaviour
         //print(footPositioners);
         float fDist =0;
 
-        for (int i = 0; i < footPositioners.Count; i++)
+        for (int i = 0; i < 2; i++)
         {
             fDist = fDist+Mathf.Abs(footPositioners[i].axisDifferences.z+(footPositioners[i].axisDifferences.x/2)); //add distances
 
-            //print("foot" + footPositioners[i]);
-            /*
-            if (footPositioners[i].distToNext > fDist)
-            {
-                fDist = Mathf.Abs(footPositioners[i].axisDifferences.z+(footPositioners[i].axisDifferences.x/2)); //add distances
-            }
-            */
         }
 
         return fDist*brain.bounceMult;
     }
-}
-/*
-    public void GravityHeightPositioning()
-    {
-        foreach (var point in forcePoints)
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(point.transform.position, gravityDir, out hit, animalHeight*1.2f, layerMask))
-            {
-                Debug.DrawLine(point.transform.position, hit.point, Color.white);
-                float upForce = 0;
 
-                float desiredHeight = Mathf.Min(animalHeight*.8f,animalHeight-(rb.velocity.magnitude/100));//strides get bigger at faster speeds so animate lower body too
-                desiredHeight = Mathf.Clamp(desiredHeight, animalHeight *.6f, animalHeight);
-                
-                upForce = Mathf.Abs(desiredHeight / Vector3.Distance(hit.point, point.transform.position))*2;
-                upForce = Mathf.Clamp(upForce, 0f,10f);//Stop adding too much force
-                
-                rb.AddForceAtPosition(-gravityDir * (upForce * upMultiplier*Time.deltaTime),
-                    point.transform.position, ForceMode.Acceleration);// * desiredHeight
+    public void CheckOnGround()
+    {
+        //If animal is swimming or dead then set feet to not stick to surface. check is on correct to avoid multiple accesses when not needed
+        if (animalHeight < 0.001f && footPositioners[0].legDefaultStretching == false)
+        {
+            foreach (var footPositioner in footPositioners)
+            {
+                footPositioner.legDefaultStretching = true;
+                col.enabled = false;
+            }
+        }
+        else if(animalHeight > 0.01f && footPositioners[0].legDefaultStretching == true)
+        {
+            foreach (var footPositioner in footPositioners)
+            {
+                footPositioner.legDefaultStretching = false;
+                col.enabled = true;
             }
         }
     }
 }
-*/
-/*
-if (Physics.Raycast(point.transform.position+ (transform.up * 100), -rb.transform.up, out hit, 2000, layerMask))
-            {
-                if (hit.transform.CompareTag("Ground"))
-                {
-                    float desiredHeight = Mathf.Min(animalHeight*.9f,animalHeight-(rb.velocity.magnitude/100));//strides get bigger at faster speeds so animate lower body too
-                    desiredHeight = Mathf.Clamp(desiredHeight, animalHeight *.6f, animalHeight);
-                
-                    float upForce = 0;
-                    upForce = Mathf.Abs(desiredHeight / Vector3.Distance(hit.point, point.transform.position))*2;
-                    upForce = Mathf.Clamp(upForce, 0f,10f);//Stop adding too much force
-                    
-                    Vector3 dir = (hit.point + (-gravityDir * (desiredHeight)) - transform.position).normalized;
-                    Vector3 locdir = rb.transform.InverseTransformDirection(dir);//Find velocity in relation to an object oriented to ground
-                    dir.x = 0;
-                    dir.z = 0;
-
-                    rb.AddForceAtPosition(transform.up * (locdir.y * ((gravityStrength) * Time.deltaTime * 100)), point.transform.position,
-                        ForceMode.Acceleration);
-
-                }*/

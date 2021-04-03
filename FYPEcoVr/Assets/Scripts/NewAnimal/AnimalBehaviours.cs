@@ -98,20 +98,20 @@ public class AnimalBehaviours : MonoBehaviour
     {
         Task.current.Succeed();
         float rayDist = 30;
-
-        currentTask = "Cleaning";
+        
         Vector3 frontRayStart = rb.transform.position + (rb.transform.forward* (brain.animalLength*2) );//* (brain.animalLength)
-        RaycastHit hit; //shoot ray and if its ground then spawn at that location
         if (toTarget && !toTarget.CompareTag("Water"))         //dont check while thirsty as they may not get close enough to water and be stuck
         {
+            RaycastHit hit; //shoot ray and if its ground then spawn at that location
+
             if (Physics.Raycast(frontRayStart + (rb.transform.up*5), -rb.transform.up,
                 out hit, rayDist, layerMask))
             {
+                
                 Debug.DrawLine(frontRayStart, hit.point, Color.green, .2f);
                 if (hit.transform.CompareTag("WaterMesh"))
                 {
                     Debug.DrawLine(frontRayStart, hit.point, Color.red, .2f);
-                    Task.current.Succeed(); //if found no enemies
 
                     Vector3 avoidDir;
                     avoidDir = (rb.transform.position - frontRayStart).normalized;
@@ -120,10 +120,35 @@ public class AnimalBehaviours : MonoBehaviour
                 }
 
             }
+            
         }
+        
+        
+        
     }
 
     [Task]
+    void ManageSwimming()
+    {
+        Task.current.Succeed();
+        //Enable or disable swimming
+        RaycastHit waterHit; //shoot ray and if its ground then spawn at that location
+
+        if (Physics.Raycast(transform.position+(transform.up*brain.animalHeight), -rb.transform.up, out waterHit, brain.animalHeight * 3, layerMask))
+        {
+            if (waterHit.transform.CompareTag("WaterMesh"))
+            {
+                gravityScript.animalHeight = 0;
+                currentTask = "Swimming";
+            }
+            else
+            {
+                gravityScript.animalHeight = gravityScript.animalStartingHeight;
+            }
+        }
+    }
+
+        [Task]
     void ObstacleAvoid()
     {
         Task.current.Succeed();
@@ -918,8 +943,7 @@ public class AnimalBehaviours : MonoBehaviour
         int secondsPassed = 0;
         isSleeping = true;
 
-        float originalHeight = gravityScript.animalHeight;
-        gravityScript.animalHeight = originalHeight / 2;
+        gravityScript.animalHeight = gravityScript.animalStartingHeight / 2;
 
         while (secondsPassed < secondsToSleep*2 && !isPanicked && !life.hasDied)//*2 because it run every half of second
         {
@@ -929,7 +953,7 @@ public class AnimalBehaviours : MonoBehaviour
             secondsPassed++;
         }
         isSleeping = false;
-        gravityScript.animalHeight = originalHeight;
+        gravityScript.animalHeight = gravityScript.animalStartingHeight;
         
         
     }

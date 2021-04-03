@@ -24,7 +24,7 @@ MonoBehaviour:
   maxStat: 100
   healthStarveDecrement: 0.5
   hungerDecrement: 2
-  thirstDecrement: 3
+  thirstDecrement: 1.5
   reproductiveIncrement: 4
   ageIncrement: 0.2
   memoryLossRate: 1000
