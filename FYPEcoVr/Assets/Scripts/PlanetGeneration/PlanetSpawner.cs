@@ -10,7 +10,6 @@ using Random = UnityEngine.Random;
 public class PlanetSpawner : MonoBehaviour
 {
     //All the references
-    public GameObject player;
     [HideInInspector] 
     public GameObject planetObj;
     private PlanetTerrainGenerator planetScript;
@@ -280,12 +279,6 @@ public class PlanetSpawner : MonoBehaviour
         
         
         this.GetComponent<RotateEnvironment>().enabled = false;
-        //Tried to get bettr player controller but it didnt work
-        //player.transform.position = (planet.transform.up * planetSettings.planetRadius)+ (Vector3.up * 110);
-        //player.GetComponent<SimpleCameraController>().enabled = true;
-        //FakeGravity fg = player.AddComponent<FakeGravity>();
-        //fg.gravityObject = planet;
-
     }
     
 

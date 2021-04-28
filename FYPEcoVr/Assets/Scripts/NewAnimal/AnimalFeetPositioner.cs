@@ -45,6 +45,7 @@ public class AnimalFeetPositioner : MonoBehaviour
 
     public bool legDefaultStretching = false;
     
+    public float animalHCorrectorAmount = 0.88f;
     
     
     // Start is called before the first frame update
@@ -96,8 +97,8 @@ public class AnimalFeetPositioner : MonoBehaviour
         footIKTargetObj.transform.rotation = forwardFacingObj.transform.rotation;//this prevents the feet from beign twisted
 
         //Get a longer forward step distance if doing faster
-        float velForwardStep = Mathf.Max(forwardStepDist,(forwardStepDist * rb.velocity.magnitude*0.8f)/3f);
-        velForwardStep = Mathf.Clamp(velForwardStep, forwardStepDist, animalLength*0.8f);
+        float velForwardStep = Mathf.Max(forwardStepDist,(forwardStepDist * rb.velocity.magnitude*animalHCorrectorAmount)/3f);
+        velForwardStep = Mathf.Clamp(velForwardStep, forwardStepDist, animalLength*animalHCorrectorAmount);
         
         
         //Check if foot has got too far from desired position 
@@ -136,13 +137,9 @@ public class AnimalFeetPositioner : MonoBehaviour
             //foot isnt at target position yet
             if (distToNext>footMoveStopDist)
             {
-                //How fast to move foot
+                //How fast & how high to move foot
                 float footMoveSpeed = Mathf.Max(rb.velocity.magnitude,(distToNext*animalLength+(axisDifferences.x*5))/2)*footSpeed;//Sidestepping needs to be faster
                 footMoveSpeed = Mathf.Clamp(footMoveSpeed, .5f, 30f);//Prevent from being too fast or slow
-                
-//                print("footmovespeed"+footMoveSpeed);
-                
-                
                 float footLift= (Vector3.Distance(footIKTargetObj.transform.position, nextFootPos)*footHeightMult)-footMoveStopDist;
                 footLift= Mathf.Clamp(footLift,0f,(animalHeight/rb.velocity.magnitude)*3);
 
@@ -153,14 +150,14 @@ public class AnimalFeetPositioner : MonoBehaviour
                     //float footMoveSpeed = Mathf.Max(lerpSpeed,(distToNext/3)*lerpSpeed);
                     footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos+(forwardFacingObj.transform.up*footLift), footMoveSpeed * Time.deltaTime);//+(forwardFacingObj.transform.up*footLift)
                 }
-                else if(Mathf.Abs(axisDifferences.z)>forwardStepDist*6||Mathf.Abs(axisDifferences.x)>sideStepDist*6)
+                else if(Mathf.Abs(axisDifferences.z)>forwardStepDist*8||Mathf.Abs(axisDifferences.x)>sideStepDist*8)
                 {
                     //                   print("far foot");
                     footAtPosition = false;//has started moving to next position so set to false and only becomes true if gets close enough to next position
                     footIKTargetObj.transform.position = Vector3.MoveTowards( footIKTargetObj.transform.position, nextFootPos, footMoveSpeed*4 * Time.deltaTime);
                     
                 }
-                else if(Mathf.Abs(axisDifferences.z)>forwardStepDist*13||Mathf.Abs(axisDifferences.x)>sideStepDist*13)//is extremely far
+                else if(Mathf.Abs(axisDifferences.z)>forwardStepDist*14||Mathf.Abs(axisDifferences.x)>sideStepDist*14)//is extremely far
                 {
                     //                   print("far foot");
                     footAtPosition = false;//has started moving to next position so set to false and only becomes true if gets close enough to next position

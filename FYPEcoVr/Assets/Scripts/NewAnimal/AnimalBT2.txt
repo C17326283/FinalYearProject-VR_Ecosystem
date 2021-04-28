@@ -13,15 +13,15 @@ tree("Root")
                 tree("RandomTask")
                 tree("Wander")
             tree("StuckPrevention") 
-
-tree("Special")
-    fallback
-        IsSleepingCondition()
             
 tree("StuckPrevention") 
     fallback
         GettingCloserCondition()
         RemoveWanderTarget()
+
+tree("Special")
+    fallback
+        IsSleepingCondition()
         
         
         

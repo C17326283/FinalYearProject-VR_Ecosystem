@@ -340,14 +340,13 @@ public class AnimalBehaviours : MonoBehaviour
     void GetAnimalTarget()
     {
         bool found = false;
-        //If eats meat and is not already targeting an animal
+        //If eats meat
         if (brain.eatsMeat)
         {
-            //If already has target else get
+            //If it has an animal target then return true to allow the behaviour to 
             if (toTarget&&toTarget.GetComponent<AnimalBrain>()!=null &&
                 toTarget.GetComponent<AnimalBrain>().preyRating < brain.packBravery &&toTarget.GetComponent<AnimalBrain>().foodWorth>0)
             {
-//                print("get an target, alreayd has");
                 found = true;
             }
             else
@@ -362,7 +361,6 @@ public class AnimalBehaviours : MonoBehaviour
                         //If dead target then just use that instead of attacking alive one
                         if (otherAnBrain.health<=0 && otherAnBrain.foodWorth>0)
                         {
-//                            print("get an target, theres a dead");
                             found = true;
                             break;
                         }
@@ -391,24 +389,25 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void TargetPlants()
     {
-        
-        //todo only if not panicked
         bool found = false;
-        if (brain.eatsPlants)
+        if (brain.eatsPlants)//Has eats planst trait
         {
+            //check all the objects in memory
             foreach (var obj in brain.objSensedMemory)
             {
+                //If the target is a food object and it is still active
                 if (obj.transform.CompareTag("Food") && obj.gameObject.activeInHierarchy)
                 {
-                    toTarget = obj.transform;
-                    Task.current.Succeed();
-                    currentTask = "Eating plants";
+                    toTarget = obj.transform;//set as target
+                    Task.current.Succeed();//Return true as the function was successful
+                    currentTask = "Eating plants";//Display the animals behaviour to use
                     found = true;
-                    break;
+                    break;//Exit the function
                 }
             } 
         }
 
+        //If none was found in the method then return false
         if (found == false)
         {
             Task.current.Fail();
@@ -488,12 +487,12 @@ public class AnimalBehaviours : MonoBehaviour
         }
     }
     
+    //move towards set target
     [Task]
     void SeekTarget()
     {
         if (toTarget && !isStunned)
         {
-            //currentTask = "Getting "+toTarget.transform.name;
             Vector3 seekDir;
             seekDir = (toTarget.position - rb.transform.position);//dont normalize because need the force amounts
             Vector3 locDir = rb.transform.InverseTransformDirection(seekDir);
@@ -501,7 +500,6 @@ public class AnimalBehaviours : MonoBehaviour
 
             Vector3 force = locDir.normalized;
             animalForce.AddToForce(force*2);
-            //rb.AddRelativeForce(force*Time.deltaTime*100);
             Task.current.Succeed();//if found no enemies
         }
         else
@@ -891,6 +889,7 @@ public class AnimalBehaviours : MonoBehaviour
     [Task]
     void IsHungryCondition()
     {
+        //The hunger level is lower than the threshold
         if (brain.hunger < brain.hungerThresh)
         {
             Task.current.Succeed();

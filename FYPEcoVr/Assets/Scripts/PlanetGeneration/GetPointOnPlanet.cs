@@ -24,28 +24,24 @@ public class GetPointOnPlanet : MonoBehaviour
         int attempts = 0;
         RaycastHit hitToReturn;
         
+        //make multiple attempts to find a position but dont get stuck in a loop if its not possible
         while (attempts<maxAttempts)
         {
-            Resposition();
+            Resposition();//put the spawner at a new position around the wordl to start the raycast
             
             RaycastHit hit; //shoot ray and if its ground then spawn at that location
-            if (Physics.Raycast(spawnerObject.transform.position, core.position - spawnerObject.transform.position, out hitToReturn, 10000))
+            if (Physics.Raycast(spawnerObject.transform.position,
+                core.position - spawnerObject.transform.position, out hitToReturn, 10000))
             {
                 if (hitToReturn.transform.CompareTag(tagToSpawnOn)) //Checks its allowed spawn there
                 {
                     attempts = maxAttempts + 1;//exit while
                     return hitToReturn;
                 }
-
-                
             }
-
             attempts++;
         }
-
         return null;
-
-
     }
     
     public void Resposition()

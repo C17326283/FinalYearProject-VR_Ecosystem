@@ -21,16 +21,6 @@ public class HeadLook : MonoBehaviour
         rb = this.GetComponentInParent<Rigidbody>();
     }
     
-    /*
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawLine(transform.position, bodyDir);
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position, toDir);
-    }
-    */
-
     // Update is called once per frame
     void Update()
     {

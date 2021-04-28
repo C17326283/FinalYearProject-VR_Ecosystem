@@ -20,16 +20,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c86a74b-a54b-44cd-a93d-b82d2bbe20ff" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FYPEcoVr/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Default/Settings/UniversalRP-HighQuality.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Default/Settings/UniversalRP-HighQuality.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AnimalOrange.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/AnimalOrange.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/XR Rig.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/XR Rig.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Elephant.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Elephant.fbx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/AnimalSetup.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AnimalSetup.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HolsterPosition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HolsterPosition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/VRPlanet.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/VRPlanet.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AltBehaviours.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AltBehaviours.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Deprecated.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HolsterAttach.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vr/HolsterAttach.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HolsterAttach.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vr/HolsterAttach.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HolsterPosition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vr/HolsterPosition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HolsterPosition.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vr/HolsterPosition.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/JetPack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vr/JetPack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/JetPack.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vr/JetPack.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LightAtAngle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LightAtAngle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ManualButtonTrigger.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ManualButtonTrigger.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2Backup2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2Backup2.txt.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBrain.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalForce.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalForce.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalLife.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalLife.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/HeadLook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewAnimal/HeadLook.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/AnimalsSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/AnimalsSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/CoastPointSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/CoastPointSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/GetPointOnPlanet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/GetPointOnPlanet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/NoiseLayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/NoiseLayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetTerrainGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetTerrainGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/RandomGenSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/RandomGenSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/TerrainFace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/TerrainFace.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vr/HandController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vr/HandController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vr/TeleportPlanetOrienter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vr/TeleportPlanetOrienter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XrGravity.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XrGravity.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +78,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@1.0.0-pre.2/Runtime/Interaction/XRInteractionManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HolsterPosition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Vr/HolsterPosition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@1.0.0-pre.2/Runtime/UI/TrackedDeviceGraphicRaycaster.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@1.0.0-pre.2/Runtime/Locomotion/Teleportation/BaseTeleportationInteractable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/UnityVersions/2020.2.3f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/InputModules/BaseInput.cs" root0="SKIP_HIGHLIGHTING" />
@@ -53,16 +89,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/AnimalProfile.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/TerrainFace.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Deprecated/FacePlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/AnimalDistanceDisabler.cs" />
-        <option value="$PROJECT_DIR$/Assets/DeactivateAfterTime.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Food.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/RotateEnvironment.cs" />
         <option value="$PROJECT_DIR$/Assets/VolumeControl.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AudioManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/GetPointOnPlanet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TeleportPlanetOrienter.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AutoGen.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GravityMovement.cs" />
@@ -74,10 +103,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalProfile.cs" />
         <option value="$PROJECT_DIR$/Assets/Scenes/Scripts/JetPack.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/BiomeManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/RandomGenSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Vr/TeleporterController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StatCanvasManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/LightAtAngle.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SunAngle.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TakeScreenshot.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Escape.cs" />
@@ -85,25 +112,34 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/HolsterAttach.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalDistanceDisabler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AnimalStatDisplay.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBrain.cs" />
         <option value="$PROJECT_DIR$/Assets/XrGravity.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/JetPack.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/AnimalsSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FinGenSequence.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetTerrainGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ObjectGravity.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalAudioManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/CoastPointSpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalForce.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/HolsterPosition.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2.txt" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalLife.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/HeadLook.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBT2.txt" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/TerrainFace.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGroundVelocityOrienter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/CoastPointSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LightAtAngle.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/JetPack.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Vr/TeleportPlanetOrienter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/PlanetTerrainGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/RandomGenSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/GetPointOnPlanet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/AnimalsSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/NoiseLayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalGravity.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalFeetPositioner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetGeneration/RotateEnvironment.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalInitializer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBrain.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalForce.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewAnimal/AnimalBehaviours.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Vr/HandController.cs" />
       </list>
     </option>
   </component>
@@ -232,7 +268,18 @@
       <workItem from="1617195792169" duration="19713000" />
       <workItem from="1617282831019" duration="24734000" />
       <workItem from="1617364761601" duration="22498000" />
-      <workItem from="1617446658218" duration="10534000" />
+      <workItem from="1617446658218" duration="10537000" />
+      <workItem from="1617569919489" duration="118000" />
+      <workItem from="1617570423518" duration="10524000" />
+      <workItem from="1617645132530" duration="16349000" />
+      <workItem from="1617706710503" duration="1407000" />
+      <workItem from="1617908620301" duration="649000" />
+      <workItem from="1618063716322" duration="2317000" />
+      <workItem from="1618691384417" duration="1557000" />
+      <workItem from="1618768049548" duration="1915000" />
+      <workItem from="1618965258419" duration="3489000" />
+      <workItem from="1619297478149" duration="3560000" />
+      <workItem from="1619390321907" duration="1776000" />
     </task>
     <servers />
   </component>
@@ -264,82 +311,66 @@
     <state width="1743" height="216" key="GridCell.Tab.0.bottom" timestamp="1613440013492">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1609339641561" />
     <state width="1743" height="216" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1613440013492" />
     <state width="1743" height="216" key="GridCell.Tab.0.center" timestamp="1613440013492">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.0.center/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1609339641561" />
     <state width="1743" height="216" key="GridCell.Tab.0.center/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1613440013492" />
     <state width="1743" height="216" key="GridCell.Tab.0.left" timestamp="1613440013492">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.0.left/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1609339641561" />
     <state width="1743" height="216" key="GridCell.Tab.0.left/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1613440013492" />
     <state width="1743" height="216" key="GridCell.Tab.0.right" timestamp="1613440013492">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.0.right/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1609339641561" />
     <state width="1743" height="216" key="GridCell.Tab.0.right/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1613440013492" />
     <state width="1743" height="216" key="GridCell.Tab.1.bottom" timestamp="1613440013493">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1609339645156" />
     <state width="1743" height="216" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1613440013493" />
     <state width="1743" height="216" key="GridCell.Tab.1.center" timestamp="1613440013492">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.1.center/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1609339645156" />
     <state width="1743" height="216" key="GridCell.Tab.1.center/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1613440013492" />
     <state width="1743" height="216" key="GridCell.Tab.1.left" timestamp="1613440013492">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.1.left/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1609339645156" />
     <state width="1743" height="216" key="GridCell.Tab.1.left/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1613440013492" />
     <state width="1743" height="216" key="GridCell.Tab.1.right" timestamp="1613440013492">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.1.right/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1609339645156" />
     <state width="1743" height="216" key="GridCell.Tab.1.right/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1613440013492" />
     <state width="1743" height="216" key="GridCell.Tab.2.bottom" timestamp="1613440013493">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1609339641488" />
     <state width="1743" height="216" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1613440013493" />
     <state width="1743" height="216" key="GridCell.Tab.2.center" timestamp="1613440013493">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.2.center/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1609339641488" />
     <state width="1743" height="216" key="GridCell.Tab.2.center/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1613440013493" />
     <state width="1743" height="216" key="GridCell.Tab.2.left" timestamp="1613440013493">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.2.left/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1609339641488" />
     <state width="1743" height="216" key="GridCell.Tab.2.left/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1613440013493" />
     <state width="1743" height="216" key="GridCell.Tab.2.right" timestamp="1613440013493">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.2.right/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1609339641488" />
     <state width="1743" height="216" key="GridCell.Tab.2.right/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1613440013493" />
     <state width="1743" height="216" key="GridCell.Tab.3.bottom" timestamp="1613440013493">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.3.bottom/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1609339641488" />
     <state width="1743" height="216" key="GridCell.Tab.3.bottom/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1613440013493" />
     <state width="1743" height="216" key="GridCell.Tab.3.center" timestamp="1613440013493">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.3.center/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1609339641488" />
     <state width="1743" height="216" key="GridCell.Tab.3.center/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1613440013493" />
     <state width="1743" height="216" key="GridCell.Tab.3.left" timestamp="1613440013493">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.3.left/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1609339641488" />
     <state width="1743" height="216" key="GridCell.Tab.3.left/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1613440013493" />
     <state width="1743" height="216" key="GridCell.Tab.3.right" timestamp="1613440013493">
       <screen x="1920" y="47" width="1786" height="986" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.3.right/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1609339641488" />
     <state width="1743" height="216" key="GridCell.Tab.3.right/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1613440013493" />
     <state x="2660" y="453" key="VCS.ChangelistChooser" timestamp="1613334167637">
       <screen x="1920" y="47" width="1786" height="986" />
@@ -363,11 +394,11 @@
     </state>
     <state x="1920" y="47" width="1802" height="1028" key="dock-window-3/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1612029046947" />
     <state x="-2340" y="75" width="1551" height="974" maximized="true" key="dock-window-3/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1616369680860" />
-    <state x="271" y="120" width="1273" height="920" key="find.popup" timestamp="1617454729934">
+    <state x="529" y="147" width="1007" height="801" key="find.popup" timestamp="1619391530866">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="529" y="147" width="1007" height="801" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1617050652703" />
-    <state x="271" y="120" width="1273" height="920" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1617454729934" />
+    <state x="529" y="147" width="1007" height="801" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1619391530866" />
+    <state x="271" y="120" width="1273" height="920" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1618788711557" />
     <state x="2480" y="139" width="736" height="801" key="find.popup/1920.47.1786.986/-1920.86.1920.1040/0.0.1920.1040@1920.47.1786.986" timestamp="1617415501478" />
     <state x="2476" y="258" width="672" height="678" key="search.everywhere.popup" timestamp="1617325537448">
       <screen x="1920" y="47" width="1786" height="986" />

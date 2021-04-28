@@ -19,12 +19,11 @@ public class AnimalGravity : MonoBehaviour
     public GameObject headHeightPosObj;
 
     private int layerMask;
-    public List<GameObject> forcePoints;
     public bool InitializeOnStart = false;
 
     public List<AnimalFeetPositioner> footPositioners;
 
-    public float animalHCorrectorAmount = 0.8f;
+    public float animalHCorrectorAmount = 0.88f;
     public Collider col;
 
 
@@ -66,54 +65,28 @@ public class AnimalGravity : MonoBehaviour
         }
 
         footPositioners = new List<AnimalFeetPositioner>();
-        
 
-        
         //Default values for proper weights
         rb.mass = 100;
         rb.drag = 2;
         rb.angularDrag = 2;
-
-        //Make 2 points, for front and back balancing
-        forcePoints = new List<GameObject>();
-        for (int i = 0; i < 2; i++)
-        {
-            GameObject p = new GameObject("force point");
-            forcePoints.Add(p);
-            p.transform.parent = headHeightPosObj.transform;//.parent
-        }
-
-        //temp assume 2 points, front and back
-        forcePoints[0].transform.position = headHeightPosObj.transform.position;
-        forcePoints[1].transform.position = headHeightPosObj.transform.position + (-transform.forward * (animalLength));
     }
 
     public void AddGravity() //todo fix this mess
     {
-        var point = forcePoints[0];
         RaycastHit hit;
         //Only add if theres environment below
-        if (Physics.Raycast(point.transform.position + (-gravityDir * 100), gravityDir, out hit, 1000, layerMask))
+        if (Physics.Raycast(headHeightPosObj.transform.position + (-gravityDir * 100), gravityDir, out hit, 1000, layerMask))
         {
-                
             float furthestFootDist = GetFurthestFootDist();
-
-            //get height based on magnitude or default height
-            //float desiredHeight = Mathf.Min(animalHeight * .9f, animalHeight - (rb.velocity.magnitude / 30)); //strides get bigger at faster speeds so animate lower body too
-
-            float clampedMag = Mathf.Clamp(rb.velocity.magnitude/2, 1, Mathf.Min(2,animalHeight* animalHCorrectorAmount));
-            float desiredHeight = (animalHeight * animalHCorrectorAmount)-((furthestFootDist/clampedMag)/8); //height based on stride
-            //               print("desiredHeight"+transform.name+desiredHeight);
+            float clampedMag = Mathf.Clamp(rb.velocity.magnitude, 1, Mathf.Min(2,animalHeight* animalHCorrectorAmount));
+            float desiredHeight = (animalHeight * animalHCorrectorAmount)-((furthestFootDist/clampedMag)/6); //height based on stride
             desiredHeight = Mathf.Clamp(desiredHeight, animalHeight * .5f, animalHeight *animalHCorrectorAmount);
-            //desiredHeight = desiredHeight * (1 * brain.bounceMult);
-
-
+            
             //get a distance away from target than can be used to reduce force// *8 to decrease range it affects
-            var position = point.transform.position;
-            float distForce = Vector3.Distance(hit.point + (transform.up * desiredHeight), position) * 5; //find dist between current and desired point
-
-//                    print("distFroce"+distForce);
-
+            var position = headHeightPosObj.transform.position;
+            float distForce = Vector3.Distance(hit.point + (transform.up * desiredHeight), position) * 5;
+            //find dist between current and desired point
             float gravForce = Mathf.Min(gravityStrength * distForce, gravityStrength); //if close to point then add less force
 
             Vector3 dir = (hit.point + (-gravityDir * (desiredHeight)) - position).normalized;
@@ -131,13 +104,13 @@ public class AnimalGravity : MonoBehaviour
         //print(footPositioners);
         float fDist =0;
 
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < footPositioners.Count; i++)
         {
             fDist = fDist+Mathf.Abs(footPositioners[i].axisDifferences.z+(footPositioners[i].axisDifferences.x/2)); //add distances
 
         }
 
-        return fDist*brain.bounceMult;
+        return fDist/(footPositioners.Count/2);
     }
 
     public void CheckOnGround()

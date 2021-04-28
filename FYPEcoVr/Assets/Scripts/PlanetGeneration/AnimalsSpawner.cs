@@ -62,39 +62,33 @@ public class AnimalsSpawner : MonoBehaviour
             {
                 int amountOfSpawnGroups = amountToSpawn / 250;
                 genSequenceScript.IncreaseLoadProgress(35/amountOfSpawnGroups,"Generating Animals");
-
-                //print("mod 500");
                 yield return new WaitForSeconds(.05f);
             }
             newObj = null;
             
-            RaycastHit? hitPoint = pointFinder.GetPoint("Ground", 2);
+            RaycastHit? hitPoint = pointFinder.GetPoint("Ground", 2);//get point
             if (hitPoint != null)
             {
-                RaycastHit hit = hitPoint.Value;
-                //                Debug.Log("hit"+hit.transform.name + hit.transform.position);
+                RaycastHit hit = hitPoint.Value;//get hit from possible hit
                 if (hit.transform.CompareTag(tagToSpawnOn)) //Checks its allowed spawn there
                 {
-                    int groupSize = Random.Range(1, 3);//Spawn a group
+                    int groupSize = Random.Range(1, 3);//Spawn a group of random size up to 3
                     for (int j = 0; j < groupSize; j++)
                     {
                         newObj = new GameObject("Animalholder");
                         newObj.transform.up = hit.normal;
                         float randDist = Random.Range(-4, 4);//random dist from main spawned animal, spawn others close
-                        newObj.transform.position = hit.point + (newObj.transform.up* heightFromHitPoint)+(newObj.transform.right*(j*randDist)+(newObj.transform.forward*(j*randDist))); //repoisition to correct height from hit
+                        //repoisition to correct height from hit
+                        newObj.transform.position = hit.point + (newObj.transform.up* heightFromHitPoint)
+                                                              +(newObj.transform.right*(j*randDist)
+                                                                +(newObj.transform.forward*(j*randDist))); 
                         newObj.transform.parent = parentObject.transform;
 
-                        //newObj.transform.position = hit.point; //place object at hit
-                        //newObj.transform.up = newObj.transform.position - core; //set rotation so orients properly
-
-
+                        //add the starting components
                         AnimalInitializer manager = newObj.AddComponent<AnimalInitializer>();
                         manager.animalDNA = animalToSpawn;
                         manager.btTexts = btTexts;
-
-                        // print(newObj.transform.position);
                         manager.InitialiseAnimal();
-
                         i++;
                     }
                 }

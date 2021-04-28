@@ -38,9 +38,12 @@ public class LightAtAngle : MonoBehaviour
     void Update()
     {
         float angleToTarget = angleScript.GetTargetAngleToSun(player, moonInstead);
-        float angleToTargetNorm = (angleToTarget/180)*3;//Bring everything in range 0-3 with 1.5 being midpoint between bright and dark 
-        angleToTargetNorm = angleToTargetNorm-1f;//Bring everything in range -1to2 with .5 being midpoint between bright and dark 
-        angleToTargetNorm = Mathf.Clamp(angleToTargetNorm,0,1);//1f clamped on both sides meaning <0 is 0 to 60deg/0 to 1 is 60to120 degrees and >1 is 120degrees. but all clamped so full brightness if >2/3
+        //Bring everything in range 0-3 with 1.5 being midpoint between bright and dark 
+        float angleToTargetNorm = (angleToTarget/180)*3;
+        //Bring everything in range -1to2 with .5 being midpoint between bright and dark 
+        angleToTargetNorm = angleToTargetNorm-1f;
+        //1f clamped on both sides meaning <0 is 0 to 60deg/0 to 1 is 60to120 degrees and >1 is 120degrees. but all clamped so full brightness if >2/3
+        angleToTargetNorm = Mathf.Clamp(angleToTargetNorm,0,1);
         
 
         float lightAmount = angleToTargetNorm*dayLightIntensity;

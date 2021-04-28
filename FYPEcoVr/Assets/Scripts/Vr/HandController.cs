@@ -17,7 +17,6 @@ public class HandController : MonoBehaviour
         controllerActionTrigger.action.performed += TriggerPress;
 
         _handAnimator = GetComponent<Animator>();
-        
     }
 
     private void TriggerPress(InputAction.CallbackContext obj)

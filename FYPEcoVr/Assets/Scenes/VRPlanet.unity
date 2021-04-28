@@ -6660,7 +6660,6 @@ Transform:
   - {fileID: 1384593976}
   - {fileID: 769613469}
   - {fileID: 2125029173}
-  - {fileID: 1330926527}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8538,7 +8537,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -282.73413, y: 329.93488, z: -372.30133}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1330926527}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10698,11 +10698,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330926526}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.000015258789, z: 0}
+  m_LocalPosition: {x: 311.94412, y: -339.0628, z: 299.29315}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 881058077}
-  m_RootOrder: 6
+  m_Father: {fileID: 1066810536}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1330926529
 MonoBehaviour:
@@ -17547,13 +17547,15 @@ MonoBehaviour:
   gravityDir: {x: 0, y: 0, z: 0}
   brain: {fileID: 0}
   animalHeight: 1
+  animalStartingHeight: 2
   animalLength: 2
   rb: {fileID: 0}
   headHeightPosObj: {fileID: 0}
   forcePoints: []
   InitializeOnStart: 1
   footPositioners: []
-  animalDefaultHeightAmount: 0.8
+  animalHCorrectorAmount: 0.8
+  col: {fileID: 0}
 --- !u!33 &4416744093512669630
 MeshFilter:
   m_ObjectHideFlags: 0

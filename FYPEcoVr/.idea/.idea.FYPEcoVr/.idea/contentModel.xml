@@ -265,7 +265,6 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="AltBehaviours.cs" t="Include" />
           <e p="AnimalStatDisplay.cs" t="Include" />
           <e p="AutoGen.cs" t="Include" />
           <e p="Cam.cs" t="Include" />
@@ -277,18 +276,13 @@
           <e p="Food.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="GravityMovement.cs" t="Include" />
-          <e p="HolsterAttach.cs" t="Include" />
-          <e p="HolsterPosition.cs" t="Include" />
-          <e p="JetPack.cs" t="Include" />
           <e p="LightAtAngle.cs" t="Include" />
           <e p="LookAtLerp.cs" t="Include" />
-          <e p="ManualButtonTrigger.cs" t="Include" />
           <e p="NewAnimal" t="Include">
             <e p="AnimalAudioManager.cs" t="Include" />
             <e p="AnimalBehaviours.cs" t="Include" />
             <e p="AnimalBrain.cs" t="Include" />
             <e p="AnimalBT2.txt" t="Include" />
-            <e p="AnimalBT2Backup2.txt" t="Include" />
             <e p="AnimalDistanceDisabler.cs" t="Include" />
             <e p="AnimalFeetPositioner.cs" t="Include" />
             <e p="AnimalForce.cs" t="Include" />
@@ -330,10 +324,13 @@
           <e p="Vr" t="Include">
             <e p="ControllerSwitcher.cs" t="Include" />
             <e p="HandController.cs" t="Include" />
+            <e p="HolsterAttach.cs" t="Include" />
+            <e p="HolsterPosition.cs" t="Include" />
+            <e p="JetPack.cs" t="Include" />
             <e p="TeleportPlanetOrienter.cs" t="Include" />
+            <e p="XrGravity.cs" t="Include" />
           </e>
         </e>
-        <e p="XrGravity.cs" t="Include" />
       </e>
       <e p="ControllerSample.csproj" t="IncludeRecursive" />
       <e p="FYPEcoVr.sln" t="IncludeFlat" />

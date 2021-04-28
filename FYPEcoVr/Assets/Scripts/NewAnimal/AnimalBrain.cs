@@ -41,19 +41,16 @@ public class AnimalBrain : MonoBehaviour
     public float wanderRadius = 5;
     public float attackRate = 1;
     public float attackDamage = 10;
-    
     public float litterSize = 1;
     public bool eatsPlants = false;
     public bool eatsMeat = true;
     public float predatorRating = 1;
     public float preyRating = 1;
-    
     public float hungerThresh = 50;
     public float thirstThresh = 50;
     public float mateThresh = 90;
     public bool genderIsMale = true;
     public float deathAge = 100f;
-    
     
     [Header("Static stats")]
     public float foodWorth = 2;
@@ -62,11 +59,9 @@ public class AnimalBrain : MonoBehaviour
     public float ageIncrement = 0.02f;
     public float maxStat = 100;
 
-    
     [Header("Set stats")]
     public float animalHeight;
     public float animalLength;
-    
 
     [Header("Parents")]
     public AnimalBrain mother;
@@ -84,8 +79,6 @@ public class AnimalBrain : MonoBehaviour
     {
         objSensedMemory = new List<GameObject>();
         forgettingObjs = new List<GameObject>();
-        //SetStatsFromDNA();
-        //Born();
     }
 
     // Start is called before the first frame update

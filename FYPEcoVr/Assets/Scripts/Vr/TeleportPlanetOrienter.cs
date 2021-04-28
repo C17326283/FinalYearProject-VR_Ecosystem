@@ -43,14 +43,11 @@ public class TeleportPlanetOrienter : MonoBehaviour
             {
                 xrRig.MatchRigUp(hit.normal);
             }
-            
         }
         else
         {
             xrRig.MatchRigUp(-gravityDir);
         }
-        
-
     }
 
     private void Update()

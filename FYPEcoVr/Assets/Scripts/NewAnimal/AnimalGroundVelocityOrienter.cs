@@ -75,7 +75,7 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(rb.transform.position+(transform.up*3), gravityDir, out hit, 100,layerMask))
         {
-            Debug.DrawLine(transform.position, hit.point, Color.black);
+            //Debug.DrawLine(transform.position, hit.point, Color.black);
             orienter.transform.up = hit.normal;//todo have a max angle
 
             Vector3 locVel = orienter.transform.InverseTransformDirection(rb.velocity);//Find velocity in relation to an object oriented to ground
@@ -85,9 +85,10 @@ public class AnimalGroundVelocityOrienter : MonoBehaviour
             Quaternion rotation;
             if (locVel.magnitude>.7f)//Normal speed
             {
-                //transform.position = col.bounds.center+offset;
-                rotation = Quaternion.LookRotation(moveVel, orienter.transform.up);//look to velocity, align with ground
-                rb.transform.rotation = Quaternion.Slerp(col.transform.rotation, rotation, (turnSpeed)*Time.deltaTime);//do it over time
+                //look to velocity, align with ground
+                rotation = Quaternion.LookRotation(moveVel, orienter.transform.up);
+                //do it slowly over time
+                rb.transform.rotation = Quaternion.Slerp(col.transform.rotation, rotation, (turnSpeed)*Time.deltaTime);
             }
             else if (locVel.magnitude>.01f)//moving very slowly
             {

@@ -51,20 +51,17 @@ public class CoastPointSpawner : MonoBehaviour
         Vector3[] vertices = mesh.vertices;
 
         int vertCount = vertices.Length;
-//        Debug.Log("vertCount "+vertCount);
         for (int i = 0; i < vertCount; i+=incrementAmount)
         {
             Vector3 worldPos = transform.TransformPoint(vertices[i]);
             gravityDir = (core.transform.position - worldPos).normalized;
             
             RaycastHit hit;
-            
             // Does the ray intersect any objects excluding the player layer
             if (Physics.Raycast(worldPos + (gravityDir * 0.02f), gravityDir, out hit, rayDist))
             {
                 if (hit.transform.name != transform.name)//if not a water mesh
                 {
-                    //Spawn if not overlapping
                     noOverLapSpawn(worldPos);
                 }
             }
@@ -78,11 +75,6 @@ public class CoastPointSpawner : MonoBehaviour
                         noOverLapSpawn(hit.point);
                     }
                 }
-            }
-            else
-            {
-                //Debug.DrawRay(vertices[i], gravityDir,Color.red,rayDist);
-//                print("no hit: " + vertices[i]);
             }
         }
     }
@@ -98,10 +90,6 @@ public class CoastPointSpawner : MonoBehaviour
         if (numOfCollidersFound < 1)
         {
             Spawn(spawnPos);
-        }
-        else
-        {
-//            print("no spawn, overlap. cols found"+numOfCollidersFound+", size"+overlapTestBoxScale);
         }
     }
 

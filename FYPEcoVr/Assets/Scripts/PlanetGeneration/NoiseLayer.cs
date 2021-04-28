@@ -39,7 +39,8 @@ public class NoiseLayer
             amplitude *= persistance;
         }
 
-        noiseValue = Mathf.Max(0, noiseValue - minValue);//clamp so anything with noise doesnt is set to below water level, leaving space for other object
+        //clamp so anything with noise doesnt is set to below water level, leaving space for other object
+        noiseValue = Mathf.Max(0, noiseValue - minValue);
         
         return noiseValue * strength;
     }

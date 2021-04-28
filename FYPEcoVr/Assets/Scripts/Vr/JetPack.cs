@@ -39,8 +39,6 @@ public class JetPack : MonoBehaviour
         
         particles = controller.GetComponent<ParticleSystem>();
         particleRateAtStart = particles.main.maxParticles;
-
-
     }
 
     private void FixedUpdate()
@@ -48,36 +46,27 @@ public class JetPack : MonoBehaviour
         var particlesMain = particles.main;
         if (gameObject.activeInHierarchy && rigGravity.allowedFly && rigGravity.hasCore && particles)
         {
-//            print("jetpack mag"+rigRb.velocity.magnitude);
+            //The force is applied
             rigRb.AddForce(controller.transform.forward * ((gripValue*jetForce) * Time.deltaTime),ForceMode.Force);
-            rigRb.velocity = Vector3.ClampMagnitude(rigRb.velocity,maxMagnitude);
+            rigRb.velocity = Vector3.ClampMagnitude(rigRb.velocity,maxMagnitude);//prevent goinf too fast
             
-            audioSource.volume = gripValue/2;
-            
-            particlesMain.maxParticles = Mathf.FloorToInt(gripValue*particleRateAtStart);
-
-//            print("gripValue*jetForce"+(gripValue*jetForce));
+            audioSource.volume = gripValue/4;//audio
+            particlesMain.maxParticles = Mathf.FloorToInt(gripValue*particleRateAtStart);//particles
         }
         else
         {
             gripValue = 0;
             particlesMain.maxParticles = 0;
             audioSource.volume = 0;
-            //Vector3 locVel = rigRb.transform.InverseTransformDirection(rigRb.velocity);//Find velocity in relation to an object oriented to ground
-            //locVel.y = locVel.y*0.99f;//lower the vel exponentially rather than cancelling because that is jarring
-            //rigRb.velocity = rigRb.transform.TransformDirection(locVel);//set the new cancelled related velocity
+            //This lowers it by .01% every frame to avoid the playerhaving a harsh stop
             if(rigRb.velocity.magnitude > skyMagLimit)
-                rigRb.velocity = rigRb.velocity * (0.9999f * Time.deltaTime);//This lowers it by 1% every frame to avoid the playerhaving a harsh stop
-            
-
+                rigRb.velocity = rigRb.velocity * (0.9999f * Time.deltaTime);
         }
     }
 
     private void GripPress(InputAction.CallbackContext obj)
     {
         gripValue = obj.ReadValue<float>();
-        //_handAnimator.SetFloat("Grip",obj.ReadValue<float>());
-//        print("jet" + obj.ReadValue<float>());
     }
     
     private void GripCancel(InputAction.CallbackContext obj)
@@ -85,26 +74,4 @@ public class JetPack : MonoBehaviour
         gripValue = 0;
     }
     
-    //[SerializeField] InputActionReference controllerActionGrip;
-    
-    /*
-    // Start is called before the first frame update
-    void Awake()
-    {
-        //Create interactions for new input system
-        controllerActionGrip.action.performed += Jetting;
-
-        
-    }
-
-    private void Jetting(InputAction.CallbackContext context)
-    {
-        if (context.started)
-            print("jetting");
-            
-        
-        rigRb.AddForce(rig.transform.up*context.ReadValue<float>()*Time.deltaTime,ForceMode.Acceleration);
-        
-    }
-    */
 }

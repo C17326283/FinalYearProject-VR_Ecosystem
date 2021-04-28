@@ -114,8 +114,6 @@ public class RandomGenSpawner : MonoBehaviour
                     newObj = normalObjectPoolObj.GetObj();
                 }
 
-
-
                 if (newObj != null)
                 {
                     newObj.SetActive(true);
@@ -123,15 +121,12 @@ public class RandomGenSpawner : MonoBehaviour
                     newObj.transform.position = hit.point; //place object at hit
                     newObj.transform.up = newObj.transform.position - core; //set rotation so orients properly
                     newObj.transform.position = newObj.transform.position + newObj.transform.up * heightFromHitPoint; //repoisition to correct height from hit
-
-
+                    
                     if (RandomiseScaleAndRotation)
                     {
                         //temp
                         newObj.transform.parent =
                             gameObject.transform.parent; //make its own parent so that scaling works after reactivating
-                        //newObj.transform.parent = hit.transform; //make its own parent so that scaling works after reactivating
-
 
                         float scale = Random.Range(minScale, maxScale);
                         newObj.transform.localScale = Vector3.one * scale; //.one for all round scale
@@ -140,8 +135,6 @@ public class RandomGenSpawner : MonoBehaviour
                     }
 
                     newObj.transform.parent = parentObject.transform; //set parent to correct obj
-                    //temp
-                    //newObj.transform.parent = hit.transform; //make its own parent so that scaling works after reactivating
                     if (usesLOD)
                         AddLOD(newObj);
                 }

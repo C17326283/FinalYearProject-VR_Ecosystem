@@ -51,11 +51,9 @@ public class PlanetTerrainGenerator : MonoBehaviour
         }
         terrainFaces = new TerrainFace[6];
         waterFaces = new TerrainFace[6];
-        
-        
+
         //get all the directions to be used as the sides of the cube
         Vector3[] directions = { Vector3.up, Vector3.down, Vector3.left, Vector3.right, Vector3.forward, Vector3.back};
-    
         //create objects and components for all the faces
         for (int i = 0; i < 6; i++)
         {
@@ -167,7 +165,7 @@ public class PlanetTerrainGenerator : MonoBehaviour
     //Make the objects for biome distance
     public void SetBiomes()
     {
-        
+        //instantiate objects if there are none
         if (biomeObjs == null)
         {
             biomeObjs =  new GameObject[4];
@@ -178,6 +176,7 @@ public class PlanetTerrainGenerator : MonoBehaviour
             }
         }
 
+        //place all the objects
         for (int i = 0; i < biomeObjs.Length; i++)
         {
             //Can have poles to begin with to simulate earth

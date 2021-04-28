@@ -62,50 +62,29 @@ public class TerrainFace : MonoBehaviour
                 //If not edge of side then shift point on cube to make them non uniform
                 if (x > 0 && x < res - 1 && y > 0 && y < res - 1)
                 {
-                    //float movement = 0;//shift up to 25% in each direction
-
-                    float movement = .28f/res;//shift up to 25% in each direction
-                    //Debug, too expensive to do every verticie
-                    if (i % 500 == 1)
-                    {
-                        //print(movement);
-                    }
-                    pointOnUnitCube = localUp + (URandom.Range(percent.x-movement,percent.x+movement) - .5f)*2*axisA + (URandom.Range(percent.y-movement,percent.y+movement) - .5f)*2*axisB;//get position of individual point
-
+                    float movement = .28f/res;//shift up to 28% in each direction
+                    //get position of individual point
+                    pointOnUnitCube = localUp + (URandom.Range(percent.x-movement,percent.x+movement) - .5f)*2*axisA +
+                                      (URandom.Range(percent.y-movement,percent.y+movement) - .5f)*2*axisB;
                 }
                 else
                 {
-                    pointOnUnitCube = localUp + (percent.x - .5f)*2*axisA + (percent.y - .5f)*2*axisB;//get position of individual point
-
+                    //get position of individual point
+                    pointOnUnitCube = localUp + (percent.x - .5f)*2*axisA + (percent.y - .5f)*2*axisB;
                 }
-                
-                
-                Vector3 pointOnUnitSphere = pointOnUnitCube.normalized;//normalise it to get where it should be on sphere
+
+                //normalise it to get where it should be on sphere
+                Vector3 pointOnUnitSphere = pointOnUnitCube.normalized;
                 //use the spherized point with noise to find where it should be
                 if (isLand)
                 {
-                    
                     vertices[i] = AddHeightToVertex(pointOnUnitSphere);
-                    //todo add movement to points for better uneven low poly
-                    /*
-                    if (x > 0 && x < res - 1 && y > 0 && y < res - 1)
-                    {
-                        float movement = 5;
-                        //movement = Mathf.Clamp(movement,0, (percent.x));
-                        vertices[i] = localUp + vertices[i]+new Vector3(URandom.Range(-movement,movement),URandom.Range(-movement,movement),URandom.Range(-movement,movement));
-                    }
-                    */
-                    
-                    
                 }
                 else
                 {
-                    vertices[i] = pointOnUnitSphere * (settings.planetRadius+waterHeight+5f);//default height +height the water is at+extra to cover bottom colour layer
+                    //default height +height the water is at+extra to cover bottom colour layer
+                    vertices[i] = pointOnUnitSphere * (settings.planetRadius+waterHeight+5f);
                 }
-
-                
-                    
-
                 
                 //get trianle points from points on mesh
                 if(x != res-1 &&  y != res-1)

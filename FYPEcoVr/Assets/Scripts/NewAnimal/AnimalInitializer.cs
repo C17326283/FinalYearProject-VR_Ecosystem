@@ -57,46 +57,37 @@ public class AnimalInitializer : MonoBehaviour
 
     public void InitialiseAnimal()
     {
+        //instantiate lists
         feet = new List<GameObject> ();//for setting up foot positioners
-        legs = new List<GameObject> ();//for setting up foot positioners
+        legs = new List<GameObject> ();
         feetPositioners = new List<AnimalFeetPositioner> ();
         otherLimbs = new List<GameObject> ();
         core = GameObject.Find("Core");
         transform.up =  -(core.transform.position - transform.position).normalized;
         
-        
-        
         //make the animal object
         animalObj = Instantiate(animalDNA.model);
         animalObj.transform.parent = this.transform;
         animalObj.transform.position = this.transform.position;
-        //animalObj.tag = animalDNA.name;
         
-        
-        //Todo find more efficient way
+        //assign all the scripts
         SetMovementOrigin();
         brain = movementOriginObj.gameObject.AddComponent<AnimalBrain>();
-        GetLimbs();
-        SetSkeleton();
-        SetCollider();
-        
-        //OffsetSkeleton();
-        
-        SetRb();
-        SetAudio();
-        SetPositioners();
-        SetAI();
-        SetLife();
-        //brain.animalHeight = animalHeight;
-        //brain.animalLength = animalLength;
-        SetSenses();
-        SetLimbs();
+        GetLimbs();//get all bones
+        SetSkeleton();//put bones in proper parents
+        SetCollider();//make the collider using 
+        SetRb();//set rigibody and stats
+        SetAudio();//set audio components
+        SetPositioners();//gravity and orientation scripts
+        SetAI();//set behaviour trees and dna
+        SetLife();//add scripts for controlling life
+        SetSenses();//memory system
+        SetLimbs();//set variables in limb scripts
         movementOriginObj.AddComponent<XRSimpleInteractable>();//for triggering stat display
-
         StartCoroutine(SetDisabler());
-        //temp
     }
     
+    //set the core object that has forces applied
     public void SetMovementOrigin()
     {
         movementOriginObj = new GameObject(animalDNA.name);
@@ -105,7 +96,7 @@ public class AnimalInitializer : MonoBehaviour
         movementOriginObj.transform.tag = "AnimalContainer";//So animal can be sensed by others
     }
     
-    
+    //add the components to all limbs and bones
     public void SetSkeleton()
     {
         //Add spine controller for main spine object
@@ -145,6 +136,7 @@ public class AnimalInitializer : MonoBehaviour
         }
     }
 
+    //get all limbs of model
     public void GetLimbs()
     {
         //make array of all child objects and check bones for correct ones
@@ -175,28 +167,12 @@ public class AnimalInitializer : MonoBehaviour
     }
 
 
+    //set collider and size
     public void SetCollider()
     {
         //add components to animal and position it to center of mass
         collider = movementOriginObj.AddComponent<CapsuleCollider>();
         collider.direction = 2;//x is 0, y is 1, z is 2
-        //collider.center = transform.InverseTransformPoint(transform.position);
-        //Vector3 meshBounds = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().bounds.size;
-        //move the collider back to the body even though we need it attached to the head
-        //todo tails to allow for this to correctly position
-        /*
-        Vector3 centerpos =
-            (spineMain.spineContainers[spineMain.spineContainers.Count - 1].transform.position -
-             spineMain.spineContainers[0].transform.position) / 2;
-        
-        collider.center = centerpos;
-        */
-
-        //edit the bounds to be smaller and reasign
-        //Vector3 newMeshBounds = meshBounds / 2;
-        //newMeshBounds.y = newMeshBounds.y / 3;//Half the height so it can have a body floating above ground and legs work liek springs
-        //collider.size = newMeshBounds;
-
         float anH = Mathf.Abs(movementOriginObj.transform.InverseTransformPoint(head.transform.position).y - movementOriginObj.transform.InverseTransformPoint(feet[0].transform.position).y)*1.1f;
         float anW = Mathf.Abs(movementOriginObj.transform.InverseTransformPoint(legs[1].transform.position).x -movementOriginObj.transform.InverseTransformPoint(legs[0].transform.position).x);
 
@@ -209,7 +185,6 @@ public class AnimalInitializer : MonoBehaviour
         brain.animalHeight = anH;
         brain.animalLength = anL;
         
-//        Debug.Log(movementOriginObj.transform.name+",anL:"+anL+",anW"+anW);
         collider.height = anL;//collider.height = newMeshBounds.z;
         collider.radius = anW;
 
@@ -225,12 +200,14 @@ public class AnimalInitializer : MonoBehaviour
         rb.angularDrag = 1;
     }
 
+    //set behaviour tree components
     void SetAI()
     {
-        brain.animalBaseDNA = animalDNA;
+        brain.animalBaseDNA = animalDNA;//set dna
         
         behaviours = movementOriginObj.gameObject.AddComponent<AnimalBehaviours>();
         behaviours.brain = brain;
+        
         //Pool object are got from a find in the scene on awake
         behaviours.audioManager = audioManager;
         behaviours.headObject = head.transform;
@@ -250,6 +227,7 @@ public class AnimalInitializer : MonoBehaviour
         
     }
 
+    //set life manager
     void SetLife()
     {
         life = movementOriginObj.gameObject.AddComponent<AnimalLife>();
@@ -258,26 +236,19 @@ public class AnimalInitializer : MonoBehaviour
         life.behaviours = behaviours;
         
         behaviours.life = life;
-
-        
-
     }
 
 
 
+    //set height positioner
     void SetPositioners()
     {
-        //animalHeight = spineCore.transform.position.y-feet[0].transform.position.y;
-        //animalLength = spineCore.transform.position.z-feet[feet.Count-1].transform.position.z;
-        
         groundOrienter = movementOriginObj.AddComponent<AnimalGroundVelocityOrienter>();
         groundOrienter.brain = brain;
         groundOrienter.Initialize();
 
         animalGravity = movementOriginObj.AddComponent<AnimalGravity>();
         animalGravity.brain = brain;
-        //animalGravity.animalHeight = animalHeight;//this would be the height of the animal
-        //animalGravity.animalLength = animalLength;
         animalGravity.headHeightPosObj = spineCore;//todo change head height var name
         animalGravity.Initialize();
     }
